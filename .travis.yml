@@ -13,5 +13,6 @@ deploy:
   keep_history: true
   repo: adonisx/adonisx.github.io
   target_branch: master
+  name: Travis Bot
   on:
     branch: master

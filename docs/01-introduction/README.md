@@ -27,13 +27,13 @@ class User extends XModel {
 }
 ```
 
-With this model, you will have all of endpoints for **users** resource. **AdonisX** will created **CRUD** routes for you in the *initialization* process and routes will be completely ready to be handled and processed by the shared controller.
+With this model, you will have all of endpoints for **users** resource. **AdonisX** will create **CRUD** routes for you in the *initialization* and routes will be completely ready to be handled and processed by the shared controller.
 
-If you execute **adonis route:list** command in your terminal, you can see all routes which has been created by **AdonisX**. All these requests will be handled by **MainController**.
+If you execute **adonis route:list** command in your terminal, you can see all routes which has been created by **AdonisX**. All these requests will be handled by **MainController**. **MainController** is a controller which is controlled by **AdonisX**. It *handles* requests for all models. It is responsible to prepare a *response* for the user by model definitions. In model definitions you can decide many things such as *form validation*, *custom middlewares* and *etc*.
 
 ![Adonis Routes](/images/03-routes.jpg)
 
-This structure is the fundamental of AdonisX. You **don't** have to code all CRUD actions. You **don't** have to implement advanced query features. The only thing to do is **defining models** and **their relations** between each others. That's all! <Emoji code="1f389"></Emoji>
+With AdonisX, you **don't** have to code for all CRUD actions. You **don't** have to implement advanced query features. The only thing to do is **defining models** and **their relations** between each others. That's all! <Emoji code="1f389"></Emoji>
 
 ## Roadmap
 

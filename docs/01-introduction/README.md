@@ -10,7 +10,7 @@ You are going to be able to develop an API **10 times faster!**
 
 [AdonisJs](https://adonisjs.com) is a very beautiful web framework based on [NodeJs](https://nodejs.org). You can create great applications with using it. It uses [Knex.js](http://knexjs.org/) as database provider and it supports all major relational databases such as *Postgres*, *MSSQL*, *MySQL*, *MariaDB*, *SQLite3*, *Oracle*, and *Amazon Redshift*.
 
-**AdonisX** uses basic structure of *AdonisJs*. It is actually a very simple [Service Provider](https://adonisjs.com/docs/4.1/service-providers) which works in the initialization proces of the application. It performs two basic functions;
+**AdonisX** uses basic structure of *AdonisJs*. It is actually a [Service Provider](https://adonisjs.com/docs/4.1/service-providers) which works in the initialization proces of an AdonisJs application. It performs two basic functions;
 
 - **Analyzes** your models and their relationships to create routes (*Initialization*)
 - **Handles** all HTTP requests with a shared Controller (*Processing*)
@@ -29,9 +29,11 @@ class User extends XModel {
 
 With this model, you will have all of endpoints for **users** resource. **AdonisX** will create **CRUD** routes for you in the *initialization* and routes will be completely ready to be handled and processed by the shared controller.
 
-If you execute **adonis route:list** command in your terminal, you can see all routes which has been created by **AdonisX**. All these requests will be handled by **MainController**. **MainController** is a controller which is controlled by **AdonisX**. It *handles* requests for all models. It is responsible to prepare a *response* for the user by model definitions. In model definitions you can decide many things such as *form validation*, *custom middlewares* and *etc*.
+If you execute **adonis route:list** command in your terminal, you can see all routes which has been created by **AdonisX**. 
 
 ![Adonis Routes](/images/03-routes.jpg)
+
+All these requests will be handled by **MainController**. **MainController** is a controller which is controlled by **AdonisX**. It *handles* requests for all models. It is responsible to prepare a *response* for the user by model definitions. In model definitions you can decide many things such as *form validation*, *custom middlewares* and *etc*.
 
 With AdonisX, you **don't** have to code for all CRUD actions. You **don't** have to implement advanced query features. The only thing to do is **defining models** and **their relations** between each others. That's all! <Emoji code="1f389"></Emoji>
 

@@ -91,7 +91,43 @@ class MainController extends XController {
 }
 ```
 
-As you can see, it is a controller which has been extended by **XController**. *XController* is a general handler managed by **AdonisX**. We don't suggest that although you can override its methods in here. **AdonisX** provides you more elegant and secure ways to extends your endpoint's logic. If you want to learn more about it, you should read [Extensions](/05-extensions) section.
+As you can see, it is a controller which has been extended by **XController**. 
+
+> *XController* is a general handler managed by **AdonisX**. We don't suggest that although you can override its methods in here. **AdonisX** provides you more elegant and secure ways to extends your endpoint's logic. If you want to learn more about it, you should read [Extensions](/05-extensions) section.
+
+There are four possible routes for a model;
+
+| Method | Url           | Behavior                       |
+|--------|---------------|--------------------------------|
+| GET    | api/users     | Paginating all records         |
+| POST   | api/users     | Creating a new record          |
+| GET    | api/users/:id | Fetching only one record by id |
+| PUT    | api/users/:id | Updating a record by id        |
+| DELETE | api/users/:id | Deleting a record by id        |
+
+Also, when you define **model relations**, routes will be created by best practices. Let's assume your have two models like this;
+
+```js
+class User extends XModel {
+  posts () {
+    return this.hasMany('App/Models/Post')
+  }
+}
+
+class Post extends XModel {
+  user () {
+    return this.hasOne('App/Models/User', 'user_id', 'id')
+  }
+}
+```
+
+When you execute your application, you will have following routes;
+
+![Related routes](/images/05-related-routes.jpg)
+
+As you can see there are related resource url structure has been created by best practices. Also all routes will be handled by same controller file, **MainController**. This is the power of **AdonisX**.
+
+> You might think *"What is **IdFilter**?"*. **IdFilter** is a foreign key checker. When you create a model relation between two models, **AdonisX** automatically checks foreign key in HTTP requests. That's why IdFilter has been added to all routes. If there is any relationship in HTTP request, IdFilter validate the forieng key is exists.
 
 ## Testing
 
@@ -169,7 +205,6 @@ class UserListener {
 ```
 
 You can read more about it [Extensions Chapter](/05-extensions).
-
 
 ## Database Support
 

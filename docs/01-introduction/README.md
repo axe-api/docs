@@ -18,7 +18,7 @@ You are going to be able to develop an API **10 times faster!**
 Let's assume that you have a model like this;
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class User extends XModel {
   static get table () {

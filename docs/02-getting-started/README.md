@@ -125,7 +125,7 @@ Usually we have some business logic in our code. For example, you don't want to 
 **Model definition** is a a way to decide how **AdonisX** should work with any model. It basically works with convention over configuration. Let's assume you create a model like this;
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class User extends XModel {
 
@@ -135,7 +135,7 @@ class User extends XModel {
 This is a simplest model definition. But extending from **XModel** gives some properties to this Model. And you can override all of configuration as you wish. For example if you want to add some form validation, you can override the form validation method in your model;
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class User extends XModel {
 

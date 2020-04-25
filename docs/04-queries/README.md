@@ -40,7 +40,7 @@ While you are fetching data with pagination, you may send `page` and `per_page` 
 
 ## Where Conditions
 
-APIX has several where conditions to use.
+AdonisX has several where conditions to use.
 
 ### Simple Query Expression
 

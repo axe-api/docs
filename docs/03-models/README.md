@@ -6,10 +6,10 @@ You **should** extend your model from **XModel** in our system instead of Adonis
 
 ## Basic Structure
 
-Model definitions should be *almost* like [Lucid Model](https://adonisjs.com/docs/4.1/lucid). You can use all features of Lucid Models. But to get more, you should extend your model from `APIX/Models/XModel`;
+Model definitions should be *almost* like [Lucid Model](https://adonisjs.com/docs/4.1/lucid). You can use all features of Lucid Models. But to get more, you should extend your model from `AdonisX/Models/XModel`;
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class Users extends XModel {
   static get table () {
@@ -25,7 +25,7 @@ module.exports = Users
 In order to allow create and update methods, you should define which columns should be editable by users. 
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class Users extends XModel {
   static get table () {
@@ -49,7 +49,7 @@ In next chapters we will show you how to add your custom business logics for tha
 Everybody needs form validation in their API. AdonisX uses [Indicative](https://indicative-v5.adonisjs.com/) like [AdonisJs](https://adonisjs.com/docs/4.1/validator). The thing you should do to define validations is adding a validation method to your model;
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class Users extends XModel {
   static get table () {
@@ -75,7 +75,7 @@ This form validation method will be triggerred before **create** and **update** 
 Sometimes, you will need to deny some HTTP request for some models. In order to define it, you can add following method to your model. 
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class Users extends XModel {
   static get table () {
@@ -96,7 +96,7 @@ As defaults, if you don't add this `actions()` getter to your model, all methods
 You may use following statements in model structure to add your logics to some routes for some models;
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class Users extends XModel {
   static get table () {
@@ -123,7 +123,7 @@ With this, you can add an [AdonisJs Middleware](https://adonisjs.com/docs/4.1/mi
 Creating a recursive model is very simple with AdonisX. Just add following relationship structure and it is done! You can use a recursive resource with this way.
 
 ```js
-const XModel = use('APIX/Models/XModel')
+const XModel = use('AdonisX/Models/XModel')
 
 class Category extends XModel {
   static get table () {

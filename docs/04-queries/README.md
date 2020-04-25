@@ -1,6 +1,6 @@
 # Queries
 
-While you are fetching any data from api server (Paginate and Show), you can add more query options to get best result about what you want.
+While you are fetching any data from api server, you can add more query options to get best result about what you want.
 
 ## Fields
 
@@ -40,7 +40,7 @@ While you are fetching data with pagination, you may send `page` and `per_page` 
 
 ## Where Conditions
 
-APIX has several where conditions to use.
+AdonisX has several where conditions to use.
 
 ### Simple Query Expression
 

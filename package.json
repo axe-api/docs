@@ -1,7 +1,7 @@
 {
-  "name": "apix-docs",
+  "name": "adonisx-docs",
   "version": "0.2.1",
-  "description": "APIX documentation",
+  "description": "AdonisX documentation",
   "main": "index.js",
   "scripts": {
     "start": "vuepress dev docs",

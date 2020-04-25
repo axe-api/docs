@@ -1,6 +1,6 @@
 # Queries
 
-While you are fetching any data from api server (Paginate and Show), you can add more query options to get best result about what you want.
+While you are fetching any data from api server, you can add more query options to get best result about what you want.
 
 ## Fields
 

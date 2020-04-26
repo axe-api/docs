@@ -56,10 +56,18 @@ You can handle almost every actions on models. Please look at following tables;
 | onBeforeCreate{User}   | request, params, data        |
 | onBeforeUpdate{User}   | request, params, item        |
 | onBeforeDelete{User}   | request, params, query       |
-| onBeforePaginate{User} | query                        |
-| onBeforeShow{User}     | query                        |
+| onBeforePaginate{User} | request, params, query       |
+| onBeforeShow{User}     | request, params, query       |
 | onAfterCreate{User}    | request, params, data, item  |
 | onAfterUpdate{User}    | request, params, item        |
-| onAfterDelete{User}    | item                         |
-| onAfterPaginate{User}  | result                       |
-| onAfterShow{User}      | item                         |
+| onAfterDelete{User}    | request, params, item        |
+| onAfterPaginate{User}  | request, params, result      |
+| onAfterShow{User}      | request, params, item        |
+
+There are some variables which you can use in a trigger or event function;
+
+- [request](https://adonisjs.com/docs/4.1/request) Request object of [AdonisJs](https://adonisjs.com)
+- **params**: Query parameters in url. (`api/users/:userId/posts/:id`, `userId` and `id`)
+- **data**: The data has been sent by user to create or update.
+- **item**: The record which is active.
+- **query**: The [AdonisJs](https://adonisjs.com)' [query](https://adonisjs.com/docs/4.1/lucid#_query_builder) object before executing query.

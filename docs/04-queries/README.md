@@ -99,8 +99,8 @@ You may use following operators in all of your queries by adding the operator to
 | `$gte`          | `{"id.$gte": 10}`              | `id >= 10`               |
 | `$lt`           | `{"id.$lt": 10}`               | `id < 10`                |
 | `$lte`          | `{"id.$lte": 10}`              | `id <= 10`               |
-| `$like`         | `{"name.$like": "Foo%"}`       | `name LIKE 'Foo%'`       |
-| `$notLike`      | `{"name.$notLike": "Foo%"}`    | `name NOT LIKE 'Foo%'`   |
+| `$like`         | `{"name.$like": "Foo*"}`       | `name LIKE 'Foo%'`       |
+| `$notLike`      | `{"name.$notLike": "*Foo*"}`   | `name NOT LIKE '%Foo%'`  |
 | `$in`           | `{"id.$in": [1,2]}`            | `id IN (1, 2)`           |
 | `$notIn`        | `{"id.$notIn": [1,2]}`         | `id NOT IN (1,2 )`       |
 | `$between`      | `{"id.$between": [1, 10]}`     | `id BETWEEN (1, 10)`     |

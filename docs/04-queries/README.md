@@ -1,10 +1,10 @@
 # Queries
 
-While you are fetching any data from api server, you can add more query options to get best result about what you want.
+While you are fetching any data from the API server, you can add more query options to get the best result about what you want.
 
 ## Fields
 
-In order to get only specefic fields, you may use a query like following statement;
+To get only specific fields, you may use a query like the following statement;
 
 ```
 /api/users?fields:id,name,surname
@@ -18,7 +18,7 @@ SELECT `id`, `name`, `surname`
 
 ## Sorting
 
-You may sorting your results by your selections for multiple columns;
+You may sort your results by your selections for multiple columns;
 
 ```
 /api/users?sort=surname,-name
@@ -90,7 +90,7 @@ WHERE
 
 ### Operators
 
-You may use following operators in all of your queries by adding the operator to the end of your field name.
+You may use the following operators in all of your queries by adding the operator to the end of your field name.
 
 | Operator        | Request `/api/users?q=`        | SQL (MySQL)              |
 |-----------------|--------------------------------|--------------------------|
@@ -110,7 +110,7 @@ You may use following operators in all of your queries by adding the operator to
 
 ## Relationships
 
-In order to get related models in pagination or show methods, you may use following statements;
+To get related models in pagination or show methods, you may use the following statements;
 
 ### Multiple Relations
 

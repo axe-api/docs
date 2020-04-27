@@ -1,6 +1,6 @@
 # Models
 
-**Model** structure is heart of the **AdonisX**. There are many *configurations* which you can use to organize your API. By adding and changing some configurations, you can decide how system should work.
+**Model** structure is the heart of the **AdonisX**. There are many *configurations* which you can use to organize your API. By adding and changing some configurations, you can decide how the system should work.
 
 You **should** extend your model from **XModel** in our system instead of AdonisJs models. With XModel you will have many pre-defined options for your API structure. You can see all configurable options about **XModel** structure in this section.
 
@@ -22,7 +22,7 @@ module.exports = Users
 
 ## Fillable Fields
 
-In order to allow create and update methods, you should define which columns should be editable by users. 
+To allow create and update methods, you should define which columns should be editable by users. 
 
 ```js
 const XModel = use('AdonisX/Models/XModel')
@@ -42,11 +42,11 @@ module.exports = Users
 
 In this example, **email**, **name**, **surname** and **age** columns can be editable by users in **create** and **update** methods. If you have a field like **my_secret** and you don't want to make it fillable by users, you **shouldn't** add it to this array. Then it will be safe and only editable by yourself.
 
-In next chapters we will show you how to add your custom business logics for that kind of stuffs.
+In the next chapters, we will show you how to add your custom business logic for that kind of stuff.
 
 ## Form Validations
 
-Everybody needs form validation in their API. AdonisX uses [Indicative](https://indicative-v5.adonisjs.com/) like [AdonisJs](https://adonisjs.com/docs/4.1/validator). The thing you should do to define validations is adding a validation method to your model;
+Everybody needs to form validation in their API. AdonisX uses [Indicative](https://indicative-v5.adonisjs.com/) like [AdonisJs](https://adonisjs.com/docs/4.1/validator). The thing you should do to define validations is adding a validation method to your model;
 
 ```js
 const XModel = use('AdonisX/Models/XModel')
@@ -68,11 +68,11 @@ class Users extends XModel {
 module.exports = Users
 ```
 
-This form validation method will be triggerred before **create** and **update** actions. On the other hand, in **update action**, if the user doesn't send all of fields but sends only a required field, it passes. Because the key point is **validating** whole row in actions.
+This form validation method will be triggered before **create** and **update** actions. On the other hand, in **update action**, if the user doesn't send all of the fields but sends only a required field, it passes. Because the key point is **validating** whole row in actions.
 
 ## Allowed Methods
 
-Sometimes, you will need to deny some HTTP request for some models. In order to define it, you can add following method to your model. 
+Sometimes, you will need to deny some HTTP requests for some models. To define it, you can add the following method to your model. 
 
 ```js
 const XModel = use('AdonisX/Models/XModel')
@@ -89,11 +89,11 @@ class Users extends XModel {
 module.exports = Users
 ```
 
-As defaults, if you don't add this `actions()` getter to your model, all methods will be open to use.
+As defaults, if you don't add this `actions()` getter to your model, all methods will be open to using.
 
 ## Custom Middlewares
 
-You may use following statements in model structure to add your logics to some routes for some models;
+You may use the following statements in model structure to add your logics to some routes for some models;
 
 ```js
 const XModel = use('AdonisX/Models/XModel')
@@ -120,7 +120,7 @@ With this, you can add an [AdonisJs Middleware](https://adonisjs.com/docs/4.1/mi
 
 ## Recursive Resources
 
-Creating a recursive model is very simple with AdonisX. Just add following relationship structure and it is done! You can use a recursive resource with this way.
+Creating a recursive model is very simple with AdonisX. Just add the following relationship structure and it is done! You can use a recursive resource in this way.
 
 ```js
 const XModel = use('AdonisX/Models/XModel')
@@ -146,7 +146,7 @@ class Category extends XModel {
 module.exports = Category
 ```
 
-When you define a recursive resource like this, you will have following routes to access the resource;
+When you define a recursive resource like this, you will have the following routes to access the resource;
 
 | Method  | Route                                     |
 |---------|-------------------------------------------|

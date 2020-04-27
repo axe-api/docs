@@ -2,15 +2,15 @@
 
 <img src="/logo.png" height="200" style="float: right; margin-left: 10px; margin-right: 10px;" />
 
-**AdonisX** is a *fastest* way to create **Rest API** by defining only database models and their relationships between them. It is built on [AdonisJs](https://adonisjs.com), and it's awesome ORM library, [Lucid](https://adonisjs.com/docs/4.1/lucid). AdonisX takes AdonisJs' power and speed it up!
+**AdonisX** is the *fastest* way to create **Rest API** by defining only database models and their relationships between them. It is built on [AdonisJs](https://adonisjs.com), and it's an awesome ORM library, [Lucid](https://adonisjs.com/docs/4.1/lucid). AdonisX takes AdonisJs' power and speeds it up!
 
 You are going to be able to develop an API **10 times faster!**
 
 ## How It Works?
 
-[AdonisJs](https://adonisjs.com) is a very beautiful web framework based on [NodeJs](https://nodejs.org). You can create great applications with using it. It uses [Knex.js](http://knexjs.org/) as database provider and it supports all major relational databases such as *Postgres*, *MSSQL*, *MySQL*, *MariaDB*, *SQLite3*, *Oracle*, and *Amazon Redshift*.
+[AdonisJs](https://adonisjs.com) is a very beautiful web framework based on [NodeJs](https://nodejs.org). You can create great applications using it. It uses [Knex.js](http://knexjs.org/) as database provider and it supports all major relational databases such as *Postgres*, *MSSQL*, *MySQL*, *MariaDB*, *SQLite3*, *Oracle*, and *Amazon Redshift*.
 
-**AdonisX** uses basic structure of *AdonisJs*. It is actually a [Service Provider](https://adonisjs.com/docs/4.1/service-providers) which works in the initialization proces of an AdonisJs application. It performs two basic functions;
+**AdonisX** uses the basic structure of *AdonisJs*. It is actually a [Service Provider](https://adonisjs.com/docs/4.1/service-providers) which works in the initialization process of an AdonisJs application. It performs two basic functions;
 
 - **Analyzes** your models and their relationships to create routes (*Initialization*)
 - **Handles** all HTTP requests with a shared Controller (*Processing*)
@@ -27,19 +27,19 @@ class User extends XModel {
 }
 ```
 
-With this model, you will have all of endpoints for **users** resource. **AdonisX** will create **CRUD** routes for you in the *initialization* and routes will be completely ready to be handled and processed by the shared controller.
+With this model, you will have all of the endpoints for **users** resource. **AdonisX** will create **CRUD** routes for you in the *initialization* and routes will be completely ready to be handled and processed by the shared controller.
 
-If you execute **adonis route:list** command in your terminal, you can see all routes which has been created by **AdonisX**. 
+If you execute **adonis route:list** command in your terminal, you can see all routes which have been created by **AdonisX**. 
 
 ![Adonis Routes](/images/03-routes.jpg)
 
-All these requests will be handled by **MainController**. **MainController** is a controller which is controlled by **AdonisX**. It *handles* requests for all models. It is responsible to prepare a *response* for the user by model definitions. In model definitions you can decide many things such as *form validation*, *custom middlewares* and *etc*.
+All these requests will be handled by **MainController**. **MainController** is a controller which is controlled by **AdonisX**. It *handles* requests for all models. It is responsible to prepare a *response* for the user by model definitions. In model definitions, you can decide many things such as *form validation*, *custom middlewares* and *, etc*.
 
-With AdonisX, you **don't** have to code for all CRUD actions. You **don't** have to implement advanced query features. The only thing to do is **defining models** and **their relations** between each others. That's all! <Emoji code="1f389"></Emoji>
+With AdonisX, you **don't** have to code for all CRUD actions. You **don't** have to implement advanced query features. The only thing to do is **defining models** and **their relations** between each other. That's all! <Emoji code="1f389"></Emoji>
 
 ## Roadmap
 
-There are several thing we already done and there are many thing we want to implement in the future. If you have any opinion about it, please don't hesitate to open an issue for your brialliant ideas on our [issue page](https://github.com/adonisx/adonisx/issues).
+There are several things we already have done and there are many things we want to implement in the future. If you have any opinion about it, please don't hesitate to open an issue for your brilliant ideas on our [issue page](https://github.com/adonisx/adonisx/issues).
 
 You can see what we've done before and what we will work on in the future;
 
@@ -64,7 +64,7 @@ You can see what we've done before and what we will work on in the future;
 
 ### What do I need to know to help?
 
-If you are looking to help to with a code contribution our project uses NodeJs and AdonisJs. If you don't feel ready to make a code contribution yet, no problem! You can also check out the [any issues](https://github.com/adonisx/adonisx/issues) that we have.
+If you are looking to help with a code contribution our project uses NodeJs and AdonisJs. If you don't feel ready to make a code contribution yet, no problem! You can also check out the [any issues](https://github.com/adonisx/adonisx/issues) that we have.
 
 If you are interested in making a code contribution and would like to learn more about the technologies that we use, check out the list below.
 
@@ -75,7 +75,7 @@ If you are interested in making a code contribution and would like to learn more
 
 ### How do I make a contribution?
 
-Never made an open source contribution before? Wondering how contributions work in the in our project? Here's a quick rundown!
+Never made an open-source contribution before? Wondering how contributions work in our project? Here's a quick rundown!
 
 - Find an issue that you are interested in addressing or a feature that you would like to add.
 - Fork the repository associated with the issue to your local GitHub organization. This means that you will have a copy of the repository under your-GitHub-username/repository-name.

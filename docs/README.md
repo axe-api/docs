@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: AdonisX
-tagline: Fastest way to create Rest API by defining database models and their relations.
+tagline: The fastest way to create Rest API by defining database models and their relations.
 actionText: Get Started →
 actionLink: /01-introduction/
 heroImage: /logo.png

@@ -51,18 +51,20 @@ module.exports = UserTrigger
 
 You can handle almost every action on models. Please look at the following tables;
 
-| ActionName{Model}      | Variables                    |
-|------------------------|------------------------------|
-| onBeforeCreate{User}   | request, params, data        |
-| onBeforeUpdate{User}   | request, params, item        |
-| onBeforeDelete{User}   | request, params, query       |
-| onBeforePaginate{User} | request, params, query       |
-| onBeforeShow{User}     | request, params, query       |
-| onAfterCreate{User}    | request, params, data, item  |
-| onAfterUpdate{User}    | request, params, item        |
-| onAfterDelete{User}    | request, params, item        |
-| onAfterPaginate{User}  | request, params, result      |
-| onAfterShow{User}      | request, params, item        |
+| ActionName{Model}         | Variables                    |
+|---------------------------|------------------------------|
+| onBeforeCreate{User}      | request, params, data        |
+| onBeforeUpdateQuery{User} | request, params, query       |
+| onBeforeUpdate{User}      | request, params, item        |
+| onBeforeDelete{User}      | request, params, query       |
+| onBeforePaginate{User}    | request, params, query       |
+| onBeforeShow{User}        | request, params, query       |
+| onAfterCreate{User}       | request, params, data, item  |
+| onAfterUpdateQuery{User}  | request, params, item        |
+| onAfterUpdate{User}       | request, params, item        |
+| onAfterDelete{User}       | request, params, item        |
+| onAfterPaginate{User}     | request, params, result      |
+| onAfterShow{User}         | request, params, item        |
 
 There are some variables which you can use in a trigger or event function;
 

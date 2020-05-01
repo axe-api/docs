@@ -2,6 +2,8 @@
 
 <img src="/logo.png" height="200" style="float: right; margin-left: 10px; margin-right: 10px;" />
 
+> This project is not ready to use in production.
+
 **AdonisX** is the *fastest* way to create **Rest API** by defining only database models and their relationships between them. It is built on [AdonisJs](https://adonisjs.com), and it's an awesome ORM library, [Lucid](https://adonisjs.com/docs/4.1/lucid). AdonisX takes AdonisJs' power and speeds it up!
 
 You are going to be able to develop an API **10 times faster!**

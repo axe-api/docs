@@ -4,67 +4,106 @@
 
 In the real world, everybody needs more than saving and listing records. Everybody needs more complicated logic in their code. **AdonisX** provides you a basic structure of an API. It provides you basic CRUD actions with where dynamic query options. But when you need custom logic, you will not be alone. **AdonisX** provides you some points to extend your HTTP requests and manipulate them. 
 
-There are two different ways to add your business logic; **Triggers** and **Events**.
+There are two different ways to add your business logic;
 
-You may use **Triggers** and **Events** to add your business logic. To use them, you should use `triggers.js` or `events.js` under **start** folder. **Events** are AdonisJS' features and you can read its documentation in [here](https://adonisjs.com/docs/4.1/events). But also, we added **Triggers** to our structure to have more control over database actions such as GET, POST, UPDATE and DELETE.
+- **Events**
+- **Actions**
 
-## Differences
+You may use **Events** and **Actions** to add your business logic.
 
-The main difference between **triggers** and **events** is; events are **asynchronous**. It means that if you are using a trigger and handle the action, the HTTP request cycle waits for you to do your task. But in events, when you handle the action, the HTTP requests cycle keeps working and returns a response. So, if you want to send an e-mail to the user, you should use **events**. On the other hand, if you want to be involved in the query or any business logics in the HTTP request cycle, you should use **triggers**.
+## Events
 
-## Example
-
-Trigger and event definitions are almost the same.
+**Events** are AdonisJS' features and you can read its documentation in [here](https://adonisjs.com/docs/4.1/events). It is very simple to use. First, you define an event to listen;
 
 ```js
-const Trigger = use('Trigger')
-const Event = use('Event')
+// start/event.js
 
-Trigger.on('onBeforeCreateUser', 'UserListener.checkEmailExists')
-Event.on('onAfterCreateUser', 'UserListener.sendEmail')
+Event.on('new::user', 'User.registered')
 ```
 
-To define a trigger for a model, you should use this structure. In this structure, there are two arguments which you can use;
-
-- `when`: When your method will be triggered.
-- `method`: Which method will be triggered.
-
-In this example, methods will be triggers in **UserListener** file for before creating a new record on the `User` model.
-
-This is how `UserListener.js` looks under the `app` folder;
+Then you create a file which is called `User.js` under the `app/Listeners` directory like this;
 
 ```js
-class UserListener {
-  async checkEmailExists ({ request, params, data }) {
-    // Implement you business logic in here.
-  }
+// app/Listeners/User.js
 
-  sendEmail ({ request, params, data }) {
-    // Implement you business logic in here...
-  }
+const User = exports = module.exports = {}
+
+User.register = async (params) => {
+  // Your business logic.
 }
-
-module.exports = UserTrigger
 ```
 
-## Extentable Actions
+After these definitions, whenever you fire the event, your `register` method will be triggered.
 
-You can handle almost every action on models. Please look at the following tables;
+```js
+Event.fire('new::user')
+```
 
-| ActionName{Model}         | Variables                    |
+AdonisX uses this structure. It fires constant events when an event has appeared. For example, if you want to handle the user's request before pagination, you should define an event like this;
+
+```js
+Event.on('onBeforePaginateUser', 'User.onBeforePaginate')
+```
+
+AdonisX automatically fires `onBeforePaginate` event before the pagination in `MainController`. You can use the following list to understand which events will be triggered by AdonisX;
+
+| EventName{Model}          | Variables                    |
 |---------------------------|------------------------------|
 | onBeforeCreate{User}      | request, params, data        |
-| onBeforeUpdateQuery{User} | request, params, query       |
 | onBeforeUpdate{User}      | request, params, item        |
 | onBeforeDelete{User}      | request, params, query       |
 | onBeforePaginate{User}    | request, params, query       |
 | onBeforeShow{User}        | request, params, query       |
 | onAfterCreate{User}       | request, params, data, item  |
-| onAfterUpdateQuery{User}  | request, params, item        |
 | onAfterUpdate{User}       | request, params, item        |
 | onAfterDelete{User}       | request, params, item        |
 | onAfterPaginate{User}     | request, params, result      |
 | onAfterShow{User}         | request, params, item        |
+
+## Actions
+
+The main difference between **Actions** and **Events** is; events are **asynchronous**. It means that if you are using an **action** and handle the request, the HTTP request cycle waits for you to do your task. But in events, when you handle the event, the HTTP requests cycle keeps working and returns a response. So, if you want to send an e-mail to the user, you should use **Events**. On the other hand, if you want to be involved in the query or any business logic in the HTTP request cycle, you should use **Actions**.
+
+Using **Actions** is very easy. The only thing you do, you should create an Action file for your model under the directory `app/Actions`.
+
+```js
+// app/Actions/UserActions.js
+
+module.exports = {
+  async onBeforePaginate ({ request, params, query }) {
+    // Implement your business logic in here.
+  }
+}
+```
+
+If you create an action file like this, every time before pagination of **User.js** model, this method will be triggered. The only thing you should care about is using the same naming structure for model and action file;
+
+| Model       | Actions            |
+|-------------|--------------------|
+| User.js     | UserActions.js     |
+| Users.js    | UsersActions.js    |
+| UserPost.js | UserPostActions.js |
+
+> Actions are loaded in the **initialization** process at ***once**. So your action methods should be [stateless](https://en.wikipedia.org/wiki/State_(computer_science)#Program_state).
+
+You can handle every action on models. Please look at the following tables;
+
+| ActionName          | Variables                    |
+|---------------------|------------------------------|
+| onBeforeCreate      | request, params, data        |
+| onBeforeUpdateQuery | request, params, query       |
+| onBeforeUpdate      | request, params, item        |
+| onBeforeDelete      | request, params, query       |
+| onBeforePaginate    | request, params, query       |
+| onBeforeShow        | request, params, query       |
+| onAfterCreate       | request, params, data, item  |
+| onAfterUpdateQuery  | request, params, item        |
+| onAfterUpdate       | request, params, item        |
+| onAfterDelete       | request, params, item        |
+| onAfterPaginate     | request, params, result      |
+| onAfterShow         | request, params, item        |
+
+## Variables
 
 There are some variables which you can use in a trigger or event function;
 

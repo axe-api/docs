@@ -62,6 +62,8 @@ You can see what we've done before and what we will work on in the future;
 - [ ] Easy API **testing**
 - [ ] **Cookbook** section on documentation
 
+Also, you can see more about feature requests in the [issue list](https://github.com/adonisx/adonisx/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement).
+
 ## Contribution Guide
 
 ### What do I need to know to help?

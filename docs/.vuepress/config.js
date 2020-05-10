@@ -12,9 +12,10 @@ module.exports = {
       '/',
       '01-introduction/',
       '02-getting-started/',
-      '03-models/',
-      '04-queries/',
-      '05-extensions/'
+      '03-routes/',
+      '04-models/',
+      '05-queries/',
+      '06-extensions/'
     ]
   },
 

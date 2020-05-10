@@ -16,6 +16,15 @@ This request is equal on SQL;
 SELECT `id`, `name`, `surname`
 ```
 
+This request is equal to Lucid Query;
+
+```js
+const result = await User
+  .query()
+  .select(['id', 'name', 'surname'])
+  .paginate(?, ?)
+```
+
 ## Sorting
 
 You may sort your results by your selections for multiple columns;
@@ -30,12 +39,30 @@ This request is equal on SQL;
 ORDER BY `surname` ASC, `name` DESC
 ```
 
+This request is equal to Lucid Query;
+
+```js
+const result = await User
+  .query()
+  .orderBy('surname', 'ASC')
+  .orderBy('name', 'DESC')
+  .paginate(?, ?)
+```
+
 ## Limits
 
 While you are fetching data with pagination, you may send `page` and `per_page` variables like this;
 
 ```
 /api/users?page=2&per_page=25
+```
+
+This request is equal to Lucid Query;
+
+```js
+const result = await User
+  .query()
+  .paginate(2, 25)
 ```
 
 ## Where Conditions
@@ -52,6 +79,15 @@ AdonisX has several where conditions to use.
 WHERE `id` = 1
 ```
 
+This request is equal to Lucid Query;
+
+```js
+const result = await User
+  .query()
+  .where('id', '=', 1)
+  .paginate(?, ?)
+```
+
 ### Multiple Conditions
 
 ```
@@ -62,6 +98,16 @@ WHERE `id` = 1
 WHERE `name` = 'John' AND `surname` = 'Locke'
 ```
 
+This request is equal to Lucid Query;
+
+```js
+const result = await User
+  .query()
+  .where('name', '=', 'John')
+  .where('surname', '=', 'Locke')
+  .paginate(?, ?)
+```
+
 ### OR Expression On Multiple Conditions
 
 ```
@@ -70,6 +116,16 @@ WHERE `name` = 'John' AND `surname` = 'Locke'
 
 ```sql
 WHERE `name` = 'John' OR `surname` = 'Locke'
+```
+
+This request is equal to Lucid Query;
+
+```js
+const result = await User
+  .query()
+  .where('name', '=', 'John')
+  .orWhere('surname', '=', 'Locke')
+  .paginate(?, ?)
 ```
 
 ### Recursive Conditions
@@ -86,6 +142,24 @@ WHERE
   OR (
     `age` = 18 OR `id` = 666
   )
+```
+
+This request is equal to Lucid Query;
+
+```js
+const result = await User
+  .query()
+  .where((query) => {
+    query
+      .where('name', '=', 'John')
+      .orWhere('surname', '=', 'Locke')
+  })
+  .orWhere((query) => {
+    query
+      .where('age', '=', 18')
+      .orWhere('id', '=', 666)
+  })
+  .paginate(?, ?)
 ```
 
 ### Operators

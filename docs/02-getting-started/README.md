@@ -40,7 +40,6 @@ The project's directory structure is almost the same as [AdonisJs](https://adoni
   ├── events.js
   ├── kernel.js
   └── routes.js
-  └── triggers.js
 ├── test/
 ├── ace
 ├── server.js

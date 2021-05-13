@@ -19,10 +19,9 @@ SELECT `id`, `name`, `surname`
 This request is equal to Lucid Query;
 
 ```js
-const result = await User
-  .query()
-  .select(['id', 'name', 'surname'])
-  .paginate(?, ?)
+const result = await User.query()
+  .select(["id", "name", "surname"])
+  .paginate(?, ?);
 ```
 
 ## Sorting
@@ -42,11 +41,10 @@ ORDER BY `surname` ASC, `name` DESC
 This request is equal to Lucid Query;
 
 ```js
-const result = await User
-  .query()
-  .orderBy('surname', 'ASC')
-  .orderBy('name', 'DESC')
-  .paginate(?, ?)
+const result = await User.query()
+  .orderBy("surname", "ASC")
+  .orderBy("name", "DESC")
+  .paginate(?, ?);
 ```
 
 ## Limits
@@ -60,14 +58,12 @@ While you are fetching data with pagination, you may send `page` and `per_page` 
 This request is equal to Lucid Query;
 
 ```js
-const result = await User
-  .query()
-  .paginate(2, 25)
+const result = await User.query().paginate(2, 25);
 ```
 
 ## Where Conditions
 
-AdonisX has several where conditions to use.
+Axe API has several where conditions to use.
 
 ### Simple Query Expression
 
@@ -82,10 +78,9 @@ WHERE `id` = 1
 This request is equal to Lucid Query;
 
 ```js
-const result = await User
-  .query()
-  .where('id', '=', 1)
-  .paginate(?, ?)
+const result = await User.query()
+  .where("id", "=", 1)
+  .paginate(?, ?);
 ```
 
 ### Multiple Conditions
@@ -101,11 +96,10 @@ WHERE `name` = 'John' AND `surname` = 'Locke'
 This request is equal to Lucid Query;
 
 ```js
-const result = await User
-  .query()
-  .where('name', '=', 'John')
-  .where('surname', '=', 'Locke')
-  .paginate(?, ?)
+const result = await User.query()
+  .where("name", "=", "John")
+  .where("surname", "=", "Locke")
+  .paginate(?, ?);
 ```
 
 ### OR Expression On Multiple Conditions
@@ -121,11 +115,10 @@ WHERE `name` = 'John' OR `surname` = 'Locke'
 This request is equal to Lucid Query;
 
 ```js
-const result = await User
-  .query()
-  .where('name', '=', 'John')
-  .orWhere('surname', '=', 'Locke')
-  .paginate(?, ?)
+const result = await User.query()
+  .where("name", "=", "John")
+  .orWhere("surname", "=", "Locke")
+  .paginate(?, ?);
 ```
 
 ### Recursive Conditions
@@ -166,21 +159,21 @@ const result = await User
 
 You may use the following operators in all of your queries by adding the operator to the end of your field name.
 
-| Operator        | Request `/api/users?q=`        | SQL (MySQL)              |
-|-----------------|--------------------------------|--------------------------|
-| `$not`          | `{"id.$not": 10}`              | `id <> 10`               |
-| `$gt`           | `{"id.$gt": 10}`               | `id > 10`                |
-| `$gte`          | `{"id.$gte": 10}`              | `id >= 10`               |
-| `$lt`           | `{"id.$lt": 10}`               | `id < 10`                |
-| `$lte`          | `{"id.$lte": 10}`              | `id <= 10`               |
-| `$like`         | `{"name.$like": "Foo*"}`       | `name LIKE 'Foo%'`       |
-| `$notLike`      | `{"name.$notLike": "*Foo*"}`   | `name NOT LIKE '%Foo%'`  |
-| `$in`           | `{"id.$in": [1,2]}`            | `id IN (1, 2)`           |
-| `$notIn`        | `{"id.$notIn": [1,2]}`         | `id NOT IN (1,2 )`       |
-| `$between`      | `{"id.$between": [1, 10]}`     | `id BETWEEN (1, 10)`     |
-| `$notBetween`   | `{"id.$notBetween": [1, 10]}`  | `id NOT BETWEEN (1, 10)` |
-| `$null`         | `{"id.$null": null}`           | `id IS NULL`             |
-| `$notNull`      | `{"id.$notNull": null}`        | `id IS NOT NULL`         |
+| Operator      | Request `/api/users?q=`       | SQL (MySQL)              |
+| ------------- | ----------------------------- | ------------------------ |
+| `$not`        | `{"id.$not": 10}`             | `id <> 10`               |
+| `$gt`         | `{"id.$gt": 10}`              | `id > 10`                |
+| `$gte`        | `{"id.$gte": 10}`             | `id >= 10`               |
+| `$lt`         | `{"id.$lt": 10}`              | `id < 10`                |
+| `$lte`        | `{"id.$lte": 10}`             | `id <= 10`               |
+| `$like`       | `{"name.$like": "Foo*"}`      | `name LIKE 'Foo%'`       |
+| `$notLike`    | `{"name.$notLike": "*Foo*"}`  | `name NOT LIKE '%Foo%'`  |
+| `$in`         | `{"id.$in": [1,2]}`           | `id IN (1, 2)`           |
+| `$notIn`      | `{"id.$notIn": [1,2]}`        | `id NOT IN (1,2 )`       |
+| `$between`    | `{"id.$between": [1, 10]}`    | `id BETWEEN (1, 10)`     |
+| `$notBetween` | `{"id.$notBetween": [1, 10]}` | `id NOT BETWEEN (1, 10)` |
+| `$null`       | `{"id.$null": null}`          | `id IS NULL`             |
+| `$notNull`    | `{"id.$notNull": null}`       | `id IS NOT NULL`         |
 
 ## Relationships
 

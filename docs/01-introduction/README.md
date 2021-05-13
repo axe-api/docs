@@ -1,81 +1,73 @@
 # Introduction
 
-<img src="/logo.png" height="200" style="float: right; margin-left: 10px; margin-right: 10px;" />
+## Disclaimer
 
-> This project is not ready to use in production.
+This project is **not ready** to use in production by now. This is an experiment for us to discover new areas.
 
-**AdonisX** is the *fastest* way to create **Rest API** by defining only database models and their relationships between them. It is built on [AdonisJs](https://adonisjs.com), and it's an awesome ORM library, [Lucid](https://adonisjs.com/docs/4.1/lucid). AdonisX takes AdonisJs' power and speeds it up!
+## What Is This?
+
+**Axe API** is the _fastest_ way to create **Rest API** by defining only database models and relationships between them. It is built on [Knex.js](http://knexjs.org), and it's an awesome active records pattern. On the other hand, you have another familiar thing, [Express](https://expressjs.com/). Axe API completely built on **Express** and **Knex.js**, and it is the fastest way to build APIs without code duplications.
 
 You are going to be able to develop an API **10 times faster!**
 
 ## How It Works?
 
-[AdonisJs](https://adonisjs.com) is a very beautiful web framework based on [NodeJs](https://nodejs.org). You can create great applications using it. It uses [Knex.js](http://knexjs.org/) as database provider and it supports all major relational databases such as *Postgres*, *MSSQL*, *MySQL*, *MariaDB*, *SQLite3*, *Oracle*, and *Amazon Redshift*.
+[Express](https://expressjs.com/) and [Knex.js](http://knexjs.org) are great tools to create [Node.js](https://nodejs.org) based applications. But usually, we code too much the same things to design an API. We aim to reduce code duplication and give you speed by using Axe API.
 
-**AdonisX** uses the basic structure of *AdonisJs*. It is actually a [Service Provider](https://adonisjs.com/docs/4.1/service-providers) which works in the initialization process of an AdonisJs application. It performs two basic functions;
+**Axe API**, basically expect from you some models to analyze the database structure. After you created your models and their relations between them, it analyzes their structure and handles all well-known API requests. Creating an API with 5 tables takes almost 15 minutes.
 
-- **Analyzes** your models and their relationships to create routes (*Initialization*)
-- **Handles** all HTTP requests with a shared Controller (*Processing*)
+**Axe API** performs two basic functions;
+
+- **Analyzes** your models and their relationships to create routes (_Initialization_)
+- **Handles** all HTTP requests with a shared Controller (_Processing_)
 
 Let's assume that you have a model like this;
 
 ```js
-const XModel = use('AdonisX/Models/XModel')
+import { Model } from "axe-api";
 
-class User extends XModel {
-  static get table () {
-    return 'users'
-  }
-}
+class User extends XModel {}
 ```
 
-With this model, you will have all of the endpoints for **users** resource. **AdonisX** will create **CRUD** routes for you in the *initialization* and routes will be completely ready to be handled and processed by the shared controller.
+With this model, you will have all of the basic API routes for **users** resource. **Axe API** will create **CRUD** routes for you in the _initialization_ and routes will be completely ready to be handled and processed by the shared controller. Imagine the following routes will be handled automatically;
 
-If you execute **adonis route:list** command in your terminal, you can see all routes which have been created by **AdonisX**. 
+- `POST api/users`
+- `GET api/users`
+- `PUT api/users/:id`
+- `DELETE api/users/:id`
 
-![Adonis Routes](/images/03-routes.jpg)
-
-All these requests will be handled by **MainController**. **MainController** is a controller which is controlled by **AdonisX**. It *handles* requests for all models. It is responsible to prepare a *response* for the user by model definitions. In model definitions, you can decide many things such as *form validation*, *custom middlewares* and *, etc*.
-
-With AdonisX, you **don't** have to code for all CRUD actions. You **don't** have to implement advanced query features. The only thing to do is **defining models** and **their relations** between each other. That's all! <Emoji code="1f389"></Emoji>
+All these requests will be handled by **Axe API**. An internal controller which is controlled by **Axe API**, _handles_ all requests for all of your models. This is true magic!
 
 ## Roadmap
 
-There are several things we already have done and there are many things we want to implement in the future. If you have any opinion about it, please don't hesitate to open an issue for your brilliant ideas on our [issue page](https://github.com/adonisx/adonisx/issues).
+There are several things we already have done and there are many things we want to implement in the future. If you have any opinion about it, please don't hesitate to open an issue for your brilliant ideas on our [issue page](https://github.com/axe-api/axe-api/issues).
 
 You can see what we've done before and what we will work on in the future;
 
 - [x] Basic API structure
-- [x] Easy installation
 - [x] Extenting an action before or update.
 - [x] **Form Validation** support
 - [x] **Custom Middlewares** support
 - [x] Strong query features
 - [x] **Model relation** support on routes.
 - [x] **Recursive Resource** support
+- [ ] Easy installation
 - [ ] **Processing Time** on HTTP responses
 - [ ] **Rate Limit** support
 - [ ] **Caching Support** on HTTP requests
-- [ ] System variables in queries (*$now*, *$currentDate*, *$tomorrow*)
+- [ ] System variables in queries (_\$now_, _\$currentDate_, _\$tomorrow_)
 - [ ] **Transaction** support
 - [ ] Auto generated **API Documentation**
 - [ ] Easy API **testing**
 - [ ] **Cookbook** section on documentation
 
-Also, you can see more about feature requests in the [issue list](https://github.com/adonisx/adonisx/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement).
+Also, you can see more about feature requests in the [issue list](https://github.com/axe-api/axe-api/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement).
 
 ## Contribution Guide
 
 ### What do I need to know to help?
 
-If you are looking to help with a code contribution our project uses NodeJs and AdonisJs. If you don't feel ready to make a code contribution yet, no problem! You can also check out the [any issues](https://github.com/adonisx/adonisx/issues) that we have.
-
-If you are interested in making a code contribution and would like to learn more about the technologies that we use, check out the list below.
-
-- [AdonisJs](https://adonisjs.com/docs/4.1/installation)
-- [Service Provider](https://adonisjs.com/docs/4.1/service-providers)
-- [Lucid](https://adonisjs.com/docs/4.1/lucid)
-- [Knex.js](http://knexjs.org/)
+If you are looking to help with a code contribution our project uses NodeJs. If you don't feel ready to make a code contribution yet, no problem! You can also check out the [any issues](https://github.com/axe-api/axe-api/issues) that we have.
 
 ### How do I make a contribution?
 
@@ -98,7 +90,7 @@ Never made an open-source contribution before? Wondering how contributions work 
 
 ### Where can I go for help?
 
-If you need help, you can ask questions on our [issue list](https://github.com/adonisx/adonisx/issues).
+If you need help, you can ask questions on our [issue list](https://github.com/axe-api/axe-api/issues).
 
 ### What does the Code of Conduct mean for me?
 

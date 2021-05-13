@@ -12,6 +12,6 @@ git init
 git add -A
 git commit -m "Travis build."
 
-git push -f ${GITHUB_TOKEN}@github.com:adonisx/adonisx.github.io.git master
+git push -f ${GITHUB_TOKEN}@github.com:axe-api/axe-api.github.io.git master
 
 cd -

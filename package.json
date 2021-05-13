@@ -1,7 +1,7 @@
 {
-  "name": "adonisx-docs",
+  "name": "axe-api-docs",
   "version": "0.2.1",
-  "description": "AdonisX documentation",
+  "description": "Axe API documentation",
   "main": "index.js",
   "scripts": {
     "start": "vuepress dev docs",
@@ -13,6 +13,6 @@
   "dependencies": {
     "global": "^4.4.0",
     "markdown-it-task-lists": "^2.1.1",
-    "vuepress": "^1.4.1"
+    "vuepress": "^1.8.2"
   }
 }

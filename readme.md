@@ -1,19 +1,19 @@
-# AdonisX Documentation
+# Axe API Documentation
 
-This is a documentation of AdonisX build on VuePress.
+This is a documentation of Axe API build on VuePress.
 
 ## Installation
 
 ```bash
-$ git clone git@github.com:adonisx/adonisx-docs.git
-$ cd adonisx-docs
+$ git clone git@github.com:axe-api/docs.git
+$ cd docs
 $ yarn
 $ yarn start
 ```
 
 ## Issues
 
-If you have any problem with the documentation, please open an issue in the main repository, [adonisx](https://github.com/adonisx/adonisx/issues).
+If you have any problem with the documentation, please open an issue in the main repository, [docs](https://github.com/axe-api/docs/issues).
 
 ## License
 

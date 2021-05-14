@@ -11,7 +11,9 @@ jobs:
       - run: npm install
       - run: npm run docs:build
       - run: cd docs/.vuepress/dist
+      - run: git config --global user.name "Özgür Adem Işıklı"
+      - run: git config --global user.email "i.ozguradem@gmail.com"
       - run: git init
       - run: git add -A
-      - run: git commit -m "GitHub Actions automated build."
+      - run: git commit -m "Automated build."
       - run: git push -f ${MY_TOKEN}@github.com:axe-api/axe-api.github.io.git master

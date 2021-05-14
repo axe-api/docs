@@ -75,11 +75,6 @@ Capabilities mean what behaviors have does the model. There are very different c
 - `SHOW`: Showing one record by id parameter.
 - `UPDATE`: Updating the record by id parameter.
 - `DELETE`: Deleting the record by id parameter.
-- `ALL`: Showing all record without pagination. **(Not ready)**
-- `COUNT`: Fetching row count. **(Not ready)**
-- `BULK_INSERT`: Inserting multiple rows at the same time. **(Not ready)**
-- `BULK_DELETE`: Deleting multiple rows at the same time. **(Not ready)**
-- `BULK_UPDATE`: Updating multiple rows at the same time. **(Not ready)**
 
 ## Related Routes
 
@@ -157,7 +152,7 @@ Axe API will track all of your models. If you define a relationship between mult
 
 Of course, you will not have only one route. If you use default capabilities, you will have 15 routes with that kind of relationship.
 
-## Relation To Same Model Twice
+## Multiple Relation
 
 In some cases, you need to define multiple relationships to the same table at the same time. Axe API supports this feature. Here, we are going to show you a simple example.
 

@@ -1,6 +1,8 @@
 # Queries
 
-While you are fetching any data from the API server, you can add more query options to get the best result about what you want.
+Queries are a very important part of Axe API. We take it seriously because we believe that queries will give us flexibility for API clients such as web and mobile. Also, queries can answer your question about why you should use Axe API.
+
+While you are fetching any data (For example in PAGINATE capabilities for now), you can define what kind of data you want to see. In this section, we are going to explain every detail of querying.
 
 ## Fields
 
@@ -14,14 +16,6 @@ This request is equal on SQL;
 
 ```sql
 SELECT `id`, `name`, `surname`
-```
-
-This request is equal to Lucid Query;
-
-```js
-const result = await User.query()
-  .select(["id", "name", "surname"])
-  .paginate(?, ?);
 ```
 
 ## Sorting
@@ -38,14 +32,7 @@ This request is equal on SQL;
 ORDER BY `surname` ASC, `name` DESC
 ```
 
-This request is equal to Lucid Query;
-
-```js
-const result = await User.query()
-  .orderBy("surname", "ASC")
-  .orderBy("name", "DESC")
-  .paginate(?, ?);
-```
+In this request, `-` means `DESC`.
 
 ## Limits
 
@@ -55,17 +42,11 @@ While you are fetching data with pagination, you may send `page` and `per_page` 
 /api/users?page=2&per_page=25
 ```
 
-This request is equal to Lucid Query;
-
-```js
-const result = await User.query().paginate(2, 25);
-```
-
 ## Where Conditions
 
-Axe API has several where conditions to use.
+You can use almost everything on any database server. Also, it supports recursive conditions.
 
-### Simple Query Expression
+### Simple Condition
 
 ```
 /api/users?q={ "id": 1 }
@@ -73,14 +54,6 @@ Axe API has several where conditions to use.
 
 ```sql
 WHERE `id` = 1
-```
-
-This request is equal to Lucid Query;
-
-```js
-const result = await User.query()
-  .where("id", "=", 1)
-  .paginate(?, ?);
 ```
 
 ### Multiple Conditions
@@ -93,16 +66,7 @@ const result = await User.query()
 WHERE `name` = 'John' AND `surname` = 'Locke'
 ```
 
-This request is equal to Lucid Query;
-
-```js
-const result = await User.query()
-  .where("name", "=", "John")
-  .where("surname", "=", "Locke")
-  .paginate(?, ?);
-```
-
-### OR Expression On Multiple Conditions
+### Logical Expressions
 
 ```
 /api/users?q=[ {"name": "John"}, {"$or.surname": "Locke" } ]
@@ -112,19 +76,13 @@ const result = await User.query()
 WHERE `name` = 'John' OR `surname` = 'Locke'
 ```
 
-This request is equal to Lucid Query;
-
-```js
-const result = await User.query()
-  .where("name", "=", "John")
-  .orWhere("surname", "=", "Locke")
-  .paginate(?, ?);
-```
-
 ### Recursive Conditions
 
 ```
-/api/users?q=[ [{"name": "John"}, {"$or.surname": "Locke" }], [{"$or.age": 18}, {"$or.id": 666 }] ]
+/api/users?q=[
+   [{"name": "John"}, {"$or.surname": "Locke" }],
+   [{"$or.age": 18}, {"$or.id": 666 }]
+  ]
 ```
 
 ```sql
@@ -135,24 +93,6 @@ WHERE
   OR (
     `age` = 18 OR `id` = 666
   )
-```
-
-This request is equal to Lucid Query;
-
-```js
-const result = await User
-  .query()
-  .where((query) => {
-    query
-      .where('name', '=', 'John')
-      .orWhere('surname', '=', 'Locke')
-  })
-  .orWhere((query) => {
-    query
-      .where('age', '=', 18')
-      .orWhere('id', '=', 666)
-  })
-  .paginate(?, ?)
 ```
 
 ### Operators
@@ -174,79 +114,3 @@ You may use the following operators in all of your queries by adding the operato
 | `$notBetween` | `{"id.$notBetween": [1, 10]}` | `id NOT BETWEEN (1, 10)` |
 | `$null`       | `{"id.$null": null}`          | `id IS NULL`             |
 | `$notNull`    | `{"id.$notNull": null}`       | `id IS NOT NULL`         |
-
-## Relationships
-
-To get related models in pagination or show methods, you may use the following statements;
-
-### Multiple Relations
-
-```
-/api/users?with=posts,tokens
-```
-
-```json
-{
-  "id": 1,
-  "username": "my-username",
-  "posts": [
-    {
-      "id": 1,
-      "user_id": 1
-    }
-  ],
-  "tokens": [
-    {
-      "id": 1,
-      "user_id": 1
-    }
-  ]
-}
-```
-
-### Only Dedicated Fields
-
-```
-/api/users?with=posts{id|user_id|title}
-```
-
-```json
-{
-  "id": 1,
-  "username": "my-username",
-  "posts": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "title": "Awesome post title"
-    }
-  ]
-}
-```
-
-### Recursive Relationships
-
-```
-/api/users?with=posts{id|user_id|title|comments{id|post_id|content}}
-```
-
-```json
-{
-  "id": 1,
-  "username": "my-username",
-  "posts": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "title": "Awesome post title",
-      "comments": [
-        {
-          "id": 1,
-          "post_id": 1,
-          "content": "Awesome comment on the post"
-        }
-      ]
-    }
-  ]
-}
-```

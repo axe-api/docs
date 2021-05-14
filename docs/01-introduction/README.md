@@ -44,6 +44,7 @@ There are several things we already have done and there are many things we want 
 
 You can see what we've done before and what we will work on in the future;
 
+- [x] Easy installation
 - [x] Basic API structure
 - [x] Extenting an action before or update.
 - [x] **Form Validation** support
@@ -51,7 +52,6 @@ You can see what we've done before and what we will work on in the future;
 - [x] Strong query features
 - [x] **Model relation** support on routes.
 - [x] **Recursive Resource** support
-- [ ] Easy installation
 - [ ] **Processing Time** on HTTP responses
 - [ ] **Rate Limit** support
 - [ ] **Caching Support** on HTTP requests

@@ -6,7 +6,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: "Github", link: "https://github.com/axe-api/axe-api" },
-      { text: "CLI", link: "https://github.com/axe-api/axe-api-cli" },
+      { text: "CLI", link: "https://github.com/axe-api/axe-magic" },
       // { text: 'Sonarcloud', link: 'https://sonarcloud.io/dashboard?id=ozziest_apix' }
     ],
     sidebar: [

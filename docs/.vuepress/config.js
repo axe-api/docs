@@ -15,8 +15,8 @@ module.exports = {
       "02-getting-started/",
       "03-routes/",
       "04-models/",
+      "07-hooks/",
       "05-queries/",
-      "06-extensions/",
     ],
   },
 

@@ -20,6 +20,7 @@ module.exports = {
       "07-hooks/",
       "middlewares/",
       "05-queries/",
+      "testing/",
     ],
   },
 

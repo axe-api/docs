@@ -2,7 +2,7 @@
 
 Queries are a very important part of Axe API. We take it seriously because we believe that queries will give us flexibility for API clients such as web and mobile. Also, queries can answer your question about why you should use Axe API.
 
-While you are fetching any data (For example in PAGINATE capabilities for now), you can define what kind of data you want to see. In this section, we are going to explain every detail of querying.
+While you are fetching any data (For example in PAGINATE handlers for now), you can define what kind of data you want to see. In this section, we are going to explain every detail of querying.
 
 ## Fields
 

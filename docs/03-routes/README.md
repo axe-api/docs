@@ -34,26 +34,26 @@ You have to define all routes for this model by applying best practices manually
 
 In Axe API, we create the following routes automatically if you have a model like this;
 
-| HTTP Method | Url             | Capability | Behavior                       |
-| ----------- | --------------- | ---------- | ------------------------------ |
-| GET         | `api/users`     | PAGINATE   | Paginating all records         |
-| POST        | `api/users`     | INSERT     | Creating a new record          |
-| GET         | `api/users/:id` | SHOW       | Fetching only one record by id |
-| PUT         | `api/users/:id` | UPDATE     | Updating a record by id        |
-| DELETE      | `api/users/:id` | DELETE     | Deleting a record by id        |
+| HTTP Method | Url             | Handler  | Behavior                       |
+| ----------- | --------------- | -------- | ------------------------------ |
+| GET         | `api/users`     | PAGINATE | Paginating all records         |
+| POST        | `api/users`     | INSERT   | Creating a new record          |
+| GET         | `api/users/:id` | SHOW     | Fetching only one record by id |
+| PUT         | `api/users/:id` | UPDATE   | Updating a record by id        |
+| DELETE      | `api/users/:id` | DELETE   | Deleting a record by id        |
 
 All methods are **ready** to be used for your model. This is the magic of **Axe API**.
 
-## Capabilities
+## Handlers
 
 As default, Axe API supports the definitions above. But you may decide what kind of behavior the API support by describing them in your model.
 
 ```js
-import { Model, CAPABILITIES } from "axe-api";
-const { INSERT, SHOW, UPDATE, PAGINATE } = CAPABILITIES;
+import { Model, HANDLERS } from "axe-api";
+const { INSERT, SHOW, UPDATE, PAGINATE } = HANDLERS;
 
 class User extends Model {
-  get capabilities() {
+  get handlers() {
     return [INSERT, PAGINATE];
   }
 }
@@ -61,14 +61,14 @@ class User extends Model {
 export default User;
 ```
 
-With capabilities getter, you can select what kind of behavior will be activated for the model. The code above allows only insert and pagination. With this definition, you will get the following routes only;
+With handlers getter, you can select what kind of behavior will be activated for the model. The code above allows only insert and pagination. With this definition, you will get the following routes only;
 
-| HTTP Method | Url         | Capability | Behavior               |
-| ----------- | ----------- | ---------- | ---------------------- |
-| GET         | `api/users` | PAGINATE   | Paginating all records |
-| POST        | `api/users` | INSERT     | Creating a new record  |
+| HTTP Method | Url         | Handler  | Behavior               |
+| ----------- | ----------- | -------- | ---------------------- |
+| GET         | `api/users` | PAGINATE | Paginating all records |
+| POST        | `api/users` | INSERT   | Creating a new record  |
 
-Capabilities mean what behaviors have does the model. There are very different capabilities that models can support. But also, there are many on the roadmap. You can review our the following capabilities table;
+**Handlers** mean what behaviors have does the model. There are very different handlers that models can support. But also, there are many on the roadmap. You can review our the following handlers table;
 
 - `INSERT`: Creating a new record.
 - `PAGINATE`: Paginating the all record.
@@ -150,7 +150,7 @@ Axe API will track all of your models. If you define a relationship between mult
 
 `api/users/:userId/posts/:postId/comments/:id`
 
-Of course, you will not have only one route. If you use default capabilities, you will have 15 routes with that kind of relationship.
+Of course, you will not have only one route. If you use default handlers, you will have 15 routes with that kind of relationship.
 
 ## Multiple Relation
 

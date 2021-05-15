@@ -50,7 +50,7 @@ class Users extends Model {
 export default User;
 ```
 
-In this example, **email**, **name**, **surname** and **age** columns can be editable by users in **CREATE** and **UPDATE** capabilities. If you have a field like **my_secret** and you don't want to make it fillable by users, you **shouldn't** add it to this array. Then it will be safe and only editable by yourself.
+In this example, **email**, **name**, **surname** and **age** columns can be editable by users in **CREATE** and **UPDATE** handlers. If you have a field like **my_secret** and you don't want to make it fillable by users, you **shouldn't** add it to this array. Then it will be safe and only editable by yourself.
 
 On the other hand, you can decide different fillable column list by the HTTP method type. For example, usually, we don't want to change the email in the profile update request because it takes too many actions such as sending a confirmation email.
 
@@ -94,7 +94,7 @@ class Users extends Model {
 export default User;
 ```
 
-This form validation method will be triggered before **CREATE** and **UPDATE** capabilities.
+This form validation method will be triggered before **CREATE** and **UPDATE** handlers.
 
 On the other hand, if you want to use different validation rules in **creating** and **updating** a model record, you can use following structure;
 
@@ -131,16 +131,16 @@ If the form data doesn't provide validation rules, Axe API will respond as a val
 
 > HTTP status code will be 400 (Bad Request).
 
-## Capabilities
+## Handlers
 
-In model definition, we can decide what kind of routes should be created for the model. To control that, we should use `capabilities` getter.
+In model definition, we can decide what kind of routes should be created for the model. To control that, we should use `handlers` getter.
 
 ```js
-import { Model, CAPABILITIES } from "axe-api";
-const { INSERT, SHOW, UPDATE, PAGINATE } = CAPABILITIES;
+import { Model, HANDLERS } from "axe-api";
+const { INSERT, SHOW, UPDATE, PAGINATE } = HANDLERS;
 
 class User extends Model {
-  get capabilities() {
+  get handlers() {
     return [INSERT, PAGINATE];
   }
 }
@@ -150,10 +150,10 @@ export default User;
 
 ## Middlewares
 
-Sometimes, you may want to protect your models by requests. In those cases, you can use model-based middleware. We are expecting you to define basically an [Express Middleware](https://expressjs.com/en/guide/writing-middleware.html). To do add a middleware to a model capabilities, you should use `middlewares` getter like the following code;
+Sometimes, you may want to protect your models by requests. In those cases, you can use model-based middleware. We are expecting you to define basically an [Express Middleware](https://expressjs.com/en/guide/writing-middleware.html). To do add a middleware to a model handlers, you should use `middlewares` getter like the following code;
 
 ```js
-import { Model, CAPABILITIES } from "axe-api";
+import { Model, HANDLERS } from "axe-api";
 
 class User extends Model {
   get middlewares() {
@@ -169,7 +169,7 @@ class User extends Model {
 export default User;
 ```
 
-As you can see, you should return an array. It has been designed like that because it helps us to add multiple middlewares at the same time. With the code above, your middleware list will be executed in orderly for all allowed capabilities.
+As you can see, you should return an array. It has been designed like that because it helps us to add multiple middlewares at the same time. With the code above, your middleware list will be executed in orderly for all allowed handlers.
 
 Of course, you can use multiple middleware functions from other files;
 
@@ -186,10 +186,10 @@ class User extends Model {
 export default User;
 ```
 
-But that is not enough for us. We aimed to create a very flexible structure for you. That's why, we added a feature that you can add a special middleware function for a special capability.
+But that is not enough for us. We aimed to create a very flexible structure for you. That's why, we added a feature that you can add a special middleware function for a special handler.
 
 ```js
-import { Model, CAPABILITIES } from "axe-api";
+import { Model, HANDLERS } from "axe-api";
 import { isAdmin, isLogged } from "./../Middlewares/index.js";
 
 class User extends Model {
@@ -197,7 +197,7 @@ class User extends Model {
     return [
       isLogged,
       {
-        capability: CAPABILITIES.DELETE,
+        handler: HANDLERS.DELETE,
         middleware: isAdmin,
       },
     ];
@@ -207,6 +207,6 @@ class User extends Model {
 export default User;
 ```
 
-In this example, this second middleware will be executed only for **DELETE** capability. This is a great way to create a very flexible architecture. Also, it helps us to separate common API logic (CRUD) from business logic.
+In this example, this second middleware will be executed only for **DELETE** handler. This is a great way to create a very flexible architecture. Also, it helps us to separate common API logic (CRUD) from business logic.
 
 Lastly, we can add general middlewares (for all models) but it is not a topic that is related to models. You may look at them in [Middlewares]() documentation.

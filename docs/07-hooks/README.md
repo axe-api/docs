@@ -17,14 +17,14 @@ For example, let's assume that you want to hash the user's password in user crea
 ```js
 import bcrypt from "bcrypt";
 
-const onBeforeCreate = async ({ formData }) => {
+const onBeforeInsert = async ({ formData }) => {
   // Genering salt
   formData.salt = bcrypt.genSaltSync(10);
   // Hashing the password
   formData.password = bcrypt.hashSync(formData.password, salt);
 };
 
-export { onBeforeCreate };
+export { onBeforeInsert };
 ```
 
 In the code above, we used [bcrypt](https://www.npmjs.com/package/bcrypt) library to hash the user's password. By accessing form data, hashing the user's password is easy.
@@ -44,11 +44,11 @@ Using **Events** is very easy, almost same with the hooks. There is only one dif
 `app/Events/UserEvents.js`
 
 ```js
-const onAfterCreate = async ({ formData }) => {
+const onAfterInsert = async ({ formData }) => {
   // You can send an email to the user in here...
 };
 
-export { onAfterCreate };
+export { onAfterInsert };
 ```
 
 ## Request Lifecycle
@@ -112,7 +112,7 @@ The following table describes all possible hooks by handler types.
 
 | Handler  | Manipulating                     | Fetching                                   |
 | -------- | -------------------------------- | ------------------------------------------ |
-| INSERT   | `onBeforeCreate`/`onAfterCreate` |                                            |
+| INSERT   | `onBeforeInsert`/`onAfterInsert` |                                            |
 | PAGINATE |                                  | `onBeforePaginate`/`onAfterPaginate`       |
 | SHOW     |                                  | `onBeforeShow`/`onAfterShow`               |
 | UPDATE   | `onBeforeUpdate`/`onAfterUpdate` | `onBeforeUpdateQuery`/`onAfterUpdateQuery` |
@@ -143,13 +143,13 @@ We can show all special parameters in the following table;
 
 | Hook/Events Name    | Parameters                 |
 | ------------------- | -------------------------- |
-| onBeforeCreate      | formData                   |
+| onBeforeInsert      | formData                   |
 | onBeforeUpdateQuery | query                      |
 | onBeforeUpdate      | item, formData, query,     |
 | onBeforeDelete      | query                      |
 | onBeforePaginate    | conditions, query          |
 | onBeforeShow        | conditions, query          |
-| onAfterCreate       | formData, item             |
+| onAfterInsert       | formData, item             |
 | onAfterUpdateQuery  | item, query                |
 | onAfterUpdate       | item, formData, query      |
 | onAfterDelete       | item                       |

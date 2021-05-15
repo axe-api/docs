@@ -146,12 +146,14 @@ We can show all special parameters in the following table;
 | onBeforeInsert      | formData                   |
 | onBeforeUpdateQuery | query                      |
 | onBeforeUpdate      | item, formData, query,     |
+| onBeforeDeleteQuery | query                      |
 | onBeforeDelete      | query                      |
 | onBeforePaginate    | conditions, query          |
 | onBeforeShow        | conditions, query          |
 | onAfterInsert       | formData, item             |
 | onAfterUpdateQuery  | item, query                |
 | onAfterUpdate       | item, formData, query      |
+| onAfterDeleteQuery  | query, item                |
 | onAfterDelete       | item                       |
 | onAfterPaginate     | results, conditions, query |
 | onAfterShow         | item, conditions, query    |

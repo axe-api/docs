@@ -16,6 +16,7 @@ module.exports = {
       "config/",
       "03-routes/",
       "04-models/",
+      "migrations/",
       "07-hooks/",
       "middlewares/",
       "05-queries/",

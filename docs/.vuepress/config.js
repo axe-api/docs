@@ -13,6 +13,7 @@ module.exports = {
       "/",
       "01-introduction/",
       "02-getting-started/",
+      "config/",
       "03-routes/",
       "04-models/",
       "07-hooks/",

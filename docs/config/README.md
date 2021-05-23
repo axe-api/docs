@@ -82,7 +82,7 @@ This configuration file will be accessible via `Config` instance like this;
 import { IoC } from "axe-api";
 
 const onBeforePaginate = async ({}) => {
-  const Config = await IoC.use("SMTP");
+  const Config = await IoC.use("Config");
   console.log(Config.SMTP.host); // mail.yourhost.com
 };
 

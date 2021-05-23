@@ -210,3 +210,103 @@ export default User;
 In this example, this second middleware will be executed only for **DELETE** handler. This is a great way to create a very flexible architecture. Also, it helps us to separate common API logic (CRUD) from business logic.
 
 Lastly, we can add general middlewares (for all models) but it is not a topic that is related to models. You may look at them in [Middlewares]() documentation.
+
+## Hidden Fields
+
+You may want to hide some columns in your API results when you have some sensitive information such as password hash. In this case, you should use the following getters to define which columns will be hide;
+
+```js
+import { Model } from "axe-api";
+
+class User extends Model {
+  get hiddens() {
+    return ["password", "password_hash"];
+  }
+}
+
+export default User;
+```
+
+This definition will be used for all recursive queries too.
+
+## Serialization
+
+You can use a serialize function in your model definition to hide some values or to create some computed results.
+
+```js
+import { Model } from "axe-api";
+
+class User extends Model {
+  serialize(item) {
+    return {
+      ...item,
+      fullname: `${item.name} ${item.surname}`,
+    };
+  }
+}
+
+export default User;
+```
+
+The serialization function will be triggered automatically by all handlers. Also, recursive queries are supported. In this method, you can manipulate all results by your model.
+
+```json
+{
+  "id": 1,
+  "name": "Karl",
+  "surname": "Popper",
+  "fullname": "Karl Popper"
+}
+```
+
+## Timestamps
+
+Axe API supports timestamps as default. While you are creating a new database table in your migrations, you can add timestamps with the [Knex.js helpers](http://knexjs.org/#Schema-timestamps). After that, you don't have to do anything. Axe API will manage your timestamps automatically.
+
+You can look at the simple timestamp example for a migration file;
+
+```js
+export const up = function(knex) {
+  return knex.schema.createTable("users", function(table) {
+    table.increments();
+    table.string("email").unique();
+    table.timestamps();
+  });
+};
+```
+
+Axe API use `created_at` and `updated_at` columns as default column name. But you can change it and use your naming structure. To do that, you should add the following getters in your model;
+
+```js
+import { Model } from "axe-api";
+
+class User extends Model {
+  get createdAtColumn() {
+    return "my_created_at";
+  }
+
+  get updatedAtColumn() {
+    return "my_updated_at";
+  }
+}
+
+export default User;
+```
+
+If you don't want to use timestamps in a model, you have to return NULL in your timestamp naming getters.
+
+```js
+import { Model } from "axe-api";
+
+class User extends Model {
+  get createdAtColumn() {
+    return null;
+  }
+
+  get updatedAtColumn() {
+    return null;
+  }
+}
+
+export default User;
+```

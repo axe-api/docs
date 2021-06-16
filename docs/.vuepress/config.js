@@ -18,6 +18,7 @@ module.exports = {
       "04-models/",
       "migrations/",
       "07-hooks/",
+      "transactions/",
       "middlewares/",
       "05-queries/",
       "testing/",

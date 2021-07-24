@@ -34,6 +34,22 @@ export default User;
 
 We strongly suggest that to use singular model names in general.
 
+## Primary Key
+
+The primary key value is `id` by default. Nevertheless, you may change it as you wish by your model definition, like the following code example;
+
+```js
+import { Model } from "axe-api";
+
+class User extends Model {
+  get primaryKey() {
+    return "uuid";
+  }
+}
+
+export default User;
+```
+
 ## Fillable Fields
 
 By default, we don't allow the user to send any data to create or update a record, because of security issues. If you want to allow what kind of data can be filled, you should use `fillable` getter in your model.

@@ -207,13 +207,17 @@ But that is not enough for us. We aimed to create a very flexible structure for 
 ```js
 import { Model, HANDLERS } from "axe-api";
 import { isAdmin, isLogged } from "./../Middlewares/index.js";
+const { INSERT, PAGINATE, UPDATE, DELETE } = HANDLERS;
 
 class User extends Model {
   get middlewares() {
     return [
-      isLogged,
       {
-        handler: HANDLERS.DELETE,
+        handler: [INSERT, PAGINATE, UPDATE],
+        middleware: isLogged,
+      },
+      {
+        handler: DELETE,
         middleware: isAdmin,
       },
     ];

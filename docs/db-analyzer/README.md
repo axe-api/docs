@@ -54,7 +54,7 @@ In the following list, you may see that which definitions are working with DB An
 ## Supported Database
 
 - [x] MySQL
-- [ ] PostgreSQL ([#26](https://github.com/axe-api/axe-api/issues/26))
+- [x] PostgreSQL ([#26](https://github.com/axe-api/axe-api/issues/26))
 - [ ] MSSQL ([#27](https://github.com/axe-api/axe-api/issues/27))
 - [x] SQLite
 - [ ] Oracle ([#29](https://github.com/axe-api/axe-api/issues/29))

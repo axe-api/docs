@@ -76,6 +76,8 @@ WHERE `name` = 'John' AND `surname` = 'Locke'
 WHERE `name` = 'John' OR `surname` = 'Locke'
 ```
 
+> Also, you can use the `$and` prefix. If you don't specify any prefix, \$and will be used as default.
+
 ### Recursive Conditions
 
 ```

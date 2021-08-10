@@ -38,18 +38,18 @@ This is the power of DB Analyzer.
 
 In the following list, you may see that which definitions are working with DB Analyzer together.
 
-- [Table name](/04-models/#table-name)
-- [Primary Key](/04-models/#primary-key)
-- [Fillable Fields](/04-models/#fillable-fields)
-- [Form Validations](/04-models/#validations)
-- [Hidden Fields](/04-models/#hidden-fields)
-- [Timestamps](/04-models/#timestamps)
-- [INSERT, UPDATE actions](/03-routes/#handlers)
-- [Related Routes](/03-routes/#related-routes)
-- [Query Fields](/05-queries/#fields)
-- [Query Sorting](/05-queries/#sorting)
-- [Query Where Conditions](/05-queries/#where-conditions)
-- [Query Relations](/05-queries/#relation-queries)
+- [Table name](/models/#table-name)
+- [Primary Key](/models/#primary-key)
+- [Fillable Fields](/models/#fillable-fields)
+- [Form Validations](/models/#validations)
+- [Hidden Fields](/models/#hidden-fields)
+- [Timestamps](/models/#timestamps)
+- [INSERT, UPDATE actions](/routes/#handlers)
+- [Related Routes](/routes/#related-routes)
+- [Query Fields](/queries/#fields)
+- [Query Sorting](/queries/#sorting)
+- [Query Where Conditions](/queries/#where-conditions)
+- [Query Relations](/queries/#relation-queries)
 
 ## Supported Database
 

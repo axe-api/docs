@@ -1,4 +1,4 @@
-# Routes
+# Routing
 
 Routes enable the outside world to interact with your app via URLs. But also, they are the heart of the application in **Axe API**.
 
@@ -213,32 +213,6 @@ In this case, you will have the following route schema;
 > Again, these are just a demonstration. In this definition, you will have 15 routes.
 
 As you can see, your relation method title is used as a URL path by Axe API.
-
-<!-- ## Custom Middlewares
-
-You may use the following statements in model structure to add your logics to some routes for some models;
-
-```js
-const XModel = use('Axe API/Models/XModel')
-
-class Users extends XModel {
-  static get table () {
-    return 'users'
-  }
-
-  static get middlewares () {
-    return [
-      'App/Middleware/CallOnAllRequestsMiddleware',
-      { method: 'GET', middleware: 'App/Middleware/CallOnGETMiddleware' }
-      { method: 'POST', middleware: 'App/Middleware/CallOnPOSTMiddleware' }
-    ]
-  }
-}
-```
-
-In here, you can add multiple different **Middleware** layer for a model. But also you can specify it for only some methods.
-
-With this, you can add an [AdonisJs Middleware](https://adonisjs.com/docs/4.1/middleware) for your model routes. -->
 
 ## Recursive Routes
 

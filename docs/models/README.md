@@ -58,7 +58,7 @@ By default, we don't allow the user to send any data to create or update a recor
 import { Model } from "axe-api";
 
 class Users extends Model {
-  static get fillable() {
+  get fillable() {
     return ["email", "name", "surname", "age"];
   }
 }
@@ -74,7 +74,7 @@ On the other hand, you can decide different fillable column list by the HTTP met
 import { Model } from "axe-api";
 
 class Users extends Model {
-  static get fillable() {
+  get fillable() {
     return {
       POST: ["email", "name", "surname", "age"],
       PUT: ["name", "surname", "age"],
@@ -97,7 +97,7 @@ The thing you should do to define validations is adding a validation method to y
 import { Model } from "axe-api";
 
 class Users extends Model {
-  static get validations() {
+  get validations() {
     return {
       email: "required|email",
       name: "required|max:50",
@@ -118,7 +118,7 @@ On the other hand, if you want to use different validation rules in **creating**
 import { Model } from "axe-api";
 
 class Users extends Model {
-  static get validations() {
+  get validations() {
     return {
       POST: {
         email: "required|email",

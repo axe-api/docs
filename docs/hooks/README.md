@@ -19,9 +19,12 @@ import bcrypt from "bcrypt";
 
 const onBeforeInsert = async ({ formData }) => {
   // Genering salt
-  formData.salt = bcrypt.genSaltSync(10);
+  formData.password_salt = bcrypt.genSaltSync(10);
   // Hashing the password
-  formData.password = bcrypt.hashSync(formData.password, salt);
+  formData.password = bcrypt.hashSync(
+    formData.password,
+    formData.password_salt
+  );
 };
 
 export { onBeforeInsert };

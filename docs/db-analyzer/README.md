@@ -53,9 +53,10 @@ In the following list, you may see that which definitions are working with DB An
 
 ## Supported Database
 
+Currently, [knex-schema-inspector](https://github.com/knex/knex-schema-inspector) package is using to detect columns. Axe API supports all database that has been supported by **knex-schema-inspector**.
+
 - [x] MySQL
-- [x] PostgreSQL ([#26](https://github.com/axe-api/axe-api/issues/26))
-- [ ] MSSQL ([#27](https://github.com/axe-api/axe-api/issues/27))
+- [x] PostgreSQL
+- [x] MSSQL
 - [x] SQLite
-- [ ] Oracle ([#29](https://github.com/axe-api/axe-api/issues/29))
-- [ ] Amazon Redshift ([#30](https://github.com/axe-api/axe-api/issues/30))
+- [x] Oracle

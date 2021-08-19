@@ -315,4 +315,3 @@ We have many different escape points for Hooks and Events;
 - MariaDB
 - SQLite3
 - Oracle
-- Amazon Redshift

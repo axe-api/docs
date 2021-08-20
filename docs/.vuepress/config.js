@@ -26,7 +26,7 @@ module.exports = {
           "getting-started/introduction/",
           "getting-started/installation/",
           "getting-started/migrations/",
-          "getting-started/routing/",
+          "getting-started/crud/",
         ],
       },
       {

@@ -1,6 +1,6 @@
 # Migrations
 
-In this document, we are going to create a migration file to build an API example.
+In this document, we are going to create a migration file to have a working API example.
 
 ## Knex CLI
 
@@ -61,7 +61,7 @@ export const down = function(knex) {
 };
 ```
 
-And this is the basic structure of our migration files.
+In here, we create a simple `users` table with two columns; `name` and `surname`.
 
 ## Migrate
 

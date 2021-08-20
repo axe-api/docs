@@ -2,9 +2,9 @@
 
 Using **Axe API** in an application is very easy. We've created a CLI tool for you; [axe-magic](https://github.com/axe-api/axe-magic).
 
-## Axe Magic
+## New Project
 
-You can create a new Axe API project by using [axe-magic](https://github.com/axe-api/axe-magic). But first, you should install it in your development environment. When you installed it, you should be able to access **axe-magic** command via CLI;
+You can create a new Axe API project by using [axe-magic](https://github.com/axe-api/axe-magic). But first, you can install it in your development environment. When you installed it, you can be able to access **axe-magic** command via CLI. You can use the following command to install **axe-magic** to your machine;
 
 ```bash
 $ npm i -g axe-magic
@@ -12,37 +12,26 @@ $ axe-magic --version
 1.0.0
 ```
 
-After that, creating a new project is very easy. Just you have should execute the following command;
+After that, creating a new project is very easy. Just you can execute the following command;
 
 ```bash
 $ axe-magic new my-api
 ```
 
-This command will pull [axe-api-template](https://github.com/axe-api/axe-api-template) project to your current directory with a new name, **axe-api**.
+This command will pull [axe-api-template](https://github.com/axe-api/axe-api-template) project to your current directory with a new name, **my-api**.
 
-## Dependencies
+## NPM Install
 
-To install your project's depencies, you should execute the following command in the root directory;
+To install your project's depencies, you can execute the following commands in the root directory;
 
 ```bash
 $ cd my-api
 $ npm install
 ```
 
-## Env File
-
-Create the following file on the root directory;
-
-```env
-NODE_ENV=development
-APP_PORT=3000
-DB_CLIENT=sqlite
-DB_DATABASE=axeapi
-```
-
 ## Serve
 
-To serve this application, you should execute the following command;
+To serve this application, you can execute the following command;
 
 ```bash
 $ npm run start:dev
@@ -64,6 +53,4 @@ You will see the following API response if you visit [localhost:3000](http://loc
 }
 ```
 
-::: warning
-If you change the `APP_PORT` key in your _.env_ file, the app will be hosted in the port you select.
-:::
+If you can see that response, it means that your project is running properly. <Yay />

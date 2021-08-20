@@ -2,7 +2,7 @@
 
 In this document, we are going to create a migration file to build an API example.
 
-## Installation
+## Knex CLI
 
 Axe API uses [Knex.js](http://knexjs.org/) as [the schema builder](http://knexjs.org/#Schema).
 
@@ -21,7 +21,7 @@ Knex CLI version: 0.95.5
 Knex Local version: 0.95.5
 ```
 
-## Create Migration File
+## Create Migration
 
 To create a new migration file in it, you should use the following command;
 
@@ -31,6 +31,10 @@ $ knex --esm migrate:make User
 Using environment: development
 Created Migration: ./migrations/20210515162821_User.js
 ```
+
+::: warning
+The file name will be different in your machine.
+:::
 
 If you look the detail of the file (`migrations/20210515162821_User.js`), you will see the following code;
 
@@ -64,11 +68,10 @@ And this is the basic structure of our migration files.
 To execute this migration file, you should execute the following command;
 
 ```bash
-$ knex --esm migrate:up
+$ knex --esm migrate:latest
 
 Using environment: development
-Batch 1 ran the following migrations:
-20210515162821_User.js
+Batch 1 run: 1 migrations
 ```
 
 Yay! You created the first database table.

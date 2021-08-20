@@ -1,6 +1,6 @@
-# Crud Actions
+# CRUD Actions
 
-In this chapter, we are going to define our model file.
+Usually, everybody starts to explain how the framework works by creating a new record. But we will use a different way and we'll start to show fetching data from API. This will help more to understand what Axe API does.
 
 ## Read
 

@@ -1,6 +1,6 @@
 # Introduction
 
-## What Is This?
+## What Is Axe API?
 
 **Axe API** is the _fastest_ way to create **Rest API** by defining only database models and relationships between them. It is built on [Knex.js](http://knexjs.org), and its awesome active records pattern. On the other hand, you have another familiar thing, [Express](https://expressjs.com/).
 

@@ -2,7 +2,7 @@
 
 Using **Axe API** in an application is very easy. We've created a CLI tool for you; [axe-magic](https://github.com/axe-api/axe-magic).
 
-## New Project
+## Create Project
 
 You can create a new Axe API project by using [axe-magic](https://github.com/axe-api/axe-magic). But first, you can install it in your development environment. When you installed it, you can be able to access **axe-magic** command via CLI. You can use the following command to install **axe-magic** to your machine;
 
@@ -20,7 +20,7 @@ $ axe-magic new my-api
 
 This command will pull [axe-api-template](https://github.com/axe-api/axe-api-template) project to your current directory with a new name, **my-api**.
 
-## NPM Install
+## Install Dependencies
 
 To install your project's depencies, you can execute the following commands in the root directory;
 
@@ -29,7 +29,7 @@ $ cd my-api
 $ npm install
 ```
 
-## Serve
+## Serve Application
 
 To serve this application, you can execute the following command;
 

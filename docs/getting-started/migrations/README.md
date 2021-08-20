@@ -2,7 +2,7 @@
 
 In this document, we are going to create a migration file to have a working API example.
 
-## Knex CLI
+## Install Knex CLI
 
 Axe API uses [Knex.js](http://knexjs.org/) as [the schema builder](http://knexjs.org/#Schema).
 
@@ -63,7 +63,7 @@ export const down = function(knex) {
 
 In here, we create a simple `users` table with two columns; `name` and `surname`.
 
-## Migrate
+## Migrate All
 
 To execute this migration file, you should execute the following command;
 

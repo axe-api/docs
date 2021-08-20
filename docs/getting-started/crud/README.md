@@ -11,11 +11,7 @@ In the `app` directory, we should create the following file;
 ```js
 import { Model } from "axe-api";
 
-class User extends Model {
-  get fillable() {
-    return ["name", "surname"];
-  }
-}
+class User extends Model {}
 
 export default User;
 ```
@@ -62,7 +58,21 @@ You literally created only a model file, and you got a working API!
 
 ## Create
 
-As you may notice, we defined a `fillable` getter in the model file. With that, Axe API is ready to handle insert actions for the model. You can send the following request to the API to test it;
+To add creating new record feature to your resource, you have to add the following getter to the model class.
+
+```js
+import { Model } from "axe-api";
+
+class User extends Model {
+  get fillable() {
+    return ["name", "surname"];
+  }
+}
+
+export default User;
+```
+
+After that definition, your API is ready to handle creating new records. You can send the following request to the API to test it;
 
 ```bash
 $ curl \

@@ -1,8 +1,9 @@
 module.exports = {
   title: "Axe API",
   description:
-    "Fastest way to create simple Rest API by defining database models and relations.",
+    "The fastest way to create Rest API, by defining database models and relations.",
   theme: "thindark",
+
   themeConfig: {
     nav: [
       { text: "Github", link: "https://github.com/axe-api/axe-api" },

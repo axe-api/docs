@@ -1021,12 +1021,17 @@
     markdown-it-table-of-contents "^0.4.0"
     prismjs "^1.13.0"
 
-"@vuepress/plugin-active-header-links@1.8.2":
+"@vuepress/plugin-active-header-links@1.8.2", "@vuepress/plugin-active-header-links@^1.0.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.8.2.tgz#0cb9b29c826dd97d35357a9b09c962ef782cb793"
   integrity sha512-JmXAQg8D7J8mcKe2Ue3BZ9dOCzJMJXP4Cnkkc/IrqfDg0ET0l96gYWZohCqlvRIWt4f0VPiFAO4FLYrW+hko+g==
   dependencies:
     lodash.debounce "^4.0.8"
+
+"@vuepress/plugin-google-analytics@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.8.2.tgz#96cf65f1f0ecbb3bcf6b0d10089dafe2aea875bc"
+  integrity sha512-BMFayLzT2BvXmnhM9mDHw0UPU7J0pH1X9gQA4HmZxOf7f3+atK5eJGsc1Ia/+1FTG2ESvhFLUU/CC3h5arjEJw==
 
 "@vuepress/plugin-last-updated@1.8.2":
   version "1.8.2"
@@ -1035,7 +1040,7 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-nprogress@1.8.2":
+"@vuepress/plugin-nprogress@1.8.2", "@vuepress/plugin-nprogress@^1.0.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-nprogress/-/plugin-nprogress-1.8.2.tgz#dc6c082925420c8c59ecb7fc2d4a9401f6d4664a"
   integrity sha512-3TOBee2NM3WLr1tdjDTGfrAMggjN+OlEPyKyv8FqThsVkDYhw48O3HwqlThp9KX7UbL3ExxIFBwWRFLC+kYrdw==
@@ -1049,12 +1054,12 @@
   dependencies:
     "@vuepress/shared-utils" "1.8.2"
 
-"@vuepress/plugin-search@1.8.2":
+"@vuepress/plugin-search@1.8.2", "@vuepress/plugin-search@^1.0.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.8.2.tgz#74b92f663acf6b4560e15dc0442a84c4e874e206"
   integrity sha512-JrSJr9o0Kar14lVtZ4wfw39pplxvvMh8vDBD9oW09a+6Zi/4bySPGdcdaqdqGW+OHSiZNvG+6uyfKSBBBqF6PA==
 
-"@vuepress/shared-utils@1.8.2":
+"@vuepress/shared-utils@1.8.2", "@vuepress/shared-utils@^1.2.0":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@vuepress/shared-utils/-/shared-utils-1.8.2.tgz#5ec1601f2196aca34ad82eed7c9be2d7948f705b"
   integrity sha512-6kGubc7iBDWruEBUU7yR+sQ++SOhMuvKWvWeTZJKRZedthycdzYz7QVpua0FaZSAJm5/dIt8ymU4WQvxTtZgTQ==
@@ -6830,7 +6835,7 @@ stylus-loader@^3.0.2:
     lodash.clonedeep "^4.5.0"
     when "~3.6.x"
 
-stylus@^0.54.8:
+stylus@^0.54.5, stylus@^0.54.8:
   version "0.54.8"
   resolved "https://registry.yarnpkg.com/stylus/-/stylus-0.54.8.tgz#3da3e65966bc567a7b044bfe0eece653e099d147"
   integrity sha512-vr54Or4BZ7pJafo2mpf0ZcwA74rpuYCZbxrHBsH8kbcXOwSfvBFwsRfpGO5OD5fhG5HDCFW737PKaawI7OqEAg==
@@ -7411,6 +7416,14 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
+vuepress-plugin-container@^2.0.0:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-container/-/vuepress-plugin-container-2.1.5.tgz#37fff05662fedbd63ffd3a5463b2592c7a7f3133"
+  integrity sha512-TQrDX/v+WHOihj3jpilVnjXu9RcTm6m8tzljNJwYhxnJUW0WWQ0hFLcDTqTBwgKIFdEiSxVOmYE+bJX/sq46MA==
+  dependencies:
+    "@vuepress/shared-utils" "^1.2.0"
+    markdown-it-container "^2.0.0"
+
 vuepress-plugin-container@^2.0.2:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-container/-/vuepress-plugin-container-2.1.3.tgz#b5873cb8d21b66bd62f7fb15ab254e55dcfeff78"
@@ -7424,6 +7437,19 @@ vuepress-plugin-smooth-scroll@^0.0.3:
   integrity sha512-qsQkDftLVFLe8BiviIHaLV0Ea38YLZKKonDGsNQy1IE0wllFpFIEldWD8frWZtDFdx6b/O3KDMgVQ0qp5NjJCg==
   dependencies:
     smoothscroll-polyfill "^0.4.3"
+
+vuepress-theme-thindark@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-thindark/-/vuepress-theme-thindark-1.0.1.tgz#4612eb03c7cbaf34e81b7edd57219e4050dcbab7"
+  integrity sha512-+dFLOjsLlbwcrtO2bfZ3edqSN5RQ0TcI+6ChKSjUKqomBuhGzQiZKYcRk4W0tv5HPO0KhgO/ER1xrTJosSbw4A==
+  dependencies:
+    "@vuepress/plugin-active-header-links" "^1.0.2"
+    "@vuepress/plugin-nprogress" "^1.0.2"
+    "@vuepress/plugin-search" "^1.0.2"
+    docsearch.js "^2.5.2"
+    stylus "^0.54.5"
+    stylus-loader "^3.0.2"
+    vuepress-plugin-container "^2.0.0"
 
 vuepress@^1.8.2:
   version "1.8.2"

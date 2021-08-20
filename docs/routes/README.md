@@ -275,6 +275,46 @@ export default async ({ app }) => {
 
 Please keep in mind that the init function is another escape point in which you can add your custom logic by accessing [Express](https://expressjs.com/) application.
 
+## Under The Hood
+
+Understanding what's going on under the hood will help you a lot. That's why we wanted a section to explain how we create routes.
+
+First, you need to understand, Axe API analyzes models in the initialization period. If you make a mistake in your relationship definition, your API will not be started correctly, and you may see some errors. If you can see the API is working, it means that Axe API created all routes by your model definitions.
+
+The basic route name (For example `users` in `api/users/:id` route) will be taken from the model as plural. If you define a specific table name in your model (please look at the [Models]()), that name will be used.
+
+The title of the relationship definition method will be used in the route definition. For example, if your relation method name is `myPosts` in your `User` model, you will the this route; `api/users/:userId/my-posts`
+
+Your model name can be used as a parent key in related routes. For example, if your model name is `User`, your parent key will be `userId`. (`api/users/:userId/posts`)
+
+Having many relationship between your database tables doesn't mean you have to define all of your relationship in your models. **Our models are not an ORM model.** You just define a relationship in a model if you want a parent/child relationship.
+
+## API
+
+The basic relationship schema;
+
+```js
+{RELATION_NAME} () {
+  return this.{RELATION_TYPE}({RELATED_MODEL}, {PRIMARY_KEY}, {FOREIGN_KEY}})
+}
+```
+
+#### RELATION_NAME
+
+The name of your relation. Examples; `posts`, `comments`, `createdArticles`
+
+#### RELATION_TYPE
+
+The type of relation. Possible values: `hasMany`, `hasOne`, `belongsTo`
+
+#### PRIMARY_KEY
+
+The parent table colum name. Default value: `id`
+
+#### FOREIGN_KEY
+
+The related table's relation column. Default value can be detect by the parent table. For example; if the parent table is `User`, _FOREIGN_KEY_ will be `user_id`.
+
 ## Documentation
 
 After the auto-creation process, probably you want to see created routes as a developer. That's why we added documentation support for auto-created routes. You can visit the following route after the application has been executed;
@@ -374,43 +414,3 @@ But again, if you want simpler results for your auto-created routes, you should 
 ```
 
 This request returns simpler results for your auto-created routes.
-
-## Under The Hood
-
-Understanding what's going on under the hood will help you a lot. That's why we wanted a section to explain how we create routes.
-
-First, you need to understand, Axe API analyzes models in the initialization period. If you make a mistake in your relationship definition, your API will not be started correctly, and you may see some errors. If you can see the API is working, it means that Axe API created all routes by your model definitions.
-
-The basic route name (For example `users` in `api/users/:id` route) will be taken from the model as plural. If you define a specific table name in your model (please look at the [Models]()), that name will be used.
-
-The title of the relationship definition method will be used in the route definition. For example, if your relation method name is `myPosts` in your `User` model, you will the this route; `api/users/:userId/my-posts`
-
-Your model name can be used as a parent key in related routes. For example, if your model name is `User`, your parent key will be `userId`. (`api/users/:userId/posts`)
-
-Having many relationship between your database tables doesn't mean you have to define all of your relationship in your models. **Our models are not an ORM model.** You just define a relationship in a model if you want a parent/child relationship.
-
-## API
-
-The basic relationship schema;
-
-```js
-{RELATION_NAME} () {
-  return this.{RELATION_TYPE}({RELATED_MODEL}, {PRIMARY_KEY}, {FOREIGN_KEY}})
-}
-```
-
-#### RELATION_NAME
-
-The name of your relation. Examples; `posts`, `comments`, `createdArticles`
-
-#### RELATION_TYPE
-
-The type of relation. Possible values: `hasMany`, `hasOne`, `belongsTo`
-
-#### PRIMARY_KEY
-
-The parent table colum name. Default value: `id`
-
-#### FOREIGN_KEY
-
-The related table's relation column. Default value can be detect by the parent table. For example; if the parent table is `User`, _FOREIGN_KEY_ will be `user_id`.

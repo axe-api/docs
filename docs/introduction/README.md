@@ -45,18 +45,18 @@ There are several things we already have done and there are many things we want 
 You can see what we've done before and what we will work on in the future;
 
 - [x] Easy installation
-- [x] Basic API structure
-- [x] Extenting an action before or update.
+- [x] Auto API detection
+- [x] Extenting a hanler by Hooks and Events.
 - [x] **Form Validation** support
 - [x] **Custom Middlewares** support
 - [x] Strong query features
-- [x] **Model relation** support on routes.
+- [x] **Model Relation** support on routes.
 - [x] **Recursive Resource** support
+- [x] **Transaction** support
 - [ ] **Processing Time** on HTTP responses
 - [ ] **Rate Limit** support
 - [ ] **Caching Support** on HTTP requests
 - [ ] System variables in queries (_\$now_, _\$currentDate_, _\$tomorrow_)
-- [ ] **Transaction** support
 - [ ] Auto generated **API Documentation**
 - [ ] Easy API **testing**
 - [ ] **Cookbook** section on documentation

@@ -2,7 +2,7 @@
 
 Axe API doesn't provide an internal authentication system. We thought that it should be flexible as possible. Nevertheless, in this documentation, we are going to show you how to create an authentication mechanism in Axe API.
 
-## Install Dependencies
+## Dependencies
 
 We are going to use JSON Web Tokens. That's why we are going to use add [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) package to the project. But, you can use any other authentication way you wish.
 
@@ -12,7 +12,7 @@ $ npm install jsonwebtoken --save
 
 After that, the `jsonwebtoken` package will be ready to use.
 
-## Login Handler
+## Handler
 
 To provide an authentication structure, we need to create a [Custom Route](/routes/#custom-routes). To do that, you change the following method in the `app/init.js` file;
 
@@ -60,7 +60,7 @@ export default async (req, res) => {
 
 Now we have a login request handler. Users can log in by using this route.
 
-## Login Middleware
+## Middleware
 
 To check the token, we should create a middleware in the `app/Middlewares/isLogged` file.
 

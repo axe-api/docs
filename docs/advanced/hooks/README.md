@@ -1,4 +1,4 @@
-# Hooks & Events
+# Hooks
 
 ## Why?
 

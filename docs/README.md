@@ -3,7 +3,7 @@ home: true
 heroText: Axe API
 tagline: The fastest way to create Rest API by defining database models and relations.
 actionText: Get Started →
-actionLink: /introduction/
+actionLink: /getting-started/introduction/
 heroImage: /logo.png
 features:
   - title: Rocket Speed

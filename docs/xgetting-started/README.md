@@ -2,24 +2,6 @@
 
 Using **Axe API** in an application is very easy. We've created a CLI tool for you; [axe-magic](https://github.com/axe-api/axe-magic).
 
-## Installation
-
-You can create a new Axe API project by using **axe-magic**. But first, you should install it in your development environment. When you installed it, you should be able to access **axe-magic** command via CLI;
-
-```bash
-$ npm i -g axe-magic
-$ axe-magic --version
-1.0.0
-```
-
-After that, creating a new project is very easy. Just you have should execute the following command;
-
-```bash
-$ axe-magic new
-```
-
-This command will pull [axe-api-template](https://github.com/axe-api/axe-api-template) project to your current directory with a new name, **axe-api**.
-
 ## Directory Structure
 
 We aimed to create the simplest folder structure. It is clean, understandable, and minimal.
@@ -67,14 +49,6 @@ The project has a `.env` file to detect your environment variables. We use [dote
 > All database configurations have been designed by [the documentation of Knex.js](http://knexjs.org/). You can review its documentation to understand more.
 
 You should edit your .env files by your development environment.
-
-## Installing Dependencies
-
-To install your project's depencies, you should execute the following command in the root directory;
-
-```
-$ npm install
-```
 
 ## Serving The API
 

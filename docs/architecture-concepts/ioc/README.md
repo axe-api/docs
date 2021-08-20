@@ -1,6 +1,6 @@
-# Inversion of control (IoC)
+# IoC
 
-Inversion of Control (IoC) is a design principle (although, some people refer to it as a pattern). As the name suggests, it is used to invert different kinds of controls in object-oriented design to achieve loose coupling. [\*](https://www.tutorialsteacher.com/ioc/inversion-of-control)
+**Inversion of Control** (IoC) is a design principle (although, some people refer to it as a pattern). As the name suggests, it is used to invert different kinds of controls in object-oriented design to achieve loose coupling. [\*](https://www.tutorialsteacher.com/ioc/inversion-of-control)
 
 Axe API provides a simple IoC structure to create testable codes. Let's review the following hook;
 
@@ -31,7 +31,7 @@ export { onBeforeInsert };
 
 As you may see in the example, you can get the database connection from IoC. There are some objects which are provided by Axe API for you such as Database or Config. On the other hand, you can use the IoC to define and use your objects.
 
-## Internal Instances
+## Internal
 
 Axe API provides the following instances for you as default.
 
@@ -80,7 +80,7 @@ const onBeforeInsert = async ({ formData }) => {
 export { onBeforeInsert };
 ```
 
-## Custom Definitions
+## Extending
 
 In Axe API, you can define your definitions. `app/init.js` file is the best place to put your definitions. Because, after Axe API analyze the application, it calls the `init` function to handle your custom logic.
 
@@ -104,7 +104,7 @@ export default async ({ app }) => {
 };
 ```
 
-## IoC Methods
+## Methods
 
 ### `async use(name)`
 

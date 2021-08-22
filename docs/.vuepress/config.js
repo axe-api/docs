@@ -36,18 +36,22 @@ module.exports = {
         children: [
           "architecture-concepts/analyzing/",
           "architecture-concepts/handling/",
-          "architecture-concepts/ioc/",
         ],
       },
       {
         title: "Basics",
         collapsable: true,
-        children: ["basics/config/", "basics/middlewares/", "basics/queries/"],
+        children: [
+          "basics/models/",
+          "basics/config/",
+          "basics/middlewares/",
+          "basics/queries/",
+        ],
       },
       {
         title: "Advanced",
         collapsable: true,
-        children: ["advanced/hooks/", "advanced/events/"],
+        children: ["advanced/hooks/", "advanced/events/", "advanced/ioc/"],
       },
       {
         title: "Security",
@@ -68,7 +72,7 @@ module.exports = {
       // "config/",
       // "migrations/",
       "routes/",
-      "models/",
+      // "models/",
       // "queries/",
       // "middlewares/",
       // "authentication/",

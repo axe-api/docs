@@ -27,14 +27,15 @@ module.exports = {
           "getting-started/installation/",
           "getting-started/migrations/",
           "getting-started/crud/",
+          "getting-started/what-is-next/",
         ],
       },
       {
         title: "Architecture",
         collapsable: true,
         children: [
-          "architecture-concepts/initializing/",
-          "architecture-concepts/request-lifecycle/",
+          "architecture-concepts/analyzing/",
+          "architecture-concepts/handling/",
           "architecture-concepts/ioc/",
         ],
       },

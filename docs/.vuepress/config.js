@@ -18,7 +18,6 @@ module.exports = {
       },
     ],
     sidebar: [
-      "/",
       {
         title: "Getting Started",
         collapsable: true,
@@ -27,6 +26,7 @@ module.exports = {
           "getting-started/installation/",
           "getting-started/migrations/",
           "getting-started/crud/",
+          "getting-started/development/",
           "getting-started/what-is-next/",
         ],
       },
@@ -51,12 +51,12 @@ module.exports = {
       {
         title: "Advanced",
         collapsable: true,
-        children: ["advanced/hooks/", "advanced/ioc/"],
-      },
-      {
-        title: "Security",
-        collapsable: true,
-        children: ["security/authentication/", "security/rate-limiting/"],
+        children: [
+          "advanced/hooks/",
+          "advanced/ioc/",
+          "advanced/custom-routes/",
+          "advanced/docs/",
+        ],
       },
       {
         title: "Database",
@@ -67,11 +67,16 @@ module.exports = {
           "database/db-analyzer/",
         ],
       },
+      {
+        title: "Security",
+        collapsable: true,
+        children: ["security/authentication/", "security/rate-limiting/"],
+      },
       // "introduction/",
       // "getting-started/",
       // "config/",
       // "migrations/",
-      "routes/",
+      // "routes/",
       // "models/",
       // "queries/",
       // "middlewares/",

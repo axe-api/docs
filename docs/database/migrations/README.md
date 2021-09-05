@@ -69,7 +69,7 @@ Commands:
   help [command]                  display help for command
 ```
 
-## Create Migration File
+## Create Migration
 
 To create a new migration file in it, you should use the following command;
 
@@ -98,7 +98,7 @@ export const down = function(knex) {};
 
 And this is the basic structure of our migration files.
 
-## Executing Migrations
+## Upgrading
 
 Let's assume that you've written a migration like this;
 
@@ -120,7 +120,7 @@ export const down = function(knex) {
 To execute this migration file, you should execute the following command;
 
 ```bash
-$ knex --esm migrate:up
+$ knex --esm migrate:latest
 
 Using environment: development
 Batch 1 ran the following migrations:

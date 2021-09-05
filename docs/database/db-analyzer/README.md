@@ -1,10 +1,8 @@
 # DB Analyzer
 
-## Preface
-
 **Axe API** comes with a strong feature which you can not find in common frameworks; **Database Analyzer (DB Analyzer)**. _DB Analyzer_ is an internal feature which analyzes your database schema deeply, and compare it with your model and query definitions. It helps you to develop an API easy and reduces critical mistakes, specially on the refactoring time.
 
-## Example
+## How It Works?
 
 For example; let's assume that you have a model definition like the following image;
 
@@ -34,7 +32,7 @@ If you define the table name as `my_user`, DB Analyzer wouldn't find the table i
 
 This is the power of DB Analyzer.
 
-## Protected Definitions
+## Protections
 
 In the following list, you may see that which definitions are working with DB Analyzer together.
 

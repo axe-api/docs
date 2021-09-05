@@ -2,7 +2,7 @@
 
 We care about testing, especially unit tests. Testing is the most important part of developing software. But we make many code duplicates while we are deloping an application. Also, we believe that the main purpose of the unit test is not the testing CRUD codes. And CRUD codes are usually duplications. Here, we are going to talk a little about the testing strategy of the Axe API.
 
-## Philosophy
+## Introduction
 
 As Axe API, we want to use internal codes for the CRUD operations. Also, we want to provide some escape points such as [Hooks](/hooks/), [Events](/hooks/#events), [Middlewares](/middlewares), etc. By doing that, you can focus your business logic in your escape points.
 

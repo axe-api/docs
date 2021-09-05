@@ -1,3 +1,7 @@
+# Development
+
+Here, we are going to show you how you can help us to develop Axe API. But also, we are going to talk about the future plans.
+
 ## Roadmap
 
 There are several things we already have done and there are many things we want to implement in the future. If you have any opinion about it, please don't hesitate to open an issue for your brilliant ideas on our [issue page](https://github.com/axe-api/axe-api/issues).
@@ -13,13 +17,11 @@ You can see what we've done before and what we will work on in the future;
 - [x] **Model Relation** support on routes.
 - [x] **Recursive Resource** support
 - [x] **Transaction** support
-- [ ] **Processing Time** on HTTP responses
-- [ ] **Rate Limit** support
+- [x] **Rate Limit** support
 - [ ] **Caching Support** on HTTP requests
 - [ ] System variables in queries (_\$now_, _\$currentDate_, _\$tomorrow_)
 - [ ] Auto generated **API Documentation**
 - [ ] Easy API **testing**
-- [ ] **Cookbook** section on documentation
 
 Also, you can see more about feature requests in the [issue list](https://github.com/axe-api/axe-api/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement).
 

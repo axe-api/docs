@@ -32,7 +32,7 @@ export { onBeforeInsert };
 
 In the code above, we used [bcrypt](https://www.npmjs.com/package/bcrypt) library to hash the user's password. By accessing form data, hashing the user's password is easy.
 
-**But can this function be executed? Yes!** In the initialization process, Axe API tries to discover what kind of hooks and events have been written. For a model called `User`, if you create a hook which is called `UserHook`, Axe API accepts that `UserHooks` is the hook definition file for the model `User`. In the HTTP request processing time, if there is any hook that has been written, Axe API calls that hook.
+**But can this function be executed? Yes!** In the booting process, Axe API tries to discover what kind of hooks and events have been written. For a model called `User`, if you create a hook which is called `UserHook`, Axe API accepts that `UserHooks` is the hook definition file for the model `User`. In the HTTP request processing time, if there is any hook that has been written, Axe API calls that hook.
 
 This feature gives us very important flexibility. First of all, you can add any logic by the parameters which Axe API passed. Secondly, the hook functions are almost isolated. It means that writing unit tests about them is very easy.
 

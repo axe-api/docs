@@ -262,7 +262,7 @@ const onAfterInsert = async ({ formData, item }) => {
 export { onAfterInsert };
 ```
 
-As you cen see, there is a method which is called `onAfterInsert` there. This method is analyzed in the initialization process by Axe API. Axe API knows that that hook is related to the user model by looking at their names. Whenever you called the creation URL, Axe API calls the method you've defined after the data has been inserted into the table. This is a simple demonstration of how escape points work.
+As you cen see, there is a method which is called `onAfterInsert` there. This method is analyzed in the booting process by Axe API. Axe API knows that that hook is related to the user model by looking at their names. Whenever you called the creation URL, Axe API calls the method you've defined after the data has been inserted into the table. This is a simple demonstration of how escape points work.
 
 We have many different escape points for Hooks and Events;
 

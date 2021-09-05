@@ -51,12 +51,12 @@ module.exports = {
       {
         title: "Advanced",
         collapsable: true,
-        children: ["advanced/hooks/", "advanced/events/", "advanced/ioc/"],
+        children: ["advanced/hooks/", "advanced/ioc/"],
       },
       {
         title: "Security",
         collapsable: true,
-        children: ["security/authentication/"],
+        children: ["security/authentication/", "security/rate-limiting/"],
       },
       {
         title: "Database",

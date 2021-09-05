@@ -279,7 +279,7 @@ Please keep in mind that the init function is another escape point in which you 
 
 Understanding what's going on under the hood will help you a lot. That's why we wanted a section to explain how we create routes.
 
-First, you need to understand, Axe API analyzes models in the initialization period. If you make a mistake in your relationship definition, your API will not be started correctly, and you may see some errors. If you can see the API is working, it means that Axe API created all routes by your model definitions.
+First, you need to understand, Axe API analyzes models in the booting period. If you make a mistake in your relationship definition, your API will not be started correctly, and you may see some errors. If you can see the API is working, it means that Axe API created all routes by your model definitions.
 
 The basic route name (For example `users` in `api/users/:id` route) will be taken from the model as plural. If you define a specific table name in your model (please look at the [Models]()), that name will be used.
 

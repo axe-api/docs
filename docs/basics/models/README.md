@@ -7,7 +7,7 @@ In this chapter, we are going to explain all details about models. There are so 
 
 **Model** is the heart of the **Axe API**. There are many things you can do with Models. By adding and changing some configurations, you can decide how the API should work.
 
-Some of the model definitions will be used only in the initialization process, some of them are in the HTTP handling process. But don't worry, we are going to explain everything with many examples.
+Some of the model definitions will be used only in the booting process, some of them are in the HTTP handling process. But don't worry, we are going to explain everything with many examples.
 
 ## Structure
 

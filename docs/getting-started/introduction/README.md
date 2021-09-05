@@ -30,7 +30,7 @@ import { Model } from "axe-api";
 class User extends Model {}
 ```
 
-With this model, you will have all of the basic API routes for **User** resources. **Axe API** will create **CRUD** routes for you in the _initialization_ process and these routes would be completely ready to be handled and processed by Axe API. The following routes will be handled automatically;
+With this model, you will have all of the basic API routes for **User** resources. **Axe API** will create **CRUD** routes for you in the _booting_ process and these routes would be completely ready to be handled and processed by Axe API. The following routes will be handled automatically;
 
 - `POST api/users`
 - `GET api/users`

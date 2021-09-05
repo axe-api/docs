@@ -91,7 +91,7 @@ Otherwise, you can't execute the application, and you get an error from Axe API 
 
 ## Middlewares
 
-Middlewares are very popular patterns used in applications. Axe API analyzes your application to find middlewares and injects them to Express.js' routes. This task is completed in the initialization process. You can see a very simple example of it;
+Middlewares are very popular patterns used in applications. Axe API analyzes your application to find middlewares and injects them to Express.js' routes. This task is completed in the booting process. You can see a very simple example of it;
 
 ```js
 import { Model } from "axe-api";
@@ -109,4 +109,4 @@ class User extends Model {
 
 ## What Is Next?
 
-Axe API performs a lot of operations in the initialization process. But you don't have to worry about it at all. Because whenever you made a mistake or forget something, Axe API will remind you. If you can see the API is listening to HTTP requests, this means that the initialization process is over. Now, it is time to handler requests!
+Axe API performs a lot of operations in the booting process. But you don't have to worry about it at all. Because whenever you made a mistake or forget something, Axe API will remind you. If you can see the API is listening to HTTP requests, this means that the booting process is over. Now, it is time to handler requests!

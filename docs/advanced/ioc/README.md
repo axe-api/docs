@@ -91,7 +91,7 @@ import { IoC } from "axe-api";
 import MyClass from "my-class";
 import Mailer from "some-mail-library";
 
-export default async ({ app }) => {
+const onBeforeInit = async ({ app }) => {
   // Best place to define your IoC definitions.
   IoC.singleton("MyClass", async () => {
     return new MyClass();
@@ -102,6 +102,10 @@ export default async ({ app }) => {
     return new Mailer(Config.SMTP);
   });
 };
+
+const onAfterInit = async ({ app }) => {};
+
+export { onBeforeInit, onAfterInit };
 ```
 
 ## Methods

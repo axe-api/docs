@@ -19,9 +19,13 @@ In the `app/init.js` file, you can add the following middleware;
 ```js
 import RateLimitter from "./Middlewares/RateLimitter.js";
 
-export default async ({ app }) => {
+const onBeforeInit = async ({ app }) => {
   app.use(RateLimitter);
 };
+
+const onAfterInit = async ({ app }) => {};
+
+export { onBeforeInit, onAfterInit };
 ```
 
 After that, you can create the following file;

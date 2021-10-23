@@ -77,11 +77,15 @@ You may think that what if I need some other dependencies such as a mail sender.
 import { IoC } from "axe-api";
 import nodemailer from "nodemailer";
 
-export default async ({ app }) => {
+const onBeforeInit = async ({ app }) => {
   IoC.singleton("Mailer", async () => {
     return nodemailer;
   });
 };
+
+const onAfterInit = async ({ app }) => {};
+
+export { onBeforeInit, onAfterInit };
 ```
 
 After that only thing, you should do is call the dependency via IoC;

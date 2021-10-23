@@ -19,9 +19,13 @@ To provide an authentication structure, we need to create a [Custom Route](/rout
 ```js
 import login from "./Handlers/login.js";
 
-export default async ({ app }) => {
+const onBeforeInit = async ({ app }) => {
   app.post("/api/login", login);
 };
+
+const onAfterInit = async ({ app }) => {};
+
+export { onBeforeInit, onAfterInit };
 ```
 
 Here, we describe `/app/login` route to handle login requests. After that, you should create the following file;

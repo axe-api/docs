@@ -42,6 +42,7 @@ module.exports = {
         title: "Basics",
         collapsable: true,
         children: [
+          "basics/init/",
           "basics/models/",
           "basics/config/",
           "basics/middlewares/",

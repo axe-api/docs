@@ -44,6 +44,7 @@ module.exports = {
         children: [
           "basics/init/",
           "basics/models/",
+          "basics/handlers/",
           "basics/config/",
           "basics/middlewares/",
           "basics/queries/",

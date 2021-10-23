@@ -97,7 +97,46 @@ WHERE
   )
 ```
 
-## Relation Queries
+### Parent Conditions
+
+If there is a one-to-one relationship between the parent record, you can filter the child's data by parent's fields.
+
+Let's assume that you have a relationship like this;
+
+```js
+class Student extends Model {
+  school() {
+    return this.hasOne("School", "id", "school_id");
+  }
+}
+
+class School extends Model {}
+```
+
+In this scenario, the client is able to query the student by the school's names;
+
+```
+/api/students?q=[ {"school.name.$like": "*Institution*"} ]
+```
+
+:::warning
+Clients should use the relationship definition title (`school` in this example) in the query.
+:::
+
+The SQL equivalent will be like this;
+
+```sql
+SELECT students.*
+FROM students
+LEFT JOIN schools ON schools.id = students.school_id
+WHERE schools.name LIKE "%Institution%";
+```
+
+:::warning
+You can use these kinds of queries for only a **one-to-one** relationship. For example, you **can't** filter schools by student names.
+:::
+
+## Related Data
 
 You can fetch the related data for the `PAGINATION` and the `SHOW` handlers.
 

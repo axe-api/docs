@@ -78,16 +78,39 @@ class User extends Model {
 export default User;
 ```
 
-## Hooks and Events
+## Usage
 
-By your configuration, Axe API automatically will start the transaction. If everything goes well, the transaction would be committed. But, if you throw an error, Axe API would automatically roll back the transaction. You don't have to do anything special in your hooks or event functions. But you should understand that the database object would be the transaction object if the transaction is open for a hook or event.
+Transactions can be used in [Hooks](/advanced/hooks/#hooks-2) or [Events](/advanced/hooks/#events).
+
+By your configuration, Axe API automatically will start the transaction. In **Hooks** or **Events**, Axe API will pass the transaction object as `trx` object in order to be used.
 
 ```js
-const onBeforeInsert = async ({ database }) => {
-  // If you opened the transaction for this handler, `database` object would be
-  // the transaction object. So you can use the `database.commit()` or
-  // `database.rollback()` methods.
+const onAfterInsert = async ({ trx }) => {
+  // If you opened the transaction for this handler, `trx` object would be
+  // the database object by default. So you can use the `trx.commit()` or
+  // `trx.rollback()` methods.
 };
 
-export { onBeforeInsert };
+export { onAfterInsert };
 ```
+
+:::warning
+If you started a database transaction, you **should NOT** use the **database** object.
+:::
+
+If everything goes well, the transaction would be committed. But, if you throw an error, Axe API would automatically roll back the transaction. You don't have to do anything special in your hooks or event functions.
+
+```js
+import { HttpResponse } from "axe-api";
+
+const onAfterInsert = async ({ trx }) => {
+  // You can check anything in here and you can throw an HTTP Response as an exception
+  throw new HttpResponse(400, "Unacceptable request!");
+};
+
+export { onAfterInsert };
+```
+
+:::tip
+In the example above, you don't need to roll back your transaction. Axe API will handle it by default.
+:::

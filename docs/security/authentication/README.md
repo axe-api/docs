@@ -34,7 +34,7 @@ Here, we describe `/app/login` route to handle login requests. After that, you s
 
 ```js
 import { IoC } from "axe-api";
-import bcrypt from "bcrypt";
+import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
 export default async (req, res) => {
@@ -50,7 +50,10 @@ export default async (req, res) => {
     });
   }
 
-  const userHash = bcrypt.hashSync(password, 10);
+  const userHash = crypto
+    .pbkdf2Sync(password, user.password_salt, 1000, 32, `sha512`)
+    .toString(`hex`);
+
   if (userHash !== user.password) {
     return res.status(404).json({
       error: "User not found",

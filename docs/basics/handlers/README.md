@@ -26,6 +26,32 @@ Axe API has the following handlers;
 - DELETE
 - AUTOSAVE
 
+## Default Handlers
+
+Axe API uses the following handlers as default handlers for all models;
+
+- INSERT
+- PAGINATE
+- SHOW
+- UPDATE
+- DELETE
+
+But you can extend a models' default handlers like the following example;
+
+```js
+import { Model, DEFAULT_HANDLERS, HANDLERS } from "axe-api";
+
+class User extends Model {
+  get handlers() {
+    return [...DEFAULT_HANDLERS, HANDLERS.AUTOSAVE];
+  }
+}
+
+export default User;
+```
+
+In this example, User Model will have all default handlers but plus `AUTOSAVE` handler.
+
 ## `INSERT`
 
 :::tip

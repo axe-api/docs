@@ -194,5 +194,5 @@ You may use the following operators in all of your queries by adding the operato
 | `$notIn`      | `{"id.$notIn": [1,2]}`        | `id NOT IN (1,2 )`       |
 | `$between`    | `{"id.$between": [1, 10]}`    | `id BETWEEN (1, 10)`     |
 | `$notBetween` | `{"id.$notBetween": [1, 10]}` | `id NOT BETWEEN (1, 10)` |
-| `$null`       | `{"id.$null": null}`          | `id IS NULL`             |
-| `$notNull`    | `{"id.$notNull": null}`       | `id IS NOT NULL`         |
+|               | `{"id": null}`                | `id IS NULL`             |
+| `$not`        | `{"id.$not": null}`           | `id IS NOT NULL`         |

@@ -29,6 +29,7 @@ export default async () => {
     env: process.env.NODE_ENV,
     port: process.env.APP_PORT,
     logLevel: LOG_LEVEL.INFO,
+    prefix: "/api",
   };
 };
 ```
@@ -40,6 +41,7 @@ The following table shows the configuration keys;
 | env      | Working environment of the application | development   | development, production, staging |
 | port     | The application port                   | 3000          |                                  |
 | logLevel | The log level of the application       | INFO          | NONE, ERROR, WARNING, INFO, ALL  |
+| prefix   | The main prefix of the api             | /api          |                                  |
 
 ## Database
 

@@ -204,7 +204,7 @@ You can use a serialize function in your model definition to hide some values or
 import { Model } from "axe-api";
 
 class User extends Model {
-  serialize(item) {
+  serialize(item, request) {
     return {
       ...item,
       fullname: `${item.name} ${item.surname}`,
@@ -214,6 +214,10 @@ class User extends Model {
 
 export default User;
 ```
+
+:::tip
+As you can see, there is the `request` object as the second argument. You can use the `request` object to filter data. For example; you can hide some data from the user by some authorization rules.
+:::
 
 The serialization function will be triggered automatically by all handlers. Also, recursive queries are supported. In this method, you can manipulate all results by your model.
 

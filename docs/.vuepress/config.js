@@ -121,6 +121,23 @@ module.exports = {
       },
     ],
     ["meta", { name: "msapplication-TileColor", content: "#000000" }],
+    [
+      "script",
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-1HBM031QWE",
+      },
+    ],
+    [
+      "script",
+      {},
+      `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1HBM031QWE');
+      `,
+    ],
   ],
 
   markdown: {

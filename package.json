@@ -15,5 +15,8 @@
     "markdown-it-task-lists": "^2.1.1",
     "vuepress": "^1.8.2",
     "vuepress-theme-thindark": "^1.0.1"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.8.2"
   }
 }

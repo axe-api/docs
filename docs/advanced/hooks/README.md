@@ -117,8 +117,10 @@ The following table describes all possible hooks by handler types.
 | -------- | -------------------------------- | ------------------------------------------ |
 | INSERT   | `onBeforeInsert`/`onAfterInsert` |                                            |
 | PAGINATE |                                  | `onBeforePaginate`/`onAfterPaginate`       |
+| ALL      |                                  | `onBeforeAll`/`onAfterAll`                 |
 | SHOW     |                                  | `onBeforeShow`/`onAfterShow`               |
 | UPDATE   | `onBeforeUpdate`/`onAfterUpdate` | `onBeforeUpdateQuery`/`onAfterUpdateQuery` |
+| PATCH    | `onBeforeUpdate`/`onAfterUpdate` | `onBeforeUpdateQuery`/`onAfterUpdateQuery` |
 | DELETE   | `onBeforeDelete`/`onAfterDelete` | `onBeforeDeleteQuery`/`onAfterUpdateQuery` |
 
 ## Parameters
@@ -152,6 +154,7 @@ We can show all special parameters in the following table;
 | onBeforeDeleteQuery | query                      |
 | onBeforeDelete      | query                      |
 | onBeforePaginate    | conditions, query          |
+| onBeforeAll         | conditions, query          |
 | onBeforeShow        | conditions, query          |
 | onAfterInsert       | formData, item             |
 | onAfterUpdateQuery  | item, query                |
@@ -159,4 +162,5 @@ We can show all special parameters in the following table;
 | onAfterDeleteQuery  | query, item                |
 | onAfterDelete       | item                       |
 | onAfterPaginate     | results, conditions, query |
+| onAfterAll          | results, conditions, query |
 | onAfterShow         | item, conditions, query    |

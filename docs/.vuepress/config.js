@@ -9,6 +9,10 @@ module.exports = {
       { text: "Github", link: "https://github.com/axe-api/axe-api" },
       { text: "CLI", link: "https://github.com/axe-api/axe-magic" },
       {
+        text: "Cookbooks",
+        link: "/cookbooks/",
+      },
+      {
         text: "Sonarcloud",
         link: "https://sonarcloud.io/dashboard?id=axe-api_axe-api",
       },

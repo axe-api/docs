@@ -475,11 +475,11 @@ import { Model } from "axe-api";
 
 class Category extends Model {
   categories() {
-    return this.hasMany("Category");
+    return this.hasMany("Category", "id", "parent_id");
   }
 
   category() {
-    return this.belongsTo("Category");
+    return this.belongsTo("Category", "parent_id", "id");
   }
 }
 ```
@@ -493,11 +493,11 @@ When you define a recursive resource like this, you will have the following rout
 | POST        | `api/categories`                          |
 | PUT         | `api/categories/:id`                      |
 | DELETE      | `api/categories/:id`                      |
-| GET         | `api/categories/:categoryId/children`     |
-| GET         | `api/categories/:categoryId/children/:id` |
-| POST        | `api/categories/:categoryId/children`     |
-| PUT         | `api/categories/:categoryId/children/:id` |
-| DELETE      | `api/categories/:categoryId/children/:id` |
+| GET         | `api/categories/:parentId/categories`     |
+| GET         | `api/categories/:parentId/categories/:id` |
+| POST        | `api/categories/:parentId/categories`     |
+| PUT         | `api/categories/:parentId/categories/:id` |
+| DELETE      | `api/categories/:parentId/categories/:id` |
 
 :::warning
 There is a very important point about recursive routes. If you defined a self-recursive relationship with the model itself, it totally works. But, if you created a recursive relationship between multiple models (such as; A -> B -> C -> A), we don't have anything to detect it for now.

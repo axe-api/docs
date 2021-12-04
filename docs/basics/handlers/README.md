@@ -6,11 +6,11 @@ In your models, you can set which handlers should be enabled;
 
 ```js
 import { Model, HANDLERS } from "axe-api";
-const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, AUTOSAVE } = HANDLERS;
+const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH, ALL } = HANDLERS;
 
 class User extends Model {
   get handlers() {
-    return [INSERT, SHOW, UPDATE, DELETE, PAGINATE, AUTOSAVE];
+    return [INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH, ALL];
   }
 }
 
@@ -24,7 +24,8 @@ Axe API has the following handlers;
 - SHOW
 - UPDATE
 - DELETE
-- AUTOSAVE
+- PATCH
+- ALL
 
 ## Default Handlers
 
@@ -34,6 +35,7 @@ Axe API uses the following handlers as default handlers for all models;
 - PAGINATE
 - SHOW
 - UPDATE
+- PATCH
 - DELETE
 
 But you can extend a models' default handlers like the following example;
@@ -43,14 +45,14 @@ import { Model, DEFAULT_HANDLERS, HANDLERS } from "axe-api";
 
 class User extends Model {
   get handlers() {
-    return [...DEFAULT_HANDLERS, HANDLERS.AUTOSAVE];
+    return [...DEFAULT_HANDLERS, HANDLERS.ALL];
   }
 }
 
 export default User;
 ```
 
-In this example, User Model will have all default handlers but plus `AUTOSAVE` handler.
+In this example, User Model will have all default handlers but plus `ALL` handler.
 
 ## `INSERT`
 
@@ -238,21 +240,21 @@ $ curl \
 If the selected record could be deleted properly, Axe API will return **HTTP 200**.
 :::
 
-## AUTOSAVE
+## PATCH
 
-:::warning
-By default, it is **disabled**.
+:::tip
+By default, it is **enabled**.
 :::
 
-`AUTOSAVE` lets the clients update the record by only one field. By default, it is **disabled** but it can be set as **enabled** like the following example;
+`PATCH` lets the clients update the record by only one field. By default, it is **disabled** but it can be set as **enabled** like the following example;
 
 ```js
 import { Model, HANDLERS } from "axe-api";
-const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, AUTOSAVE } = HANDLERS;
+const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH } = HANDLERS;
 
 class User extends Model {
   get handlers() {
-    return [INSERT, SHOW, UPDATE, DELETE, PAGINATE, AUTOSAVE];
+    return [INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH];
   }
 
   get fillable() {
@@ -273,9 +275,52 @@ In this following request, only the record's `name` field will be updated. `surn
 $ curl \
   -H "Content-Type: application/json" \
   -d '{"name": "Karl"}' \
-  -X PUT http://localhost:3000/api/users/1/autosave
+  -X PATCH http://localhost:3000/api/users/1
 ```
 
 :::tip
 For validation will be executed after merging the record's fields and the new data field.
 :::
+
+## `ALL`
+
+:::warning
+By default, it is **disabled**.
+:::
+
+If the **ALL** handler is enabled, clients can fetch all records as an array with dynamic query features such as [Where Conditions](/basics/queries/#where-conditions), [Relation Queries](/basics/queries/#relation-queries), etc.
+
+:::danger
+If your table has millions of records, the API would return all of them. That's why you should be careful while using this handler.
+:::
+
+This is a simple definition of the ALL handlers;
+
+```js
+import { Model } from "axe-api";
+
+class User extends Model {}
+
+export default User;
+```
+
+Clients can use the following query to fetch data;
+
+```bash
+$ curl \
+  -H "Content-Type: application/json" \
+  -X GET http://localhost:3000/api/users/all
+```
+
+This is an example result of a pagination request;
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Karl Popper",
+    "created_at": "2021-10-16T19:18:47.000Z",
+    "updated_at": "2021-10-16T19:18:47.000Z"
+  }
+]
+```

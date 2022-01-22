@@ -6,10 +6,6 @@
 
 You are going to be able to develop an API **10 times faster** with **Axe API**!
 
-::: danger
-This project is **not ready** to use in production for now. Although it is just an experiment for us to discover new areas, we plan to publish the stable version by the end of **2021**.
-:::
-
 ## How It Works?
 
 [Express](https://expressjs.com/) and [Knex.js](http://knexjs.org) are great tools to create [Node.js](https://nodejs.org) based applications. But usually, we code too much the same things to design an API. We aim to reduce code duplication and give you speed by using Axe API.

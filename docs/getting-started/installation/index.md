@@ -53,7 +53,7 @@ You will see the following API response if you visit [localhost:3000](http://loc
 }
 ```
 
-If you can see that response, it means that your project is running properly. <Yay />
+If you can see that response, it means that your project is running properly. :tada:
 
 :::tip
 If you review `.env` file, you can see that the project uses [SQLite](https://www.sqlite.org/index.html) as the database.

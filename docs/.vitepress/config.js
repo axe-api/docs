@@ -2,6 +2,11 @@ export default {
   title: "Axe API",
   description:
     "The fastest way to create Rest API, by defining database models and relations.",
+
+  lang: "en-US",
+
+  lastUpdated: true,
+
   themeConfig: {
     nav: [
       { text: "Github", link: "https://github.com/axe-api/axe-api" },
@@ -85,6 +90,16 @@ export default {
         items: [{ text: "Concepts", link: "testing/index" }],
       },
     ],
+
+    socialLinks: [
+      { icon: "github", link: "https://github.com/axe-api/axe-api" },
+      { icon: "twitter", link: "https://twitter.com/axeapi" },
+    ],
+
+    footer: {
+      message: "Released under the MIT License.",
+      copyright: "Copyright © 2020-present Özgür Adem Işıklı",
+    },
   },
 
   head: [
@@ -134,9 +149,4 @@ export default {
       `,
     ],
   ],
-
-  footer: {
-    message: "Released under the MIT License.",
-    copyright: "Copyright © 2020-present Özgür Adem Işıklı",
-  },
 };

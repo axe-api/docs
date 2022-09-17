@@ -28,7 +28,7 @@ export default {
       {
         text: "Getting Started",
         items: [
-          { text: "Introduction", link: "index" },
+          { text: "Introduction", link: "getting-started/introduction/index" },
           { text: "Installation", link: "getting-started/installation/index" },
           { text: "Migrations", link: "getting-started/migrations/index" },
           { text: "CRUD", link: "getting-started/crud/index" },
@@ -64,7 +64,7 @@ export default {
       {
         text: "Advanced",
         items: [
-          { text: "Initialization", link: "advanced/hooks/index" },
+          { text: "Hooks", link: "advanced/hooks/index" },
           { text: "IoC", link: "advanced/ioc/index" },
           { text: "Custom Routes", link: "advanced/custom-routes/index" },
           { text: "Documentation", link: "advanced/docs/index" },

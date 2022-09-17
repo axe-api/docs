@@ -113,15 +113,15 @@ This is the basic standard of our calling Hooks/Events system. By the type of ha
 
 The following table describes all possible hooks by handler types.
 
-| Handler  | Manipulating                     | Fetching                                   |
-| -------- | -------------------------------- | ------------------------------------------ |
-| INSERT   | `onBeforeInsert`/`onAfterInsert` |                                            |
-| PAGINATE |                                  | `onBeforePaginate`/`onAfterPaginate`       |
-| ALL      |                                  | `onBeforeAll`/`onAfterAll`                 |
-| SHOW     |                                  | `onBeforeShow`/`onAfterShow`               |
-| UPDATE   | `onBeforeUpdate`/`onAfterUpdate` | `onBeforeUpdateQuery`/`onAfterUpdateQuery` |
-| PATCH    | `onBeforeUpdate`/`onAfterUpdate` | `onBeforeUpdateQuery`/`onAfterUpdateQuery` |
-| DELETE   | `onBeforeDelete`/`onAfterDelete` | `onBeforeDeleteQuery`/`onAfterUpdateQuery` |
+| Handler | Manipulating                     | Fetching                                   |
+| ------- | -------------------------------- | ------------------------------------------ |
+| INSERT  | `onBeforeInsert` `onAfterInsert` |                                            |
+| PAGINAT |                                  | `onBeforePaginate` `onAfterPaginate`       |
+| ALL     |                                  | `onBeforeAll` `onAfterAll`                 |
+| SHOW    |                                  | `onBeforeShow` `onAfterShow`               |
+| UPDATE  | `onBeforeUpdate` `onAfterUpdate` | `onBeforeUpdateQuery` `onAfterUpdateQuery` |
+| PATCH   | `onBeforeUpdate` `onAfterUpdate` | `onBeforeUpdateQuery` `onAfterUpdateQuery` |
+| DELETE  | `onBeforeDelete` `onAfterDelete` | `onBeforeDeleteQuery` `onAfterUpdateQuery` |
 
 ## Parameters
 

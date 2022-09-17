@@ -8,7 +8,7 @@ For example; let's assume that you have a model definition like the following im
 
 <div style="text-align:center;">
 
-![Database Schema](/images/db-analyze-model.png)
+![Database Schema](./db-analyze-model.png)
 
 </div>
 

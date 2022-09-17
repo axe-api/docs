@@ -322,7 +322,7 @@ By best practices, usually, we build related paths for models. For example, let'
 
 <div style="text-align:center;">
 
-![Database Schema](/images/routes-01.png)
+![Database Schema](./routes-01.png)
 
 </div>
 
@@ -408,7 +408,7 @@ Let's assume you have a database schema like this;
 
 <div style="text-align:center;">
 
-![Database Schema](/images/routes-02.png)
+![Database Schema](./routes-02.png)
 
 </div>
 

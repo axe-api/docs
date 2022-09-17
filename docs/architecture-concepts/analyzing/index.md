@@ -26,7 +26,7 @@ The most important task of Axe API is creating [Express.js routes](https://expre
 
 <div style="text-align:center;">
 
-![Database Schema](/images/routes-01.png)
+![Database Schema](./routes-01.png)
 
 </div>
 

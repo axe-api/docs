@@ -8,9 +8,9 @@ hero:
   name: Axe API
   text: Next Generation Rest API Builder
   tagline: You can quickly create a Rest API by simply defining models and relationships.
-  # image:
-  #   src: /logo.png
-  #   alt: Axe API
+  image:
+    src: ./axe.png
+    alt: Axe API
   actions:
     - theme: brand
       text: Get Started
@@ -20,16 +20,22 @@ hero:
       link: https://github.com/axe-api/axe-api
 
 features:
-  - icon: ⚡️
-    title: Rocket Speed
-    details: Minimal effort to create an awesome Rest API without writing too much code.
-  - icon: 💡
-    title: Powerful Queries
-    details: Under the hood, you may find the Knex.js, an awesome active record implementation.
+  - icon: ✍
+    title: Model Definitions
+    details: Define your model, validations, relations, middlewares, etc. in a declarative way to build your API in minutes.
   - icon: 🛠️
-    title: Extendable
-    details: A strong extendable structure to add custom business logic on the top basic API features.
-  - icon: 🏛
-    title: TypeScript
-    details: It is built with TypeScript to create a powerful, typesafe application.
+    title: Routes Handling
+    details: Axe API will not just create all of your API endpoints automatically. It will also process all of them by your model definition.
+  - icon: ⚓
+    title: Hooks
+    details: Using hooks is a very elegant technique to add your business logic to your API endpoints in a test-friendly way.
+  - icon: 💡
+    title: Robust Queries
+    details: Adding robust query features to your API such as sorting, selecting fields, or querying data will cost you nothing.
+  - icon: ⚡️
+    title: Schema Analyzing
+    details: Axe API analyzes your database schema in the initialization process to compare your models with it.
+  - icon: 📄
+    title: Auto Documentation
+    details: Axe API creates documentation automatically by checking your model definitions, table relations, database schema, etc.
 ---

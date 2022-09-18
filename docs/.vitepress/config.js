@@ -8,6 +8,8 @@ export default {
   lastUpdated: true,
 
   themeConfig: {
+    logo: "/logo.png",
+
     nav: [
       { text: "Github", link: "https://github.com/axe-api/axe-api" },
       { text: "CLI", link: "https://github.com/axe-api/axe-magic" },

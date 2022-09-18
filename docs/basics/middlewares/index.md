@@ -4,31 +4,37 @@ Axe API's middleware features are flexible almost as the standard Express applic
 
 Obviously, you should be able to create some middlewares for your auto-created routes. Axe API provides [Model Middlewares](/models/#middlewares) structure for that kind of middlewares. But here, we are going to describe how to create global middlewares for your application.
 
-In the `app/init.js`, you will find a simple function. Axe API guarantees that function will be called after model routes creation. In that function, you can access the [Express](https://expressjs.com/en/starter/hello-world.html) application. In the following way, you can add your middlewares.
+In the `app/init.ts`, you will find a simple function. Axe API guarantees that function will be called after model routes creation. In that function, you can access the [Express](https://expressjs.com/en/starter/hello-world.html) application. In the following way, you can add your middlewares.
 
-```js
-const onBeforeInit = async ({ app }) => {
-  app.use((req, res, next) => {
-    // Check something
+```ts
+import { Express, Request, Response, NextFunction } from "express";
+
+const onBeforeInit = async (app: Express) => {
+  app.use((req: Request, res: Response, next: NextFunction) => {
     next();
   });
 };
 
-const onAfterInit = async ({ app }) => {};
+const onAfterInit = async (app: Express) => {
+  // ...
+};
 
 export { onBeforeInit, onAfterInit };
 ```
 
 Of course, you can import your middlewares from another directory. We created a specific folder that kind of middlewares that is called `Middlewares`.
 
-```js
-import { globalMiddleware } from "./Middlewares/index.js";
+```ts
+import { Express } from "express";
+import { globalMiddleware } from "./Middlewares/index";
 
-const onBeforeInit = async ({ app }) => {
+const onBeforeInit = async (app: Express) => {
   app.use(globalMiddleware);
 };
 
-const onAfterInit = async ({ app }) => {};
+const onAfterInit = async (app: Express) => {
+  // ...
+};
 
 export { onBeforeInit, onAfterInit };
 ```

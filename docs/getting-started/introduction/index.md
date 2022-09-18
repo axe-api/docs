@@ -2,7 +2,7 @@
 
 ## What Is Axe API?
 
-**Axe API** is the _fastest_ way to create **Rest API** by defining only database models and relationships between them. It is built on [Knex.js](http://knexjs.org), and its awesome active records pattern. On the other hand, you have another familiar thing, [Express](https://expressjs.com/).
+**Axe API** is the _fastest_ way to create **Rest API** by defining only database models and relationships between them. It is built with [TypeScript](https://www.typescriptlang.org) on [Knex.js](http://knexjs.org), and its awesome active records pattern. On the other hand, you have another familiar thing, [Express](https://expressjs.com/).
 
 You are going to be able to develop an API **10 times faster** with **Axe API**!
 
@@ -20,7 +20,7 @@ Shortly, **Axe API** performs three basic functions;
 
 Let's assume that you have a model like this;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}

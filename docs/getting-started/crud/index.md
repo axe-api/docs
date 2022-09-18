@@ -6,9 +6,9 @@ Usually, everybody starts to explain how the framework works by creating a new r
 
 In the `app` directory, we should create the following file;
 
-`app/Models/User.js`
+`app/Models/User.ts`
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}
@@ -40,7 +40,7 @@ Let's explain what happened;
 
 - You execute Axe API with the command; `npm run start:dev`.
 - Axe API analyzes which models you have in the `app/Models` folder.
-- Axe API analyzes the `User.js` model for many features.
+- Axe API analyzes the `User.ts` model for many features.
 - Axe API creates the following routes to handle;
   - `POST api/users`
   - `GET api/users`
@@ -48,7 +48,7 @@ Let's explain what happened;
   - `PUT api/users/:id`
   - `DELETE api/users/:id`
 - When you navigate the `GET api/users` url, Axe API handles the request;
-  - It checkes that we should work with `app/Models/User.js`
+  - It checkes that we should work with `app/Models/User.ts`
   - It analyzes your HTTP request.
   - It queries the data from the `users` table.
   - It completes more magic under the hood (We'll talk about it later).
@@ -60,11 +60,11 @@ You literally created only a model file, and you got a working API!
 
 To add creating new record feature to your resource, you have to add the following getter to the model class.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get fillable() {
+  get fillable(): string {
     return ["name", "surname"];
   }
 }

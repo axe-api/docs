@@ -1,15 +1,21 @@
 # Initialization
 
-In this chapter, we are going to explain all details about the initialization (`init.js`) file.
+In this chapter, we are going to explain all details about the initialization (`init.ts`) file.
 
 ## What Is It?
 
-`init.js` is a file that lets developers extend the application easily. Axe API expects two main methods; `onBeforeInit` and `onAfterInit`. A simple initialization file look like the following one;
+`init.ts` is a file that lets developers extend the application easily. Axe API expects two main methods; `onBeforeInit` and `onAfterInit`. A simple initialization file look like the following one;
 
-```js
-const onBeforeInit = async ({ app }) => {};
+```ts
+import { Express } from "express";
 
-const onAfterInit = async ({ app }) => {};
+const onBeforeInit = async (app: Express) => {
+  // Todo: what you want
+};
+
+const onAfterInit = async (app: Express) => {
+  // Todo: what you want
+};
 
 export { onBeforeInit, onAfterInit };
 ```
@@ -26,16 +32,18 @@ This function is executed after the Axe API initialization process. In this step
 
 Please keep in mind that these functions will be called only once.
 
-```js
-const onBeforeInit = async ({ app }) => {
-  app.use(function(req, res, next) {
+```ts
+import { Express, Request, Response, NextFunction } from "express";
+
+const onBeforeInit = async (app: Express) => {
+  app.use(function(req: Request, res: Response, next: NextFunction) {
     // a middleware
     next();
   });
 };
 
-const onAfterInit = async ({ app }) => {
-  app.use(function(err, req, res, next) {
+const onAfterInit = async (app: Express) => {
+  app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
     // error handler
     next();
   });

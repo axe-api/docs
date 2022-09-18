@@ -10,14 +10,15 @@ There are two different ways to add your business logic; **Hooks** and **Events*
 
 Axe API automatically handles your API. It creates routes, handles HTTP requests, performs the request, and creates a response. But it doesn't just do these. It also has some escape points. With those, you can add your code to the HTTP Request-Response cycle.
 
-For example, let's assume that you want to hash the user's password in user creation. How can we do this? First, we should create a file that is called `UserHooks.js` under `app/Hooks`.
+For example, let's assume that you want to hash the user's password in user creation. How can we do this? First, we should create a file that is called `UserHooks.ts` under `app/Hooks`.
 
-`UserHooks.js`
+`UserHooks.ts`
 
-```js
+```ts
 import bcrypt from "bcrypt";
+import { IHookParameter } from "axe-api";
 
-const onBeforeInsert = async ({ formData }) => {
+const onBeforeInsert = async ({ formData }: IHookParameter) => {
   // Genering salt
   formData.password_salt = bcrypt.genSaltSync(10);
   // Hashing the password
@@ -44,10 +45,12 @@ The main difference between **Hooks** and **Events** is; events are **asynchrono
 
 Using **Events** is very easy, almost same with the hooks. There is only one different thing in usage. Which is creating the event file under the `app/Events` folders.
 
-`app/Events/UserEvents.js`
+`app/Events/UserEvents.ts`
 
-```js
-const onAfterInsert = async ({ formData }) => {
+```ts
+import { IHookParameter } from "axe-api";
+
+const onAfterInsert = async ({ formData }: IHookParameter) => {
   // You can send an email to the user in here...
 };
 
@@ -131,7 +134,7 @@ There are some parameters which you can use in a hook or event function.
 
 - `request`: Request object of [Expresss](https://expressjs.com/en/4x/api.html#req)
 - `response`: Response object of [Expresss](https://expressjs.com/en/4x/api.html#res)
-- `model`: Current model instance. For example; `User.js`.
+- `model`: Current model instance. For example; `User.ts`.
 - `database`: Database connection instance. For example [Knex.js](http://knexjs.org/#Installation-client)
 - `relation`: The relation definition if the route is a related route (For example `api/users/:userId/posts`).
 - `parentModel`: The parent model instance if the route is a related route (For example `api/users/:userId/posts`).

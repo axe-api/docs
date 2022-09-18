@@ -2,13 +2,13 @@
 
 We created a very simple configuration structure for your project. You will see an `app/Config` folder in your project after the installation. It is all you need to configure your application. All configurations in that folder will be loaded after the app has been started.
 
-To access all configurations, you should use our [IoC]() object. The following code will show that how to access configuration variables;
+To access all configurations, you should use our `IoCService` object. The following code will show that how to access configuration variables;
 
-```js
-import { IoC } from "axe-api";
+```ts
+import { IoCService, IHookParameter } from "axe-api";
 
-const onBeforePaginate = async ({}) => {
-  const Config = await IoC.use("Config");
+const onBeforePaginate = async (hookParameters: IHookParameter) => {
+  const Config = await IoCService.use("Config");
   console.log(Config.Application.env); // development
 };
 
@@ -19,19 +19,21 @@ All configuration files and keys will be accessible via Config instance. On the 
 
 ## Application
 
-In the `app/Config/Application.js` file, you can find the application configuration.
+In the `app/Config/Application.ts` file, you can find the application configuration.
 
-```js
-import { LOG_LEVEL } from "axe-api";
+```ts
+import { IApplicationConfig, HandlerTypes, LogLevels } from "axe-api";
 
-export default async () => {
-  return {
-    env: process.env.NODE_ENV,
-    port: process.env.APP_PORT,
-    logLevel: LOG_LEVEL.INFO,
-    prefix: "/api",
-  };
+const config: IApplicationConfig = {
+  prefix: "api",
+  env: process.env.NODE_ENV || "production",
+  port: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 5000,
+  logLevel: LogLevels.INFO,
+  transaction: [],
+  serializers: [],
 };
+
+export default config;
 ```
 
 The following table shows the configuration keys;
@@ -45,18 +47,29 @@ The following table shows the configuration keys;
 
 ## Database
 
-In the `app/Config/Database.js` file, you can find the database configuration for the [Knex.js Connection](http://knexjs.org/#Installation-client).
+In the `app/Config/Database.ts` file, you can find the database configuration for the [Knex.js Connection](http://knexjs.org/#Installation-client).
 
-```js
-export default {
-  client: process.env.DB_CLIENT,
+```ts
+import { IDatabaseConfig } from "axe-api";
+
+const config: IDatabaseConfig = {
+  client: process.env.DB_CLIENT || "mysql",
   connection: {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
+    host: process.env.DB_HOST || "localhost",
+    user: process.env.DB_USER || "user",
+    password: process.env.DB_PASSWORD || "password",
+    database: process.env.DB_DATABASE || "database",
+  },
+  pool: {
+    min: 2,
+    max: 10,
+  },
+  migrations: {
+    tableName: "knex_migrations",
   },
 };
+
+export default config;
 ```
 
 In this file, we used the same configuration structure with [Knex.js](http://knexjs.org/#Installation-client). So you can add more configuration by [Knex.js](http://knexjs.org/#Installation-client) documentation.
@@ -67,24 +80,22 @@ The configuration structure is very flexible. You can add your custom configurat
 
 Let's assume that you created your configuration file like this;
 
-`app/Config/SMTP.js`
+`app/Config/SMTP.ts`
 
-```js
-export default async () => {
-  return {
-    host: process.env.SMTP_HOST || "mail.yourhost.com",
-    user: process.env.SMTP_USER,
-  };
+```ts
+export default {
+  host: process.env.SMTP_HOST || "mail.yourhost.com",
+  user: process.env.SMTP_USER,
 };
 ```
 
 This configuration file will be accessible via `Config` instance like this;
 
-```js
-import { IoC } from "axe-api";
+```ts
+import { IoCService } from "axe-api";
 
 const onBeforePaginate = async ({}) => {
-  const Config = await IoC.use("Config");
+  const Config = await IoCService.use("Config");
   console.log(Config.SMTP.host); // mail.yourhost.com
 };
 

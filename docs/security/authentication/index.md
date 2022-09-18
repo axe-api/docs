@@ -14,32 +14,35 @@ After that, the `jsonwebtoken` package will be ready to use.
 
 ## Handler
 
-To provide an authentication structure, we need to create a [Custom Route](/routes/#custom-routes). To do that, you change the following method in the `app/init.js` file;
+To provide an authentication structure, we need to create a [Custom Route](/routes/#custom-routes). To do that, you change the following method in the `app/init.ts` file;
 
-```js
-import login from "./Handlers/login.js";
+```ts
+import { Express } from "express";
+import login from "./Handlers/login";
 
-const onBeforeInit = async ({ app }) => {
+const onBeforeInit = async (app: Express) => {
   app.post("/api/login", login);
 };
 
-const onAfterInit = async ({ app }) => {};
+const onAfterInit = async (app: Express) => {};
 
 export { onBeforeInit, onAfterInit };
 ```
 
 Here, we describe `/app/login` route to handle login requests. After that, you should create the following file;
 
-`app/Handlers/login.js`
+`app/Handlers/login.ts`
 
-```js
-import { IoC } from "axe-api";
+```ts
+import { Request, Response } from "express";
+import { IoCService } from "axe-api";
+import { Knex } from "knex";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
-export default async (req, res) => {
+export default async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  const Database = await IoC.use("Database");
+  const Database = (await IoCService.use("Database")) as Knex;
   const user = await Database.table("users")
     .where("email", email)
     .first();
@@ -71,10 +74,11 @@ Now we have a login request handler. Users can log in by using this route.
 
 To check the token, we should create a middleware in the `app/Middlewares/isLogged` file.
 
-```js
+```ts
+import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-export default (req, res, next) => {
+export default (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
   if (!authorization) {
     return res.status(401).json({ error: "Unauthorized" });
@@ -96,12 +100,16 @@ export default (req, res, next) => {
 
 If you want to a model, you should add the middleware to the model model definition like this;
 
-```js
+```ts
 import { Model } from "axe-api";
-import isLogged from "./../Middlewares/isLogged.js";
+import isLogged from "./../Middlewares/isLogged";
 
 class Contact extends Model {
-  get middlewares() {
+  get middlewares(): ((
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => void)[] {
     return [isLogged];
   }
 }
@@ -111,15 +119,15 @@ export default Contact;
 
 Now, the model is protected by the middleware. Also, you can specify the definition by using the following example;
 
-```js
-import { Model, HANDLERS } from "axe-api";
-import isLogged from "./../Middlewares/isLogged.js";
+```ts
+import { Model, HandlerTypes } from "axe-api";
+import isLogged from "./../Middlewares/isLogged";
 
 class User extends Model {
-  get middlewares() {
+  get middlewares(): IHandlerBaseMiddleware[] {
     return [
       {
-        handler: HANDLERS.DELETE,
+        handler: HandlerTypes.DELETE,
         middleware: isLogged,
       },
     ];

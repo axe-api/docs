@@ -103,9 +103,9 @@ If there is a one-to-one relationship between the parent record, you can filter 
 
 Let's assume that you have a relationship like this;
 
-```js
+```ts
 class Student extends Model {
-  school() {
+  school(): IRelation {
     return this.hasOne("School", "id", "school_id");
   }
 }

@@ -14,11 +14,11 @@ For example; let's assume that you have a model definition like the following im
 
 If you create a model file like the following one, even though you have a table in your database like that, you would got an error from DB Analyzer.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get table() {
+  get table(): string {
     return "my_user";
   }
 }

@@ -2,10 +2,12 @@
 
 Axe API provides so many different options for creating routes automatically. But again, we accept the truth you may need some special routes for some actions. That's why we provide another way to create **pure Express routes**.
 
-In the `app/init.js`, you will find a simple function. Axe API guarantees that function will be called after model routes creation. In that function, you can access the [Express](https://expressjs.com/en/starter/hello-world.html) application. In the following way, you can add your custom routes or middlewares.
+In the `app/init.ts`, you will find a simple function. Axe API guarantees that function will be called after model routes creation. In that function, you can access the [Express](https://expressjs.com/en/starter/hello-world.html) application. In the following way, you can add your custom routes or middlewares.
 
-```js
-const onBeforeInit = async ({ app }) => {
+```ts
+import { Express } from "express";
+
+const onBeforeInit = async (app: Express) => {
   app.get("/api/health", (req, res) => {
     res.json({
       status: true,
@@ -13,21 +15,22 @@ const onBeforeInit = async ({ app }) => {
   });
 };
 
-const onAfterInit = async ({ app }) => {};
+const onAfterInit = async (app: Express) => {};
 
 export { onBeforeInit, onAfterInit };
 ```
 
 Of course, you can import your routes from another directory, for example, `Routes` or `Controllers`. We didn't create a specific folder that kind of routes and you are totally free to choose the folder name.
 
-```js
-import healthCheck from "./Routes/healthCheck.js";
+```ts
+import { Express } from "express";
+import healthCheck from "./Routes/healthCheck";
 
-const onBeforeInit = async ({ app }) => {
+const onBeforeInit = async (app: Express) => {
   app.get("/api/health", healthCheck);
 };
 
-const onAfterInit = async ({ app }) => {};
+const onAfterInit = async (app: Express) => {};
 
 export { onBeforeInit, onAfterInit };
 ```

@@ -7,7 +7,7 @@ titleTemplate: The fastest way to create Rest API, by defining database models a
 hero:
   name: Axe API
   text: Next Generation Rest API Builder
-  tagline: The fastest way to create Rest API, by defining database models and relations.
+  tagline: You can quickly create a Rest API by simply defining models and relationships.
   # image:
   #   src: /logo.png
   #   alt: Axe API
@@ -29,4 +29,7 @@ features:
   - icon: 🛠️
     title: Extendable
     details: A strong extendable structure to add custom business logic on the top basic API features.
+  - icon: 🏛
+    title: TypeScript
+    details: It is built with TypeScript to create a powerful, typesafe application.
 ---

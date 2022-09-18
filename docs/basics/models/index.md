@@ -13,7 +13,7 @@ Some of the model definitions will be used only in the booting process, some of 
 
 A model is basically a class that is extended from Model Class. The following example shows the basic model;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}
@@ -43,11 +43,11 @@ With this getter, you can define which name is using in the database table.
 
 By default, you don't have to put any table name definition. But again, you may set your table name with `table` getter. If you don't set a `table` getter, we will use the Model name as the table name. But there are only one difference; the table name will be converted to plural if your model name is singular.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get table() {
+  get table(): string {
     return "users";
   }
 }
@@ -65,11 +65,11 @@ With this getter, you can define the name of the primary key in the database.
 
 The primary key value is `id` by default. Nevertheless, you may change it as you wish by your model definition, like the following code example;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get primaryKey() {
+  get primaryKey(): string {
     return "uuid";
   }
 }
@@ -81,11 +81,11 @@ export default User;
 
 By default, we don't allow the user to send any data to create or update a record, because of security issues. If you want to allow what kind of data can be filled, you should use `fillable` getter in your model.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class Users extends Model {
-  get fillable() {
+  get fillable(): string[] {
     return ["email", "name", "surname", "age"];
   }
 }
@@ -97,14 +97,14 @@ In this example, **email**, **name**, **surname** and **age** columns can be edi
 
 On the other hand, you can decide different fillable column list by the HTTP method type. For example, usually, we don't want to change the email in the profile update request because it takes too many actions such as sending a confirmation email.
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Model, IMethodBaseConfig, HttpMethods } from "axe-api";
 
 class Users extends Model {
-  get fillable() {
+  get fillable(): IMethodBaseConfig {
     return {
-      POST: ["email", "name", "surname", "age"],
-      PUT: ["name", "surname", "age"],
+      [HttpMethods.POST]: ["email", "name", "surname", "age"],
+      [HttpMethods.PUT]: ["name", "surname", "age"],
     };
   }
 }
@@ -120,11 +120,11 @@ Everybody needs to form validation in their API. Axe API uses [validatorjs](http
 
 The thing you should do to define validations is adding a validation method to your model. The validation method should return an object which describes how form validation should be.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class Users extends Model {
-  get validations() {
+  get validations(): Record<string, string> {
     return {
       email: "required|email",
       name: "required|max:50",
@@ -141,17 +141,17 @@ This form validation method will be triggered before **CREATE** and **UPDATE** h
 
 On the other hand, if you want to use different validation rules in **creating** and **updating** a model record, you can use following structure;
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Model, IMethodBaseValidations, HttpMethods } from "axe-api";
 
 class Users extends Model {
-  get validations() {
+  get validations(): IMethodBaseValidations {
     return {
-      POST: {
+      [HttpMethods.POST]: {
         email: "required|email",
         name: "required|max:50",
       },
-      PUT: {
+      [HttpMethods.PUT]: {
         name: "required|max:50",
       },
     };
@@ -180,11 +180,11 @@ HTTP status code will be 400 (Bad Request) in that HTTP response.
 
 You may want to hide some columns in your API results when you have some sensitive information such as password hash. In this case, you should use the following getters to define which columns will be hide;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get hiddens() {
+  get hiddens(): string[] {
     return ["password", "password_hash"];
   }
 }
@@ -200,11 +200,12 @@ This definition will be used for all queries, even recursive queries too. You ca
 
 You can use a serialize function in your model definition to hide some values or to create some computed results.
 
-```js
+```ts
+import { Request } from "express";
 import { Model } from "axe-api";
 
 class User extends Model {
-  serialize(item, request) {
+  serialize(item: any, request: Request) {
     return {
       ...item,
       fullname: `${item.name} ${item.surname}`,
@@ -236,7 +237,7 @@ Axe API supports timestamps as default. While you are creating a new database ta
 
 You can look at the simple timestamp example for a migration file;
 
-```js
+```ts
 export const up = function(knex) {
   return knex.schema.createTable("users", function(table) {
     table.increments();
@@ -248,15 +249,15 @@ export const up = function(knex) {
 
 Axe API use `created_at` and `updated_at` columns as default column name. But you can change it and use your naming structure. To do that, you should add the following getters in your model;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get createdAtColumn() {
+  get createdAtColumn(): string {
     return "my_created_at";
   }
 
-  get updatedAtColumn() {
+  get updatedAtColumn(): string {
     return "my_updated_at";
   }
 }
@@ -266,15 +267,15 @@ export default User;
 
 If you don't want to use timestamps in a model, you have to return NULL in your timestamp naming getters.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get createdAtColumn() {
+  get createdAtColumn(): null {
     return null;
   }
 
-  get updatedAtColumn() {
+  get updatedAtColumn(): null {
     return null;
   }
 }
@@ -288,12 +289,12 @@ Now we can talk about the routing features of models.
 
 As default, all CRUD routes will be generated for a model definition. But, you can decide what route should be generated for the model with the following definition.
 
-```js
-import { Model, HANDLERS } from "axe-api";
-const { INSERT, SHOW, UPDATE, PAGINATE } = HANDLERS;
+```ts
+import { Model, HandlerTypes } from "axe-api";
+const { INSERT, SHOW, UPDATE, PAGINATE } = HandlerTypes;
 
 class User extends Model {
-  get handlers() {
+  get handlers(): HandlerTypes[] {
     return [INSERT, PAGINATE];
   }
 }
@@ -343,13 +344,13 @@ In this case, we need routes like this;
 
 Creating routes in **Axe API** like these is very simple. There is only one thing we should do; **defining relationship** between models. For this case, we should have the following model definitions;
 
-For `app/Models/User.js` model file;
+For `app/Models/User.ts` model file;
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Model, IRelation } from "axe-api";
 
 class User extends Model {
-  posts() {
+  posts(): IRelation {
     return this.hasMany("Post", "id", "user_id");
   }
 }
@@ -357,13 +358,13 @@ class User extends Model {
 export default User;
 ```
 
-For `app/Models/Post.js` model file;
+For `app/Models/Post.ts` model file;
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Model, IRelation } from "axe-api";
 
 class Post extends Model {
-  user() {
+  user(): IRelation {
     return this.belongsTo("User", "user_id", "id");
   }
 }
@@ -414,17 +415,17 @@ Let's assume you have a database schema like this;
 
 In this case, you have a relationship to a table with two different foreign keys.
 
-For `app/Models/User.js` model file;
+For `app/Models/User.ts` model file;
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Model, IRelation } from "axe-api";
 
 class User extends Model {
-  ownedPosts() {
+  ownedPosts(): IRelation {
     return this.hasMany("Post", "id", "owner_user_id");
   }
 
-  createdPosts() {
+  createdPosts(): IRelation {
     return this.hasMany("Post", "id", "create_user_id");
   }
 }
@@ -432,17 +433,17 @@ class User extends Model {
 export default User;
 ```
 
-For `app/Models/Post.js` model file;
+For `app/Models/Post.ts` model file;
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Model, IRelation } from "axe-api";
 
 class Post extends Model {
-  owner() {
+  owner(): IRelation {
     return this.belongsTo("User", "owner_user_id", "id");
   }
 
-  creator() {
+  creator(): IRelation {
     return this.belongsTo("User", "create_user_id", "id");
   }
 }
@@ -470,15 +471,15 @@ Again, these are just a demonstration. In this definition, you will have 15 rout
 
 Creating a recursive model is very simple with Axe API. Just add the following relationship structure and it is done! You can use a recursive resource in this way.
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Model, IRelation } from "axe-api";
 
 class Category extends Model {
-  categories() {
+  categories(): IRelation {
     return this.hasMany("Category", "id", "parent_id");
   }
 
-  category() {
+  category(): IRelation {
     return this.belongsTo("Category", "parent_id", "id");
   }
 }
@@ -507,13 +508,18 @@ There is a very important point about recursive routes. If you defined a self-re
 
 Sometimes, you may want to protect your models by requests. In those cases, you can use model-based middleware. We are expecting you to define basically an [Express Middleware](https://expressjs.com/en/guide/writing-middleware.html). To do add a middleware to a model handlers, you should use `middlewares` getter like the following code;
 
-```js
-import { Model, HANDLERS } from "axe-api";
+```ts
+import { Request, Response, NextFunction } from "express";
+import { Model, IHandlerBaseMiddleware } from "axe-api";
 
 class User extends Model {
-  get middlewares() {
+  get middlewares(): ((
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => void)[] {
     return [
-      (req, res, next) => {
+      (req: Request, res: Response, next: NextFunction) => {
         // Check anything you want here.
         next();
       },
@@ -528,12 +534,16 @@ As you can see, you should return an array. It has been designed like that becau
 
 Of course, you can use multiple middleware functions from other files;
 
-```js
+```ts
 import { Model } from "axe-api";
-import { isAdmin, isLogged } from "./../Middlewares/index.js";
+import { isAdmin, isLogged } from "./../Middlewares/index";
 
 class User extends Model {
-  get middlewares() {
+  get middlewares(): ((
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => void)[] {
     return [isLogged, isAdmin];
   }
 }
@@ -543,13 +553,13 @@ export default User;
 
 But that is not enough for us. We aimed to create a very flexible structure for you. That's why, we added a feature that you can add a special middleware function for a special handler.
 
-```js
-import { Model, HANDLERS } from "axe-api";
-import { isAdmin, isLogged } from "./../Middlewares/index.js";
-const { INSERT, PAGINATE, UPDATE, DELETE } = HANDLERS;
+```ts
+import { Model, HandlerTypes, IHandlerBaseMiddleware } from "axe-api";
+import { isAdmin, isLogged } from "./../Middlewares/index";
+const { INSERT, PAGINATE, UPDATE, DELETE } = HandlerTypes;
 
 class User extends Model {
-  get middlewares() {
+  get middlewares(): IHandlerBaseMiddleware[] {
     return [
       {
         handler: [INSERT, PAGINATE, UPDATE],
@@ -572,11 +582,11 @@ In this example, this second middleware will be executed only for **DELETE** han
 
 In case you don't want to create routes for a model, Axe API provides ignore getter. Using the ignore getter you can block the model for auto-route creation. By default, ignore getter returns false. But you can change the value like the following code;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get ignore() {
+  get ignore(): boolean {
     return true;
   }
 }

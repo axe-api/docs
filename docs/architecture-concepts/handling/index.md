@@ -14,7 +14,7 @@ Handlers represent HTTP request handler for a specific URL. Axe API has got many
 
 As you may notices that those are CRUD actions. Axe API doesn't just create routes for your models. It also handles HTTP requests for routes. You will not worry about anything if your have a model like this;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}

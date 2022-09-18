@@ -14,25 +14,26 @@ $ npm install --save express-rate-limit
 
 ## Integration
 
-In the `app/init.js` file, you can add the following middleware;
+In the `app/init.ts` file, you can add the following middleware;
 
-```js
-import RateLimitter from "./Middlewares/RateLimitter.js";
+```ts
+import { Express } from "express";
+import RateLimitter from "./Middlewares/RateLimitter";
 
-const onBeforeInit = async ({ app }) => {
+const onBeforeInit = async (app: Express) => {
   app.use(RateLimitter);
 };
 
-const onAfterInit = async ({ app }) => {};
+const onAfterInit = async (app: Express) => {};
 
 export { onBeforeInit, onAfterInit };
 ```
 
 After that, you can create the following file;
 
-`app/Middlewares/RateLimitter.js`
+`app/Middlewares/RateLimitter.ts`
 
-```js
+```ts
 import rateLimit from "express-rate-limit";
 
 export default rateLimit({
@@ -51,9 +52,9 @@ In the following example, we are going to show how you can add Redis support for
 $ npm install --save rate-limit-redis
 ```
 
-`app/Middlewares/RateLimitter.js`
+`app/Middlewares/RateLimitter.ts`
 
-```js
+```ts
 import RateLimit from "express-rate-limit";
 import RedisStore from "rate-limit-redis";
 

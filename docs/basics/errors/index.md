@@ -4,7 +4,7 @@ You already know that Axe API is basically an Express.js project. With that powe
 
 Let's remember how does it look like.
 
-```js
+```ts
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
@@ -24,26 +24,16 @@ You can see that the error handler function is defined at last just because to c
 
 In Axe API, You can define any middleware function like Express.js. To create an error handler, you should use the initialization functions;
 
-`app/init.js`
+`app/init.ts`
 
-```js
-const onBeforeInit = async ({ app }) => {};
+```ts
+import { Express Request, Response, NextFunction } from "express"
 
-const onAfterInit = async ({ app }) => {
-  app.use(function(err, req, res, next) {
+const onBeforeInit = async (app: Express) => {};
+
+const onAfterInit = async (app: Express) => {
+  app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
     // the default error handler.
-
-    // Send the error to an error logger
-    // sendErrorToLogges(err)
-
-    // You may want to hide the error detail on production
-    if (process.env.NODE_ENV === "production") {
-      return res.status(500).json({
-        message: "An error occurred.",
-      });
-    }
-
-    throw err;
   });
 };
 

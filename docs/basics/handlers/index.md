@@ -4,12 +4,12 @@ A handler represents an HTTP request behavior something like inserting data, lis
 
 In your models, you can set which handlers should be enabled;
 
-```js
-import { Model, HANDLERS } from "axe-api";
-const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH, ALL } = HANDLERS;
+```ts
+import { Model, HandlerTypes } from "axe-api";
+const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH, ALL } = HandlerTypes;
 
 class User extends Model {
-  get handlers() {
+  get handlers(): HandlerTypes[] {
     return [INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH, ALL];
   }
 }
@@ -40,11 +40,11 @@ Axe API uses the following handlers as default handlers for all models;
 
 But you can extend a models' default handlers like the following example;
 
-```js
-import { Model, DEFAULT_HANDLERS, HANDLERS } from "axe-api";
+```ts
+import { Model, DEFAULT_HANDLERS, HandlerTypes } from "axe-api";
 
 class User extends Model {
-  get handlers() {
+  get handlers(): HandlerTypes[] {
     return [...DEFAULT_HANDLERS, HANDLERS.ALL];
   }
 }
@@ -64,11 +64,11 @@ This handler means that clients can send a POST request for the model to create 
 
 You can see an example request for the model definition;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get fillable() {
+  get fillable(): string[] {
     return ["name", "surname"];
   }
 }
@@ -101,7 +101,7 @@ If the **PAGINATE** handler is enabled, clients can paginate all the model data 
 
 This is a simple definition of the PAGINATE handlers;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}
@@ -152,7 +152,7 @@ By default, it is **enabled**.
 
 `SHOW` handler returns the selected it by primary key selection.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}
@@ -191,11 +191,11 @@ By default, it is **enabled**.
 
 `UPDATE` handlers let the clients update the selected record by primary key.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
-  get fillable() {
+  get fillable(): string[] {
     return ["name", "surname"];
   }
 }
@@ -220,7 +220,7 @@ By default, it is **enabled**.
 
 `DELETE` handlers let the clients delete the selected record by primary key.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}
@@ -248,16 +248,16 @@ By default, it is **enabled**.
 
 `PATCH` lets the clients update the record by only one field. By default, it is **disabled** but it can be set as **enabled** like the following example;
 
-```js
-import { Model, HANDLERS } from "axe-api";
-const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH } = HANDLERS;
+```ts
+import { Model, HandlerTypes } from "axe-api";
+const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH } = HandlerTypes;
 
 class User extends Model {
-  get handlers() {
+  get handlers(): HandlerTypes[] {
     return [INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH];
   }
 
-  get fillable() {
+  get fillable(): string[] {
     return ["name", "surname"];
   }
 }
@@ -296,7 +296,7 @@ If your table has millions of records, the API would return all of them. That's 
 
 This is a simple definition of the ALL handlers;
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {}

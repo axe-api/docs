@@ -45,7 +45,7 @@ Obviously, you are going to have the following routes by [API design best practi
 
 Axe API checks your model relationships. If you create the following model definitions, the routes will be created by Axe API.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class User extends Model {
@@ -55,7 +55,7 @@ class User extends Model {
 }
 ```
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class Post extends Model {
@@ -77,7 +77,7 @@ You don't have to define all routes manually with this architecture. Of course, 
 
 In the analyzing process, Axe API gets all the database structure and compares it with your model definitions. You can't execute incompatible model definitions with your database schema. Let's look at the following example again. You have to have the `user_id` column in the `posts` table in your database.
 
-```js
+```ts
 import { Model } from "axe-api";
 
 class Post extends Model {
@@ -93,14 +93,18 @@ Otherwise, you can't execute the application, and you get an error from Axe API 
 
 Middlewares are very popular patterns used in applications. Axe API analyzes your application to find middlewares and injects them to Express.js' routes. This task is completed in the booting process. You can see a very simple example of it;
 
-```js
-import { Model } from "axe-api";
+```ts
+import { Request, Response, NextFunction } from "express";
+import { Model, DEFAULT_HANDLERS, IHandlerBaseMiddleware } from "axe-api";
 
 class User extends Model {
-  get middlewares() {
+  get middlewares(): IHandlerBaseMiddleware[] {
     return [
-      (req, res, next) => {
-        next();
+      {
+        handler: DEFAULT_HANDLERS,
+        middleware: (req: Request, res: Response, next: NextFunction) => {
+          next();
+        },
       },
     ];
   }

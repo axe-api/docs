@@ -37,6 +37,10 @@ export default {
         ],
       },
       {
+        text: "Upgrading",
+        items: [{ text: "0.20.0", link: "upgrading/0.20.0" }],
+      },
+      {
         text: "Architecture",
         items: [
           {

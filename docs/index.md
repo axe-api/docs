@@ -8,6 +8,9 @@ hero:
   name: Axe API
   text: Next Generation Rest API Builder
   tagline: The fastest way to create Rest API, by defining database models and relations.
+  # image:
+  #   src: /logo.png
+  #   alt: Axe API
   actions:
     - theme: brand
       text: Get Started
@@ -17,10 +20,13 @@ hero:
       link: https://github.com/axe-api/axe-api
 
 features:
-  - title: Rocket Speed
+  - icon: ⚡️
+    title: Rocket Speed
     details: Minimal effort to create an awesome Rest API without writing too much code.
-  - title: Powerful Queries
+  - icon: 💡
+    title: Powerful Queries
     details: Under the hood, you may find the Knex.js, an awesome active record implementation.
-  - title: Extendable
+  - icon: 🛠️
+    title: Extendable
     details: A strong extendable structure to add custom business logic on the top basic API features.
 ---

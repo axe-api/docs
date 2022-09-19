@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /getting-started/introduction/index
+      link: /getting-started/what-is-axe-api
     - theme: alt
       text: View on GitHub
       link: https://github.com/axe-api/axe-api

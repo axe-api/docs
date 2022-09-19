@@ -1,4 +1,4 @@
-# Analyzing
+# Architecture
 
 Axe API is **not a passive framework** that expects you to define everything. Unlike other frameworks or libraries, Axe API tries to _understand_ what you will build under best practices' guidance. Whenever you change something in the code, it just doesn't mean you tell something to the programming language, it also means that Axe API should take an action about it. Keeping this in your mind all the time is the key factor.
 

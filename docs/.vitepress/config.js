@@ -30,10 +30,14 @@ export default {
       {
         text: "Getting Started",
         items: [
-          { text: "Introduction", link: "getting-started/introduction/index" },
+          {
+            text: "What is Axe API?",
+            link: "getting-started/what-is-axe-api",
+          },
           { text: "Installation", link: "getting-started/installation/index" },
           { text: "Migrations", link: "getting-started/migrations/index" },
           { text: "CRUD", link: "getting-started/crud/index" },
+          { text: "Architecture", link: "getting-started/architecture" },
           { text: "Development", link: "getting-started/development/index" },
           { text: "What is next?", link: "getting-started/what-is-next/index" },
         ],
@@ -41,19 +45,6 @@ export default {
       {
         text: "Upgrading",
         items: [{ text: "0.20.0", link: "upgrading/0.20.0" }],
-      },
-      {
-        text: "Architecture",
-        items: [
-          {
-            text: "Introduction",
-            link: "architecture-concepts/analyzing/index",
-          },
-          {
-            text: "Installation",
-            link: "architecture-concepts/handling/index",
-          },
-        ],
       },
       {
         text: "Basics",

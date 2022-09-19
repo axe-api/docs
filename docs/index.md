@@ -6,7 +6,7 @@ titleTemplate: The fastest way to create Rest API, by defining database models a
 
 hero:
   name: Axe API
-  text: Next Generation Rest API Builder
+  text: Next Generation Rest API Framework
   tagline: You can quickly create a Rest API by simply defining models and relationships.
   image:
     src: ./axe.png

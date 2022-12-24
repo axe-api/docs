@@ -34,7 +34,8 @@ Let's talk about what happens if you define a model like this. Don't think this 
 By adding more getter and functions, you can tell a different story about your API.
 
 :::tip
-If you send the following request in your local development environment, you will see the API will respond; [localhost:3000/api/users](http://localhost:3000/api/users)
+If you send the following request in your local development environment, you will see the API will respond;
+<a href="http://localhost:3000/api/users" target="_blank" rel="noreferrer">localhost:3000/api/users</a>
 :::
 
 ## Table Name
@@ -116,7 +117,7 @@ Like the code above, changing **email** has more complex logic because of securi
 
 ## Validations
 
-Everybody needs to form validation in their API. Axe API uses [validatorjs](https://www.npmjs.com/package/validatorjs) internally.
+Everybody needs to form validation in their API. Axe API uses <a href="https://www.npmjs.com/package/validatorjs" target="_blank" rel="noreferrer">validatorjs</a> internally.
 
 The thing you should do to define validations is adding a validation method to your model. The validation method should return an object which describes how form validation should be.
 
@@ -233,7 +234,7 @@ The serialization function will be triggered automatically by all handlers. Also
 
 ## Timestamps
 
-Axe API supports timestamps as default. While you are creating a new database table in your migrations, you can add timestamps with the [Knex.js helpers](http://knexjs.org/#Schema-timestamps). After that, you don't have to do anything. Axe API will manage your timestamps automatically.
+Axe API supports timestamps as default. While you are creating a new database table in your migrations, you can add timestamps with the <a href="http://knexjs.org/#Schema-timestamps" target="_blank" rel="noreferrer">Knex.js helpers</a>. After that, you don't have to do anything. Axe API will manage your timestamps automatically.
 
 You can look at the simple timestamp example for a migration file;
 
@@ -506,7 +507,7 @@ There is a very important point about recursive routes. If you defined a self-re
 
 ## Middlewares
 
-Sometimes, you may want to protect your models by requests. In those cases, you can use model-based middleware. We are expecting you to define basically an [Express Middleware](https://expressjs.com/en/guide/writing-middleware.html). To do add a middleware to a model handlers, you should use `middlewares` getter like the following code;
+Sometimes, you may want to protect your models by requests. In those cases, you can use model-based middleware. We are expecting you to define basically an <a href="https://expressjs.com/en/guide/writing-middleware.html" target="_blank" rel="noreferrer">Express Middleware</a>. To do add a middleware to a model handlers, you should use `middlewares` getter like the following code;
 
 ```ts
 import { Request, Response, NextFunction } from "express";

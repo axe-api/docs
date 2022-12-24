@@ -14,7 +14,7 @@ After that, the `jsonwebtoken` package will be ready to use.
 
 ## Handler
 
-To provide an authentication structure, we need to create a [Custom Route](/routes/#custom-routes). To do that, you change the following method in the `app/init.ts` file;
+To provide an authentication structure, we need to create a [Custom Route](/basics/init/index.html). To do that, you change the following method in the `app/init.ts` file;
 
 ```ts
 import { Express } from "express";

@@ -13,8 +13,8 @@ $ yarn start
 
 ## Issues
 
-If you have any problem with the documentation, please open an issue in the main repository, [docs](https://github.com/axe-api/docs/issues).
+If you have any problem with the documentation, please open an issue in the main repository, <a href="https://github.com/axe-api/docs/issues" target="_blank" rel="noreferrer">docs</a>.
 
 ## License
 
-[MIT](LICENSE)
+<a href="https://opensource.org/licenses/MIT" target="_blank" rel="noreferrer">MIT</a>

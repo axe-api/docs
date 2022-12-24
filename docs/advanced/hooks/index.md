@@ -31,7 +31,7 @@ const onBeforeInsert = async ({ formData }: IHookParameter) => {
 export { onBeforeInsert };
 ```
 
-In the code above, we used [bcrypt](https://www.npmjs.com/package/bcrypt) library to hash the user's password. By accessing form data, hashing the user's password is easy.
+In the code above, we used <a href="https://www.npmjs.com/package/bcrypt" target="_blank" rel="noreferrer">bcrypt</a> library to hash the user's password. By accessing form data, hashing the user's password is easy.
 
 **But can this function be executed? Yes!** In the booting process, Axe API tries to discover what kind of hooks and events have been written. For a model called `User`, if you create a hook which is called `UserHook`, Axe API accepts that `UserHooks` is the hook definition file for the model `User`. In the HTTP request processing time, if there is any hook that has been written, Axe API calls that hook.
 
@@ -132,16 +132,16 @@ There are some parameters which you can use in a hook or event function.
 
 ### Common Parameters
 
-- `request`: Request object of [Expresss](https://expressjs.com/en/4x/api.html#req)
-- `response`: Response object of [Expresss](https://expressjs.com/en/4x/api.html#res)
+- `request`: Request object of <a href="https://expressjs.com/en/4x/api.html#req" target="_blank" rel="noreferrer">Expresss</a>
+- `response`: Response object of <a href="https://expressjs.com/en/4x/api.html#res" target="_blank" rel="noreferrer">Expresss</a>
 - `model`: Current model instance. For example; `User.ts`.
-- `database`: Database connection instance. For example [Knex.js](http://knexjs.org/#Installation-client)
+- `database`: Database connection instance. For example <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a>
 - `relation`: The relation definition if the route is a related route (For example `api/users/:userId/posts`).
 - `parentModel`: The parent model instance if the route is a related route (For example `api/users/:userId/posts`).
 
 ## Special Parameters
 
-- `query`: The Knex.js' [query instance](http://knexjs.org/#Builder-wheres).
+- `query`: The Knex.js' <a href="http://knexjs.org/#Builder-wheres" target="_blank" rel="noreferrer">query instance</a>.
 - `conditions`: The conditions which has been send by the HTTP client to filter data.
 - `item`: The current record. (For example; the item that will be updated.)
 - `result`: The query result. (For example SHOW and PAGINATE handlers.)

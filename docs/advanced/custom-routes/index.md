@@ -2,7 +2,7 @@
 
 Axe API provides so many different options for creating routes automatically. But again, we accept the truth you may need some special routes for some actions. That's why we provide another way to create **pure Express routes**.
 
-In the `app/init.ts`, you will find a simple function. Axe API guarantees that function will be called after model routes creation. In that function, you can access the [Express](https://expressjs.com/en/starter/hello-world.html) application. In the following way, you can add your custom routes or middlewares.
+In the `app/init.ts`, you will find a simple function. Axe API guarantees that function will be called after model routes creation. In that function, you can access the <a href="https://expressjs.com/en/starter/hello-world.html" target="_blank" rel="noreferrer">Express</a> application. In the following way, you can add your custom routes or middlewares.
 
 ```ts
 import { Express } from "express";
@@ -35,4 +35,4 @@ const onAfterInit = async (app: Express) => {};
 export { onBeforeInit, onAfterInit };
 ```
 
-Please keep in mind that the init function is another escape point in which you can add your custom logic by accessing [Express](https://expressjs.com/) application.
+Please keep in mind that the init function is another escape point in which you can add your custom logic by accessing <a href="https://expressjs.com/" target="_blank" rel="noreferrer">Express</a> application.

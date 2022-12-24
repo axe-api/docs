@@ -97,7 +97,7 @@ As a developer, you should provide at least one fillable field name in the model
 By default, it is **enabled**.
 :::
 
-If the **PAGINATE** handler is enabled, clients can paginate all the model data with dynamic query features such as [Where Conditions](/basics/queries/#where-conditions), [Relation Queries](/basics/queries/#relation-queries), etc.
+If the **PAGINATE** handler is enabled, clients can paginate all the model data with dynamic query features such as [Where Conditions](/basics/queries/index.html#where-conditions), [Relation Queries](/basics/queries/index.html#related-data), etc.
 
 This is a simple definition of the PAGINATE handlers;
 

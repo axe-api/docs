@@ -22,7 +22,7 @@ You don't have to think about controllers, validations, routing, and etc. Axe AP
 
 ## Routing
 
-The most important task of Axe API is creating [Express.js routes](https://expressjs.com/en/guide/routing.html) for you. To do that, Axe API needs to understand what kind of data structure do you have. So that it analyzes your model structure deeply with their relationships. Let's assume that you have the following tables in your database;
+The most important task of Axe API is creating <a href="https://expressjs.com/en/guide/routing.html" target="_blank" rel="noreferrer">Express.js routes</a> for you. To do that, Axe API needs to understand what kind of data structure do you have. So that it analyzes your model structure deeply with their relationships. Let's assume that you have the following tables in your database;
 
 <div style="text-align:center;">
 
@@ -30,7 +30,7 @@ The most important task of Axe API is creating [Express.js routes](https://expre
 
 </div>
 
-Obviously, you are going to have the following routes by [API design best practices](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api).
+Obviously, you are going to have the following routes by <a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api" target="_blank" rel="noreferrer">API design best practices</a>.
 
 - `POST api/users` - Create a new user
 - `GET api/users` - Get all users

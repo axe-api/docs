@@ -36,22 +36,22 @@ This is the power of DB Analyzer.
 
 In the following list, you may see that which definitions are working with DB Analyzer together.
 
-- [Table name](/models/#table-name)
-- [Primary Key](/models/#primary-key)
-- [Fillable Fields](/models/#fillable-fields)
-- [Form Validations](/models/#validations)
-- [Hidden Fields](/models/#hidden-fields)
-- [Timestamps](/models/#timestamps)
-- [INSERT, UPDATE actions](/routes/#handlers)
-- [Related Routes](/routes/#related-routes)
-- [Query Fields](/queries/#fields)
-- [Query Sorting](/queries/#sorting)
-- [Query Where Conditions](/queries/#where-conditions)
-- [Query Relations](/queries/#relation-queries)
+- [Table name](/basics/models/index.html#table-name)
+- [Primary Key](/basics/models/index.html#primary-key)
+- [Fillable Fields](/basics/models/index.html#fillable-fields)
+- [Form Validations](/basics/models/index.html#validations)
+- [Hidden Fields](/basics/models/index.html#hidden-fields)
+- [Timestamps](/basics/models/index.html#timestamps)
+- [INSERT, UPDATE actions](/basics/handlers/index.html)
+- [Related Routes](/basics/models/index.html#related-routes)
+- [Query Fields](/basics/queries/index.html#fields)
+- [Query Sorting](/basics/queries/index.html#sorting)
+- [Query Where Conditions](/basics/queries/index.html#where-conditions)
+- [Query Relations](/basics/queries/index.html#related-data)
 
 ## Supported Database
 
-Currently, [knex-schema-inspector](https://github.com/knex/knex-schema-inspector) package is using to detect columns. Axe API supports all database that has been supported by **knex-schema-inspector**.
+Currently, <a href="https://github.com/knex/knex-schema-inspector" target="_blank" rel="noreferrer">knex-schema-inspector</a> package is using to detect columns. Axe API supports all database that has been supported by **knex-schema-inspector**.
 
 - [x] MySQL
 - [x] PostgreSQL

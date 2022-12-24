@@ -1,17 +1,38 @@
 name: Build and Deploy
 on: [push]
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      - run: yarn install --frozen-lockfile
 
-      - name: vuepress-deploy
-        uses: jenkey2011/vuepress-deploy@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: axe-api/axe-api.github.io
-          TARGET_BRANCH: master
-          BUILD_SCRIPT: yarn && yarn build
-          BUILD_DIR: docs/.vuepress/dist
+      - name: Build
+        run: yarn docs:build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: docs/.vitepress/dist
+          external_repository: axe-api/axe-api.github.io
+          publish_branch: master
+  # build-and-deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@master
+  #     - name: vuepress-deploy
+  #       uses: jenkey2011/vuepress-deploy@master
+  #       env:
+  #         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  #         TARGET_REPO: axe-api/axe-api.github.io
+  #         TARGET_BRANCH: master
+  #         BUILD_SCRIPT: yarn && yarn build
+  #         BUILD_DIR: docs/.vuepress/dist

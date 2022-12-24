@@ -56,6 +56,7 @@ export default {
           { text: "Middlewares", link: "basics/middlewares/index" },
           { text: "Queries", link: "basics/queries/index" },
           { text: "Error Handling", link: "basics/errors/index" },
+          { text: "Deployment", link: "basics/deployment" },
         ],
       },
       {

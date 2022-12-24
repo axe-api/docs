@@ -81,13 +81,13 @@ Once you build your application, you can execute the following command in the `b
 
 ```bash
 $ cd build
-$ docker build -t api .
+$ docker build -t my-api-image .
 ```
 
 Once your docker image is ready, you can execute it with the following command;
 
 ```bash
-$ docker run -p 3000:3000 api
+$ docker run -p 3000:3000 my-api-image
 ```
 
 :::warning
@@ -103,17 +103,17 @@ version: "3"
 
 services:
   migration:
-    image: api
+    image: my-api-image
     working_dir: /home
     command: knex --esm migrate:latest
     environment:
-      DB_HOST: host.docker.internal
+      DB_HOST: db_host
       DB_USER: db_user
       DB_PASSWORD: db_password
       DB_DATABASE: your_db_schema
 
   app:
-    image: api
+    image: my-api-image
     command: node index.js
     restart: always
     depends_on:
@@ -121,13 +121,17 @@ services:
     ports:
       - 3000:3000
     environment:
-      DB_HOST: host.docker.internal
+      DB_HOST: db_host
       DB_USER: db_user
       DB_PASSWORD: db_password
       DB_DATABASE: your_db_schema
 ```
 
-## More and more
+:::tip
+You can use `host.docker.internal` as `DB_HOST` value to access the dabase which on located in your machine. You can find more details in the Docker documentation.
+:::
+
+## Dive Deeper
 
 We tried to show some of the basic deployment methods in here. Nevertheless we know that there are many different scenario which you can use. We encrouge Axe API developers to write blog posts abou how to deploy your application in different environments instead of adding many pages here.
 

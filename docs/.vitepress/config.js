@@ -95,7 +95,7 @@ export default {
 
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2020-present Özgür Adem Işıklı",
+      copyright: "Copyright © 2020-present",
     },
   },
 

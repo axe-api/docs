@@ -2,7 +2,7 @@
 
 After the auto-creation process, probably you want to see created routes as a developer. That's why we added documentation support for auto-created routes. You can visit the following route after the application has been executed;
 
-[localhost:3000/docs](http://localhost:3000/docs)
+<a href="http://localhost:3000/docs" target="_blank" rel="noreferrer">localhost:3000/docs</a>
 
 ```json
 {
@@ -79,7 +79,7 @@ With this response, you may review what kind of routes have been created automat
 
 But again, if you want simpler results for your auto-created routes, you should use the following request.
 
-[localhost:3000/docs/routes](http://localhost:3000/docs/routes)
+<a href="http://localhost:3000/docs/routes" target="_blank" rel="noreferrer">localhost:3000/docs/routes</a>
 
 ```json
 [

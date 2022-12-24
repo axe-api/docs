@@ -43,7 +43,7 @@ $ npm run start:dev
 
 After that, your first **Axe API** application will be running in `localhost:3000`.
 
-You will see the following API response if you visit [localhost:3000](http://localhost:3000).
+You will see the following API response if you visit <a href="http://localhost:3000" target="_blank" rel="noreferrer">localhost:3000</a>.
 
 ```json
 {

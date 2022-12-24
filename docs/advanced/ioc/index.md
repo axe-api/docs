@@ -1,6 +1,6 @@
 # IoC
 
-**Inversion of Control** (IoC) is a design principle (although, some people refer to it as a pattern). As the name suggests, it is used to invert different kinds of controls in object-oriented design to achieve loose coupling. [\*](https://www.tutorialsteacher.com/ioc/inversion-of-control)
+**Inversion of Control** (IoC) is a design principle (although, some people refer to it as a pattern). As the name suggests, it is used to invert different kinds of controls in object-oriented design to achieve loose coupling. <a href="https://www.tutorialsteacher.com/ioc/inversion-of-control" target="_blank" rel="noreferrer">[\*]</a>
 
 Axe API provides a simple IoC structure to create testable codes. Let's review the following hook;
 
@@ -53,11 +53,11 @@ const onBeforePaginate = async () => {
 export { onBeforePaginate };
 ```
 
-You may find more detail in the [Config](/config) documentation.
+You may find more detail in the [Config](/basics/config/index.html) documentation.
 
 ### `Database (Singleton)`
 
-You can access the [Knex.js' connection instance](https://knexjs.org/#Installation-client).
+You can access the <a href="https://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js' connection instance</a>.
 
 ```ts
 import { IoCService, IHookParameter } from "axe-api";
@@ -71,7 +71,7 @@ export { onBeforeInsert };
 
 ### `App (Singleton)`
 
-You can access the [Express' App](https://expressjs.com/en/starter/hello-world.html).
+You can access the <a href="https://expressjs.com/en/starter/hello-world.html" target="_blank" rel="noreferrer">Express' App</a>
 
 ```ts
 import { IoCService, IHookParameter } from "axe-api";
@@ -144,7 +144,7 @@ IoCService.bind("MyClass", async () => {
 
 ### `singleton(name, callback)`
 
-In software engineering, the singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance. [\*](https://en.wikipedia.org/wiki/Singleton_pattern). With this method, you can define a singleton relationship with your object.
+In software engineering, the singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance. <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">[\*]</a> With this method, you can define a singleton relationship with your object.
 
 ```ts
 import { IoCService } from "axe-api";

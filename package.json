@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev docs",
+    "start": "vitepress serve docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "docs:build": "vitepress build docs"
   },
   "keywords": [],
   "license": "MIT",

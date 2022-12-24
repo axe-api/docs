@@ -15,7 +15,7 @@ const onBeforePaginate = async (hookParameters: IHookParameter) => {
 export { onBeforePaginate };
 ```
 
-All configuration files and keys will be accessible via Config instance. On the other hand, we use [dotenv](https://www.npmjs.com/package/dotenv) package to manage your secret keys.
+All configuration files and keys will be accessible via Config instance. On the other hand, we use <a href="https://www.npmjs.com/package/dotenv" target="_blank" rel="noreferrer">dotenv</a> package to manage your secret keys.
 
 ## Application
 
@@ -47,7 +47,7 @@ The following table shows the configuration keys;
 
 ## Database
 
-In the `app/Config/Database.ts` file, you can find the database configuration for the [Knex.js Connection](http://knexjs.org/#Installation-client).
+In the `app/Config/Database.ts` file, you can find the database configuration for the <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js Connection</a>.
 
 ```ts
 import { IDatabaseConfig } from "axe-api";
@@ -72,7 +72,7 @@ const config: IDatabaseConfig = {
 export default config;
 ```
 
-In this file, we used the same configuration structure with [Knex.js](http://knexjs.org/#Installation-client). So you can add more configuration by [Knex.js](http://knexjs.org/#Installation-client) documentation.
+In this file, we used the same configuration structure with <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a>. So you can add more configuration by <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a> documentation.
 
 ## Extending
 

@@ -8,7 +8,7 @@ export default {
   lastUpdated: true,
 
   themeConfig: {
-    logo: "/logo.png",
+    logo: "/axe.png",
 
     nav: [
       { text: "Github", link: "https://github.com/axe-api/axe-api" },

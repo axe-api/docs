@@ -87,7 +87,7 @@ export default {
         text: "Development",
         items: [
           { text: "Getting started", link: "development/getting-started" },
-          { text: "dev-kit", link: "development/dev-kit" },
+          { text: "Set up dev-kit", link: "development/dev-kit" },
         ],
       },
       {

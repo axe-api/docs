@@ -1,4 +1,4 @@
-# dev-kit 🪓
+# Set up `dev-kit`
 
 In this section, we will provide all the information about how you can set up your development environment.
 

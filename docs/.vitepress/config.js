@@ -84,10 +84,11 @@ export default {
         ],
       },
       {
-        text: "Development",
+        text: "Contribution",
         items: [
-          { text: "Getting started", link: "development/getting-started" },
-          { text: "Set up dev-kit", link: "development/dev-kit" },
+          { text: "Fundamentals", link: "contribution/fundamentals" },
+          { text: "Development Kit", link: "contribution/development-kit" },
+          { text: "Databases", link: "contribution/databases" },
         ],
       },
       {

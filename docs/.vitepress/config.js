@@ -38,7 +38,6 @@ export default {
           { text: "Migrations", link: "getting-started/migrations/index" },
           { text: "CRUD", link: "getting-started/crud/index" },
           { text: "Architecture", link: "getting-started/architecture" },
-          { text: "Development", link: "getting-started/development/index" },
           { text: "What is next?", link: "getting-started/what-is-next/index" },
         ],
       },

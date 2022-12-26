@@ -1,4 +1,4 @@
-# Getting Started
+# Fundamentals
 
 As the Axe API team, we want to provide the best development experiences to the developers who want to contribute to the Axe API project.
 

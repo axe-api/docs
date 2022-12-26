@@ -89,6 +89,7 @@ export default {
           { text: "Fundamentals", link: "contribution/fundamentals" },
           { text: "Development Kit", link: "contribution/development-kit" },
           { text: "Databases", link: "contribution/databases" },
+          { text: "Tests", link: "contribution/tests" },
         ],
       },
       {

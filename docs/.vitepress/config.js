@@ -62,6 +62,7 @@ export default {
         text: "Advanced",
         items: [
           { text: "Hooks", link: "advanced/hooks/index" },
+          { text: "Internationalization", link: "advanced/i18n" },
           { text: "IoC", link: "advanced/ioc/index" },
           { text: "Custom Routes", link: "advanced/custom-routes/index" },
           { text: "Documentation", link: "advanced/docs/index" },

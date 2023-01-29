@@ -116,15 +116,16 @@ This is the basic standard of our calling Hooks/Events system. By the type of ha
 
 The following table describes all possible hooks by handler types.
 
-| Handler | Manipulating                     | Fetching                                   |
-| ------- | -------------------------------- | ------------------------------------------ |
-| INSERT  | `onBeforeInsert` `onAfterInsert` |                                            |
-| PAGINAT |                                  | `onBeforePaginate` `onAfterPaginate`       |
-| ALL     |                                  | `onBeforeAll` `onAfterAll`                 |
-| SHOW    |                                  | `onBeforeShow` `onAfterShow`               |
-| UPDATE  | `onBeforeUpdate` `onAfterUpdate` | `onBeforeUpdateQuery` `onAfterUpdateQuery` |
-| PATCH   | `onBeforeUpdate` `onAfterUpdate` | `onBeforeUpdateQuery` `onAfterUpdateQuery` |
-| DELETE  | `onBeforeDelete` `onAfterDelete` | `onBeforeDeleteQuery` `onAfterUpdateQuery` |
+| Handler                                                  | Manipulating                               | Fetching                                             |
+| -------------------------------------------------------- | ------------------------------------------ | ---------------------------------------------------- |
+| [INSERT](/basics/handlers/index.html#insert)             | `onBeforeInsert` `onAfterInsert`           |                                                      |
+| [PAGINATE](/basics/handlers/index.html#paginate)         |                                            | `onBeforePaginate` `onAfterPaginate`                 |
+| [ALL](/basics/handlers/index.html#all)                   |                                            | `onBeforeAll` `onAfterAll`                           |
+| [SHOW](/basics/handlers/index.html#show)                 |                                            | `onBeforeShow` `onAfterShow`                         |
+| [UPDATE](/basics/handlers/index.html#update)             | `onBeforeUpdate` `onAfterUpdate`           | `onBeforeUpdateQuery` `onAfterUpdateQuery`           |
+| [PATCH](/basics/handlers/index.html#patch)               | `onBeforeUpdate` `onAfterUpdate`           | `onBeforeUpdateQuery` `onAfterUpdateQuery`           |
+| [DELETE](/basics/handlers/index.html#delete)             | `onBeforeDelete` `onAfterDelete`           | `onBeforeDeleteQuery` `onAfterDeleteQuery`           |
+| [FORCE_DELETE](/basics/handlers/index.html#force-delete) | `onBeforeForceDelete` `onAfterForceDelete` | `onBeforeForceDeleteQuery` `onAfterForceDeleteQuery` |
 
 ## Parameters
 
@@ -149,21 +150,25 @@ There are some parameters which you can use in a hook or event function.
 
 We can show all special parameters in the following table;
 
-| Hook/Events Name    | Parameters                 |
-| ------------------- | -------------------------- |
-| onBeforeInsert      | formData                   |
-| onBeforeUpdateQuery | query                      |
-| onBeforeUpdate      | item, formData, query,     |
-| onBeforeDeleteQuery | query                      |
-| onBeforeDelete      | query                      |
-| onBeforePaginate    | conditions, query          |
-| onBeforeAll         | conditions, query          |
-| onBeforeShow        | conditions, query          |
-| onAfterInsert       | formData, item             |
-| onAfterUpdateQuery  | item, query                |
-| onAfterUpdate       | item, formData, query      |
-| onAfterDeleteQuery  | query, item                |
-| onAfterDelete       | item                       |
-| onAfterPaginate     | results, conditions, query |
-| onAfterAll          | results, conditions, query |
-| onAfterShow         | item, conditions, query    |
+| Hook/Events Name         | Parameters                 |
+| ------------------------ | -------------------------- |
+| onBeforeInsert           | formData                   |
+| onBeforeUpdateQuery      | query                      |
+| onBeforeUpdate           | item, formData, query,     |
+| onBeforeDeleteQuery      | query                      |
+| onBeforeDelete           | query                      |
+| onBeforeForceDeleteQuery | query                      |
+| onBeforeForceDelete      | query                      |
+| onBeforePaginate         | conditions, query          |
+| onBeforeAll              | conditions, query          |
+| onBeforeShow             | conditions, query          |
+| onAfterInsert            | formData, item             |
+| onAfterUpdateQuery       | item, query                |
+| onAfterUpdate            | item, formData, query      |
+| onAfterDeleteQuery       | query, item                |
+| onAfterDelete            | item                       |
+| onAfterForceDeleteQuery  | query, item                |
+| onAfterForceDelete       | item                       |
+| onAfterPaginate          | results, conditions, query |
+| onAfterAll               | results, conditions, query |
+| onAfterShow              | item, conditions, query    |

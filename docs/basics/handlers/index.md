@@ -6,11 +6,12 @@ In your models, you can set which handlers should be enabled;
 
 ```ts
 import { Model, HandlerTypes } from "axe-api";
-const { INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH, ALL } = HandlerTypes;
+const { INSERT, SHOW, UPDATE, DELETE, FORCE_DELETE, PAGINATE, PATCH, ALL } =
+  HandlerTypes;
 
 class User extends Model {
   get handlers(): HandlerTypes[] {
-    return [INSERT, SHOW, UPDATE, DELETE, PAGINATE, PATCH, ALL];
+    return [INSERT, SHOW, UPDATE, DELETE, FORCE_DELETE, PAGINATE, PATCH, ALL];
   }
 }
 
@@ -24,6 +25,7 @@ Axe API has the following handlers;
 - SHOW
 - UPDATE
 - DELETE
+- FORCE_DELETE (Only with [Soft Delete](/basics/models/index.html#soft-delete) feature)
 - PATCH
 - ALL
 
@@ -239,6 +241,40 @@ $ curl \
 :::tip
 If the selected record could be deleted properly, Axe API will return **HTTP 200**.
 :::
+
+:::warning
+The record will be marked as **deleted** but **NOT** deleted **completely** from the database table if the [Soft Delete](/basics/models/index.html#soft-delete) feature is enabled. You can use [FORCE_DELETE](/basics/handlers/index.html#force-delete) handler when the soft-delete feature is enabled.
+:::
+
+## FORCE_DELETE
+
+:::warning
+By default, it is **disabled**.
+:::
+
+You should add `deletedAtColumn` getter to your model to use this handler. [DELETE](/basics/handlers/index.html#delete) handler soft-deletes records if the soft-deleting feature is enabled. But `FORCE_DELETE` deletes records completelty.
+
+You must add the `FORCE_DELETE` handler to your model to enable this handler;
+
+```ts
+import { Model, DEFAULT_HANDLERS, HandlerTypes } from "axe-api";
+
+class Customer extends Model {
+  get handlers() {
+    return [...DEFAULT_HANDLERS, HandlerTypes.FORCE_DELETE];
+  }
+}
+
+export default Customer;
+```
+
+In this following request, the record will be deleted completelty from database table;
+
+```bash
+$ curl \
+  -H "Content-Type: application/json" \
+  -X DELETE http://localhost:3000/api/users/1/force
+```
 
 ## PATCH
 

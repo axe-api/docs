@@ -42,6 +42,7 @@ In the following list, you may see that which definitions are working with DB An
 - [Form Validations](/basics/models/index.html#validations)
 - [Hidden Fields](/basics/models/index.html#hidden-fields)
 - [Timestamps](/basics/models/index.html#timestamps)
+- [Soft Delete](/basics/models/index.html#soft-delete)
 - [INSERT, UPDATE actions](/basics/handlers/index.html)
 - [Related Routes](/basics/models/index.html#related-routes)
 - [Query Fields](/basics/queries/index.html#fields)

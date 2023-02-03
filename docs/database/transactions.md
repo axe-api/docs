@@ -84,7 +84,7 @@ export default User;
 
 ## Usage
 
-Transactions can be used in [Hooks](/advanced/hooks/index.html) or [Events](/advanced/hooks/index.html#events).
+Transactions can be used in [Hooks](/advanced/hooks.html) or [Events](/advanced/hooks.html#events).
 
 By your configuration, Axe API automatically will start the transaction. In **Hooks** or **Events**, Axe API will pass the transaction object as `trx` object in order to be used.
 

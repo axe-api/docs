@@ -23,10 +23,7 @@ import { Knex } from "knex";
 
 const onBeforeInsert = async ({ formData }: IHookParameter) => {
   const db = (await IoCService.use("Database")) as Knex;
-  const user = await db
-    .table("users")
-    .where("email", formData.email)
-    .first();
+  const user = await db.table("users").where("email", formData.email).first();
 };
 
 export { onBeforeInsert };
@@ -53,7 +50,7 @@ const onBeforePaginate = async () => {
 export { onBeforePaginate };
 ```
 
-You may find more detail in the [Config](/basics/config/index.html) documentation.
+You may find more detail in the [Config](/basics/config.html) documentation.
 
 ### `Database (Singleton)`
 

@@ -179,7 +179,7 @@ But also, you can select which columns will be fetched for the relation. You don
 
 <!-- ## Trashed Records
 
-You can use the `trashed` parameters to list soft-deleted records if the [Soft Delete](/basics/models/index.html#soft-delete) feature is enabled.
+You can use the `trashed` parameters to list soft-deleted records if the [Soft Delete](/basics/models.html#soft-delete) feature is enabled.
 
 ```js
 /api/customers?trashed=true

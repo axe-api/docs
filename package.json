@@ -18,6 +18,6 @@
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.8.2",
     "vitepress": "1.0.0-alpha.33",
-    "vue": "^3.2.39"
+    "vue": "^3.2.47"
   }
 }

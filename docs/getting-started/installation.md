@@ -56,5 +56,5 @@ You will see the following API response if you visit <a href="http://localhost:3
 If you can see that response, it means that your project is running properly. :tada:
 
 :::tip
-If you review `.env` file, you can see that the project uses [SQLite](https://www.sqlite.org/index.html) as the database.
+If you review `.env` file, you can see that the project uses [SQLite](https://www.sqlite.org.html) as the database.
 :::

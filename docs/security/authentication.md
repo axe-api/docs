@@ -14,7 +14,7 @@ After that, the `jsonwebtoken` package will be ready to use.
 
 ## Handler
 
-To provide an authentication structure, we need to create a [Custom Route](/basics/init/index.html). To do that, you change the following method in the `app/init.ts` file;
+To provide an authentication structure, we need to create a [Custom Route](/basics/init.html). To do that, you change the following method in the `app/init.ts` file;
 
 ```ts
 import { Express } from "express";
@@ -43,9 +43,7 @@ import jwt from "jsonwebtoken";
 export default async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const Database = (await IoCService.use("Database")) as Knex;
-  const user = await Database.table("users")
-    .where("email", email)
-    .first();
+  const user = await Database.table("users").where("email", email).first();
 
   if (!user) {
     return res.status(404).json({

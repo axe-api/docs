@@ -116,16 +116,16 @@ This is the basic standard of our calling Hooks/Events system. By the type of ha
 
 The following table describes all possible hooks by handler types.
 
-| Handler                                                  | Manipulating                               | Fetching                                             |
-| -------------------------------------------------------- | ------------------------------------------ | ---------------------------------------------------- |
-| [INSERT](/basics/handlers/index.html#insert)             | `onBeforeInsert` `onAfterInsert`           |                                                      |
-| [PAGINATE](/basics/handlers/index.html#paginate)         |                                            | `onBeforePaginate` `onAfterPaginate`                 |
-| [ALL](/basics/handlers/index.html#all)                   |                                            | `onBeforeAll` `onAfterAll`                           |
-| [SHOW](/basics/handlers/index.html#show)                 |                                            | `onBeforeShow` `onAfterShow`                         |
-| [UPDATE](/basics/handlers/index.html#update)             | `onBeforeUpdate` `onAfterUpdate`           | `onBeforeUpdateQuery` `onAfterUpdateQuery`           |
-| [PATCH](/basics/handlers/index.html#patch)               | `onBeforeUpdate` `onAfterUpdate`           | `onBeforeUpdateQuery` `onAfterUpdateQuery`           |
-| [DELETE](/basics/handlers/index.html#delete)             | `onBeforeDelete` `onAfterDelete`           | `onBeforeDeleteQuery` `onAfterDeleteQuery`           |
-| [FORCE_DELETE](/basics/handlers/index.html#force-delete) | `onBeforeForceDelete` `onAfterForceDelete` | `onBeforeForceDeleteQuery` `onAfterForceDeleteQuery` |
+| Handler                                            | Manipulating                               | Fetching                                             |
+| -------------------------------------------------- | ------------------------------------------ | ---------------------------------------------------- |
+| [INSERT](/basics/handlers.html#insert)             | `onBeforeInsert` `onAfterInsert`           |                                                      |
+| [PAGINATE](/basics/handlers.html#paginate)         |                                            | `onBeforePaginate` `onAfterPaginate`                 |
+| [ALL](/basics/handlers.html#all)                   |                                            | `onBeforeAll` `onAfterAll`                           |
+| [SHOW](/basics/handlers.html#show)                 |                                            | `onBeforeShow` `onAfterShow`                         |
+| [UPDATE](/basics/handlers.html#update)             | `onBeforeUpdate` `onAfterUpdate`           | `onBeforeUpdateQuery` `onAfterUpdateQuery`           |
+| [PATCH](/basics/handlers.html#patch)               | `onBeforeUpdate` `onAfterUpdate`           | `onBeforeUpdateQuery` `onAfterUpdateQuery`           |
+| [DELETE](/basics/handlers.html#delete)             | `onBeforeDelete` `onAfterDelete`           | `onBeforeDeleteQuery` `onAfterDeleteQuery`           |
+| [FORCE_DELETE](/basics/handlers.html#force-delete) | `onBeforeForceDelete` `onAfterForceDelete` | `onBeforeForceDeleteQuery` `onAfterForceDeleteQuery` |
 
 ## Parameters
 

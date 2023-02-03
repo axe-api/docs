@@ -321,7 +321,7 @@ export const up = function (knex) {
 You can use soft delete feature after this configurations.
 
 :::tip
-You can use [FORCE_DELETE](/basics/handlers/index.html#force-delete) handler if you want to delete a record completelty.
+You can use [FORCE_DELETE](/basics/handlers.html#force-delete) handler if you want to delete a record completelty.
 :::
 
 :::tip

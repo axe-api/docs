@@ -25,7 +25,7 @@ Axe API has the following handlers;
 - SHOW
 - UPDATE
 - DELETE
-- FORCE_DELETE (Only with [Soft Delete](/basics/models/index.html#soft-delete) feature)
+- FORCE_DELETE (Only with [Soft Delete](/basics/models.html#soft-delete) feature)
 - PATCH
 - ALL
 
@@ -99,7 +99,7 @@ As a developer, you should provide at least one fillable field name in the model
 By default, it is **enabled**.
 :::
 
-If the **PAGINATE** handler is enabled, clients can paginate all the model data with dynamic query features such as [Where Conditions](/basics/queries/index.html#where-conditions), [Relation Queries](/basics/queries/index.html#related-data), etc.
+If the **PAGINATE** handler is enabled, clients can paginate all the model data with dynamic query features such as [Where Conditions](/basics/queries.html#where-conditions), [Relation Queries](/basics/queries.html#related-data), etc.
 
 This is a simple definition of the PAGINATE handlers;
 
@@ -143,7 +143,7 @@ This is an example result of a pagination request;
 ```
 
 :::tip
-By default, Axe API doesn't return all records in one request because of performance issues. Clients should use [pagination parameters](/basics/queries/#limits).
+By default, Axe API doesn't return all records in one request because of performance issues. Clients should use [pagination parameters](/basics/queries.html#limits).
 :::
 
 ## `SHOW`
@@ -182,7 +182,7 @@ This is an example result of a pagination request;
 ```
 
 :::tip
-Clients are free to use [query options](/basics/queries/) except pagination.
+Clients are free to use [query options](/basics/queries.html) except pagination.
 :::
 
 ## UPDATE
@@ -243,7 +243,7 @@ If the selected record could be deleted properly, Axe API will return **HTTP 200
 :::
 
 :::warning
-The record will be marked as **deleted** but **NOT** deleted **completely** from the database table if the [Soft Delete](/basics/models/index.html#soft-delete) feature is enabled. You can use [FORCE_DELETE](/basics/handlers/index.html#force-delete) handler when the soft-delete feature is enabled.
+The record will be marked as **deleted** but **NOT** deleted **completely** from the database table if the [Soft Delete](/basics/models.html#soft-delete) feature is enabled. You can use [FORCE_DELETE](/basics/handlers.html#force-delete) handler when the soft-delete feature is enabled.
 :::
 
 ## FORCE_DELETE
@@ -252,7 +252,7 @@ The record will be marked as **deleted** but **NOT** deleted **completely** from
 By default, it is **disabled**.
 :::
 
-You should add `deletedAtColumn` getter to your model to use this handler. [DELETE](/basics/handlers/index.html#delete) handler soft-deletes records if the soft-deleting feature is enabled. But `FORCE_DELETE` deletes records completelty.
+You should add `deletedAtColumn` getter to your model to use this handler. [DELETE](/basics/handlers.html#delete) handler soft-deletes records if the soft-deleting feature is enabled. But `FORCE_DELETE` deletes records completelty.
 
 You must add the `FORCE_DELETE` handler to your model to enable this handler;
 
@@ -324,7 +324,7 @@ For validation will be executed after merging the record's fields and the new da
 By default, it is **disabled**.
 :::
 
-If the **ALL** handler is enabled, clients can fetch all records as an array with dynamic query features such as [Where Conditions](/basics/queries/#where-conditions), [Relation Queries](/basics/queries/#relation-queries), etc.
+If the **ALL** handler is enabled, clients can fetch all records as an array with dynamic query features such as [Where Conditions](/basics/queries.html#where-conditions), [Relation Queries](/basics/queries.html#relation-queries), etc.
 
 :::danger
 If your table has millions of records, the API would return all of them. That's why you should be careful while using this handler.

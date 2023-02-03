@@ -36,19 +36,19 @@ This is the power of DB Analyzer.
 
 In the following list, you may see that which definitions are working with DB Analyzer together.
 
-- [Table name](/basics/models/index.html#table-name)
-- [Primary Key](/basics/models/index.html#primary-key)
-- [Fillable Fields](/basics/models/index.html#fillable-fields)
-- [Form Validations](/basics/models/index.html#validations)
-- [Hidden Fields](/basics/models/index.html#hidden-fields)
-- [Timestamps](/basics/models/index.html#timestamps)
-- [Soft Delete](/basics/models/index.html#soft-delete)
-- [INSERT, UPDATE actions](/basics/handlers/index.html)
-- [Related Routes](/basics/models/index.html#related-routes)
-- [Query Fields](/basics/queries/index.html#fields)
-- [Query Sorting](/basics/queries/index.html#sorting)
-- [Query Where Conditions](/basics/queries/index.html#where-conditions)
-- [Query Relations](/basics/queries/index.html#related-data)
+- [Table name](/basics/models.html#table-name)
+- [Primary Key](/basics/models.html#primary-key)
+- [Fillable Fields](/basics/models.html#fillable-fields)
+- [Form Validations](/basics/models.html#validations)
+- [Hidden Fields](/basics/models.html#hidden-fields)
+- [Timestamps](/basics/models.html#timestamps)
+- [Soft Delete](/basics/models.html#soft-delete)
+- [INSERT, UPDATE actions](/basics/handlers.html)
+- [Related Routes](/basics/models.html#related-routes)
+- [Query Fields](/basics/queries.html#fields)
+- [Query Sorting](/basics/queries.html#sorting)
+- [Query Where Conditions](/basics/queries.html#where-conditions)
+- [Query Relations](/basics/queries.html#related-data)
 
 ## Supported Database
 

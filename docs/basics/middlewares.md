@@ -2,7 +2,7 @@
 
 Axe API's middleware features are flexible almost as the standard Express application. You can create and use your middlewares for almost every request for your architecture.
 
-Obviously, you should be able to create some middlewares for your auto-created routes. Axe API provides [Model Middlewares](/basics/models/index.html#middlewares) structure for that kind of middlewares. But here, we are going to describe how to create global middlewares for your application.
+Obviously, you should be able to create some middlewares for your auto-created routes. Axe API provides [Model Middlewares](/basics/models.html#middlewares) structure for that kind of middlewares. But here, we are going to describe how to create global middlewares for your application.
 
 In the `app/init.ts`, you will find a simple function. Axe API guarantees that function will be called after model routes creation. In that function, you can access the <a href="https://expressjs.com/en/starter/hello-world.html" target="_blank" rel="noreferrer">Express</a> application. In the following way, you can add your middlewares.
 

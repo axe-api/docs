@@ -197,41 +197,6 @@ export default User;
 This definition will be used for all queries, even recursive queries too. You can check the **Queries** section to learn more about queries.
 :::
 
-## Serialization
-
-You can use a serialize function in your model definition to hide some values or to create some computed results.
-
-```ts
-import { Request } from "express";
-import { Model } from "axe-api";
-
-class User extends Model {
-  serialize(item: any, request: Request) {
-    return {
-      ...item,
-      fullname: `${item.name} ${item.surname}`,
-    };
-  }
-}
-
-export default User;
-```
-
-:::tip
-As you can see, there is the `request` object as the second argument. You can use the `request` object to filter data. For example; you can hide some data from the user by some authorization rules.
-:::
-
-The serialization function will be triggered automatically by all handlers. Also, recursive queries are supported. In this method, you can manipulate all results by your model.
-
-```json
-{
-  "id": 1,
-  "name": "Karl",
-  "surname": "Popper",
-  "fullname": "Karl Popper"
-}
-```
-
 ## Timestamps
 
 Axe API supports timestamps as default. While you are creating a new database table in your migrations, you can add timestamps with the <a href="http://knexjs.org/#Schema-timestamps" target="_blank" rel="noreferrer">Knex.js helpers</a>. After that, you don't have to do anything. Axe API will manage your timestamps automatically.

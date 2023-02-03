@@ -46,7 +46,10 @@ export default {
       },
       {
         text: "Upgrading",
-        items: [{ text: "0.20.0", link: "/upgrading/0.20.0" }],
+        items: [
+          { text: "0.20.0", link: "/upgrading/0.20.0" },
+          { text: "0.30.0", link: "/upgrading/0.30.0" },
+        ],
       },
       {
         text: "Basics",
@@ -57,6 +60,7 @@ export default {
           { text: "Configs", link: "/basics/config" },
           { text: "Middlewares", link: "/basics/middlewares" },
           { text: "Queries", link: "/basics/queries" },
+          { text: "Serialization", link: "/basics/serialization" },
           { text: "Error Handling", link: "/basics/errors" },
           { text: "Deployment", link: "/basics/deployment" },
         ],

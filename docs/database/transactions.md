@@ -20,16 +20,16 @@ There are two places that you can configure your transaction strategy;
 
 On the other hand, you can configure your transaction options by handler types. When you set up your transaction configuration, Axe API picks the best configuration by looking at the priority. We are going to talk about this later in this document.
 
-## App-Based Configs
+## Version-Based Configs
 
-App-Based Configs should be managed in the `app/Config/Application.ts` file. By default, transactions would be disabled if you don't select anything about your transaction strategy.
+Version-based Configs should be managed in the `app/v1/config.ts` file. By default, transactions would be disabled if you don't select anything about your transaction strategy.
 
 To enable transactions everywhere, you should use the following configuration.
 
 ```ts
-import { IApplicationConfig } from "axe-api";
+import { IVersionConfig } from "axe-api";
 
-const config: IApplicationConfig = {
+const config: IVersionConfig = {
   // ...
   transaction: true,
   // ...
@@ -41,9 +41,9 @@ export default config;
 But also, you can enable transactions by handler types by applying the following codes.
 
 ```ts
-import { IApplicationConfig, HandlerTypes } from "axe-api";
+import { IVersionConfig, HandlerTypes } from "axe-api";
 
-const config: IApplicationConfig = {
+const config: IVersionConfig = {
   // ...
   transaction: [
     {
@@ -61,11 +61,11 @@ const config: IApplicationConfig = {
 export default config;
 ```
 
-If the Axe API can't find any model-based configs by the handler type, it would use the App-Based Configs.
+If the Axe API can't find any model-based configs by the handler type, it would use the Version-based Configs.
 
 ## Model-Based Configs
 
-In your models, you can use the same configuration structure as an App-Based Configs. If you don't configure a model, Axe API would use the App-Based Configs for your model. But if you do, Axe API overrides App-Based Configs for only that model.
+In your models, you can use the same configuration structure as an Version-based Configs. If you don't configure a model, Axe API would use the Version-based Configs for your model. But if you do, Axe API overrides Version-based Configs for only that model.
 
 ```ts
 import { Model, IHandlerBasedTransactionConfig, HandlerTypes } from "axe-api";

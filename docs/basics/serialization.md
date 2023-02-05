@@ -2,22 +2,21 @@
 
 Serialize functions can be used for several reasons such as hiding some values, adding computed fields, changing data format, etc. Axe API has two different serialization ways.
 
-## Global Serializers
+## Version-Based Serializers
 
-You can define a global serializer function in the `app/Config/Application.ts` file. That kind of serializer function works in every HTTP request that returns a response.
+You can define a version-based serializer function in the `app/v1/config.ts` file. That kind of serializer function works in every HTTP request that returns a response.
 
 ```ts
-import { IApplicationConfig } from "axe-api";
+import { Request } from "express";
+import { IVersionConfig } from "axe-api";
 
-const mySerializer = (item: any, request: Request) => {
-  return {
-    ...item,
-    fetched_at: new Date(),
-  };
+const simpleSerializer = (data: any, request: Request) => {
+  data.signed = true;
+  return data;
 };
 
-const config: IApplicationConfig = {
-  serializers: [mySerializer],
+const config: IVersionConfig = {
+  serializers: [simpleSerializer],
 };
 
 export default config;
@@ -30,20 +29,19 @@ As you can see, there is the `request` object as the second argument. You can us
 You can define a handler-based serializer function, like the following example. In this case, the function will be triggered only in selected handlers.
 
 ```ts
-import { IApplicationConfig, HandlerTypes } from "axe-api";
+import { Request } from "express";
+import { IVersionConfig, HandlerTypes } from "axe-api";
 
-const mySerializer = (item: any, request: Request) => {
-  return {
-    ...item,
-    fetched_at: new Date(),
-  };
+const simpleSerializer = (data: any, request: Request) => {
+  data.signed = true;
+  return data;
 };
 
-const config: IApplicationConfig = {
+const config: IVersionConfig = {
   serializers: [
     {
-      handler: HandlerTypes.PAGINATE,
-      serializer: [mySerializer],
+      handler: [HandlerTypes.PAGINATE],
+      serializer: [simpleSerializer],
     },
   ],
 };

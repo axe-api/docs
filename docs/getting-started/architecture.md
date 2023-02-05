@@ -32,16 +32,16 @@ The most important task of Axe API is creating [Express.js routes](https://expre
 
 Obviously, you are going to have the following routes by [API design best practices](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api).
 
-- `POST api/users` - Create a new user
-- `GET api/users` - Get all users
-- `GET api/users/:id` - Get a user by id
-- `PUT api/users/:id` - Update the user
-- `DELETE api/users/:id` - Delete the user
-- `POST api/users/:userId/posts` - Create a new blog post under the user
-- `GET api/users/:userId/posts` - Get user's posts
-- `GET api/users/:userId/posts/:id` - Get user's post by post id
-- `PUT api/users/:userId/posts/:id` - Update the post
-- `DELETE api/users/:userId/posts/:id` - Delete the post
+- `POST api/v1/users` - Create a new user
+- `GET api/v1/users` - Get all users
+- `GET api/v1/users/:id` - Get a user by id
+- `PUT api/v1/users/:id` - Update the user
+- `DELETE api/v1/users/:id` - Delete the user
+- `POST api/v1/users/:userId/posts` - Create a new blog post under the user
+- `GET api/v1/users/:userId/posts` - Get user's posts
+- `GET api/v1/users/:userId/posts/:id` - Get user's post by post id
+- `PUT api/v1/users/:userId/posts/:id` - Update the post
+- `DELETE api/v1/users/:userId/posts/:id` - Delete the post
 
 Axe API checks your model relationships. If you create the following model definitions, the routes will be created by Axe API.
 

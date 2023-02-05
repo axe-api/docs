@@ -15,7 +15,7 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(methodOverride());
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // the default error handler.
 });
 ```
@@ -24,7 +24,7 @@ You can see that the error handler function is defined at last just because to c
 
 In Axe API, You can define any middleware function like Express.js. To create an error handler, you should use the initialization functions;
 
-`app/init.ts`
+`app/v1/init.ts`
 
 ```ts
 import { Express Request, Response, NextFunction } from "express"

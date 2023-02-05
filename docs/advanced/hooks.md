@@ -10,7 +10,7 @@ There are two different ways to add your business logic; **Hooks** and **Events*
 
 Axe API automatically handles your API. It creates routes, handles HTTP requests, performs the request, and creates a response. But it doesn't just do these. It also has some escape points. With those, you can add your code to the HTTP Request-Response cycle.
 
-For example, let's assume that you want to hash the user's password in user creation. How can we do this? First, we should create a file that is called `UserHooks.ts` under `app/Hooks`.
+For example, let's assume that you want to hash the user's password in user creation. How can we do this? First, we should create a file that is called `UserHooks.ts` under `app/v1/Hooks`.
 
 `UserHooks.ts`
 
@@ -43,9 +43,9 @@ This structure is almost the same for Events, too.
 
 The main difference between **Hooks** and **Events** is; events are **asynchronous**. It means that if you are using an **hooks** and handle the request, the HTTP request cycle waits for you to do your task. But in events, when you handle the event, the HTTP requests cycle keeps working and returns a response. So, if you want to send an e-mail to the user, you should use **Events**. On the other hand, if you want to be involved in the query or any business logic in the HTTP request cycle, you should use **Hooks**.
 
-Using **Events** is very easy, almost same with the hooks. There is only one different thing in usage. Which is creating the event file under the `app/Events` folders.
+Using **Events** is very easy, almost same with the hooks. There is only one different thing in usage. Which is creating the event file under the `app/v1/Events` folders.
 
-`app/Events/UserEvents.ts`
+`app/v1/Events/UserEvents.ts`
 
 ```ts
 import { IHookParameter } from "axe-api";
@@ -137,8 +137,8 @@ There are some parameters which you can use in a hook or event function.
 - `response`: Response object of <a href="https://expressjs.com/en/4x/api.html#res" target="_blank" rel="noreferrer">Expresss</a>
 - `model`: Current model instance. For example; `User.ts`.
 - `database`: Database connection instance. For example <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a>
-- `relation`: The relation definition if the route is a related route (For example `api/users/:userId/posts`).
-- `parentModel`: The parent model instance if the route is a related route (For example `api/users/:userId/posts`).
+- `relation`: The relation definition if the route is a related route (For example `api/v1/users/:userId/posts`).
+- `parentModel`: The parent model instance if the route is a related route (For example `api/v1/users/:userId/posts`).
 
 ## Special Parameters
 

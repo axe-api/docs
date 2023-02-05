@@ -15,8 +15,8 @@ In your application, Axe API has to create the transaction object because it is 
 
 There are two places that you can configure your transaction strategy;
 
-- App-Based Configs (`app/Config/Application.ts`)
-- Model-Based Configs (`app/Models/YourModel.ts`)
+- Version-Based Configs (`app/v1/config.ts`)
+- Model-Based Configs (`app/v1/Models/YourModel.ts`)
 
 On the other hand, you can configure your transaction options by handler types. When you set up your transaction configuration, Axe API picks the best configuration by looking at the priority. We are going to talk about this later in this document.
 

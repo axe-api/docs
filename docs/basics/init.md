@@ -1,6 +1,6 @@
 # Initialization
 
-In this chapter, we are going to explain all details about the initialization (`init.ts`) file.
+In this chapter, we are going to explain all details about the initialization (`app/v1/init.ts`) file.
 
 ## What Is It?
 
@@ -36,14 +36,14 @@ Please keep in mind that these functions will be called only once.
 import { Express, Request, Response, NextFunction } from "express";
 
 const onBeforeInit = async (app: Express) => {
-  app.use(function(req: Request, res: Response, next: NextFunction) {
+  app.use(function (req: Request, res: Response, next: NextFunction) {
     // a middleware
     next();
   });
 };
 
 const onAfterInit = async (app: Express) => {
-  app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
+  app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
     // error handler
     next();
   });

@@ -76,11 +76,14 @@ Let's see the following folder structure in your `axe-api` project after you ins
 .
 ├── dev-kit
   ├── app
-    ├── Config
-    ├── Events
-    ├── Hooks
-    ├── Models
-    ├── init.ts
+    ├── v1
+      ├── Config
+      ├── Events
+      ├── Hooks
+      ├── Models
+      ├── init.ts
+      ├── config.ts
+    ├── config.ts
   ├── migrations
     ├── 20210509145612_User.js
   ├── knexfile.js

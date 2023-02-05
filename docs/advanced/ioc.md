@@ -82,7 +82,7 @@ export { onBeforeInsert };
 
 ## Extending
 
-In Axe API, you can define your definitions. `app/init.ts` file is the best place to put your definitions. Because, after Axe API analyze the application, it calls the `init` function to handle your custom logic.
+In Axe API, you can define your definitions. `app/v1/init.ts` file is the best place to put your definitions. Because, after Axe API analyze the application, it calls the `init` function to handle your custom logic.
 
 You can review the following example;
 

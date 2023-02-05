@@ -11,16 +11,21 @@ After the auto-creation process, probably you want to see created routes as a de
       "model": "User",
       "table": "users",
       "method": "POST",
-      "url": "/api/users",
+      "url": "/api/v1/users",
       "fillable": ["email", "name"],
       "validations": { "email": "required|email", "name": "required" }
     },
-    { "model": "User", "table": "users", "method": "GET", "url": "/api/users" },
+    {
+      "model": "User",
+      "table": "users",
+      "method": "GET",
+      "url": "/api/v1/users"
+    },
     {
       "model": "Post",
       "table": "posts",
       "method": "POST",
-      "url": "/api/users/:userId/my-posts",
+      "url": "/api/v1/users/:userId/my-posts",
       "fillable": ["title", "content"],
       "validations": { "title": "required|max:100" }
     }
@@ -79,20 +84,20 @@ With this response, you may review what kind of routes have been created automat
 
 But again, if you want simpler results for your auto-created routes, you should use the following request.
 
-<a href="http://localhost:3000/docs/routes" target="_blank" rel="noreferrer">localhost:3000/docs/routes</a>
+<a href="http://localhost:3000/routes" target="_blank" rel="noreferrer">localhost:3000/routes</a>
 
 ```json
 [
-  "POST /api/users",
-  "GET /api/users",
-  "GET /api/users/:id",
-  "PUT /api/users/:id",
-  "DELETE /api/users/:id",
-  "POST /api/users/:userId/posts",
-  "GET /api/users/:userId/posts",
-  "GET /api/users/:userId/posts/:id",
-  "PUT /api/users/:userId/posts/:id",
-  "DELETE /api/users/:userId/posts/:id"
+  "POST /api/v1/users",
+  "GET /api/v1/users",
+  "GET /api/v1/users/:id",
+  "PUT /api/v1/users/:id",
+  "DELETE /api/v1/users/:id",
+  "POST /api/v1/users/:userId/posts",
+  "GET /api/v1/users/:userId/posts",
+  "GET /api/v1/users/:userId/posts/:id",
+  "PUT /api/v1/users/:userId/posts/:id",
+  "DELETE /api/v1/users/:userId/posts/:id"
 ]
 ```
 

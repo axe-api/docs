@@ -12,7 +12,10 @@ export default {
 
     nav: [
       { text: "Github", link: "https://github.com/axe-api/axe-api" },
-      { text: "CLI", link: "https://github.com/axe-api/axe-magic" },
+      {
+        text: "Changelog",
+        link: "https://github.com/axe-api/axe-api/blob/master/CHANGELOG.md",
+      },
       {
         text: "Cookbooks",
         link: "/cookbooks/",
@@ -25,6 +28,7 @@ export default {
         text: "Releases",
         link: "https://github.com/axe-api/axe-api/releases",
       },
+      { text: "CLI", link: "https://github.com/axe-api/axe-magic" },
     ],
     sidebar: [
       {

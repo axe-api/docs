@@ -55,7 +55,7 @@ export default config;
 
 You can define a specific serializer for a specific model like the following example;
 
-`app/Serialization/UserSerialization.ts`
+`app/v1/Serialization/UserSerialization.ts`
 
 ```ts
 import { Request } from "express";

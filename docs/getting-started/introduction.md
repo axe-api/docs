@@ -28,10 +28,10 @@ class User extends Model {}
 
 With this model, you will have all of the basic API routes for **User** resources. **Axe API** will create **CRUD** routes for you in the _booting_ process and these routes would be completely ready to be handled and processed by Axe API. The following routes will be handled automatically;
 
-- `POST api/users`
-- `GET api/users`
-- `GET api/users/:id`
-- `PUT api/users/:id`
-- `DELETE api/users/:id`
+- `POST api/v1/users`
+- `GET api/v1/users`
+- `GET api/v1/users/:id`
+- `PUT api/v1/users/:id`
+- `DELETE api/v1/users/:id`
 
 This is the magic of **Axe API**!

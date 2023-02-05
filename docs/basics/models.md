@@ -23,19 +23,19 @@ export default User;
 
 Let's talk about what happens if you define a model like this. Don't think this is a useless model for your API. After you save it, Axe API will analyze the model and will create routes automatically. In this example, the following routes will be ready to use;
 
-| HTTP Method | Url             | Behavior              |
-| ----------- | --------------- | --------------------- |
-| GET         | `api/users`     | Paginate all users    |
-| POST        | `api/users`     | Create a new user     |
-| GET         | `api/users/:id` | Get the user by id    |
-| PUT         | `api/users/:id` | Update the user by id |
-| DELETE      | `api/users/:id` | Delete the user by id |
+| HTTP Method | Url                | Behavior              |
+| ----------- | ------------------ | --------------------- |
+| GET         | `api/v1/users`     | Paginate all users    |
+| POST        | `api/v1/users`     | Create a new user     |
+| GET         | `api/v1/users/:id` | Get the user by id    |
+| PUT         | `api/v1/users/:id` | Update the user by id |
+| DELETE      | `api/v1/users/:id` | Delete the user by id |
 
 By adding more getter and functions, you can tell a different story about your API.
 
 :::tip
 If you send the following request in your local development environment, you will see the API will respond;
-<a href="http://localhost:3000/api/users" target="_blank" rel="noreferrer">localhost:3000/api/users</a>
+<a href="http://localhost:3000/api/v1/users" target="_blank" rel="noreferrer">localhost:3000/api/v1/users</a>
 :::
 
 ## Table Name
@@ -314,10 +314,10 @@ export default User;
 
 With handlers getter, you can select what kind of behavior will be activated for the model. The code above allows only insert and pagination. With this definition, you will get the following routes only;
 
-| HTTP Method | Url         | Handler  | Behavior               |
-| ----------- | ----------- | -------- | ---------------------- |
-| GET         | `api/users` | PAGINATE | Paginating all records |
-| POST        | `api/users` | INSERT   | Creating a new record  |
+| HTTP Method | Url            | Handler  | Behavior               |
+| ----------- | -------------- | -------- | ---------------------- |
+| GET         | `api/v1/users` | PAGINATE | Paginating all records |
+| POST        | `api/v1/users` | INSERT   | Creating a new record  |
 
 **Handlers** mean what behaviors have does the model. There are very different handlers that models can support. But also, there are many on the roadmap. You can review our the following handlers table;
 
@@ -339,22 +339,22 @@ By best practices, usually, we build related paths for models. For example, let'
 
 In this case, we need routes like this;
 
-| HTTP Method | Url                           |
-| ----------- | ----------------------------- |
-| GET         | `api/users`                   |
-| POST        | `api/users`                   |
-| GET         | `api/users/:id`               |
-| PUT         | `api/users/:id`               |
-| DELETE      | `api/users/:id`               |
-| GET         | `api/users/:userId/posts`     |
-| POST        | `api/users/:userId/posts`     |
-| GET         | `api/users/:userId/posts/:id` |
-| PUT         | `api/users/:userId/posts/:id` |
-| DELETE      | `api/users/:userId/posts/:id` |
+| HTTP Method | Url                              |
+| ----------- | -------------------------------- |
+| GET         | `api/v1/users`                   |
+| POST        | `api/v1/users`                   |
+| GET         | `api/v1/users/:id`               |
+| PUT         | `api/v1/users/:id`               |
+| DELETE      | `api/v1/users/:id`               |
+| GET         | `api/v1/users/:userId/posts`     |
+| POST        | `api/v1/users/:userId/posts`     |
+| GET         | `api/v1/users/:userId/posts/:id` |
+| PUT         | `api/v1/users/:userId/posts/:id` |
+| DELETE      | `api/v1/users/:userId/posts/:id` |
 
 Creating routes in **Axe API** like these is very simple. There is only one thing we should do; **defining relationship** between models. For this case, we should have the following model definitions;
 
-For `app/Models/User.ts` model file;
+For `app/v1/Models/User.ts` model file;
 
 ```ts
 import { Model, IRelation } from "axe-api";
@@ -368,7 +368,7 @@ class User extends Model {
 export default User;
 ```
 
-For `app/Models/Post.ts` model file;
+For `app/v1/Models/Post.ts` model file;
 
 ```ts
 import { Model, IRelation } from "axe-api";
@@ -384,16 +384,16 @@ export default Post;
 
 The following routes will be created **automatically** when you create a model definition like this.
 
-- `GET api/users`
-- `POST api/users`
-- `GET api/users/:id`
-- `PUT api/users/:id`
-- `DELETE api/users/:id`
-- `GET api/users/:usedId/posts`
-- `POST api/users/:usedId/posts`
-- `GET api/users/:usedId/posts/:id`
-- `PUT api/users/:usedId/posts/:id`
-- `DELETE api/users/:usedId/posts/:id`
+- `GET api/v1/users`
+- `POST api/v1/users`
+- `GET api/v1/users/:id`
+- `PUT api/v1/users/:id`
+- `DELETE api/v1/users/:id`
+- `GET api/v1/users/:usedId/posts`
+- `POST api/v1/users/:usedId/posts`
+- `GET api/v1/users/:usedId/posts/:id`
+- `PUT api/v1/users/:usedId/posts/:id`
+- `DELETE api/v1/users/:usedId/posts/:id`
 
 :::tip
 Literally, you don't need to manage foreign key values in the HTTP requests. Because Axe API knows the relation very well, and it will manage it for you.
@@ -403,7 +403,7 @@ Literally, you don't need to manage foreign key values in the HTTP requests. Bec
 
 Axe API tracks all of your models. If you define a relationship between multiple models, it will create all related routes. Let's assume you have three models like; User, Post, and Comment. In this case, you will have the following route pattern;
 
-`api/users/:userId/posts/:postId/comments/:id`
+`api/v1/users/:userId/posts/:postId/comments/:id`
 
 Once you define all the relationships between these three models, you will have all related routes.
 
@@ -425,7 +425,7 @@ Let's assume you have a database schema like this;
 
 In this case, you have a relationship to a table with two different foreign keys.
 
-For `app/Models/User.ts` model file;
+For `app/v1/Models/User.ts` model file;
 
 ```ts
 import { Model, IRelation } from "axe-api";
@@ -443,7 +443,7 @@ class User extends Model {
 export default User;
 ```
 
-For `app/Models/Post.ts` model file;
+For `app/v1/Models/Post.ts` model file;
 
 ```ts
 import { Model, IRelation } from "axe-api";
@@ -463,11 +463,11 @@ export default Post;
 
 In this case, you will have the following route schema;
 
-| Url                                   |
-| ------------------------------------- |
-| `api/users/:id`                       |
-| `api/users/:userId/owned-posts/:id`   |
-| `api/users/:userId/created-posts/:id` |
+| Url                                      |
+| ---------------------------------------- |
+| `api/v1/users/:id`                       |
+| `api/v1/users/:userId/owned-posts/:id`   |
+| `api/v1/users/:userId/created-posts/:id` |
 
 :::warning
 As you can see, your relation method name is used as a URL path by Axe API.
@@ -497,18 +497,18 @@ class Category extends Model {
 
 When you define a recursive resource like this, you will have the following routes to access the resource;
 
-| HTTP Method | Route                                     |
-| ----------- | ----------------------------------------- |
-| GET         | `api/categories`                          |
-| GET         | `api/categories/:id`                      |
-| POST        | `api/categories`                          |
-| PUT         | `api/categories/:id`                      |
-| DELETE      | `api/categories/:id`                      |
-| GET         | `api/categories/:parentId/categories`     |
-| GET         | `api/categories/:parentId/categories/:id` |
-| POST        | `api/categories/:parentId/categories`     |
-| PUT         | `api/categories/:parentId/categories/:id` |
-| DELETE      | `api/categories/:parentId/categories/:id` |
+| HTTP Method | Route                                        |
+| ----------- | -------------------------------------------- |
+| GET         | `api/v1/categories`                          |
+| GET         | `api/v1/categories/:id`                      |
+| POST        | `api/v1/categories`                          |
+| PUT         | `api/v1/categories/:id`                      |
+| DELETE      | `api/v1/categories/:id`                      |
+| GET         | `api/v1/categories/:parentId/categories`     |
+| GET         | `api/v1/categories/:parentId/categories/:id` |
+| POST        | `api/v1/categories/:parentId/categories`     |
+| PUT         | `api/v1/categories/:parentId/categories/:id` |
+| DELETE      | `api/v1/categories/:parentId/categories/:id` |
 
 :::warning
 There is a very important point about recursive routes. If you defined a self-recursive relationship with the model itself, it totally works. But, if you created a recursive relationship between multiple models (such as; A -> B -> C -> A), we don't have anything to detect it for now.

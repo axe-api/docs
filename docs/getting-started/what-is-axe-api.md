@@ -54,15 +54,15 @@ Tada! :tada:
 
 Your API is ready to process all of the following endpoints after those model definitions are done.
 
-- [GET] `api/users`
-- [POST] `api/users`
-- [GET] `api/users/:id`
-- [PUT] `api/users/:id`
-- [DELETE] `api/users/:id`
-- [GET] `api/users/:userId/posts`
-- [POST] `api/users/:userId/posts`
-- [GET] `api/users/:userId/posts/:id`
-- [PUT] `api/users/:userId/posts/:id`
-- [DELETE] `api/users/:userId/posts/:id`
+- [GET] `api/v1/users`
+- [POST] `api/v1/users`
+- [GET] `api/v1/users/:id`
+- [PUT] `api/v1/users/:id`
+- [DELETE] `api/v1/users/:id`
+- [GET] `api/v1/users/:userId/posts`
+- [POST] `api/v1/users/:userId/posts`
+- [GET] `api/v1/users/:userId/posts/:id`
+- [PUT] `api/v1/users/:userId/posts/:id`
+- [DELETE] `api/v1/users/:userId/posts/:id`
 
 This is the main power of Axe API. Nevertheless, it is not limited only to this power. There are many more features are waiting to discover. :bulb:

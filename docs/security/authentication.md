@@ -14,14 +14,14 @@ After that, the `jsonwebtoken` package will be ready to use.
 
 ## Handler
 
-To provide an authentication structure, we need to create a [Custom Route](/basics/init.html). To do that, you change the following method in the `app/init.ts` file;
+To provide an authentication structure, we need to create a [Custom Route](/basics/init.html). To do that, you change the following method in the `app/v1/init.ts` file;
 
 ```ts
 import { Express } from "express";
 import login from "./Handlers/login";
 
 const onBeforeInit = async (app: Express) => {
-  app.post("/api/login", login);
+  app.post("/api/v1/login", login);
 };
 
 const onAfterInit = async (app: Express) => {};
@@ -29,9 +29,9 @@ const onAfterInit = async (app: Express) => {};
 export { onBeforeInit, onAfterInit };
 ```
 
-Here, we describe `/app/login` route to handle login requests. After that, you should create the following file;
+Here, we describe `/api/v1/login` route to handle login requests. After that, you should create the following file;
 
-`app/Handlers/login.ts`
+`app/v1/Handlers/login.ts`
 
 ```ts
 import { Request, Response } from "express";
@@ -70,7 +70,7 @@ Now we have a login request handler. Users can log in by using this route.
 
 ## Middleware
 
-To check the token, we should create a middleware in the `app/Middlewares/isLogged` file.
+To check the token, we should create a middleware in the `app/v1/Middlewares/isLogged` file.
 
 ```ts
 import { Request, Response, NextFunction } from "express";

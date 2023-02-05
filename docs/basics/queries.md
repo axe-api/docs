@@ -9,7 +9,7 @@ While you are fetching any data (For example in PAGINATE handlers for now), you 
 To get only specific fields, you may use a query like the following statement;
 
 ```
-/api/users?fields=id,name,surname
+/api/v1/users?fields:id,name,surname
 ```
 
 This request is equal on SQL;
@@ -23,7 +23,7 @@ SELECT `id`, `name`, `surname`
 You may sort your results by your selections for multiple columns;
 
 ```
-/api/users?sort=surname,-name
+/api/v1/users?sort=surname,-name
 ```
 
 This request is equal on SQL;
@@ -39,7 +39,7 @@ In this request, `-` means `DESC`.
 While you are fetching data with pagination, you may send `page` and `per_page` variables like this;
 
 ```
-/api/users?page=2&per_page=25
+/api/v1/users?page=2&per_page=25
 ```
 
 ## Where Conditions
@@ -49,7 +49,7 @@ You can use almost everything on any database server. Also, it supports recursiv
 ### Simple Condition
 
 ```
-/api/users?q={ "id": 1 }
+/api/v1/users?q={ "id": 1 }
 ```
 
 ```sql
@@ -59,7 +59,7 @@ WHERE `id` = 1
 ### Multiple Conditions
 
 ```
-/api/users?q=[ {"name": "John"}, {"surname": "Locke" } ]
+/api/v1/users?q=[ {"name": "John"}, {"surname": "Locke" } ]
 ```
 
 ```sql
@@ -69,7 +69,7 @@ WHERE `name` = 'John' AND `surname` = 'Locke'
 ### Logical Expressions
 
 ```
-/api/users?q=[ {"name": "John"}, {"$or.surname": "Locke" } ]
+/api/v1/users?q=[ {"name": "John"}, {"$or.surname": "Locke" } ]
 ```
 
 ```sql
@@ -81,7 +81,7 @@ WHERE `name` = 'John' OR `surname` = 'Locke'
 ### Recursive Conditions
 
 ```
-/api/users?q=[
+/api/v1/users?q=[
    [{"name": "John"}, {"$or.surname": "Locke" }],
    [{"$or.age": 18}, {"$or.id": 666 }]
   ]
@@ -116,7 +116,7 @@ class School extends Model {}
 In this scenario, the client is able to query the student by the school's names;
 
 ```
-/api/students?q=[ {"school.name.$like": "*Institution*"} ]
+/api/v1/students?q=[ {"school.name.$like": "*Institution*"} ]
 ```
 
 :::warning
@@ -141,7 +141,7 @@ You can use these kinds of queries for only a **one-to-one** relationship. For e
 You can fetch the related data for the `PAGINATION` and the `SHOW` handlers.
 
 ```
-/api/users?with=posts{comments{id|content}}
+/api/v1/users?with=posts{comments{id|content}}
 ```
 
 `HTTP Response`
@@ -172,12 +172,12 @@ You can use relation names recursively like this; `posts{comments{likes}}`.
 But also, you can select which columns will be fetched for the relation. You don't have to fetch all columns.
 
 ```
-/api/users?with=posts{id|title}}
+/api/v1/users?with=posts{id|title}}
 ```
 
 > Foreign and Primary Key columns will be returned automatically.
 
-<!-- ## Trashed Records
+## Trashed Records
 
 You can use the `trashed` parameters to list soft-deleted records if the [Soft Delete](/basics/models.html#soft-delete) feature is enabled.
 
@@ -213,7 +213,7 @@ You can see in the JSON that the record has been marked as deleted by looking at
 
 You may use the following operators in all of your queries by adding the operator to the end of your field name.
 
-| Operator      | Request `/api/users?q=`       | SQL (MySQL)              |
+| Operator      | Request `/api/v1/users?q=`    | SQL (MySQL)              |
 | ------------- | ----------------------------- | ------------------------ |
 | `$not`        | `{"id.$not": 10}`             | `id <> 10`               |
 | `$gt`         | `{"id.$gt": 10}`              | `id > 10`                |

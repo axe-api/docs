@@ -86,7 +86,7 @@ If you don't provide the `handlers()` getter, INSERT handler will be enabled by 
 $ curl \
   -d '{"name": "Karl", "surname":"Popper"}' \
   -H "Content-Type: application/json" \
-  -X POST http://localhost:3000/api/users
+  -X POST http://localhost:3000/api/v1/users
 ```
 
 :::warning
@@ -116,7 +116,7 @@ Clients can use the following query to fetch data;
 ```bash
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET http://localhost:3000/api/users
+  -X GET http://localhost:3000/api/v1/users
 ```
 
 This is an example result of a pagination request;
@@ -167,7 +167,7 @@ Clients can use the following query to fetch data;
 ```bash
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET http://localhost:3000/api/users/1
+  -X GET http://localhost:3000/api/v1/users/1
 ```
 
 This is an example result of a pagination request;
@@ -211,7 +211,7 @@ Clients can use the following query to fetch data;
 $ curl \
   -H "Content-Type: application/json" \
   -d '{"name": "Karl", "surname":"Popper"}' \
-  -X PUT http://localhost:3000/api/users/1
+  -X PUT http://localhost:3000/api/v1/users/1
 ```
 
 ## DELETE
@@ -235,7 +235,7 @@ Clients can use the following query to fetch data;
 ```bash
 $ curl \
   -H "Content-Type: application/json" \
-  -X DELETE http://localhost:3000/api/users/1
+  -X DELETE http://localhost:3000/api/v1/users/1
 ```
 
 :::tip
@@ -273,7 +273,7 @@ In this following request, the record will be deleted completelty from database 
 ```bash
 $ curl \
   -H "Content-Type: application/json" \
-  -X DELETE http://localhost:3000/api/users/1/force
+  -X DELETE http://localhost:3000/api/v1/users/1/force
 ```
 
 ## PATCH
@@ -311,7 +311,7 @@ In this following request, only the record's `name` field will be updated. `surn
 $ curl \
   -H "Content-Type: application/json" \
   -d '{"name": "Karl"}' \
-  -X PATCH http://localhost:3000/api/users/1
+  -X PATCH http://localhost:3000/api/v1/users/1
 ```
 
 :::tip
@@ -345,7 +345,7 @@ Clients can use the following query to fetch data;
 ```bash
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET http://localhost:3000/api/users/all
+  -X GET http://localhost:3000/api/v1/users/all
 ```
 
 This is an example result of a pagination request;

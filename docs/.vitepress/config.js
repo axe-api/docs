@@ -92,6 +92,10 @@ export default {
         ],
       },
       {
+        text: "Testing",
+        items: [{ text: "Concepts", link: "/testing" }],
+      },
+      {
         text: "Contribution",
         items: [
           { text: "Fundamentals", link: "/contribution/fundamentals" },
@@ -99,10 +103,6 @@ export default {
           { text: "Databases", link: "/contribution/databases" },
           { text: "Tests", link: "/contribution/tests" },
         ],
-      },
-      {
-        text: "Testing",
-        items: [{ text: "Concepts", link: "/testing" }],
       },
     ],
 

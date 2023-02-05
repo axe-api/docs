@@ -57,7 +57,7 @@ $ npm run test
 
 > jest --runInBand --colors
 
- PASS  app/Hooks/UserHooks.spec.js
+ PASS  app/v1/Hooks/UserHooks.spec.js
   onBeforeInsert
     √ should be able to add timestamps (2 ms)
 
@@ -74,7 +74,7 @@ That's all!
 
 You may think that what if I need some other dependencies such as a mail sender. To solve this problem, we created a simple IoC container. To define your relations, you should use it in the init function;
 
-`app/init.ts`
+`app/v1/init.ts`
 
 ```ts
 import { Express } from "express";

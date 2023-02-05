@@ -72,6 +72,7 @@ export default {
           { text: "Internationalization", link: "/advanced/i18n" },
           { text: "IoC", link: "/advanced/ioc" },
           { text: "Custom Routes", link: "/advanced/custom-routes" },
+          { text: "System Errors", link: "/errors" },
           { text: "Documentation", link: "/advanced/docs" },
         ],
       },

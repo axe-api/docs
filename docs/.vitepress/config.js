@@ -54,10 +54,11 @@ export default {
       {
         text: "Basics",
         items: [
+          { text: "Versions", link: "/basics/versions" },
+          { text: "Configs", link: "/basics/config" },
           { text: "Initialization", link: "/basics/init" },
           { text: "Models", link: "/basics/models" },
           { text: "Handlers", link: "/basics/handlers" },
-          { text: "Configs", link: "/basics/config" },
           { text: "Middlewares", link: "/basics/middlewares" },
           { text: "Queries", link: "/basics/queries" },
           { text: "Serialization", link: "/basics/serialization" },

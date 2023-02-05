@@ -1,34 +1,91 @@
 # Configs
 
-We created a very simple configuration structure for your project. You will see an `app/Config` folder in your project after the installation. It is all you need to configure your application. All configurations in that folder will be loaded after the app has been started.
+There are two different type configuration files;
 
-To access all configurations, you should use our `IoCService` object. The following code will show that how to access configuration variables;
+- API configuration (`app/config.ts`)
+- Version configurations (`app/v1/config.ts`)
 
-```ts
-import { IoCService, IHookParameter } from "axe-api";
+## API Configuration
 
-const onBeforePaginate = async (hookParameters: IHookParameter) => {
-  const Config = await IoCService.use("Config");
-  console.log(Config.Application.env); // development
-};
+API configuration contains the general configs of the API.
 
-export { onBeforePaginate };
-```
-
-All configuration files and keys will be accessible via Config instance. On the other hand, we use <a href="https://www.npmjs.com/package/dotenv" target="_blank" rel="noreferrer">dotenv</a> package to manage your secret keys.
-
-## Application
-
-In the `app/Config/Application.ts` file, you can find the application configuration.
+`app/config.ts`
 
 ```ts
-import { IApplicationConfig, HandlerTypes, LogLevels } from "axe-api";
+import { LogLevels, IApplicationConfig } from "axe-api";
 
 const config: IApplicationConfig = {
   prefix: "api",
   env: process.env.NODE_ENV || "production",
   port: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
   logLevel: LogLevels.INFO,
+  database: {
+    client: process.env.DB_CLIENT || "mysql",
+    connection: {
+      host: process.env.DB_HOST || "localhost",
+      user: process.env.DB_USER || "user",
+      password: process.env.DB_PASSWORD || "password",
+      database: process.env.DB_DATABASE || "database",
+    },
+    pool: {
+      min: 2,
+      max: 10,
+    },
+    migrations: {
+      tableName: "knex_migrations",
+    },
+  },
+};
+
+export default config;
+```
+
+### `prefix`
+
+The prefix of API URLs. Default value is `api`. It should be string.
+
+### `env`
+
+The environment variable. Default value is `development`. It can be one of them the following values;
+
+- `development`
+- `testing`
+- `staging`
+- `production`
+
+### `port`
+
+The API port. The default value is `3000`. It should be numeric and between `0` to `65536`.
+
+### `logLevel`
+
+The configuration of logging. It sets that what kind of log messages should be output on console. The default value is `Info`. The following values can be used;
+
+- `Info`
+- `Warning`
+- `Error`
+- `All`
+
+### `database`
+
+The database configuration. It is based on [Knex.js configurations](https://knexjs.org/guide/#configuration-options).
+
+## Version configurations
+
+Each API versions should have own configuration file. For example;
+
+- `app/v1/config.ts`
+- `app/v2/config.ts`
+- `app/beta/config.ts`
+
+You can see an example of version configuration;
+
+```ts
+import { IVersionConfig } from "axe-api";
+
+const config: IVersionConfig = {
+  supportedLanguages: ["en", "de"],
+  defaultLanguage: "en",
   transaction: [],
   serializers: [],
 };
@@ -36,68 +93,106 @@ const config: IApplicationConfig = {
 export default config;
 ```
 
-The following table shows the configuration keys;
+### `supportedLanguages`
 
-| Key      | Description                            | Default Value | Possible Values                  |
-| -------- | -------------------------------------- | ------------- | -------------------------------- |
-| env      | Working environment of the application | development   | development, production, staging |
-| port     | The application port                   | 3000          |                                  |
-| logLevel | The log level of the application       | INFO          | NONE, ERROR, WARNING, INFO, ALL  |
-| prefix   | The main prefix of the api             | /api          |                                  |
+You are able to define which languages are supported.Axe API checks supported value array to determine if the language is supported.
 
-## Database
+:::tip
+You can find more information in the [Internationalization (i18n)](/advanced/i18n.html) page.
+:::
 
-In the `app/Config/Database.ts` file, you can find the database configuration for the <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js Connection</a>.
+### `defaultLanguage`
+
+The default version language. That value will be accepted as the default language if the client doesn't provide any supported language in the HTTP request.
+
+### `transaction`
+
+The version-based transaction configuration. By default, transactions would be disabled if you don't select anything about your transaction strategy.
+
+To enable transactions everywhere, you should use the following configuration.
 
 ```ts
-import { IDatabaseConfig } from "axe-api";
+import { IVersionConfig } from "axe-api";
 
-const config: IDatabaseConfig = {
-  client: process.env.DB_CLIENT || "mysql",
-  connection: {
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "user",
-    password: process.env.DB_PASSWORD || "password",
-    database: process.env.DB_DATABASE || "database",
-  },
-  pool: {
-    min: 2,
-    max: 10,
-  },
-  migrations: {
-    tableName: "knex_migrations",
-  },
+const config: IVersionConfig = {
+  transaction: true,
 };
 
 export default config;
 ```
 
-In this file, we used the same configuration structure with <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a>. So you can add more configuration by <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a> documentation.
-
-## Extending
-
-The configuration structure is very flexible. You can add your custom configuration file for everything. Config loaded will read your files and your configurations will be accessible via Config loader.
-
-Let's assume that you created your configuration file like this;
-
-`app/Config/SMTP.ts`
+But also, you can enable transactions by handler types by applying the following codes.
 
 ```ts
-export default {
-  host: process.env.SMTP_HOST || "mail.yourhost.com",
-  user: process.env.SMTP_USER,
+import { IVersionConfig, HandlerTypes } from "axe-api";
+
+const config: IVersionConfig = {
+  transaction: [
+    {
+      handler: [HandlerTypes.INSERT, HandlerTypes.UPDATE],
+      transaction: true,
+    },
+    {
+      handler: HandlerTypes.PATCH,
+      transaction: false,
+    },
+  ],
 };
+
+export default config;
 ```
 
-This configuration file will be accessible via `Config` instance like this;
+:::tip
+Axe API uses the version-based transaction configs if there is not any model-based transaction configurations.
+:::
+
+### `serializers`
+
+You can add a version-based response serializer function to configure all HTTP responses.
 
 ```ts
-import { IoCService } from "axe-api";
+import { Request } from "express";
+import { IVersionConfig } from "axe-api";
 
-const onBeforePaginate = async ({}) => {
-  const Config = await IoCService.use("Config");
-  console.log(Config.SMTP.host); // mail.yourhost.com
+const simpleSerializer = (data: any, request: Request) => {
+  data.signed = true;
+  return data;
 };
 
-export { onBeforePaginate };
+const config: IVersionConfig = {
+  serializers: [simpleSerializer],
+};
+
+export default config;
 ```
+
+In this example, the `signed:true` value will be added to all API response data item.
+
+You can also add handler-based serializer like the following example;
+
+```ts
+import { Request } from "express";
+import { IVersionConfig, HandlerTypes } from "axe-api";
+
+const simpleSerializer = (data: any, request: Request) => {
+  data.signed = true;
+  return data;
+};
+
+const config: IVersionConfig = {
+  serializers: [
+    {
+      handler: [HandlerTypes.PAGINATE],
+      serializer: [simpleSerializer],
+    },
+  ],
+};
+
+export default config;
+```
+
+In this example, the serializer will be work only `PAGINATE` handlers.
+
+:::tip
+You can find more detail in the [Serialization](/basics/serialization.html) page.
+:::

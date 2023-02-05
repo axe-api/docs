@@ -4,7 +4,13 @@ In this chapter, we are going to explain all details about the initialization (`
 
 ## What Is It?
 
-`init.ts` is a file that lets developers extend the application easily. Axe API expects two main methods; `onBeforeInit` and `onAfterInit`. A simple initialization file look like the following one;
+`init.ts` is a file that lets developers extend the API easily.
+
+:::tip
+Each API versions should have an `init.ts` file so that you can use different setup for each versions.
+:::
+
+Axe API expects two main methods; `onBeforeInit` and `onAfterInit`. A simple initialization file look like the following one;
 
 ```ts
 import { Express } from "express";

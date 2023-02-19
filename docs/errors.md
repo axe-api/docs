@@ -70,3 +70,30 @@ This error means a column that is used in some of your models is not found on th
 ## `UNDEFINED_RELATION_MODEL`
 
 This error means that a relationship definition is pointing to a model which is not found.
+
+## `UNDEFINED_HOOK_MODEL_RELATION`
+
+That error means that there are some unknown model names under Hooks or Events folder. You must use the same model name in the hook and event folder.
+
+Let's assume that you have a model called `User.ts`. You must have the following folders for this model;
+
+- `app/v1/Hooks/User/*.ts`
+- `app/v1/Events/User/*.ts`
+
+:::warning
+You can not use a model name that can not be related to a model for the same version. You have to have a model called `User.ts` in your model folder.
+:::
+
+## `UNACCEPTABLE_HOOK_FILE`
+
+You can not define a hook or event file in directly the hooks or events folder. All of your hooks and events should be defined under a model name.
+
+Wrong:
+
+- `app/v1/Hooks/UserHook.ts`
+- `app/v1/Event/UserEven.ts`
+
+Correct:
+
+- `app/v1/Hooks/User/onBeforePaginate.ts`
+- `app/v1/Event/User/onBeforePaginate.ts`

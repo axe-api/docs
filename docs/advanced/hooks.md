@@ -10,15 +10,15 @@ There are two different ways to add your business logic; **Hooks** and **Events*
 
 Axe API automatically handles your API. It creates routes, handles HTTP requests, performs the request, and creates a response. But it doesn't just do these. It also has some escape points. With those, you can add your code to the HTTP Request-Response cycle.
 
-For example, let's assume that you want to hash the user's password in user creation. How can we do this? First, we should create a file that is called `UserHooks.ts` under `app/v1/Hooks`.
+For example, let's assume that you want to hash the user's password in user creation. How can we do this? First, we should create a file that is called `onBeforeInsert.ts` under `app/v1/Hooks/User`.
 
-`UserHooks.ts`
+`onBeforeInsert.ts`
 
 ```ts
 import bcrypt from "bcrypt";
 import { IHookParameter } from "axe-api";
 
-const onBeforeInsert = async ({ formData }: IHookParameter) => {
+export default async ({ formData }: IHookParameter) => {
   // Genering salt
   formData.password_salt = bcrypt.genSaltSync(10);
   // Hashing the password
@@ -27,13 +27,11 @@ const onBeforeInsert = async ({ formData }: IHookParameter) => {
     formData.password_salt
   );
 };
-
-export { onBeforeInsert };
 ```
 
 In the code above, we used <a href="https://www.npmjs.com/package/bcrypt" target="_blank" rel="noreferrer">bcrypt</a> library to hash the user's password. By accessing form data, hashing the user's password is easy.
 
-**But can this function be executed? Yes!** In the booting process, Axe API tries to discover what kind of hooks and events have been written. For a model called `User`, if you create a hook which is called `UserHook`, Axe API accepts that `UserHooks` is the hook definition file for the model `User`. In the HTTP request processing time, if there is any hook that has been written, Axe API calls that hook.
+**But can this function be executed? Yes!** In the booting process, Axe API tries to discover what kind of hooks and events have been written. For a model called `User`, if you create a folder which is called `User`, Axe API accepts that `User` folder has hooks for the model `User`. In the HTTP request processing time, if there is any hook that has been written, Axe API calls that hook.
 
 This feature gives us very important flexibility. First of all, you can add any logic by the parameters which Axe API passed. Secondly, the hook functions are almost isolated. It means that writing unit tests about them is very easy.
 
@@ -45,16 +43,14 @@ The main difference between **Hooks** and **Events** is; events are **asynchrono
 
 Using **Events** is very easy, almost same with the hooks. There is only one different thing in usage. Which is creating the event file under the `app/v1/Events` folders.
 
-`app/v1/Events/UserEvents.ts`
+`app/v1/Events/User/onAfterInsert.ts`
 
 ```ts
 import { IHookParameter } from "axe-api";
 
-const onAfterInsert = async ({ formData }: IHookParameter) => {
+export default async ({ formData }: IHookParameter) => {
   // You can send an email to the user in here...
 };
-
-export { onAfterInsert };
 ```
 
 ## Request Lifecycle

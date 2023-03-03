@@ -9,7 +9,7 @@ While you are fetching any data (For example in PAGINATE handlers for now), you 
 To get only specific fields, you may use a query like the following statement;
 
 ```
-/api/users?fields:id,name,surname
+/api/users?fields=id,name,surname
 ```
 
 This request is equal on SQL;

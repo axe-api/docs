@@ -81,13 +81,21 @@ Each API versions should have own configuration file. For example;
 You can see an example of version configuration;
 
 ```ts
-import { IVersionConfig } from "axe-api";
+import { IVersionConfig, QueryFeature, allow, deny } from "axe-api";
 
 const config: IVersionConfig = {
   supportedLanguages: ["en", "de"],
   defaultLanguage: "en",
   transaction: [],
   serializers: [],
+  query: {
+    limits: [allow(QueryFeature.All)],
+    defaults: {
+      perPage: 10,
+      minPerPage: 5,
+      maxPerPage: 100,
+    },
+  },
 };
 
 export default config;
@@ -196,3 +204,75 @@ In this example, the serializer will be work only `PAGINATE` handlers.
 :::tip
 You can find more detail in the [Serialization](/basics/serialization.html) page.
 :::
+
+### `query`
+
+You can allow or deny query features under this section. Also, you can set the default values of paginations.
+
+```js
+{
+  query: {
+    limits: [allow(QueryFeature.All)],
+    defaults: {
+      perPage: 10,
+      minPerPage: 5,
+      maxPerPage: 100,
+    },
+  },
+}
+```
+
+#### `limits`
+
+Axe API provides two functions that you can use to set up query limits; `allow` and `deny`. You can use these functions and define a limit array.
+
+The next item in the array overrides the previous item in the array. In the following example, we allow all query features except `Sorting` and `WhereLike`.
+
+```js
+{
+  query: {
+    limits: [
+      allow(QueryFeature.All),
+      deny(QueryFeature.Sorting),
+      deny(QueryFeature.WhereLike),
+    ],
+    defaults: {
+      perPage: 10,
+      minPerPage: 5,
+      maxPerPage: 100,
+    },
+  },
+}
+```
+
+You can find the all query features to limit;
+
+- `All`: All query features.
+- `FieldsAll`: Fetching all fields.
+- `Sorting`: Sorting items.
+- `Limits`: Limiting pagination values (via `per_page`)
+- `WhereAll`: All filtering options. (`Where{*}`)
+- `WhereEqual`: Allow equal filter (`?q={"id": 1}`)
+- `WhereNotEqual`: Allow NOT equal filter (`?q={"id.$not": 1}`)
+- `WhereGt`: Allow greater than filter (`?q={"id.$gt": 1}`)
+- `WhereGte`: Allow greater than equal filter (`?q={"id.$gte": 1}`)
+- `WhereLt`: Allow lower than filter (`?q={"id.$lt": 1}`)
+- `WhereLte`: Allow lower than equal filter (`?q={"id.$lte": 1}`)
+- `WhereLike`: Allow LIKE filter (`?q={"name.$like": "*pop*"}`)
+- `WhereNotLike`: Allow NOT LIKE filter (`?q={"name.$notLike": "*pop*"}`)
+- `WhereIn`: Allow IN filter (`?q={"age.$in": [18, 19]}`)
+- `WhereNotIn`: Allow NOT IN filter (`?q={"age.$notIn": [18, 19]}`)
+- `WhereBetween`: Allow BETWEEN filter (`?q={"age.$between": [18, 30]}`)
+- `WhereNotBetween`: Allow NOT BETWEEN filter (`?q={"age.$notBetween": [18, 30]}`)
+- `WhereNull`: Allow NULL filter (`?q={"age": null}`)
+- `WhereNotNull`: Allow NOT NULL filter (`?q={"age.$not": null}`)
+- `Trashed`: Allow trashed filter for soft-deletes (`?trashed=true`)
+- `WithAll`: Allow all `with` queries
+- `WithHasOne`: Allow only has-one queries (`?with=posts{author}`)
+- `WithHasMany`: Allow only has-many queries (`?with=users{posts}`)
+
+#### `defaults`
+
+- `perPage`: The default item value per page if the client doesn't provide any value.
+- `minPerPage`: The minimum item value per page that the client can select.
+- `maxPerPage`: The maximum item value per page that the client can select.

@@ -588,6 +588,29 @@ export default User;
 
 In this example, this second middleware will be executed only for **DELETE** handler. This is a great way to create a very flexible architecture. Also, it helps us to separate common API logic (CRUD) from business logic.
 
+## Limits
+
+You can allow and deny model-based query feature features in here.
+
+```ts
+import { Model, QueryFeature, allow, deny } from "axe-api";
+
+class User extends Model {
+  get limits() {
+    return [
+      allow(QueryFeature.WhereLike, ["name"]),
+      deny(QueryFeature.WithHasMany),
+    ];
+  }
+}
+
+export default User;
+```
+
+:::tip
+You can find more information in [Config - Limits](/basics/config.html#limits) section.
+:::
+
 ## Ignore
 
 In case you don't want to create routes for a model, Axe API provides ignore getter. Using the ignore getter you can block the model for auto-route creation. By default, ignore getter returns false. But you can change the value like the following code;

@@ -271,6 +271,23 @@ You can find the all query features to limit;
 - `WithHasOne`: Allow only has-one queries (`?with=posts{author}`)
 - `WithHasMany`: Allow only has-many queries (`?with=users{posts}`)
 
+:::tip
+Both with `allow` and `deny` functions you can set a limit for a specific field. For example;
+
+```js
+{
+  query: {
+    limits: [
+      allow(QueryFeature.All),
+      deny(QueryFeature.Sorting),           // DENY all sorting
+      allow(QueryFeature.Sorting, ["id"]),  // EXCEPT sorting with `id` field
+    ],
+  },
+}
+```
+
+:::
+
 #### `defaults`
 
 - `perPage`: The default item value per page if the client doesn't provide any value.

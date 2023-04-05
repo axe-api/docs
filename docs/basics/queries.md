@@ -182,7 +182,7 @@ But also, you can select which columns will be fetched for the relation. You don
 You can use the `trashed` parameters to list soft-deleted records if the [Soft Delete](/basics/models.html#soft-delete) feature is enabled.
 
 ```js
-/api/customers?trashed=true
+/api/v1/customers?trashed=true
 ```
 
 ```json
@@ -207,7 +207,7 @@ You can use the `trashed` parameters to list soft-deleted records if the [Soft D
 }
 ```
 
-You can see in the JSON that the record has been marked as deleted by looking at `deleted_at` value. You can not see this record if you don't use `trashed` keyword. -->
+You can see in the JSON that the record has been marked as deleted by looking at `deleted_at` value. You can not see this record if you don't use `trashed` keyword.
 
 ## Operators
 

@@ -16,8 +16,8 @@
     "markdown-it-task-lists": "^2.1.1"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.8.2",
-    "vitepress": "1.0.0-alpha.33",
+    "@vuepress/plugin-google-analytics": "^1.9.9",
+    "vitepress": "1.0.0-alpha.65",
     "vue": "^3.2.47"
   }
 }

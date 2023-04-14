@@ -1,3 +1,167 @@
+const sidebarGuide = () => [
+  {
+    text: "Getting Started",
+    collapsed: false,
+    items: [
+      {
+        text: "Quick start",
+        link: "/learn/quick-start",
+      },
+      { text: "Bookstore API", link: "/learn/bookstore-api" },
+    ],
+  },
+  {
+    text: "Fundamentals",
+    collapsed: true,
+    items: [
+      { text: "What does a Model mean?", link: "/learn/models" },
+      { text: "Understanding routing", link: "/learn/quick-startx" },
+      { text: "Version management", link: "/learn/bookstore-apix" },
+      { text: "Validate your data", link: "/learn/bookstore-apix" },
+    ],
+  },
+  {
+    text: "Gains",
+    collapsed: true,
+    items: [
+      { text: "Auto-created documentation", link: "/learn/models" },
+      { text: "Querying data", link: "/learn/quick-startx" },
+      { text: "Related data queries", link: "/learn/bookstore-apix" },
+      {
+        text: "Query with JS client",
+        link: "/learn/bookstore-apix",
+      },
+      {
+        text: "Understanding the DB Analyzer",
+        link: "/learn/bookstore-apix",
+      },
+    ],
+  },
+  {
+    text: "Advanced",
+    collapsed: true,
+    items: [
+      { text: "Configurations", link: "/learn/models" },
+      { text: "i18n", link: "/learn/quick-startx" },
+      { text: "Error handling", link: "/learn/bookstore-apix" },
+      {
+        text: "Custom routes",
+        link: "/learn/bookstore-apix",
+      },
+      {
+        text: "Hooks",
+        link: "/learn/bookstore-apix",
+      },
+      {
+        text: "Securing your API",
+        link: "/learn/bookstore-apix",
+      },
+      {
+        text: "Database transactions",
+        link: "/learn/bookstore-apix",
+      },
+      {
+        text: "Multiple database support",
+        link: "/learn/bookstore-apix",
+      },
+    ],
+  },
+  {
+    text: "How to?",
+    collapsed: true,
+    items: [
+      { text: "File uploading", link: "/learn/models" },
+      { text: "Authentication", link: "/learn/quick-startx" },
+      { text: "Rate limiting", link: "/learn/bookstore-apix" },
+      {
+        text: "Deployment",
+        link: "/learn/bookstore-apix",
+      },
+    ],
+  },
+];
+
+const sidebarReference = [
+  {
+    text: "Getting Started",
+    items: [
+      {
+        text: "What is Axe API?",
+        link: "/getting-started/what-is-axe-api",
+      },
+      { text: "Installation", link: "/getting-started/installation" },
+      { text: "Migrations", link: "/getting-started/migrations" },
+      { text: "CRUD", link: "/getting-started/crud" },
+      { text: "Architecture", link: "/getting-started/architecture" },
+      {
+        text: "What is next?",
+        link: "/getting-started/what-is-next",
+      },
+    ],
+  },
+  {
+    text: "Upgrading",
+    items: [
+      { text: "0.20.0", link: "/upgrading/0.20.0" },
+      { text: "0.30.0", link: "/upgrading/0.30.0" },
+    ],
+  },
+  {
+    text: "Basics",
+    items: [
+      { text: "Versions", link: "/basics/versions" },
+      { text: "Configs", link: "/basics/config" },
+      { text: "Initialization", link: "/basics/init" },
+      { text: "Models", link: "/basics/models" },
+      { text: "Handlers", link: "/basics/handlers" },
+      { text: "Middlewares", link: "/basics/middlewares" },
+      { text: "Queries", link: "/basics/queries" },
+      { text: "Serialization", link: "/basics/serialization" },
+      { text: "Error Handling", link: "/basics/errors" },
+      { text: "Deployment", link: "/basics/deployment" },
+    ],
+  },
+  {
+    text: "Advanced",
+    items: [
+      { text: "Hooks", link: "/advanced/hooks" },
+      { text: "Internationalization", link: "/advanced/i18n" },
+      { text: "IoC", link: "/advanced/ioc" },
+      { text: "Custom Routes", link: "/advanced/custom-routes" },
+      { text: "System Errors", link: "/errors" },
+      { text: "Documentation", link: "/advanced/docs" },
+    ],
+  },
+  {
+    text: "Database",
+    items: [
+      { text: "Migrations", link: "/database/migrations" },
+      { text: "Transactions", link: "/database/transactions" },
+      { text: "DB Analyzer", link: "/database/db-analyzer" },
+    ],
+  },
+  {
+    text: "Security",
+    items: [
+      { text: "Authentication", link: "/security/authentication" },
+      { text: "Rate Limiting", link: "/security/rate-limiting" },
+    ],
+  },
+  {
+    text: "Testing",
+    items: [{ text: "Concepts", link: "/testing" }],
+  },
+  {
+    text: "Contribution",
+    items: [
+      { text: "Fundamentals", link: "/contribution/fundamentals" },
+      { text: "Development Kit", link: "/contribution/development-kit" },
+      { text: "Databases", link: "/contribution/databases" },
+      { text: "Tests", link: "/contribution/tests" },
+    ],
+  },
+];
+
 export default {
   title: "Axe API",
   description:
@@ -30,87 +194,11 @@ export default {
       },
       { text: "CLI", link: "https://github.com/axe-api/axe-magic" },
     ],
-    sidebar: [
-      {
-        text: "Getting Started",
-        items: [
-          {
-            text: "What is Axe API?",
-            link: "/getting-started/what-is-axe-api",
-          },
-          { text: "Installation", link: "/getting-started/installation" },
-          { text: "Migrations", link: "/getting-started/migrations" },
-          { text: "CRUD", link: "/getting-started/crud" },
-          { text: "Architecture", link: "/getting-started/architecture" },
-          {
-            text: "What is next?",
-            link: "/getting-started/what-is-next",
-          },
-        ],
-      },
-      {
-        text: "Upgrading",
-        items: [
-          { text: "0.20.0", link: "/upgrading/0.20.0" },
-          { text: "0.30.0", link: "/upgrading/0.30.0" },
-        ],
-      },
-      {
-        text: "Basics",
-        items: [
-          { text: "Versions", link: "/basics/versions" },
-          { text: "Configs", link: "/basics/config" },
-          { text: "Initialization", link: "/basics/init" },
-          { text: "Models", link: "/basics/models" },
-          { text: "Handlers", link: "/basics/handlers" },
-          { text: "Middlewares", link: "/basics/middlewares" },
-          { text: "Queries", link: "/basics/queries" },
-          { text: "Serialization", link: "/basics/serialization" },
-          { text: "Error Handling", link: "/basics/errors" },
-          { text: "Deployment", link: "/basics/deployment" },
-        ],
-      },
-      {
-        text: "Advanced",
-        items: [
-          { text: "Hooks", link: "/advanced/hooks" },
-          { text: "Internationalization", link: "/advanced/i18n" },
-          { text: "IoC", link: "/advanced/ioc" },
-          { text: "Custom Routes", link: "/advanced/custom-routes" },
-          { text: "System Errors", link: "/errors" },
-          { text: "Documentation", link: "/advanced/docs" },
-        ],
-      },
-      {
-        text: "Database",
-        items: [
-          { text: "Migrations", link: "/database/migrations" },
-          { text: "Transactions", link: "/database/transactions" },
-          { text: "DB Analyzer", link: "/database/db-analyzer" },
-        ],
-      },
-      {
-        text: "Security",
-        items: [
-          { text: "Authentication", link: "/security/authentication" },
-          { text: "Rate Limiting", link: "/security/rate-limiting" },
-        ],
-      },
-      {
-        text: "Testing",
-        items: [{ text: "Concepts", link: "/testing" }],
-      },
-      {
-        text: "Contribution",
-        items: [
-          { text: "Fundamentals", link: "/contribution/fundamentals" },
-          { text: "Development Kit", link: "/contribution/development-kit" },
-          { text: "Databases", link: "/contribution/databases" },
-          { text: "Tests", link: "/contribution/tests" },
-          { text: "Team", link: "/contribution/team" },
-        ],
-      },
-    ],
+
+    sidebar: {
+      "/learn/": sidebarGuide(),
+      "/reference/": sidebarReference,
+    },
 
     socialLinks: [
       { icon: "github", link: "https://github.com/axe-api/axe-api" },

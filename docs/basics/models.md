@@ -576,7 +576,7 @@ class User extends Model {
         middleware: isLogged,
       },
       {
-        handler: DELETE,
+        handler: [DELETE],
         middleware: isAdmin,
       },
     ];

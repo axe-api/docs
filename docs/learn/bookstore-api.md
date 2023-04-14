@@ -4,6 +4,18 @@
 You will build a small bookstore API by using Axe API. Using this tutorial doesn't require any Axe API knowledge. It will give you a deep understanding of how Axe API works and why it is so powerful.
 </p>
 
+<ul class="intro">
+  <li>You will learn</li>
+  <li>How to create a new project</li>
+  <li>How to connect a database</li>
+  <li>How to define daatabase migrations</li>
+  <li>How to create endpoints</li>
+  <li>How to validate request data</li>
+  <li>How to use middlewares</li>
+  <li>How to use hooks</li>
+  <li>How to query data</li>
+</ul>
+
 ## Step 1. Installing CLI
 
 Bu bölümde axe-magic kurulacak.

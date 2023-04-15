@@ -48,8 +48,6 @@ Once you define your model in Axe API, the framework analyzes it and automatical
 
 In addition to creating the routes, Axe API also handles all of the CRUD operations, so you don't need to do anything at all.
 
-The framework assumes that the table name on the database is `users`, based on the model definition, and verifies its correctness before handling all incoming HTTP requests.
-
 :::tip
 Model files play a crucial role in defining your API. There are numerous features that you can specify in a model file that will determine how your API operates.
 :::

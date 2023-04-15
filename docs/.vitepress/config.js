@@ -7,7 +7,7 @@ const sidebarGuide = () => [
         text: "Quick start",
         link: "/learn/quick-start",
       },
-      { text: "Bookstore API", link: "/learn/bookstore-api" },
+      { text: "Tutorial: Bookstore API", link: "/learn/bookstore-api" },
     ],
   },
   {

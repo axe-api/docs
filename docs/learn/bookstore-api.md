@@ -211,7 +211,7 @@ Let's break down the next steps after connecting to the database and creating ta
 
 The next task is to set up models, which are located in the `Models` folder under the `app` directory. In Axe API, you can have multiple versions of your API on the same database schema, which is why you'll find the `app/v1` folder in your project.
 
-Let's create a simple model file for `users` table.
+Let's create model files for all tables;
 
 ::: code-group
 
@@ -223,9 +223,25 @@ class User extends Model {}
 export default User;
 ```
 
+```ts [app/v1/Models/Book.ts]
+import { Model } from "axe-api";
+
+class Book extends Model {}
+
+export default Book;
+```
+
+```ts [app/v1/Models/Order.ts]
+import { Model } from "axe-api";
+
+class Order extends Model {}
+
+export default Order;
+```
+
 :::
 
-After you created `User.ts` model file, you should be able to see the following results when you visit [localhost:3000/routes](http://localhost:3000/routes) URL.
+After you created models files, you should be able to see the following results when you visit [localhost:3000/routes](http://localhost:3000/routes) URL.
 
 ```json
 [
@@ -235,6 +251,18 @@ After you created `User.ts` model file, you should be able to see the following 
   "PUT /api/v1/users/:id",
   "PATCH /api/v1/users/:id",
   "DELETE /api/v1/users/:id"
+  "POST /api/v1/books",
+  "GET /api/v1/books",
+  "GET /api/v1/books/:id",
+  "PUT /api/v1/books/:id",
+  "PATCH /api/v1/books/:id",
+  "DELETE /api/v1/books/:id"
+  "POST /api/v1/orders",
+  "GET /api/v1/orders",
+  "GET /api/v1/orders/:id",
+  "PUT /api/v1/orders/:id",
+  "PATCH /api/v1/orders/:id",
+  "DELETE /api/v1/orders/:id"
 ]
 ```
 
@@ -256,56 +284,9 @@ You can see the following pagination result when you visit the [localhost:3000/a
 }
 ```
 
-This result indicates that the User model has been analyzed correctly by Axe API and that all endpoints have been added to your API.
+This result indicates that your models have been analyzed correctly by Axe API and that all endpoints have been added to your API.
 
-Let's create all models like the following examples;
-
-::: code-group
-
-```ts [app/v1/Models/Book.ts]
-import { Model } from "axe-api";
-
-class Book extends Model {}
-
-export default Book;
-```
-
-```ts [app/v1/Models/Order.ts]
-import { Model } from "axe-api";
-
-class Order extends Model {}
-
-export default Order;
-```
-
-:::
-
-Now the [localhost:3000/routes](http://localhost:3000/routes) should return the following data;
-
-```json
-[
-  "POST /api/v1/books",
-  "GET /api/v1/books",
-  "GET /api/v1/books/:id",
-  "PUT /api/v1/books/:id",
-  "PATCH /api/v1/books/:id",
-  "DELETE /api/v1/books/:id",
-  "POST /api/v1/orders",
-  "GET /api/v1/orders",
-  "GET /api/v1/orders/:id",
-  "PUT /api/v1/orders/:id",
-  "PATCH /api/v1/orders/:id",
-  "DELETE /api/v1/orders/:id",
-  "POST /api/v1/users",
-  "GET /api/v1/users",
-  "GET /api/v1/users/:id",
-  "PUT /api/v1/users/:id",
-  "PATCH /api/v1/users/:id",
-  "DELETE /api/v1/users/:id"
-]
-```
-
-Tada! We only created the basic structure of your API but we are going to add more logic in the following steps.
+Until now, we only created the basic structure of your API but we are going to add more logic in the following steps.
 
 ## Step 8. Adding new data
 

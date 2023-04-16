@@ -690,12 +690,134 @@ SELECT * FROM users;
 
 ## Step 11. Querying data
 
-Verilerin nasıl sorgulandığını göstereceğiz.
+Once you design your models, Axe API provides powerful query options.
+
+For example; you can decide which `fields` should be listed.
+
+::: code-group
+
+```bash [cURL]
+$ curl \
+  -H "Content-Type: application/json" \
+  -X GET "http://localhost:3000/api/v1/users?fields=id,first_name,last_name"
+
+```
+
+```json [Response]
+{
+  "data": [
+    {
+      "id": 1,
+      "first_name": "Karl",
+      "last_name": "Popper"
+    },
+    {
+      "id": 2,
+      "first_name": "John",
+      "last_name": "Locke"
+    }
+  ],
+  "pagination": {
+    "total": 2,
+    "lastPage": 1,
+    "prevPage": null,
+    "nextPage": null,
+    "perPage": 10,
+    "currentPage": 1,
+    "from": 0,
+    "to": 2
+  }
+}
+```
+
+:::
+
+HTTP client can decide the sorting field and type. In the following example, records should be sorted by `id` in descending order.
+
+::: code-group
+
+```bash [cURL]
+$ curl \
+  -H "Content-Type: application/json" \
+  -X GET "http://localhost:3000/api/v1/users?sort=-id"
+
+```
+
+```json [Response]
+{
+  "data": [
+    {
+      "id": 2,
+      "email": "locke@axe-api.com",
+      "first_name": "John",
+      "last_name": "Locke",
+      "created_at": "2023-04-16T12:25:02.000Z",
+      "updated_at": "2023-04-16T12:25:02.000Z"
+    },
+    {
+      "id": 1,
+      "email": "karl@axe-api.com",
+      "first_name": "Karl",
+      "last_name": "Popper",
+      "created_at": "2023-04-16T11:31:44.000Z",
+      "updated_at": "2023-04-16T11:31:44.000Z"
+    }
+  ],
+  "pagination": {
+    "total": 2,
+    "lastPage": 1,
+    "prevPage": null,
+    "nextPage": null,
+    "perPage": 10,
+    "currentPage": 1,
+    "from": 0,
+    "to": 2
+  }
+}
+```
+
+:::
+
+Also, HTTP clients are able to filter data by sending a query;
+
+::: code-group
+
+```bash [cURL]
+$ curl \
+  -H "Content-Type: application/json" \
+  -X GET 'http://localhost:3000/api/v1/users?q=\{%22first_name%22:%22Karl%22\}'
+
+```
+
+```json [Response]
+{
+  "data": [
+    {
+      "id": 1,
+      "email": "karl@axe-api.com",
+      "first_name": "Karl",
+      "last_name": "Popper",
+      "created_at": "2023-04-16T11:31:44.000Z",
+      "updated_at": "2023-04-16T11:31:44.000Z"
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "lastPage": 1,
+    "prevPage": null,
+    "nextPage": null,
+    "perPage": 10,
+    "currentPage": 1,
+    "from": 0,
+    "to": 1
+  }
+}
+```
+
+:::
 
 ## Next step
 
-Bu bölümde neler öğrendik ve sonraki bölümlerde neler öğreneceğiz.
+In this chapter, we tried to show what is Axe API and how it works in a simple example. You can be sure that there are more powerful features. This was just a demonstration.
 
-```
-
-```
+In the next chapter, we are going to talk about Models and reveal their magical sides.

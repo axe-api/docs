@@ -628,13 +628,65 @@ $ curl \
 
 :::
 
-## Step 9. Enable authentications
-
-Authentication özelliklerini dahil edeceğiz ve modelleri korumaya alacağız.
-
 ## Step 10. Adding hooks
 
-Hook örnekleri ekleyeceğiz ve verileri korumaya alacağız.
+Axe API analyzes your models, creates routes, and handles HTTP requests. But the real world is not simple like that.
+
+Until now we've only seen the Axe API magics. But as developers, we should be able to add our custom logic to the APIs. For example; we should be able to hash the user's password, send a welcome email to the users, check some other things, etc.
+
+Axe API supports a strong hook and event mechanism that you can add your custom logic to every HTTP request.
+
+As an example, let's try to hash the user's password in the POST request. First, we need to install some dependencies;
+
+```bash
+$ npm i --save bcrypt
+$ npm i --save-dev @types/bcrypt
+```
+
+After that, the only thing to do is add the following hook to your project;
+
+::: code-group
+
+```ts [app/v1/Hooks/User/onBeforeInsert.ts]
+import bcrypt from "bcrypt";
+import { IHookParameter } from "axe-api";
+
+export default async ({ formData }: IHookParameter) => {
+  formData.password = bcrypt.hashSync(formData.password, 10);
+};
+```
+
+:::
+
+If you look at the path of the file, it clearly describes the hook file is related to `User` model. Also, by the name of the file, this function will be executed **before** **inserting** a new user.
+
+Let's send the following cURL request again to see the results.
+
+```bash
+$ curl \
+  -d '{"email": "locke@axe-api.com", "first_name": "John", "last_name":"Locke", "password": "my-secret-password"}' \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:3000/api/v1/users
+```
+
+Since we don't allow to return of the password via API response, you can check the hashed value on the database.
+
+::: code-group
+
+```sql [MySQL]
+SELECT * FROM users;
+```
+
+```sql [PostgreSQL]
+SELECT * FROM users;
+```
+
+:::
+
+| id  | email             | password                |
+| --- | ----------------- | ----------------------- |
+| 1   | karl@axe-api.com  | my-secret-password      |
+| 2   | locke@axe-api.com | $2b$10$IyIxdf$IyIxdf... |
 
 ## Step 11. Querying data
 

@@ -71,6 +71,20 @@ CREATE DATABASE bookstore CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 :::
 
+We should add MySQL or PostgreSQL library to dependencies to create a connection.
+
+::: code-group
+
+```bash [MySQL]
+$ npm install mysql --save
+```
+
+```bash [PostgreSQL]
+$
+```
+
+:::
+
 ## Step 4. Setting configurations
 
 To set up the database connection for Axe API, you need to create a .env file in the root folder of the project and set the appropriate database connection information.
@@ -127,9 +141,9 @@ $ npm install -g knex
 To create a migration file for each table, you can execute the following command:
 
 ```bash
-$ knex --esm migrate:make Users
-$ knex --esm migrate:make Books
-$ knex --esm migrate:make Orders
+$ knex --esm migrate:make 1Users
+$ knex --esm migrate:make 2Books
+$ knex --esm migrate:make 3Orders
 ```
 
 To define the structure of each table in a migration file, you can easily copy and paste the following content into each file.
@@ -202,7 +216,7 @@ export const down = function (knex) {
 Once your migration files are ready, you can use the following command to migrate your database.
 
 ```bash
-& knex --esm migrate:latest
+$ knex --esm migrate:latest
 ```
 
 Let's break down the next steps after connecting to the database and creating tables. These steps are fairly common for other frameworks or libraries as well.
@@ -245,24 +259,24 @@ After you created models files, you should be able to see the following results 
 
 ```json
 [
+  "POST /api/v1/books",
+  "GET /api/v1/books",
+  "GET /api/v1/books/:id",
+  "PUT /api/v1/books/:id",
+  "PATCH /api/v1/books/:id",
+  "DELETE /api/v1/books/:id",
+  "POST /api/v1/orders",
+  "GET /api/v1/orders",
+  "GET /api/v1/orders/:id",
+  "PUT /api/v1/orders/:id",
+  "PATCH /api/v1/orders/:id",
+  "DELETE /api/v1/orders/:id",
   "POST /api/v1/users",
   "GET /api/v1/users",
   "GET /api/v1/users/:id",
   "PUT /api/v1/users/:id",
   "PATCH /api/v1/users/:id",
   "DELETE /api/v1/users/:id"
-  "POST /api/v1/books",
-  "GET /api/v1/books",
-  "GET /api/v1/books/:id",
-  "PUT /api/v1/books/:id",
-  "PATCH /api/v1/books/:id",
-  "DELETE /api/v1/books/:id"
-  "POST /api/v1/orders",
-  "GET /api/v1/orders",
-  "GET /api/v1/orders/:id",
-  "PUT /api/v1/orders/:id",
-  "PATCH /api/v1/orders/:id",
-  "DELETE /api/v1/orders/:id"
 ]
 ```
 
@@ -270,16 +284,16 @@ You can see the following pagination result when you visit the [localhost:3000/a
 
 ```json
 {
-  data: [],
-  pagination": {
+  "data": [],
+  "pagination": {
     "total": 0,
-    "lastPage": 1,
+    "lastPage": 0,
     "prevPage": null,
     "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,
-    "to": 10
+    "to": 0
   }
 }
 ```
@@ -290,11 +304,329 @@ Until now, we only created the basic structure of your API but we are going to a
 
 ## Step 8. Adding new data
 
-Yeni bir veri eklemek için modellerde gerekli değişikliklikleri yapacağız.
+The models are currently only set up for fetching data and not accepting inserted data for security reasons. Developers must define which fields can be filled by clients and specify data validation rules.
+
+The next step is adding the `fillable` and the `validation` getters.
+
+::: code-group
+
+```ts{4-6,8-15} [app/v1/Models/User.ts]
+import { Model } from "axe-api";
+
+class User extends Model {
+  get fillable() {
+    return ["email", "first_name", "last_name", "password"];
+  }
+
+  get validations() {
+    return {
+      email: "required|min:3|max:255|email",
+      first_name: "required|min:2|max:50",
+      last_name: "required|min:2|max:50",
+      password: "required|min:6|max:100",
+    };
+  }
+}
+
+export default User;
+```
+
+```ts{4-6,8-13} [app/v1/Models/Book.ts]
+import { Model } from "axe-api";
+
+class Book extends Model {
+  get fillable() {
+    return ["name", "author", "price"];
+  }
+
+  get validations() {
+    return {
+      name: "required|min:3|max:255",
+      author: "required|min:2|max:50",
+      price: "required|numeric",
+    };
+  }
+}
+
+export default Book;
+```
+
+```ts{4-6,8-14} [app/v1/Models/Order.ts]
+import { Model } from "axe-api";
+
+class Order extends Model {
+  get fillable() {
+    return ["book_id", "user_id", "quantity"];
+  }
+
+  get validations() {
+    return {
+      book_id: "required|numeric",
+      user_id: "required|numeric",
+      quantity: "required|numeric",
+    };
+  }
+}
+
+export default Order;
+```
+
+:::
+
+By using these definitions, we essentially inform Axe API of which fields can be filled and specify the data validation rules to be applied.
+
+Let's try to create a new user without data first;
+
+```bash
+$ curl \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:3000/api/v1/users
+```
+
+You should be able to see the following error message after the cURL request. This is a validation error that uses by Axe API.
+
+```json
+{
+  "errors": {
+    "email": ["The email field is required."],
+    "first_name": ["The first name field is required."],
+    "last_name": ["The last name field is required."],
+    "password": ["The password field is required."]
+  }
+}
+```
+
+Let's create an acceptable user by sending the following command;
+
+```bash
+$ curl \
+  -d '{"email": "karl@axe-api.com", "first_name": "Karl", "last_name":"Popper", "password": "my-secret-password"}' \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:3000/api/v1/users
+```
+
+If everything goes fine, you should be able to see created user record as an HTTP response;
+
+```json
+{
+  "id": 1,
+  "email": "karl@axe-api.com",
+  "password": "my-secret-password",
+  "first_name": "Karl",
+  "last_name": "Popper",
+  "created_at": "2023-04-16T11:31:44.000Z",
+  "updated_at": "2023-04-16T11:31:44.000Z"
+}
+```
+
+Since we already have a valid user record, let's create a `book` and an `order`, to use them in the following section of the tutorial.
+
+::: code-group
+
+```bash [Insert a book]
+$ curl \
+  -d '{"name": "How to build a Rest API?", "author": "Axe API", "price": 50}' \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:3000/api/v1/books
+```
+
+```bash [Insert an order]
+$ curl \
+  -d '{"user_id": 1, "book_id": 1, "quantity": 1}' \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:3000/api/v1/orders
+```
+
+:::
+
+Now we have a user, a book, and an order record on the database. Let's move to the next chapter.
 
 ## Step 8. Creating relations
 
-Bu bölümde modeller arasında ilişki kuracağız.
+Axe API has strong abilities to understand the relationship between models. In this section, we are going to define relationships between models and see how we can use them in queries.
+
+Let's define the relations of the `Order` model.
+
+::: code-group
+
+```ts{16-18,20-22} [app/v1/Models/Order.ts]
+import { Model } from "axe-api";
+
+class Order extends Model {
+  get fillable() {
+    return ["book_id", "user_id", "quantity"];
+  }
+
+  get validations() {
+    return {
+      book_id: "required|numeric",
+      user_id: "required|numeric",
+      quantity: "required|numeric",
+    };
+  }
+
+  user() {
+    return this.hasOne("User", "id", "user_id");
+  }
+
+  book() {
+    return this.hasOne("Book", "id", "book_id");
+  }
+}
+
+export default Order;
+```
+
+:::
+
+In this definition, we tell Axe API that the Order model has a one-to-one relationship with the `User` and `Book` models. Axe API is such a powerful tool that can use this information in queries.
+
+Let's try to paginate orders, first.
+
+```bash
+$ curl \
+  -H "Content-Type: application/json" \
+  -X GET http://localhost:3000/api/v1/orders
+```
+
+The response you can get would be like the following JSON;
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "book_id": 1,
+      "user_id": 1,
+      "quantity": 1,
+      "created_at": "2023-04-16T11:37:08.000Z",
+      "updated_at": "2023-04-16T11:37:08.000Z"
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "lastPage": 1,
+    "prevPage": null,
+    "nextPage": null,
+    "perPage": 10,
+    "currentPage": 1,
+    "from": 0,
+    "to": 1
+  }
+}
+```
+
+But Axe API provides a `with` parameter to clients, to be able to get related data. Let's try to get orders with `user` and `book` data with the following request.
+
+```bash
+$ curl \
+  -H "Content-Type: application/json" \
+  -X GET "http://localhost:3000/api/v1/orders?with=user,book"
+```
+
+As you can see in the following JSON, related user and book data have been added to the order response.
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "book_id": 1,
+      "user_id": 1,
+      "quantity": 1,
+      "created_at": "2023-04-16T11:37:08.000Z",
+      "updated_at": "2023-04-16T11:37:08.000Z",
+      "user": {
+        "id": 1,
+        "email": "karl@axe-api.com",
+        "password": "my-secret-password",
+        "first_name": "Karl",
+        "last_name": "Popper",
+        "created_at": "2023-04-16T11:31:44.000Z",
+        "updated_at": "2023-04-16T11:31:44.000Z"
+      },
+      "book": {
+        "id": 1,
+        "name": "How to build a Rest API?",
+        "author": "Axe API",
+        "price": 50,
+        "created_at": "2023-04-16T11:36:21.000Z",
+        "updated_at": "2023-04-16T11:36:21.000Z"
+      }
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "lastPage": 1,
+    "prevPage": null,
+    "nextPage": null,
+    "perPage": 10,
+    "currentPage": 1,
+    "from": 0,
+    "to": 1
+  }
+}
+```
+
+We only defined models and their relations. In return, we got so strong API that we can query the data by using relations.
+
+Unlike everybody who says that Rest APIs have **under-fetching** issues, Axe APIs don't have that problem. HTTP clients can get whatever they want whenever they wish from Axe API projects.
+
+## Step 9. Hiding sensitive data
+
+As you can notice, in the previous section Axe API returned the user's password. Of course, this is such unacceptable behavior.
+
+To prevent this issue, Axe API provides many different solutions. The easiest way is using the `hiddens` getter.
+
+```ts{17-19} [app/v1/Models/User.ts]
+import { Model } from "axe-api";
+
+class User extends Model {
+  get fillable() {
+    return ["email", "first_name", "last_name", "password"];
+  }
+
+  get validations() {
+    return {
+      email: "required|min:3|max:255|email",
+      first_name: "required|min:2|max:50",
+      last_name: "required|min:2|max:50",
+      password: "required|min:6|max:100",
+    };
+  }
+
+  get hiddens() {
+    return ["password"];
+  }
+}
+
+export default User;
+```
+
+After this getter, HTTP clients are not able to see the `password` field in the results.
+
+Let's try the following cURL request.
+
+::: code-group
+
+```bash [cURL]
+$ curl \
+  -H "Content-Type: application/json" \
+  -X GET "http://localhost:3000/api/v1/users/1"
+```
+
+```json [HTTP Response]
+{
+  "id": 1,
+  "email": "karl@axe-api.com",
+  "first_name": "Karl",
+  "last_name": "Popper",
+  "created_at": "2023-04-16T11:31:44.000Z",
+  "updated_at": "2023-04-16T11:31:44.000Z"
+}
+```
+
+:::
 
 ## Step 9. Enable authentications
 
@@ -311,3 +643,7 @@ Verilerin nasıl sorgulandığını göstereceğiz.
 ## Next step
 
 Bu bölümde neler öğrendik ve sonraki bölümlerde neler öğreneceğiz.
+
+```
+
+```

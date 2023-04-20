@@ -5,3 +5,7 @@ img {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+img.avatar-img {
+  position: unset !important;
+}

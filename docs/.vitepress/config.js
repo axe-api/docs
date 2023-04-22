@@ -107,6 +107,7 @@ export default {
           { text: "Development Kit", link: "/contribution/development-kit" },
           { text: "Databases", link: "/contribution/databases" },
           { text: "Tests", link: "/contribution/tests" },
+          { text: "Team", link: "/contribution/team" },
         ],
       },
     ],

@@ -15,7 +15,7 @@ const sidebarGuide = () => [
     collapsed: true,
     items: [
       { text: "What does a Model mean?", link: "/learn/models" },
-      { text: "Understanding routing", link: "/learn/routing" },
+      { text: "Understanding the routing", link: "/learn/routing" },
       { text: "Version management", link: "/learn/version-management" },
       { text: "Validate your data", link: "/learn/validations" },
     ],

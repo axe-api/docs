@@ -11,7 +11,7 @@ export default {
     logo: "/axe.png",
 
     nav: [
-      { text: "Github", link: "https://github.com/axe-api/axe-api" },
+      { text: "GitHub", link: "https://github.com/axe-api/axe-api" },
       {
         text: "Changelog",
         link: "https://github.com/axe-api/axe-api/blob/master/CHANGELOG.md",
@@ -21,7 +21,7 @@ export default {
         link: "/cookbooks/",
       },
       {
-        text: "Sonarcloud",
+        text: "SonarCloud",
         link: "https://sonarcloud.io/dashboard?id=axe-api_axe-api",
       },
       {

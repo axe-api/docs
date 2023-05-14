@@ -83,6 +83,10 @@ For the example model, the application is ready to handle the following routes;
 
 Developers don't have to create routes manually unlike other web frameworks, the only required thing is creating model files.
 
+:::tip
+Axe API uses the plural version of your model file name. Using a singular name in model names is suggested.
+:::
+
 ## Model relations
 
 Let's assume that we have some tables that are related to each other, like the following example;
@@ -197,3 +201,31 @@ Your model tree would be like the following schema by your relationship definiti
 :::
 
 ![Axe API Route Tree](./axe-api-route-tree.png)
+
+As a general rule, the models that have not been defined in a `has-many` relationship by other models would be on the top level.
+
+## Custom Routes
+
+Axe API allows you to define custom routes in the `app/v1/init.ts`.
+
+::: code-group
+
+```ts [app/v1/init.ts]
+import { Express } from "express";
+
+const onBeforeInit = async (app: Express) => {
+  app.get("/api/health", (req, res) => {
+    res.json({
+      status: true,
+    });
+  });
+};
+
+const onAfterInit = async (app: Express) => {};
+
+export { onBeforeInit, onAfterInit };
+```
+
+:::
+
+By using the initialization file, you can create very specific routes, to implement your custom logic.

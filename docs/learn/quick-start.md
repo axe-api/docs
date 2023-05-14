@@ -16,6 +16,8 @@ Welcome to the Axe API documentation! This page will give you an introduction to
 
 A Rest API consists of two components: common elements that require time and effort, such as best practices and shared features, and custom logic that distinguishes one API from another.
 
+![Fundamentals of Axe API](fundamentals.png)
+
 The Axe API is a TypeScript-based Node.js framework designed to eliminate the need for repetitive tasks associated with common elements while allowing developers to focus on custom logic. It offers a comprehensive structure for your API, including numerous features and best practices that will save you time.
 
 ## Faster API development

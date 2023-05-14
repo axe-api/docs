@@ -28,11 +28,7 @@ const sidebarGuide = () => [
       { text: "Querying data", link: "/learn/querying-data" },
       { text: "Related data queries", link: "/learn/related-data-queries" },
       {
-        text: "Query with JS client",
-        link: "/learn/axe-api-client",
-      },
-      {
-        text: "Understanding the DB Analyzer",
+        text: "How DB Analyzer works?",
         link: "/learn/db-analyzer",
       },
     ],
@@ -42,15 +38,11 @@ const sidebarGuide = () => [
     collapsed: true,
     items: [
       { text: "Configurations", link: "/learn/configurations" },
-      { text: "i18n", link: "/learn/i18n" },
+      { text: "Internationalization", link: "/learn/i18n" },
       { text: "Error handling", link: "/learn/error-handling" },
       {
-        text: "Custom routes",
-        link: "/learn/custom-routes",
-      },
-      {
-        text: "Hooks",
-        link: "/learn/hooks",
+        text: "Custom logic",
+        link: "/learn/custom-logic",
       },
       {
         text: "Securing your API",

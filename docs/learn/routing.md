@@ -88,3 +88,112 @@ Developers don't have to create routes manually unlike other web frameworks, the
 Let's assume that we have some tables that are related to each other, like the following example;
 
 ![Database Schema](./routes-01.png)
+
+You can define a relationship between models to create related routes;
+
+::: code-group
+
+```ts [User.ts]
+import { Model } from "axe-api";
+
+class User extends Model {
+  posts() {
+    return this.hasMany("Post", "id", "user_id");
+  }
+}
+
+export default User;
+```
+
+```ts [Post.ts]
+import { Model } from "axe-api";
+
+class Post extends Model {
+  user() {
+    return this.belongsTo("User", "user_id", "id");
+  }
+}
+
+export default Post;
+```
+
+:::
+
+We defined two models; `User` and `Post`.
+
+In the `User` model, we defined a `hasMany` relationship. By that definition, we aim to create a relation from the User model to the Post model. Which means that every user might have many posts.
+
+In the `Post` model, we defined a `belongsTo` relationship. This means every post might have only one related user record.
+
+Axe API creates automatically the following routes by this model definition;
+
+| HTTP Method | Url                              | Description         |
+| ----------- | -------------------------------- | ------------------- |
+| GET         | `api/v1/users`                   | Paginate users      |
+| POST        | `api/v1/users`                   | Create a new user   |
+| GET         | `api/v1/users/:id`               | Get a user by id    |
+| PUT         | `api/v1/users/:id`               | Update a user by id |
+| DELETE      | `api/v1/users/:id`               | Delete a user by id |
+| GET         | `api/v1/users/:userId/posts`     | Paginate posts      |
+| POST        | `api/v1/users/:userId/posts`     | Create a new post   |
+| GET         | `api/v1/users/:userId/posts/:id` | Get a post by id    |
+| PUT         | `api/v1/users/:userId/posts/:id` | Update a post by id |
+| DELETE      | `api/v1/users/:userId/posts/:id` | Delete a post by id |
+
+## Route Tree
+
+It is important to understand that Axe API creates a route tree by relationship definitions.
+
+If a model (let's call it as `User`) has a `has-many` relationship (let's assume to the `Post` model), which means that that model (`User`) will be top of the three (`/api/v1/users/:id/posts`).
+
+Also, The `Comment` model would be the child of the `Post` model if you defined it as a `hasMany` relationship in the `Post` model.
+
+Let's check the following model relations;
+
+::: code-group
+
+```ts [User.ts]
+import { Model } from "axe-api";
+
+class User extends Model {
+  posts() {
+    return this.hasMany("Post", "id", "user_id");
+  }
+}
+
+export default User;
+```
+
+```ts [Post.ts]
+import { Model } from "axe-api";
+
+class Post extends Model {
+  user() {
+    return this.belongsTo("User", "user_id", "id");
+  }
+
+  comments() {
+    return this.hasMany("Comment", "id", "post_id");
+  }
+}
+
+export default Post;
+```
+
+```ts [Comment.ts]
+import { Model } from "axe-api";
+
+class Comment extends Model {
+  post() {
+    return this.belongsTo("Post", "post_id", "id");
+  }
+}
+
+export default Comment;
+```
+
+Your model tree would be like the following schema by your relationship definitions.
+
+:::
+
+![Axe API Route Tree](./axe-api-route-tree.png)

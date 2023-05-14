@@ -330,3 +330,7 @@ By this definition, the only HTTP route that will be created is the following on
 | `GET`       | `api/v1/users` | Paginate all items |
 
 You can decide what handlers should be created by using the model definition.
+
+## Next step
+
+In this section, we tried to explain the fundamentals of routing. Next section, we are going to talk about version management.

@@ -34,6 +34,17 @@ const sidebarGuide = () => [
     ],
   },
   {
+    text: "Application Logic",
+    collapsed: true,
+    items: [
+      { text: "Fundamentals", link: "/learn/configurations" },
+      { text: "Request-Response cycle", link: "/learn/request-response-cycle" },
+      { text: "Middlewares", link: "/learn/middlewares" },
+      { text: "Hooks & Events", link: "/learn/hooks-and-events" },
+      { text: "Serializers", link: "/learn/serializers" },
+    ],
+  },
+  {
     text: "Advanced",
     collapsed: true,
     items: [

@@ -171,3 +171,9 @@ export default async (context: IHookParameter) => {
 Axe API executes the `onAfterInsert` event after a user has been created. While doing that, it passes the `IHookParameters` to the event function. The `IHookParameters` contains many variables that can be used by you. One of them is the `item` variable that holds the active record item by the model.
 
 For this example, it holds the created user value. You can use the `context.item` variable to get all created user data.
+
+## Next steps
+
+In this section, we covered the fundamentals of hooks and events. You can find more about it in the API Reference section.
+
+We are going to talk about serializers in the next section.

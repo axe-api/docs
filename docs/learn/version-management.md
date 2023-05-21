@@ -69,3 +69,7 @@ By the best practices, we strongly suggest the following version numerations;
 - `v3`
 
 You must keep in your mind that you should create a new version only if you change something that doesn't work on client request. For example; adding a new model is not a braking change. On the other hand, deleting a model is a breaking change because in that case, HTTP clients can't work until they change their code.
+
+## Next step
+
+In this section, we've explained how you can manage versions in an Axe API project. The next chapter is about validating user data.

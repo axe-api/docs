@@ -6,13 +6,11 @@ In this section, you can find all the installation details.
 
 As the Axe API team, we are very careful about major changes for the next releases. You can see the release plan in the following graph.
 
-![release-plan.png](./release-plan.png)
-
+![release-plan.png](./release-plan.jpg)
 
 ## Step 1. Create Project
 
 Using **Axe API** in an application is very easy. We've created a CLI tool for you; [axe-magic](https://github.com/axe-api/axe-magic).
-
 
 You can create a new Axe API project by using [axe-magic](https://github.com/axe-api/axe-magic). But first, you can install it in your development environment. When you installed it, you can be able to access **axe-magic** command via CLI. You can use the following command to install **axe-magic** to your machine;
 

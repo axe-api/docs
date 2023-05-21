@@ -55,10 +55,6 @@ const sidebarGuide = () => [
         text: "Database transactions",
         link: "/learn/database-transactions",
       },
-      {
-        text: "Multiple database support",
-        link: "/learn/multiple-database-supports",
-      },
     ],
   },
   {

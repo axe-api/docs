@@ -52,10 +52,6 @@ const sidebarGuide = () => [
       { text: "Internationalization", link: "/learn/i18n" },
       { text: "Error handling", link: "/learn/error-handling" },
       {
-        text: "Securing your API",
-        link: "/learn/security",
-      },
-      {
         text: "Database transactions",
         link: "/learn/database-transactions",
       },

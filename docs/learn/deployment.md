@@ -8,6 +8,9 @@ To deploy an Axe API project, the process is just as straightforward as deployin
   <li>You will learn</li>
   <li>What is deployment?</li>
   <li>How to deploy an Axe API project?</li>
+  <li>How to execute migrations?</li>
+  <li>How to dockerize an Axe API project?</li>
+  <li>How to use docker-compose for an Axe API project?</li>
 </ul>
 
 ## Getting started

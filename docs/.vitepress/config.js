@@ -70,6 +70,16 @@ const sidebarGuide = () => [
       },
     ],
   },
+  {
+    text: "Contribution",
+    collapsed: true,
+    items: [
+      { text: "Preparation", link: "/learn/contribution" },
+      { text: "Development Kit", link: "/learn/development-kit" },
+      { text: "Databases", link: "/learn/dev-kit-databases" },
+      { text: "Tests", link: "/learn/contribution-tests" },
+    ],
+  },
 ];
 
 const sidebarReference = [

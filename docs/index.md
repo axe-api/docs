@@ -13,14 +13,11 @@ hero:
     alt: Axe API
   actions:
     - theme: brand
-      text: Learn Axe API
+      text: Learn
       link: /learn/quick-start
     - theme: alt
       text: API Reference
       link: /reference/intro
-    - theme: alt
-      text: Old
-      link: /getting-started/what-is-axe-api
 
 features:
   - icon: ✍

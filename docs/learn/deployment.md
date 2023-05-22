@@ -169,4 +169,4 @@ Other than tehese are just implementation details.
 
 In this section, we tried to cover how you can deploy your API.
 
-By this, you completed the Learn section of the Axe API Documentation. You can check the API Reference out to get more information about Axe API.
+In the next chapter, you can learn how you can contribute to Axe API.

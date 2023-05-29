@@ -18,7 +18,9 @@ Axe API models are a magical feature that can simplify and accelerate the develo
 
 Unlike traditional **ORM models**, Axe API models offer a flexible and powerful way to define the structure and behavior of your API, without requiring developers to write complex and time-consuming code.
 
-By defining a model, developers can specify how data should be stored, retrieved, updated, and deleted. When a model is saved, Axe API analyzes it and creates routes automatically based on the model's structure and configuration. This means that developers can focus on building their API's business logic rather than worrying about the low-level details of handling requests and responses.
+By defining a model, developers can specify how data should be stored, retrieved, updated, and deleted. When a model is saved, Axe API analyzes it and **_creates routes automatically_** based on the model's structure and configuration.
+
+This means that developers can focus on building their API's business logic rather than worrying about the low-level details of handling requests and responses.
 
 ## Basic model example
 
@@ -32,7 +34,9 @@ class User extends Model {}
 export default User;
 ```
 
-This simple model generates routes for CRUD (Create, Read, Update, Delete) operations on users automatically, without requiring any additional code. Specifically, the following routes are created:
+This simple model generates routes for CRUD (_Create, Read, Update, Delete_) operations on users automatically, without requiring any additional code.
+
+Specifically, the following routes are created:
 
 - `GET api/v1/users`: Retrieve a paginated list of all users
 - `POST api/v1/users`: Create a new user
@@ -42,11 +46,15 @@ This simple model generates routes for CRUD (Create, Read, Update, Delete) opera
 
 By default, Axe API generates routes for CRUD operations based on the structure of the model. However, developers can customize the routes by adding additional configurations, which makes Axe API models even more powerful.
 
-Overall, the magic of Axe API models lies in their ability to simplify and automate the development of APIs, allowing developers to focus on building the core logic of their application. With Axe API models, developers can create robust and customizable APIs in less time and with less effort than ever before.
+Overall, the magic of Axe API models lies in their ability to simplify and automate the development of APIs, allowing developers to focus on building the core logic of their application.
+
+With Axe API models, developers can create robust and customizable APIs in less time and with less effort than ever before.
 
 ## How to configure a model?
 
-Axe API's model configurations provide a declarative way to define the behavior of your API. In the example below, we have defined the `Users` model and set the `fillable` property to include only the `name` and `surname` fields. This means that any data sent by HTTP clients with additional fields will be automatically discarded by the API, except the `name` and `surname` fields.
+Axe API's model configurations provide a **_declarative way_** to define the behavior of your API.
+
+In the example below, we have defined the `Users` model and set the `fillable` property to include only the `name` and `surname` fields. This means that any data sent by HTTP clients with additional fields will be automatically discarded by the API, except the `name` and `surname` fields.
 
 ```ts
 import { Model } from "axe-api";
@@ -69,10 +77,12 @@ export default User;
 
 We have also defined data validation rules using the `validations` property. This ensures that any data sent by HTTP clients must meet the defined rules before it is accepted and processed by the API. This prevents the API from processing invalid data and **guarantees** that all responses are **consistent**.
 
-One of the great advantages of using Axe API models is that you no longer need traditional **controller** files. Axe API handles all the requests automatically based on your models, making development faster and more efficient.
+One of the great advantages of using Axe API models is that you no longer need traditional **Controller** files. Axe API handles all the requests automatically based on your models, making development faster and more efficient.
 
 :::tip
-It's worth noting that all model configurations are `getters`. In the future, this will allow developers to define model configurations in YAML or JSON formats, making the API even easier to configure and maintain.
+It's worth noting that all model configurations are `getters`.
+
+In the future, this will allow developers to define model configurations in `YAML` or `JSON` formats, making the API even easier to configure and maintain.
 :::
 
 Overall, Axe API model configurations are a powerful and flexible way to define the behavior of your API. With a little bit of configuration, you can ensure that your API works as you want, without the need for complex controllers.
@@ -85,9 +95,11 @@ Axe API allows developers to add custom logic in many different ways. We will di
 
 Axe API uses **events** for every HTTP action, such as _before inserting data_, _after inserting data_, _before paginating_, _after paginating_, etc. For every HTTP request handling process, there are many **events** that developers can use in their code.
 
-Axe API has two different categories of **events** by their `async`/`sync` status: `hooks` and `events`. Hooks work as **synchronous** with the HTTP requests, but events work **asynchronously**.
+Axe API has two different categories of **events** by their `async`/`sync` status: `hooks` and `events`.
 
-Let's take a look at the following example. In the following function, the password field is hashed using the `bcrypt` library:
+Hooks work as **synchronous** with the HTTP requests, but events work **asynchronously**.
+
+Let's take a look at the following example. In the following function, the `password` field is hashed using the `bcrypt` library:
 
 ```ts
 import bcrypt from "bcrypt";

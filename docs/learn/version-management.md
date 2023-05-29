@@ -24,9 +24,9 @@ Changes can be grouped into 3 groups:
 - `minor` changes
 - `major` changes
 
-The `patch` and `minor` changes are not important for clients using the API. Such changes consist of either a bug fix or the addition of a new feature. Such changes will not cause existing clients to malfunction.
+The `patch` and `minor` changes are not important for clients using the API. Such changes consist of either a bug fix or the addition of a new feature, and they will not cause existing clients to malfunction.
 
-On the other hand, 'major' changes are critical. Such changes cause the clients to malfunction or require some changes in the clients.
+On the other hand, `major` changes are critical. Such changes cause the clients to malfunction or require some changes in the clients.
 
 Version management is performed only for major changes in the API development process. For `patch` and `minor` changes, the version is not determined. That's why we don't see an API version like `1.0.0`.
 
@@ -68,7 +68,9 @@ By the best practices, we strongly suggest the following version numerations;
 - `v2`
 - `v3`
 
-You must keep in your mind that you should create a new version only if you change something that doesn't work on client request. For example; adding a new model is not a braking change. On the other hand, deleting a model is a breaking change because in that case, HTTP clients can't work until they change their code.
+You must keep in your mind that you should create a new version only if you change something that doesn't work on client request.
+
+For example; adding a new model is not a **_braking change_**. On the other hand, deleting a model is a breaking change because in that case, HTTP clients can't work until they change their code.
 
 ## Next step
 

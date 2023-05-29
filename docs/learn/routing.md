@@ -15,7 +15,9 @@ Routing is a very important topic that shaped on best-practices in the Rest API 
 
 ## Routing in Express.js
 
-Routing refers to determining how an application responds to a client request to a particular endpoint. You can see a simple [Express.js](https://expressjs.com/en/guide/routing.html) routing example in the following code block;
+Routing refers to determining how an application responds to a client request to a particular endpoint.
+
+You can see a simple [Express.js](https://expressjs.com/en/guide/routing.html) routing example in the following code block;
 
 ```js
 app.get("/api/v1/users", (req, res) => {
@@ -84,7 +86,7 @@ For the example model, the application is ready to handle the following routes;
 Developers don't have to create routes manually unlike other web frameworks, the only required thing is creating model files.
 
 :::tip
-Axe API uses the plural version of your model file name. Using a singular name in model names is suggested.
+Axe API uses the plural version of your model name in routes. That's why using a singular name in model names is suggested.
 :::
 
 ## Model relations
@@ -97,7 +99,7 @@ You can define a relationship between models to create related routes;
 
 ::: code-group
 
-```ts [User.ts]
+```ts {5} [User.ts]
 import { Model } from "axe-api";
 
 class User extends Model {
@@ -109,7 +111,7 @@ class User extends Model {
 export default User;
 ```
 
-```ts [Post.ts]
+```ts {5} [Post.ts]
 import { Model } from "axe-api";
 
 class Post extends Model {
@@ -125,9 +127,9 @@ export default Post;
 
 We defined two models; `User` and `Post`.
 
-In the `User` model, we defined a `hasMany` relationship. By that definition, we aim to create a relation from the User model to the Post model. Which means that every user might have many posts.
+In the `User` model, we defined a `hasMany` relationship. By that definition, we aim to create a relation from the `User` model to the `Post` model. Which means that every **_user_** might have many **_posts_**.
 
-In the `Post` model, we defined a `belongsTo` relationship. This means every post might have only one related user record.
+In the `Post` model, we defined a `belongsTo` relationship. This means every **_post_** might have only one related **_user_** record.
 
 Axe API creates automatically the following routes by this model definition;
 
@@ -148,13 +150,13 @@ Axe API creates automatically the following routes by this model definition;
 
 In a model file, you can override the base Axe API model's getters.
 
-All functions other than getters that are defined in a model file would be accepted as a relationship definition. In the creating relation route process, the function name would be used in the route definition.
+All functions other than getters that are defined in a model file would be accepted as a **_relationship definition_**. In the creating relation route process, the function name would be used in the route definition.
 
 Let's look at the following definition;
 
 ::: code-group
 
-```ts [User.ts]
+```ts {4} [User.ts]
 import { Model } from "axe-api";
 
 class User extends Model {
@@ -172,7 +174,7 @@ Let's assume that we create two relationship functions for the same child model,
 
 ::: code-group
 
-```ts [User.ts]
+```ts {4,8} [User.ts]
 import { Model } from "axe-api";
 
 class User extends Model {
@@ -204,13 +206,13 @@ It is important to understand that Axe API creates a route tree by relationship 
 
 If a model (let's call it as `User`) has a `has-many` relationship (let's assume to the `Post` model), which means that that model (`User`) will be top of the three (`/api/v1/users/:id/posts`).
 
-Also, The `Comment` model would be the child of the `Post` model if you defined it as a `hasMany` relationship in the `Post` model.
+Also, the `Comment` model would be the child of the `Post` model if you defined it as a `hasMany` relationship in the `Post` model.
 
 Let's check the following model relations;
 
 ::: code-group
 
-```ts [User.ts]
+```ts {4} [User.ts]
 import { Model } from "axe-api";
 
 class User extends Model {
@@ -222,7 +224,7 @@ class User extends Model {
 export default User;
 ```
 
-```ts [Post.ts]
+```ts {4,8} [Post.ts]
 import { Model } from "axe-api";
 
 class Post extends Model {
@@ -238,7 +240,7 @@ class Post extends Model {
 export default Post;
 ```
 
-```ts [Comment.ts]
+```ts {4} [Comment.ts]
 import { Model } from "axe-api";
 
 class Comment extends Model {
@@ -252,7 +254,7 @@ export default Comment;
 
 :::
 
-Your model tree would be like the following schema by your relationship definitions.
+Your **_model tree_** would be like the following schema by your relationship definitions.
 
 ![Axe API Route Tree](./axe-api-route-tree.png)
 
@@ -288,7 +290,7 @@ By using the initialization file, you can create very specific routes, to implem
 
 `HandlerTypes` is a specific name of a route to describe the request. Because using HTTP Method doesn't describe clearly the aim of an HTTP request.
 
-For example, an HTTP `GET` request might aim to fetch a single data, or paginate all items. `HandlerTypes` in the Axe API ecosystem describes the aim of the HTTP request.
+For example, an HTTP `GET` request might aim to fetch a single data, or paginate all items. `HandlerTypes` in the Axe API ecosystem describes the **_aim of the HTTP request_**.
 
 Let's check the following table;
 

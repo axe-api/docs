@@ -283,7 +283,7 @@ export default {
       },
       {
         text: "API Reference",
-        link: "/reference/intro",
+        link: "/reference/api-configs",
       },
       {
         text: "Upgrading",

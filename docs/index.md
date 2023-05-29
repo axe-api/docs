@@ -17,7 +17,7 @@ hero:
       link: /learn/quick-start
     - theme: alt
       text: API Reference
-      link: /reference/intro
+      link: /reference/api-configs
 
 features:
   - icon: ✍

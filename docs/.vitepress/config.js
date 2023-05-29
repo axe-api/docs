@@ -252,7 +252,7 @@ export default {
 
   lang: "en-US",
 
-  lastUpdated: true,
+  lastUpdated: false,
 
   themeConfig: {
     logo: "/axe.png",

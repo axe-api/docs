@@ -227,29 +227,6 @@ const sidebarReference = [
     ],
   },
   {
-    text: "Hooks & Event Parameters",
-    collapsed: true,
-    items: [
-      { text: "request", link: "/reference/hooks-event-parameters-request" },
-      { text: "response", link: "/reference/hooks-event-parameters-response" },
-      { text: "model", link: "/reference/hooks-event-parameters-model" },
-      { text: "database", link: "/reference/hooks-event-parameters-database" },
-      { text: "relation", link: "/reference/hooks-event-parameters-relation" },
-      {
-        text: "parentModel",
-        link: "/reference/hooks-event-parameters-parentModel",
-      },
-      { text: "query", link: "/reference/hooks-event-parameters-query" },
-      {
-        text: "conditions",
-        link: "/reference/hooks-event-parameters-conditions",
-      },
-      { text: "item", link: "/reference/hooks-event-parameters-item" },
-      { text: "result", link: "/reference/hooks-event-parameters-result" },
-      { text: "formData", link: "/reference/hooks-event-parameters-formData" },
-    ],
-  },
-  {
     text: "System",
     collapsed: true,
     items: [

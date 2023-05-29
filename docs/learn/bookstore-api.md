@@ -18,17 +18,21 @@ This tutorial will guide you in building a small bookstore API with Axe API. Pri
 
 ## Bookstore API
 
-The Bookstore API is designed to showcase the fundamental features of Axe API. It includes three tables (users, books, and orders) with corresponding endpoints. The process of building the API will be demonstrated from scratch.
+The **_Bookstore API_** is designed to showcase the fundamental features of Axe API. It includes three tables (`users`, `books`, and `orders`) with corresponding endpoints.
+
+The process of building the API will be demonstrated from scratch.
 
 ## Step 1. Installing CLI
 
-To create a new Axe API project, the axe-magic CLI can be utilized. The tool can be installed on your device using the specified command.
+To create a new Axe API project, the [axe-magic](https://github.com/axe-api/axe-magic) CLI can be utilized.
+
+The tool can be installed on your device using the specified command.
 
 ```bash
 $ npm i -g axe-magic
 ```
 
-After the installation of axe-magic, the version of the tool can be verified;
+After the installation of **_axe-magic_**, the version of the tool can be verified;
 
 ```bash
 $ axe-magic --version
@@ -36,13 +40,15 @@ $ axe-magic --version
 
 ## Step 2. Creating a new project
 
-The axe-magic CLI is a tool to create a new Axe API project by pulling a template from GitHub and configuring it. To create a new project, you can use the given command.
+The **_axe-magic_** CLI is a tool to create a new Axe API project by pulling a template from GitHub and configuring it.
+
+To create a new project, you can use the given command.
 
 ```bash
 $ axe-magic new bookstore
 ```
 
-To install the dependencies for the bookstore project, you need to navigate to the project directory and run the command `npm install` in your terminal.
+To install the dependencies for the **_bookstore_** project, you need to navigate to the project directory and run the command `npm install` in your terminal.
 
 ```bash
 $ cd bookstore
@@ -53,25 +59,30 @@ $ npm install
 
 To use Axe API with a relational database system, a running database is required, and a database schema needs to be created to work on it.
 
-Axe API supports many different relational database systems such as PostgreSQL, CockroachDB, MSSQL, MySQL, MariaDB, SQLite3, Better-SQLite3, Oracle, and Amazon Redshift.
+Axe API supports many different relational database systems such as _PostgreSQL, CockroachDB, MSSQL, MySQL, MariaDB, SQLite3, Better-SQLite3, Oracle, and Amazon Redshift_.
 
-While this tutorial covers MySQL and PostgreSQL examples, the equivalent commands can be used for other databases.
+While this tutorial covers **_MySQL_** and **_PostgreSQL_** examples, the equivalent commands can be used for other databases.
 
-Let's create the bookstore schema;
+Let's create the `bookstore` schema;
 
 ::: code-group
 
 ```sql [MySQL]
-CREATE DATABASE bookstore CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE bookstore
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
 ```
 
 ```sql [PostgreSQL]
-
+CREATE DATABASE bookstore
+  ENCODING 'UTF8'
+  LC_COLLATE = 'en_US.UTF-8'
+  LC_CTYPE = 'en_US.UTF-8';
 ```
 
 :::
 
-We should add MySQL or PostgreSQL library to dependencies to create a connection.
+We should add **_MySQL_** or **_PostgreSQL_** library to dependencies to create a connection.
 
 ::: code-group
 
@@ -80,14 +91,14 @@ $ npm install mysql --save
 ```
 
 ```bash [PostgreSQL]
-$
+$ npm install pg --save
 ```
 
 :::
 
 ## Step 4. Setting configurations
 
-To set up the database connection for Axe API, you need to create a .env file in the root folder of the project and set the appropriate database connection information.
+To set up the database connection for Axe API, you need to create a `.env` file in the root folder of the project and set the appropriate database connection information.
 
 During initialization, Axe API loads this file and sets up the database connection based on the information provided in the file.
 
@@ -124,9 +135,9 @@ When the API is running correctly, you should see the following messages in your
 [axe] API listens requests on http://localhost:3000
 ```
 
-This indicates that the Axe API server is listening on the specified URL.
+This indicates that the Axe API server is listening on the specified URL. To check what your project has, you can visit [localhost:3000/routes](http://localhost:3000/routes).
 
-To check what your project has, you can visit [localhost:3000/routes](http://localhost:3000/routes). However, the response will be empty as your project does not currently have any model.
+However, the response will be empty as your project does not currently have any model.
 
 ## Step 6. Creating migrations
 
@@ -223,7 +234,9 @@ Let's break down the next steps after connecting to the database and creating ta
 
 ## Step 7. Setting up models
 
-The next task is to set up models, which are located in the `Models` folder under the `app` directory. In Axe API, you can have multiple versions of your API on the same database schema, which is why you'll find the `app/v1` folder in your project.
+The next task is to set up models, which are located in the `Models` folder under the `app` directory.
+
+In Axe API, you can have multiple versions of your API on the same database schema, which is why you'll find the `app/v1` folder in your project.
 
 Let's create model files for all tables;
 
@@ -288,8 +301,6 @@ You can see the following pagination result when you visit the [localhost:3000/a
   "pagination": {
     "total": 0,
     "lastPage": 0,
-    "prevPage": null,
-    "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,
@@ -377,15 +388,15 @@ By using these definitions, we essentially inform Axe API of which fields can be
 
 Let's try to create a new user without data first;
 
-```bash
+::: code-group
+
+```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
   -X POST http://localhost:3000/api/v1/users
 ```
 
-You should be able to see the following error message after the cURL request. This is a validation error that uses by Axe API.
-
-```json
+```json [HTTP Response]
 {
   "errors": {
     "email": ["The email field is required."],
@@ -396,18 +407,22 @@ You should be able to see the following error message after the cURL request. Th
 }
 ```
 
-Let's create an acceptable user by sending the following command;
+:::
 
-```bash
+You should be able to see the following error message after the cURL request. This is a validation error that uses by Axe API.
+
+Let's create an acceptable user by sending the following cURL request. If everything goes fine, you should be able to see created user record as an HTTP response.
+
+::: code-group
+
+```bash [cURL]
 $ curl \
   -d '{"email": "karl@axe-api.com", "first_name": "Karl", "last_name":"Popper", "password": "my-secret-password"}' \
   -H "Content-Type: application/json" \
   -X POST http://localhost:3000/api/v1/users
 ```
 
-If everything goes fine, you should be able to see created user record as an HTTP response;
-
-```json
+```json [HTTP Response]
 {
   "id": 1,
   "email": "karl@axe-api.com",
@@ -418,6 +433,8 @@ If everything goes fine, you should be able to see created user record as an HTT
   "updated_at": "2023-04-16T11:31:44.000Z"
 }
 ```
+
+:::
 
 Since we already have a valid user record, let's create a `book` and an `order`, to use them in the following section of the tutorial.
 
@@ -439,9 +456,11 @@ $ curl \
 
 :::
 
-Now we have a user, a book, and an order record on the database. Let's move to the next chapter.
+Now we have a **_user_**, a **_book_**, and an **_order_** record on the database.
 
-## Step 8. Creating relations
+Let's move to the next chapter.
+
+## Step 9. Creating relations
 
 Axe API has strong abilities to understand the relationship between models. In this section, we are going to define relationships between models and see how we can use them in queries.
 
@@ -479,19 +498,19 @@ export default Order;
 
 :::
 
-In this definition, we tell Axe API that the Order model has a one-to-one relationship with the `User` and `Book` models. Axe API is such a powerful tool that can use this information in queries.
+In this definition, we tell Axe API that the `Order` model has a **_one-to-one_** relationship with the `User` and `Book` models. Axe API is such a powerful tool that can use this information in queries.
 
-Let's try to paginate orders, first.
+Let's try to paginate orders, first. The response you can get would be like the following JSON;
 
-```bash
+::: code-group
+
+```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
   -X GET http://localhost:3000/api/v1/orders
 ```
 
-The response you can get would be like the following JSON;
-
-```json
+```json [HTTP Response]
 {
   "data": [
     {
@@ -506,8 +525,6 @@ The response you can get would be like the following JSON;
   "pagination": {
     "total": 1,
     "lastPage": 1,
-    "prevPage": null,
-    "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,
@@ -516,17 +533,19 @@ The response you can get would be like the following JSON;
 }
 ```
 
+:::
+
 But Axe API provides a `with` parameter to clients, to be able to get related data. Let's try to get orders with `user` and `book` data with the following request.
 
-```bash
+::: code-group
+
+```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
   -X GET "http://localhost:3000/api/v1/orders?with=user,book"
 ```
 
-As you can see in the following JSON, related user and book data have been added to the order response.
-
-```json
+```json [HTTP Response]
 {
   "data": [
     {
@@ -558,8 +577,6 @@ As you can see in the following JSON, related user and book data have been added
   "pagination": {
     "total": 1,
     "lastPage": 1,
-    "prevPage": null,
-    "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,
@@ -568,11 +585,15 @@ As you can see in the following JSON, related user and book data have been added
 }
 ```
 
+:::
+
+As you can see in the response above, related user and book data have been added to the order response.
+
 We only defined models and their relations. In return, we got so strong API that we can query the data by using relations.
 
 Unlike everybody who says that Rest APIs have **under-fetching** issues, Axe APIs don't have that problem. HTTP clients can get whatever they want whenever they wish from Axe API projects.
 
-## Step 9. Hiding sensitive data
+## Step 10. Hiding sensitive data
 
 As you can notice, in the previous section Axe API returned the user's password. Of course, this is such unacceptable behavior.
 
@@ -628,13 +649,13 @@ $ curl \
 
 :::
 
-## Step 10. Adding hooks
+## Step 11. Adding hooks
 
 Axe API analyzes your models, creates routes, and handles HTTP requests. But the real world is not simple like that.
 
-Until now we've only seen the Axe API magics. But as developers, we should be able to add our custom logic to the APIs. For example; we should be able to hash the user's password, send a welcome email to the users, check some other things, etc.
+Until now we've only seen the Axe API magics. But as developers, we should be able to add our **_custom logic_** to the APIs. For example; we should be able to hash the user's password, send a welcome email to the users, check some other things, etc.
 
-Axe API supports a strong hook and event mechanism that you can add your custom logic to every HTTP request.
+Axe API supports a strong **hook** and **event** mechanism that you can add your custom logic to every HTTP request.
 
 As an example, let's try to hash the user's password in the POST request. First, we need to install some dependencies;
 
@@ -688,7 +709,7 @@ SELECT * FROM users;
 | 1   | karl@axe-api.com  | my-secret-password      |
 | 2   | locke@axe-api.com | $2b$10$IyIxdf$IyIxdf... |
 
-## Step 11. Querying data
+## Step 12. Querying data
 
 Once you design your models, Axe API provides powerful query options.
 
@@ -720,8 +741,6 @@ $ curl \
   "pagination": {
     "total": 2,
     "lastPage": 1,
-    "prevPage": null,
-    "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,
@@ -766,8 +785,6 @@ $ curl \
   "pagination": {
     "total": 2,
     "lastPage": 1,
-    "prevPage": null,
-    "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,
@@ -804,8 +821,6 @@ $ curl \
   "pagination": {
     "total": 1,
     "lastPage": 1,
-    "prevPage": null,
-    "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,

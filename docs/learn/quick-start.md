@@ -14,15 +14,15 @@ Welcome to the Axe API documentation! This page will give you an introduction to
 
 ## Your time-saving solution
 
-A Rest API consists of two components: common elements that require time and effort, such as best practices and shared features, and custom logic that distinguishes one API from another.
+A **_Rest API_** consists of two components: **_common elements_** that require time and effort, such as best practices and shared features, and **_custom logic_** that distinguishes one API from another.
 
 ![Fundamentals of Axe API](fundamentals.png)
 
-The Axe API is a TypeScript-based Node.js framework designed to eliminate the need for repetitive tasks associated with common elements while allowing developers to focus on custom logic. It offers a comprehensive structure for your API, including numerous features and best practices that will save you time.
+Axe API is a TypeScript-based Node.js framework designed to eliminate the need for repetitive tasks associated with common elements while allowing developers to focus on custom logic. It offers a comprehensive structure for your API, including numerous features and best practices that will save you time.
 
 ## Faster API development
 
-Axe API simplifies the development process of your API by taking care of basic tasks such as routing, validating, querying, and handling HTTP requests.
+Axe API simplifies the development process of your API by taking care of basic tasks such as _routing_, _validating_, _querying_, and _handling HTTP requests_.
 
 This feature allows developers to focus on custom logic while developing their Axe API projects, which results in faster development times.
 
@@ -46,7 +46,7 @@ class Category extends Model {
 export default Category;
 ```
 
-Once you define your model in Axe API, the framework analyzes it and automatically creates all **CRUD** (Create, Read, Update, Delete) routes for you.
+Once you define your model in Axe API, the framework analyzes it and automatically creates all **CRUD** (_Create, Read, Update, Delete_) routes for you.
 
 In addition to creating the routes, Axe API also handles all of the CRUD operations, so you don't need to do anything at all.
 
@@ -105,9 +105,11 @@ Axe API provides detailed error messages if a client submits invalid data in an 
 
 After defining the models for your API, your database model is immediately queryable.
 
-For instance, you can access all the data for the Category model by using the following URL.
+For instance, you can access all the data for the **_Category_** model by using the following URL.
 
-`http://localhost:4000/api/v1/categories?fields=name,description`
+```bash
+GET http://localhost:4000/api/v1/categories?fields=name,description
+```
 
 ```json
 {
@@ -121,8 +123,6 @@ For instance, you can access all the data for the Category model by using the fo
   "pagination": {
     "total": 1,
     "lastPage": 1,
-    "prevPage": null,
-    "nextPage": null,
     "perPage": 10,
     "currentPage": 1,
     "from": 0,

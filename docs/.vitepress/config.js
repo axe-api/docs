@@ -122,6 +122,7 @@ const sidebarReference = [
     text: "Handlers",
     collapsed: true,
     items: [
+      { text: "Defaults", link: "/reference/default-handlers" },
       { text: "INSERT", link: "/reference/handlers-insert-handler" },
       { text: "PAGINATE", link: "/reference/handlers-paginate-handler" },
       { text: "SHOW", link: "/reference/handlers-show-handler" },

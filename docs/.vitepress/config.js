@@ -239,6 +239,12 @@ const sidebarReference = [
   },
 ];
 
+const upgradeReference = [
+  { text: "Versioning Policy", link: "/upgrading/versioning-policy.md" },
+  { text: "Upgrading to 0.20.0", link: "/upgrading/0.20.0" },
+  { text: "Upgrading to 0.30.0", link: "/upgrading/0.30.0" },
+];
+
 export default {
   title: "Axe API",
   description:
@@ -263,6 +269,10 @@ export default {
       {
         text: "Upgrading",
         items: [
+          {
+            text: "Versioning Policy",
+            link: "/upgrading/versioning-policy.md",
+          },
           { text: "0.20.0", link: "/upgrading/0.20.0" },
           { text: "0.30.0", link: "/upgrading/0.30.0" },
         ],
@@ -293,6 +303,7 @@ export default {
       "/reference/": sidebarReference,
       "/errors": sidebarReference,
       "/upgrading/": sidebarGuide(),
+      "/upgrading/": upgradeReference,
     },
 
     socialLinks: [

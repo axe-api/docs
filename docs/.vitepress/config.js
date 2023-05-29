@@ -146,6 +146,7 @@ const sidebarReference = [
       { text: "per_page", link: "/reference/queries-per-page" },
       { text: "trashed", link: "/reference/queries-trashed" },
       { text: "q", link: "/reference/queries-q" },
+      { text: "with", link: "/reference/queries-with" },
     ],
   },
   {

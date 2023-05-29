@@ -15,7 +15,7 @@ Validating data is a crucial part of APIs to provide well-structured data to cli
 
 ## What is the validation?
 
-In the context of APIs, validation refers to the process of verifying the correctness, integrity, and conformity of data or requests being sent or received through the API.
+In the context of APIs, validation refers to the process of verifying the _correctness_, _integrity_, and _conformity_ of data or requests being sent or received through the API.
 
 API validation typically involves checking the data or parameters against predefined rules or specifications to ensure that they meet the required format, structure, and constraints. This validation can include various aspects such as data type validation, length or size constraints, range checks, pattern matching, and more.
 
@@ -27,13 +27,13 @@ API validation is an essential part of building robust and reliable systems that
 
 ## Model-based validations
 
-Axe API uses model-based validations to create a common validation structure on the data.
+Axe API uses **_model-based_** validations to create a common validation structure on the data.
 
 Let's look at the following example;
 
 ::: code-group
 
-```ts [User.ts]
+```ts {4-10} [User.ts]
 import { Model } from "axe-api";
 
 class Users extends Model {
@@ -77,17 +77,17 @@ $ curl \
 
 As a developer, you must define your rules and Axe API handles the rest.
 
-## Route-based validations
+## Method-based validations
 
-You might need different validation rules for different HTTP requests.
+You might need different validation rules for different HTTP methods.
 
-For example, the email field might be required while creating a new user. But, it might not be required while updating the user.
+For example, the email field might be required while creating a new user. But, it might not be required while updating the user. In this case, Axe API allows you to define **_method-based_** validation rules.
 
-In this case, Axe API allows you to define method-based validation rules. Let's check the following example;
+Let's check the following example;
 
 ::: code-group
 
-```ts [User.ts]
+```ts {6-10} [User.ts]
 import { Model } from "axe-api";
 
 class Users extends Model {
@@ -111,7 +111,7 @@ export default User;
 
 :::
 
-We've defined method-based validations for the `User` model in this example. Axe API validates the data by the HTTP method type by the example model.
+We've defined **_method-based_** validations for the `User` model in this example. Axe API validates the data by the HTTP method type by the example model.
 
 ## Understanding errors
 

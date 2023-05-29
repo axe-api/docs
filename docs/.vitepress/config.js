@@ -61,9 +61,11 @@ const sidebarGuide = () => [
     text: "How to?",
     collapsed: true,
     items: [
+      { text: "Migrate database", link: "/learn/database-migrations" },
       { text: "File uploading", link: "/learn/file-uploading" },
       { text: "Authentication", link: "/learn/authentication" },
       { text: "Rate limiting", link: "/learn/rate-limiting" },
+      { text: "Testing", link: "/learn/testing" },
       {
         text: "Deployment",
         link: "/learn/deployment",
@@ -231,36 +233,9 @@ const sidebarReference = [
     collapsed: true,
     items: [
       { text: "IoC", link: "/reference/ioc" },
-      { text: "Error Codes", link: "/reference/error-codes" },
       { text: "ApiError", link: "/reference/api-error" },
+      { text: "Error Codes", link: "/errors" },
     ],
-  },
-  {
-    text: "Basics",
-    items: [
-      { text: "Versions", link: "/basics/versions" },
-      { text: "Configs", link: "/basics/config" },
-      { text: "Initialization", link: "/basics/init" },
-      { text: "Models", link: "/basics/models" },
-      { text: "Handlers", link: "/basics/handlers" },
-      { text: "Queries", link: "/basics/queries" },
-    ],
-  },
-  {
-    text: "Advanced",
-    items: [
-      { text: "Hooks", link: "/advanced/hooks" },
-      { text: "IoC", link: "/advanced/ioc" },
-      { text: "System Errors", link: "/errors" },
-    ],
-  },
-  {
-    text: "Database",
-    items: [{ text: "Migrations", link: "/database/migrations" }],
-  },
-  {
-    text: "Testing",
-    items: [{ text: "Concepts", link: "/testing" }],
   },
 ];
 
@@ -316,6 +291,7 @@ export default {
     sidebar: {
       "/learn/": sidebarGuide(),
       "/reference/": sidebarReference,
+      "/errors": sidebarReference,
       "/upgrading/": sidebarGuide(),
     },
 

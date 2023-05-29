@@ -15,3 +15,18 @@ export default async (parameters: IHookParameter) => {
 ```
 
 :::
+
+## `IHookParameters`
+
+The following parameters can be used in the hook/event function;
+
+| Parameter     | Description                                                                                                                             |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`     | Request object of <a href="https://expressjs.com/en/4x/api.html#req" target="_blank" rel="noreferrer">Expresss</a>                      |
+| `response`    | Response object of <a href="https://expressjs.com/en/4x/api.html#res" target="_blank" rel="noreferrer">Expresss</a>                     |
+| `model`       | Current model instance. For example; `User`                                                                                             |
+| `database`    | Database connection instance. For example <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a> |
+| `relation`    | The relation definition if the route is a related route (For example `api/v1/users/:userId/posts`).                                     |
+| `parentModel` | The parent model instance if the route is a related route (For example `api/v1/users/:userId/posts`).                                   |
+| `item`        | The current record.                                                                                                                     |
+| `formData`    | The data has been sent by HTTP client to create or update row.                                                                          |

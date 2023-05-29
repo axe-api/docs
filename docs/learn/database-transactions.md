@@ -216,4 +216,4 @@ Axe API uses some priority rules while it deciding to create a database transact
 
 In this section we tried to describe how you choose a good database transaction strategy for your API routes.
 
-In the next section, we will give an example about how you can upload files.
+In the next section, we will give an example about how you migrate your database.

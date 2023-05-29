@@ -97,3 +97,9 @@ You can review the following store libraries;
 - [rate-limit-redis](https://www.npmjs.com/package/rate-limit-redis)
 - [rate-limit-memcached](https://npmjs.org/package/rate-limit-memcached)
 - [rate-limit-mongo](https://www.npmjs.com/package/rate-limit-mongo)
+
+## Next steps
+
+In this section, we tried to simplify how you can add your rate-limiting features to the API.
+
+In the next section, we are going to show how you can write unit test.

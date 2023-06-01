@@ -1,3 +1,5 @@
+import { defineConfig } from "vitepress";
+
 const sidebarGuide = () => [
   {
     text: "Getting Started",
@@ -245,7 +247,7 @@ const upgradeReference = [
   { text: "Upgrading to 0.30.0", link: "/upgrading/0.30.0" },
 ];
 
-export default {
+export default defineConfig({
   title: "Axe API",
   description:
     "The fastest way to create Rest API, by defining database models and relations.",
@@ -315,6 +317,10 @@ export default {
       message: "Released under the MIT License.",
       copyright: "Copyright © 2020-present",
     },
+
+    search: {
+      provider: "local",
+    },
   },
 
   head: [
@@ -375,4 +381,4 @@ export default {
     //   `,
     // ],
   ],
-};
+});

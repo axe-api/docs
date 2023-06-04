@@ -43,7 +43,7 @@ Remember, high-quality API documentation is an ongoing process that requires reg
 
 There are many best practices out there to be implemented as you can see. Creating well-designed API documentation requires a lot of time and energy. But **we don't have that time and energy**. That's why we've built the Axe API framework.
 
-Since Axe API already analyzes all of your models, routes, validations, etc, it is able to create your API documentation automatically in a common format. We call it auto-create documentation.
+Since Axe API already **_analyzes_** all of your models, routes, validations, etc, it is able to create your API documentation automatically in a common format. We call it **auto-create documentation**.
 
 You can see the following link a full-working example of the documentation that has been created by Axe API automatically.
 

@@ -18,17 +18,17 @@ Axe API allows you to define relations between models to create a well-structure
 
 Relational data in APIs refer to structured information that is retrieved and exchanged through an API using the principles of relational databases.
 
-It involves representing data as interconnected tables with defined relationships, such as one-to-one, one-to-many, or many-to-many.
+It involves representing data as interconnected tables with defined relationships, such as `one-to-one`, `one-to-many`, or `many-to-many`.
 
 ## Under-fetching issue
 
-Under-fetching is an issue in REST APIs where the server does not provide sufficient data in a single request, leading to multiple round trips.
+**_Under-fetching_** is an issue in REST APIs where the server does not provide sufficient data in a single request, leading to multiple round trips.
 
-It occurs when the API endpoint returns a limited set of data, requiring clients to make additional requests to retrieve related or required information. This can result in increased network latency, decreased performance, and inefficient use of resources.
+It occurs when the API endpoint returns a limited set of data, requiring clients to make additional requests to retrieve related or required information. This can result in **_increased network latency_**, **_decreased performance_**, and **_inefficient use of resources_**.
 
 Under-fetching can be mitigated by designing APIs to include related data through expansion mechanisms like query parameters or embedded resources, reducing the need for subsequent requests and improving the overall efficiency of data retrieval.
 
-In Axe API, the under-fetching issue is not a topic thanks to relational data queries. It is enabled by default and ready to use.
+In Axe API, the **under-fetching** issue is not a topic thanks to relational data queries. It is enabled by default and ready to use.
 
 ## Querying related data
 
@@ -98,7 +98,7 @@ Let's check the following example;
 ```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET http://localhost:3000/api/v1/posts?with=author
+  -X GET http://localhost:3000/api/v1/posts?with=author // [!code focus]
 ```
 
 ```json [HTTP Response]
@@ -108,13 +108,13 @@ $ curl \
       "id": 100,
       "title": "Welcome to my blog!",
       "user_id": 2,
-      "author": {
-        "id": 2,
-        "name": "John",
-        "surname": "Locke",
-        "created_at": "2023-04-16T11:37:08.000Z",
-        "updated_at": "2023-04-16T11:37:08.000Z"
-      },
+      "author": { // [!code focus]
+        "id": 2, // [!code focus]
+        "name": "John", // [!code focus]
+        "surname": "Locke", // [!code focus]
+        "created_at": "2023-04-16T11:37:08.000Z", // [!code focus]
+        "updated_at": "2023-04-16T11:37:08.000Z" // [!code focus]
+      }, // [!code focus]
       "created_at": "2023-04-16T11:37:08.000Z",
       "updated_at": "2023-04-16T11:37:08.000Z"
     }
@@ -129,20 +129,20 @@ As you can see in the example, you are able to fetch the related `author` data b
 
 ## Over-fetching issue
 
-Over-fetching is an issue in REST APIs where the server returns more data than needed for a specific request, resulting in unnecessary data transmission and increased resource consumption.
+**_Over-fetching_** is an issue in REST APIs where the server returns more data than needed for a specific request, resulting in unnecessary data transmission and increased resource consumption.
 
-It occurs when the API endpoint provides a comprehensive response that includes additional fields or nested data beyond the client's requirements. This can lead to increased bandwidth usage, slower response times, and decreased performance.
+It occurs when the API endpoint provides a comprehensive response that includes additional fields or nested data beyond the client's requirements. This can lead to **_increased bandwidth usage_**, **_slower response times_**, and **_decreased performance_**.
 
 In the example above, we asked for the `author` and the API returned all `user` data. Let's assume that we only need the name of the `author`. What we are going to do?
 
-Axe API supports nested-relational queries and selecting fields like GraphQL style in the `with` parameter. Let's check the following request out.
+Axe API supports **nested-relational** queries and selecting fields like **GraphQL** style in the `with` parameter. Let's check the following request out.
 
 ::: code-group
 
 ```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET http://localhost:3000/api/v1/posts?with=author{name}
+  -X GET http://localhost:3000/api/v1/posts?with=author{name} // [!code focus]
 ```
 
 ```json [HTTP Response]
@@ -152,10 +152,10 @@ $ curl \
       "id": 100,
       "title": "Welcome to my blog!",
       "user_id": 2,
-      "author": {
-        "id": 2,
-        "name": "John",
-      },
+      "author": { // [!code focus]
+        "id": 2, // [!code focus]
+        "name": "John", // [!code focus]
+      }, // [!code focus]
       "created_at": "2023-04-16T11:37:08.000Z",
       "updated_at": "2023-04-16T11:37:08.000Z"
     }
@@ -164,7 +164,7 @@ $ curl \
 }
 ```
 
-You can decide what kind of field should be returned by using a GraphQL-ish query style.
+You can decide what kind of field should be returned by using a **GraphQL-ish** query style.
 
 That's pure magic because you don't need to code many lines to support that kind of query. Axe API handles it automatically due to your model relations.
 
@@ -221,7 +221,7 @@ In this case, we can paginate all posts by adding the `author` data to the respo
 ```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET http://localhost:3000/api/v1/posts?with=author{name,role{title}}
+  -X GET http://localhost:3000/api/v1/posts?with=author{name,role{title}} // [!code focus]
 ```
 
 ```json [HTTP Response]
@@ -231,14 +231,14 @@ $ curl \
       "id": 100,
       "title": "Welcome to my blog!",
       "user_id": 2,
-      "author": {
-        "id": 2,
-        "name": "John",
-        "role": {
-          "id": 3,
-          "title": "Editor"
-        }
-      },
+      "author": { // [!code focus]
+        "id": 2, // [!code focus]
+        "name": "John", // [!code focus]
+        "role": { // [!code focus]
+          "id": 3, // [!code focus]
+          "title": "Editor" // [!code focus]
+        } // [!code focus]
+      }, // [!code focus]
       "created_at": "2023-04-16T11:37:08.000Z",
       "updated_at": "2023-04-16T11:37:08.000Z"
     }

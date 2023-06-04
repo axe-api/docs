@@ -325,38 +325,38 @@ The next step is adding the `fillable` and the `validation` getters.
 import { Model } from "axe-api";
 
 class User extends Model {
-  get fillable() {
-    return ["email", "first_name", "last_name", "password"];
-  }
+  get fillable() { // [!code focus]
+    return ["email", "first_name", "last_name", "password"]; // [!code focus]
+  } // [!code focus]
 
-  get validations() {
-    return {
-      email: "required|min:3|max:255|email",
-      first_name: "required|min:2|max:50",
-      last_name: "required|min:2|max:50",
-      password: "required|min:6|max:100",
-    };
-  }
+  get validations() { // [!code focus]
+    return { // [!code focus]
+      email: "required|min:3|max:255|email", // [!code focus]
+      first_name: "required|min:2|max:50", // [!code focus]
+      last_name: "required|min:2|max:50", // [!code focus]
+      password: "required|min:6|max:100", // [!code focus]
+    }; // [!code focus]
+  } // [!code focus]
 }
 
 export default User;
 ```
 
-```ts{4-6,8-13} [app/v1/Models/Book.ts]
+```ts{4-6,8-14} [app/v1/Models/Book.ts]
 import { Model } from "axe-api";
 
 class Book extends Model {
-  get fillable() {
-    return ["name", "author", "price"];
-  }
+  get fillable() { // [!code focus]
+    return ["name", "author", "price"]; // [!code focus]
+  } // [!code focus]
 
-  get validations() {
-    return {
-      name: "required|min:3|max:255",
-      author: "required|min:2|max:50",
-      price: "required|numeric",
-    };
-  }
+  get validations() { // [!code focus]
+    return { // [!code focus]
+      name: "required|min:3|max:255", // [!code focus]
+      author: "required|min:2|max:50", // [!code focus]
+      price: "required|numeric", // [!code focus]
+    }; // [!code focus]
+  } // [!code focus]
 }
 
 export default Book;
@@ -366,17 +366,17 @@ export default Book;
 import { Model } from "axe-api";
 
 class Order extends Model {
-  get fillable() {
-    return ["book_id", "user_id", "quantity"];
-  }
+  get fillable() { // [!code focus]
+    return ["book_id", "user_id", "quantity"]; // [!code focus]
+  } // [!code focus]
 
-  get validations() {
-    return {
-      book_id: "required|numeric",
-      user_id: "required|numeric",
-      quantity: "required|numeric",
-    };
-  }
+  get validations() { // [!code focus]
+    return { // [!code focus]
+      book_id: "required|numeric", // [!code focus]
+      user_id: "required|numeric", // [!code focus]
+      quantity: "required|numeric", // [!code focus]
+    }; // [!code focus]
+  } // [!code focus]
 }
 
 export default Order;
@@ -484,13 +484,13 @@ class Order extends Model {
     };
   }
 
-  user() {
-    return this.hasOne("User", "id", "user_id");
-  }
+  user() { // [!code focus]
+    return this.hasOne("User", "id", "user_id"); // [!code focus]
+  } // [!code focus]
 
-  book() {
-    return this.hasOne("Book", "id", "book_id");
-  }
+  book() { // [!code focus]
+    return this.hasOne("Book", "id", "book_id"); // [!code focus]
+  } // [!code focus]
 }
 
 export default Order;
@@ -542,7 +542,7 @@ But Axe API provides a `with` parameter to clients, to be able to get related da
 ```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET "http://localhost:3000/api/v1/orders?with=user,book"
+  -X GET "http://localhost:3000/api/v1/orders?with=user,book" // [!code focus]
 ```
 
 ```json [HTTP Response]
@@ -616,9 +616,9 @@ class User extends Model {
     };
   }
 
-  get hiddens() {
-    return ["password"];
-  }
+  get hiddens() { // [!code focus]
+    return ["password"]; // [!code focus]
+  } // [!code focus]
 }
 
 export default User;
@@ -720,7 +720,7 @@ For example; you can decide which `fields` should be listed.
 ```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET "http://localhost:3000/api/v1/users?fields=id,first_name,last_name"
+  -X GET "http://localhost:3000/api/v1/users?fields=id,first_name,last_name" // [!code focus]
 
 ```
 
@@ -758,7 +758,7 @@ HTTP client can decide the sorting field and type. In the following example, rec
 ```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET "http://localhost:3000/api/v1/users?sort=-id"
+  -X GET "http://localhost:3000/api/v1/users?sort=-id" // [!code focus]
 
 ```
 
@@ -802,7 +802,7 @@ Also, HTTP clients are able to filter data by sending a query;
 ```bash [cURL]
 $ curl \
   -H "Content-Type: application/json" \
-  -X GET 'http://localhost:3000/api/v1/users?q=\{%22first_name%22:%22Karl%22\}'
+  -X GET 'http://localhost:3000/api/v1/users?q=\{%22first_name%22:%22Karl%22\}' // [!code focus]
 
 ```
 

@@ -16,7 +16,7 @@ In this section, you are going to learn the Axe API middleware, and how you can 
 
 Middleware refers to software components that sit between an application's core functionality and the underlying infrastructure.
 
-You can see a simple middleware for Express.js application in the following example;
+You can see a simple middleware for **Express.js** application in the following example;
 
 ```js
 const express = require("express");
@@ -36,17 +36,13 @@ app.get("/", (req, res) => {
 app.listen(3000);
 ```
 
-In this example, every HTTP request should be passed via the `myLogger` middleware. In that middleware, you can log the request, check the HTTP Request Headers, validate the request, etc.
+In this example, every _HTTP_ request should be passed via the `myLogger` middleware. In that middleware, you can log the request, check the HTTP Request Headers, validate the request, etc.
 
 Axe API middleware functions are completely the same as Express.js'. Since Axe API generates HTTP routes automatically, the defining method is different, and it depends on the middleware type.
 
 You can see the middleware schema in the following schema;
 
 ![Axe API Middlewares](axe-api-middlewares.png)
-
-:::info
-As you can see here, all middlewares should be executed in an HTTP Request.
-:::
 
 ## Global middleware
 

@@ -14,9 +14,9 @@ Hooks and events are a crucial part of Axe API. It allows you to add your applic
 
 ## The definition
 
-Hooks and events are just functions that help to attach your application logic to Axe API.
+**Hooks** and **Events** are just functions that help to attach your application logic to Axe API.
 
-A simple hook or event function look like the following example;
+A simple _hook_ or _event_ function look like the following example;
 
 ```ts
 import { IHookParameter } from "axe-api";
@@ -26,7 +26,7 @@ export default async (context: IHookParameter) => {
 };
 ```
 
-As you can see, it is a very simple function. You can add hook/event functions to your API, and bind them with models in the Axe API way. Once they are bonded, Axe API uses your functions during the HTTP Request-Response cycle.
+As you can see, it is a very simple function. You can add _hook/event_ functions to your API, and bind them with models in the Axe API way. Once they are bonded, Axe API uses your functions during the _HTTP Request-Response cycle_.
 
 ## Hook vs. Event
 
@@ -34,7 +34,7 @@ You can't tell the difference between a hook function from an event function. Th
 
 The difference is how Axe API calls them.
 
-In an HTTP Request/Response cycle, Axe API calls both hooks and events at the same time. But Axe API doesn't wait for the events as it does for hooks. You can check out the following example of how Axe API calls hooks and events to understand the difference;
+In an **HTTP Request/Response cycle**, Axe API calls both hooks and events at the same time. But Axe API doesn't wait for the events as it does for **hooks**. You can check out the following example of how Axe API calls hooks and events to understand the difference;
 
 ```ts
 const processHTTPRequest = async () => {
@@ -53,7 +53,7 @@ const processHTTPRequest = async () => {
 };
 ```
 
-The function above is just a demonstration of how Axe API handles an HTTP Request in the background. As you can see, Axe API calls hooks and events with the same parameters. But it doesn't wait until the event functions are completed, unlike the hook functions.
+The function above is just a _demonstration_ of how Axe API handles an HTTP Request in the background. As you can see, Axe API calls hooks and events with the same parameters. But it doesn't wait until the event functions are completed, unlike the hook functions.
 
 This is the only difference between hooks and events.
 

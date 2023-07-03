@@ -259,6 +259,11 @@ export default defineConfig({
   themeConfig: {
     logo: "/axe.png",
 
+    editLink: {
+      pattern: "https://github.com/axe-api/docs/edit/docs/:path",
+      text: "Edit this page on GitHub",
+    },
+
     nav: [
       {
         text: "Learn",

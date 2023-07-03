@@ -288,6 +288,10 @@ export default defineConfig({
         text: "Ecosystem",
         items: [
           {
+            text: "Team",
+            link: "/ecosystem/team",
+          },
+          {
             text: "Releases",
             link: "https://github.com/axe-api/axe-api/releases",
           },

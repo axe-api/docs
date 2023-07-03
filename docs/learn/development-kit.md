@@ -67,7 +67,7 @@ $ npm run dev-kit
 
 You should be able to see the following screen if everything goes correctly.
 
-![dev-kit](001.jpeg)
+![dev-kit](dev-kit.jpeg)
 
 This message shows that your `dev-kit` API is running and it is ready to handle your API requests.
 

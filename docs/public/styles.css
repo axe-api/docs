@@ -14,11 +14,11 @@ p.description {
   font-size: 20px;
   font-weight: 500;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--vp-c-text-1);
 }
 
 ul.intro {
-  background-color: #313136;
+  background-color: var(--vp-c-bg-soft);
   border-radius: 10px;
   padding: 20px 20px 20px 40px;
 }

@@ -16,7 +16,7 @@ Authentication in REST API refers to the process of verifying the identity of cl
 
 Authentication mechanisms involve exchanging credentials, such as usernames and passwords, tokens, or API keys, between the client and server. The server validates these credentials, usually through algorithms or secure protocols, and grants access if they are valid.
 
-Common authentication methods include Basic Authentication, Token-based Authentication (such as OAuth), and JSON Web Tokens (JWT).
+Common authentication methods include **Basic Authentication**, **Token-based Authentication** (such as OAuth), and **JSON Web Tokens** (JWT).
 
 Authentication in REST API is crucial for securing sensitive data, preventing unauthorized access, and ensuring that only authenticated users can perform authorized actions.
 
@@ -24,7 +24,7 @@ In this example, we will show how you can use JWT-based authentication.
 
 ## Install dependencies
 
-We are going to use JSON Web Tokens. That's why we are going to use add [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) package to the project. But, you can use any other authentication way you wish.
+We are going to use **JSON Web Tokens**. That's why we are going to use add [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) package to the project. But, you can use any other authentication way you wish.
 
 ```bash
 $ npm install jsonwebtoken --save

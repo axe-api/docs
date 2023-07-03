@@ -18,7 +18,7 @@ Axe API provides database transaction in a different way since it handles auto-g
 
 A database transaction in a REST API refers to a logical unit of work that includes one or more database operations, such as inserting, updating, or deleting records.
 
-It ensures the consistency and integrity of data by grouping these operations together, making them either all succeed or all fail as a single atomic operation.
+It ensures the **consistency** and **integrity** of data by grouping these operations together, making them either all succeed or all fail as a single atomic operation.
 
 Transactions provide a mechanism for maintaining data integrity in complex operations and enable data consistency even in the presence of concurrent access.
 
@@ -39,7 +39,7 @@ This is a simple example of a database transaction.
 
 ## Axe API style transactions
 
-We can't create a database transaction in Axe API like the example above. Because Axe API generates all routes automatically, and handles them. That's why a database transaction should be able to created by Axe API, and handles by all the HTTP request.
+We **can't** create a database transaction in Axe API like the example above. Because Axe API generates all routes automatically, and handles them. That's why a database transaction should be able to created by Axe API, and handles by all the HTTP request.
 
 :::tip
 Of course, you can create a database transaction inside a simple hook or event function. But there is not any suggestay way to carry the transaction object between different hook files.
@@ -55,7 +55,7 @@ But before to see all of strategies, let's take a look how we can enable transac
 
 ## Enable in every routes
 
-To enable transactions in every route, you should use the following configuration.
+To enable transactions in _every route_, you should use the following configuration.
 
 ::: code-group
 
@@ -74,7 +74,7 @@ export default config;
 :::
 
 :::warning
-We don't suggest that enable transaction for all routes. It can cause some performance downgrades.
+We do **NOT** suggest that enable transaction for all routes. It can cause some performance downgrades.
 :::
 
 ## Using transaction in hooks
@@ -95,7 +95,7 @@ export default async ({ database }: IHookParameter) => {
 
 :::
 
-By default, you should NOT need to commit the changes. Axe API handles commit and rollback actions instead of you.
+By default, you should **NOT** need to commit the changes. Axe API handles commit and rollback actions instead of you.
 
 But, if you throw an error, Axe API would automatically rollback the transaction. You don't have to do anything special in your hooks excep throwing an error.
 
@@ -120,12 +120,11 @@ In the example above, you don't need to roll back your transaction. Axe API will
 
 :::warning
 Event functions don't work synch with the HTTP request. That's why you can not use database transaction in event functions.
-
 :::
 
 ## Version-based transactions
 
-Tou can enable database transactions by handler types by applying the following codes.
+You can enable database transactions by handler types by applying the following codes.
 
 ::: code-group
 
@@ -152,7 +151,7 @@ In the example above, we basically define that only `INSERT` and `UPDATE` handle
 
 ## Model-based transactions
 
-In your model file, you can decide to use database transaction for all model-related routes like the following example;
+In your model file, you can decide to use database transaction for all **model-related** routes like the following example;
 
 ::: code-group
 
@@ -174,7 +173,7 @@ By the example above, all auto-generated routes by `User` model will use a datab
 
 ## Handler-based transactions
 
-Handler-based database transactions are the most efficient way to define database transaction. By this strategy, you only create database structure for the routes that you really need.
+**Handler-based** database transactions are the most efficient way to define database transaction. By this strategy, you only create database structure for the routes that you really need.
 
 Let's check the following example;
 
@@ -209,7 +208,6 @@ Axe API uses some priority rules while it deciding to create a database transact
 
 :::info
 `1.` has higher priority than `2.` and `3.`
-
 :::
 
 ## Next steps

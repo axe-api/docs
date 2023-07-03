@@ -14,7 +14,7 @@ In this section, we are going to explain how you can configure your API in gener
 
 ## Fundamentals
 
-Axe API has different configuration files to manage your API as you expected. All configuration files are written in TypeScript.
+Axe API has different configuration files to manage your API as you expected. All configuration files are written in **TypeScript**.
 
 A simple configuration file looks like the following example;
 
@@ -39,7 +39,7 @@ Axe API has two configuration files in a project at least;
 
 ## General configuration file
 
-There is only one configuration file to determine how API works in general.
+There is only **one** configuration file to determine how API works in general.
 
 In the general configuration file you can manage;
 
@@ -91,7 +91,7 @@ These configuration values are applied to all versions of your API.
 
 ## Version-based configurations
 
-Axe API allows you to define version-specific configurations. Each API version has to have a configuration file.
+Axe API allows you to define **version-specific** configurations. Each API version has to have a configuration file.
 
 In those configuration files, you can manage;
 
@@ -104,7 +104,7 @@ In those configuration files, you can manage;
 You should use the [Configuration References](/references/config) docs to get more detailed information.
 :::
 
-You can see a simple example of the version-based configuration file;
+You can see a simple example of the _version-based_ configuration file;
 
 ::: code-group
 
@@ -139,7 +139,7 @@ export default config;
 
 ## Using environment varibles
 
-Axe API allows using environment variables. It uses the [dotenv](https://www.npmjs.com/package/dotenv) package under the hood to be able to provide environment variables via `.env` files.
+Axe API allows using **environment variables**. It uses the [dotenv](https://www.npmjs.com/package/dotenv) package under the hood to be able to provide environment variables via `.env` files.
 
 In the root directory, you can define a `.env` file and put your environment variables and secret values in it.
 

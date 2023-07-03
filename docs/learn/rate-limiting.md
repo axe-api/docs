@@ -13,9 +13,9 @@ Axe API does not provide an internal rate limiter. Nevertheless, we are going to
 
 ## Getting started
 
-Rate limiting in REST API refers to the practice of restricting the number of requests a client can make within a specified timeframe. It helps prevent abuse, ensures fair resource allocation, and protects the API server from excessive traffic.
+**Rate limiting** in REST API refers to the practice of restricting the number of requests a client can make within a specified timeframe. It helps prevent abuse, ensures **fair resource allocation**, and **protects** the API server from **excessive traffic**.
 
-Rate limits are typically defined as a maximum number of requests per minute, hour, or day. When the limit is exceeded, the server responds with a specific HTTP status code (e.g., 429 Too Many Requests), indicating the client has reached the limit.
+Rate limits are typically defined as a maximum number of requests per minute, hour, or day. When the limit is exceeded, the server responds with a specific HTTP status code (e.g., _429 Too Many Requests_), indicating the client has reached the limit.
 
 Rate limiting can be implemented using various techniques such as token bucket, sliding window, or fixed window algorithms. It promotes API stability, mitigates denial-of-service attacks, and ensures equitable access to resources for all clients while maintaining the overall API performance and availability.
 
@@ -69,7 +69,7 @@ export default rateLimit({
 
 [express-rate-limit](https://www.npmjs.com/package/express-rate-limit) library supports many store providers such as [Redis](https://redis.io/), [Memcached](https://memcached.org/), or [Mongo](https://www.mongodb.com/). You can use any of them easily.
 
-In the following example, we are going to show how you can add Redis support for the rate limiter.
+In the following example, we are going to show how you can add **Redis** support for the rate limiter.
 
 ```js
 $ npm install --save rate-limit-redis

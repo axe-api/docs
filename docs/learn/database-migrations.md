@@ -12,13 +12,13 @@ Axe API doesn't provide a database migration tool internally. But it uses Knex.j
   <li>How to execute migrations?</li>
 </ul>
 
-Axe API uses [Knex.js](http://knexjs.org/) as the query builder. But also, it uses [The Schema Builder of Knex.js](http://knexjs.org/#Schema). You may find more things in the original documentation about the migration than here. But we want to describe some fundamentals about the migration structure.
+Axe API uses [Knex.js](http://knexjs.org/) as the **query builder**. But also, it uses [The Schema Builder of Knex.js](http://knexjs.org/#Schema). You may find more things in the original documentation about the migration than here. But we want to describe some fundamentals about the migration structure.
 
 First of all, we are using the `./migrations` directory to keep the migration files. Also, we are using the power of [Knex.js](http://knexjs.org/) for migrations.
 
 ## Installation
 
-To execute the migrations, you need to install the Knex CLI in your development environment;
+To execute the migrations, you need to install the **Knex CLI** in your development environment;
 
 ```bash
 $ npm install -g knex

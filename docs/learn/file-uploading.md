@@ -13,7 +13,7 @@ Axe API doesn't provide file-uploading helpers. But we will create documentation
 
 ## Getting started
 
-File uploading is an important part of APIs. You can use many different techniques and methods. Since Axe API is actually an Express.js framework under the hood, we are going to use the internal parts of Express.js.
+File uploading is an important part of APIs. You can use many different techniques and methods. Since Axe API is actually an **Express.js** framework under the hood, we are going to use the internal parts of Express.js.
 
 ## Installing dependencies
 

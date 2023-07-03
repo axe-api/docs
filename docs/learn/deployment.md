@@ -25,7 +25,9 @@ In this section, we will provide all information you need.
 
 ## Compiling the app
 
-Since the Axe API uses TypeScript as the language, you need to compile your application to plain JavaScript in order to run it. You can compile your application by using the following command;
+Since the Axe API uses **TypeScript** as the language, you need to compile your application to plain **JavaScript** in order to run it.
+
+You can compile your application by using the following command;
 
 ```bash
 $ npm run build
@@ -39,7 +41,7 @@ Remember that in the `build` folder you should define your environment variables
 
 ## Execute the build
 
-Your compiled codes are basic Node.js codes. So that, in the `build` folder, you can execute the application with the following command;
+Your compiled codes are basic **Node.js** codes. So that, in the `build` folder, you can execute the application with the following command;
 
 ```bash
 $ node index.js
@@ -158,10 +160,10 @@ We tried to show some of the basic deployment methods in here. Nevertheless we k
 
 No matter in which platform or environment you deploy your application, the following facts would be same;
 
-- Your application is a TypeScript application. It should be compiled to plain JavaScript.
-- You need a supported Node.js version in the machine which you will deploy.
+- Your application is a _TypeScript_ application. It should be compiled to plain _JavaScript_.
+- You need a supported _Node.js_ version in the machine which you will deploy.
 - You need to execute the migration files via `knex` cli.
-- You must execute the compiled JavaScript file with Node.js
+- You must execute the compiled _JavaScript_ file with _Node.js_.
 
 Other than tehese are just implementation details.
 

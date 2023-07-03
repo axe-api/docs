@@ -12,7 +12,7 @@ Axe API provides a test-friendly development environment since it provides a cle
 
 ## Overview
 
-As Axe API, we want to use internal codes for the CRUD operations. Also, we want to provide some escape points such as [Hooks](/advanced/hooks.html), [Events](/advanced/hooks.html#events), [Middlewares](/basics/middlewares.html), etc. By doing that, you can focus your business logic in your escape points.
+As Axe API, we want to use internal codes for the **CRUD** operations. Also, we want to provide some escape points such as [Hooks](/advanced/hooks.html), [Events](/advanced/hooks.html#events), [Middlewares](/basics/middlewares.html), etc. By doing that, you can yourfocus your business logic in escape points.
 
 Let's look at the following hook;
 
@@ -80,7 +80,7 @@ That's all!
 
 ## Dependency Injection
 
-You may think that what if I need some other dependencies such as a mail sender. To solve this problem, we created a simple IoC container. To define your relations, you should use it in the init function;
+You may think that what if I need some other dependencies such as a _mail sender_. To solve this problem, we created a simple **IoC container**. To define your relations, you should use it in the init function;
 
 `app/v1/init.ts`
 
@@ -100,7 +100,7 @@ const onAfterInit = async (app: Express) => {};
 export { onBeforeInit, onAfterInit };
 ```
 
-After that only thing, you should do is call the dependency via IoC;
+After that only thing, you should do is call the dependency via `IoC`;
 
 ```ts
 import { IoCService, IHookParameter } from "axe-api";

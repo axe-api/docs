@@ -4,7 +4,7 @@
 By default, it is **disabled**.
 :::
 
-If the **ALL** handler is enabled, clients can fetch all records as an array with dynamic query features such as [Where Conditions](/basics/queries.html#where-conditions), [Relation Queries](/basics/queries.html#relation-queries), etc.
+If the **ALL** handler is enabled, clients can fetch all records as an array with dynamic query features such as [Where Conditions](/reference/queries-q), [Relation Queries](/reference/queries-with), etc.
 
 :::danger
 If your table has millions of records, the API would return all of them. That's why you should be careful while using this handler.

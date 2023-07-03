@@ -4,7 +4,7 @@
 By default, it is **disabled**.
 :::
 
-You should add `deletedAtColumn` getter to your model to use this handler. [DELETE](/basics/handlers.html#delete) handler soft-deletes records if the soft-deleting feature is enabled. But `FORCE_DELETE` deletes records completelty.
+You should add `deletedAtColumn` getter to your model to use this handler. [DELETE](/reference/handlers-delete-handler) handler soft-deletes records if the soft-deleting feature is enabled. But `FORCE_DELETE` deletes records completelty.
 
 You must add the `FORCE_DELETE` handler to your model to enable this handler;
 

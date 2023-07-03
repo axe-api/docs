@@ -25,7 +25,7 @@ Axe API has the following handlers;
 - SHOW
 - UPDATE
 - DELETE
-- FORCE_DELETE (Only with [Soft Delete](/basics/models.html#soft-delete) feature)
+- FORCE_DELETE (Only with [Soft Delete](/reference/model-deleted-at-column) feature)
 - PATCH
 - ALL
 

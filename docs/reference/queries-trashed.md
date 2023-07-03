@@ -1,6 +1,6 @@
 # `trashed`
 
-You can use the `trashed` parameters to list soft-deleted records if the [Soft Delete](/basics/models.html#soft-delete) feature is enabled.
+You can use the `trashed` parameters to list soft-deleted records if the [Soft Delete](/reference/model-deleted-at-column) feature is enabled.
 
 ```js
 /api/v1/customers?trashed=true

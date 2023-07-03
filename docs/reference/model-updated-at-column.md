@@ -1,6 +1,6 @@
 # Model.`updatedAtColumn()`
 
-Axe API supports timestamps as default. While you are creating a new database table in your migrations, you can add timestamps with the <a href="http://knexjs.org/#Schema-timestamps" target="_blank" rel="noreferrer">Knex.js helpers</a>. After that, you don't have to do anything. Axe API will manage your timestamps automatically.
+Axe API supports timestamps as default. While you are creating a new database table in your migrations, you can add timestamps with the <a href="https://knexjs.org/guide/schema-builder.html#timestamps" target="_blank" rel="noreferrer">Knex.js helpers</a>. After that, you don't have to do anything. Axe API will manage your timestamps automatically.
 
 You can look at the simple timestamp example for a migration file;
 

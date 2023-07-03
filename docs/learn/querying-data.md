@@ -108,7 +108,7 @@ Almost every query feature is enabled by default to be used. Nevertheless, you m
 
 You can select which query features are **enabled** or **disabled** for that kind of case. You can set your configuration both in **_application general_** or **_model-based_**.
 
-You can visit the configuration [API reference](/xxx) to get more information.
+You can visit the configuration [API reference](/reference/queries-fields) to get more information.
 
 ## Next step
 

@@ -147,7 +147,7 @@ Axe API supports internationalization the of validation errors. You can check th
 
 Axe API uses [validatorjs](https://github.com/mikeerickson/validatorjs) under the hood. You can use all validation rules on that library.
 
-Nevertheless, basic form validation rules may not be enough to validate all of your data. You can use the [hooks](/learn/custom-logic) to validate the data to your requirements in that case.
+Nevertheless, basic form validation rules may not be enough to validate all of your data. You can use the [hooks](/learn/hooks-and-events) to validate the data to your requirements in that case.
 
 ## Next step
 

@@ -12,7 +12,7 @@ Axe API provides a test-friendly development environment since it provides a cle
 
 ## Overview
 
-As Axe API, we want to use internal codes for the **CRUD** operations. Also, we want to provide some escape points such as [Hooks](/advanced/hooks.html), [Events](/advanced/hooks.html#events), [Middlewares](/basics/middlewares.html), etc. By doing that, you can yourfocus your business logic in escape points.
+As Axe API, we want to use internal codes for the **CRUD** operations. Also, we want to provide some escape points such as [Hooks](/learn/hooks-and-events), [Events](/learn/hooks-and-events), [Middlewares](/learn/middlewares), etc. By doing that, you can yourfocus your business logic in escape points.
 
 Let's look at the following hook;
 

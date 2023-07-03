@@ -4,7 +4,7 @@
 By default, it is **enabled**.
 :::
 
-If the **PAGINATE** handler is enabled, clients can paginate all the model data with dynamic query features such as [Where Conditions](/basics/queries.html#where-conditions), [Relation Queries](/basics/queries.html#related-data), etc.
+If the **PAGINATE** handler is enabled, clients can paginate all the model data with dynamic query features such as [Where Conditions](/reference/queries-q), [Relation Queries](/reference/queries-with), etc.
 
 This is a simple definition of the PAGINATE handlers;
 

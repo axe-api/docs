@@ -313,7 +313,6 @@ export default defineConfig({
       "/learn/": sidebarGuide(),
       "/reference/": sidebarReference,
       "/errors": sidebarReference,
-      "/upgrading/": sidebarGuide(),
       "/upgrading/": upgradeReference,
     },
 

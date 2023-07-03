@@ -46,7 +46,7 @@ It means that your model is not relevant to a database table correctly. Axe API 
 You have to be sure the name that is looking from Axe API and the database table name is the same.
 
 :::tip
-You can specify the name in the model definitions; [Table Name](/basics/models.html#table-name)
+You can specify the name in the model definitions; [Table Name](/learn/models)
 :::
 
 ## `RESERVED_VERSION_NAME`

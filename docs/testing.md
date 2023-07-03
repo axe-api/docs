@@ -4,7 +4,7 @@ We care about testing, especially unit tests. Testing is the most important part
 
 ## Introduction
 
-As Axe API, we want to use internal codes for the CRUD operations. Also, we want to provide some escape points such as [Hooks](/advanced/hooks.html), [Events](/advanced/hooks.html#events), [Middlewares](/basics/middlewares.html), etc. By doing that, you can focus your business logic in your escape points.
+As Axe API, we want to use internal codes for the CRUD operations. Also, we want to provide some escape points such as [Hooks](/learn/hooks-and-events), [Events](/learn/hooks-and-events), [Middlewares](/learn/middlewares), etc. By doing that, you can focus your business logic in your escape points.
 
 Let's look at the following hook;
 

@@ -50,7 +50,7 @@ const onBeforePaginate = async () => {
 export { onBeforePaginate };
 ```
 
-You may find more detail in the [Config](/basics/config.html) documentation.
+You may find more detail in the [Config](/reference/api-configs) documentation.
 
 ### `Database (Singleton)`
 

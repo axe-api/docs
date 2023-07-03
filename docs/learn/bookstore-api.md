@@ -135,7 +135,7 @@ When the API is running correctly, you should see the following messages in your
 [axe] API listens requests on http://localhost:3000
 ```
 
-This indicates that the Axe API server is listening on the specified URL. To check what your project has, you can visit [localhost:3000/routes](http://localhost:3000/routes).
+This indicates that the Axe API server is listening on the specified URL. To check what your project has, you can visit <a href="http://localhost:3000/routes" target="_blank">localhost:3000/routes</a>.
 
 However, the response will be empty as your project does not currently have any model.
 
@@ -268,7 +268,7 @@ export default Order;
 
 :::
 
-After you created models files, you should be able to see the following results when you visit [localhost:3000/routes](http://localhost:3000/routes) URL.
+After you created models files, you should be able to see the following results when you visit <a href="http://localhost:3000/routes" target="_blank">localhost:3000/routes</a> URL.
 
 ```json
 [
@@ -293,7 +293,7 @@ After you created models files, you should be able to see the following results 
 ]
 ```
 
-You can see the following pagination result when you visit the [localhost:3000/api/v1/users](http://localhost:3000/api/v1/users);
+You can see the following pagination result when you visit the <a href="http://localhost:3000/api/v1/users" target="_blank">localhost:3000/api/v1/users</a>;
 
 ```json
 {

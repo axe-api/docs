@@ -34,5 +34,5 @@ This is an example result of a pagination request;
 ```
 
 :::tip
-Clients are free to use [query options](/basics/queries.html) except pagination.
+Clients are free to use [query options](/reference/queries-fields) except pagination.
 :::

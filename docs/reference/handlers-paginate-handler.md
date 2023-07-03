@@ -48,5 +48,5 @@ This is an example result of a pagination request;
 ```
 
 :::tip
-By default, Axe API doesn't return all records in one request because of performance issues. Clients should use [pagination parameters](/basics/queries.html#limits).
+By default, Axe API doesn't return all records in one request because of performance issues. Clients should use [pagination parameters](/reference/queries-page).
 :::

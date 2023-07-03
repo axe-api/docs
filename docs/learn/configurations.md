@@ -50,7 +50,7 @@ In the general configuration file you can manage;
 - Database connection
 
 :::info
-You should use the [Configuration References](/references/config) docs to get more detailed information.
+You should use the [Configuration References](/reference/api-configs) docs to get more detailed information.
 :::
 
 ::: code-group
@@ -101,7 +101,7 @@ In those configuration files, you can manage;
 - query limits and defaults
 
 :::info
-You should use the [Configuration References](/references/config) docs to get more detailed information.
+You should use the [Configuration References](/reference/api-configs) docs to get more detailed information.
 :::
 
 You can see a simple example of the _version-based_ configuration file;

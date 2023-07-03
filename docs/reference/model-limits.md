@@ -18,5 +18,5 @@ export default User;
 ```
 
 :::tip
-You can find more information in [Config - Limits](/basics/config.html#limits) section.
+You can find more information in [Config - Limits](/reference/version-configs.html#query-limits) section.
 :::

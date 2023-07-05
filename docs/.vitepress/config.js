@@ -343,6 +343,35 @@ export default defineConfig({
     ["link", { rel: "stylesheet", href: "/styles.css" }],
     [
       "meta",
+      {
+        name: "description",
+        content:
+          "Axe API is the next generation rest API framework. You can quickly create a Rest API by simply defining models and relationships.",
+      },
+    ],
+    ["meta", { name: "og:title", content: "Axe API" }],
+    [
+      "meta",
+      {
+        name: "og:description",
+        content:
+          "Axe API is the next generation rest API framework. You can quickly create a Rest API by simply defining models and relationships.",
+      },
+    ],
+    ["meta", { name: "og:image", content: "/social.png" }],
+    ["meta", { name: "twitter:card", content: "summary" }],
+    ["meta", { name: "twitter:title", content: "Axe API" }],
+    [
+      "meta",
+      {
+        name: "twitter:description",
+        content:
+          "Axe API is the next generation rest API framework. You can quickly create a Rest API by simply defining models and relationships.",
+      },
+    ],
+    ["meta", { name: "twitter:image", content: "/social.png" }],
+    [
+      "meta",
       { name: "apple-mobile-web-app-status-bar-style", content: "black" },
     ],
     [

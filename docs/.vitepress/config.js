@@ -287,6 +287,14 @@ export default defineConfig({
           },
           { text: "0.20.0", link: "/upgrading/0.20.0" },
           { text: "0.30.0", link: "/upgrading/0.30.0" },
+          {
+            text: "Releases",
+            link: "https://github.com/axe-api/axe-api/releases",
+          },
+          {
+            text: "Changelog",
+            link: "https://github.com/axe-api/axe-api/blob/master/CHANGELOG.md",
+          },
         ],
       },
       {
@@ -295,14 +303,6 @@ export default defineConfig({
           {
             text: "Team",
             link: "/ecosystem/team",
-          },
-          {
-            text: "Releases",
-            link: "https://github.com/axe-api/axe-api/releases",
-          },
-          {
-            text: "Changelog",
-            link: "https://github.com/axe-api/axe-api/blob/master/CHANGELOG.md",
           },
           { text: "CLI", link: "https://github.com/axe-api/axe-magic" },
           {

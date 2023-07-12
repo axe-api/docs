@@ -1,19 +1,29 @@
+<style>
+.container {
+  width: 1152px;
+  height: 658px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  margin-top: -100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 90vw;
+    height: 55vw;
+    margin-top: 150px;
+    margin-bottom: 50px;
+  }
+}
+</style>
+
 <template>
-  <div
-    style="
-      width: 1152px;
-      left: 0px;
-      right: 0px;
-      margin: auto;
-      margin-top: 100px;
-      margin-bottom: 100px;
-      display: flex;
-      justify-content: center;
-    "
-  >
+  <div class="container">
     <iframe
-      width="1152"
-      height="658"
+      width="100%"
+      height="100%"
       src="https://www.youtube.com/embed/3p4jggsNrJA"
       title="Axe API Introduction"
       frameborder="0"

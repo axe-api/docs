@@ -80,7 +80,7 @@ You can find more command example on the [Migration CLI Documentation](https://k
 **Axe API** adds `Dockerfile` to your build folder by default. A standard **Axe API** Dockerfile looks like the following one;
 
 ```docker
-FROM node:18
+FROM --platform=linux/amd64 node:18
 # Create app directory
 WORKDIR /home
 # Install app dependencies

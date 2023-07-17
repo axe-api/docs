@@ -1381,6 +1381,11 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+vanilla-cookieconsent@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.npmjs.org/vanilla-cookieconsent/-/vanilla-cookieconsent-2.9.1.tgz"
+  integrity sha512-53SFENm1+nSOvuH8nEYRVB21gsYHnoglKD7Py9q1f9RSC4nkOOY5v3IE9rXh7g1vBLFnCtzlaFmJLm8/Y94iOQ==
+
 vite-ssg-sitemap@^0.5.1:
   version "0.5.1"
   resolved "https://registry.npmjs.org/vite-ssg-sitemap/-/vite-ssg-sitemap-0.5.1.tgz"

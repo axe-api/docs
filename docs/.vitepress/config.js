@@ -342,6 +342,13 @@ export default defineConfig({
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     ["link", { rel: "stylesheet", href: "/styles.css" }],
     [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.1/dist/cookieconsent.css",
+      },
+    ],
+    [
       "meta",
       {
         name: "description",
@@ -400,13 +407,32 @@ export default defineConfig({
     [
       "script",
       {
+        defer: true,
+        src: "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.1/dist/cookieconsent.js",
+      },
+    ],
+    [
+      "script",
+      {
+        defer: true,
+        src: "/init.js",
+      },
+    ],
+    [
+      "script",
+      {
         async: true,
+        type: "text/plain",
+        "data-cookiecategory": "analytics",
         src: "https://www.googletagmanager.com/gtag/js?id=G-1HBM031QWE",
       },
     ],
     [
       "script",
-      {},
+      {
+        type: "text/plain",
+        "data-cookiecategory": "analytics",
+      },
       `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}

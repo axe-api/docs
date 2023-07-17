@@ -14,7 +14,8 @@
   "dependencies": {
     "global": "^4.4.0",
     "markdown-it-task-lists": "^2.1.1",
-    "sitemap-ts": "^1.4.0"
+    "sitemap-ts": "^1.4.0",
+    "vanilla-cookieconsent": "^2.9.1"
   },
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.9.9",

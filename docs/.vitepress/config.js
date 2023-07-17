@@ -265,7 +265,7 @@ export default defineConfig({
     logo: "/axe.png",
 
     editLink: {
-      pattern: "https://github.com/axe-api/docs/edit/docs/:path",
+      pattern: "https://github.com/axe-api/docs/edit/master/docs/:path",
       text: "Edit this page on GitHub",
     },
 

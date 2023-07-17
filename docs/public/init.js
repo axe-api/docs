@@ -65,7 +65,7 @@ setTimeout(() => {
             {
               title: "Cookie usage 📢",
               description:
-                'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.',
+                'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="/privacy-policy" class="cc-link">privacy policy</a>.',
             },
             {
               title: "Strictly necessary cookies",
@@ -115,7 +115,7 @@ setTimeout(() => {
             {
               title: "More information",
               description:
-                'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="mailto:i.ozguradem@gmail.com">contact us</a>.',
             },
           ],
         },

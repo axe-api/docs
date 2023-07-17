@@ -247,7 +247,7 @@ const sidebarReference = [
 ];
 
 const upgradeReference = [
-  { text: "Versioning Policy", link: "/upgrading/versioning-policy.md" },
+  { text: "Versioning Policy", link: "/upgrading/versioning-policy" },
   { text: "Upgrading to 0.20.0", link: "/upgrading/0.20.0" },
   { text: "Upgrading to 0.30.0", link: "/upgrading/0.30.0" },
 ];
@@ -283,7 +283,7 @@ export default defineConfig({
         items: [
           {
             text: "Versioning Policy",
-            link: "/upgrading/versioning-policy.md",
+            link: "/upgrading/versioning-policy",
           },
           { text: "0.20.0", link: "/upgrading/0.20.0" },
           { text: "0.30.0", link: "/upgrading/0.30.0" },

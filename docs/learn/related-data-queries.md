@@ -261,4 +261,4 @@ The best part of using relational queries is you don't need to do anything excep
 
 Relational queries are the best elegant feature of Axe API. You would get many benefits while you are doing almost nothing.
 
-In the next section, you will learn another cool stuff: the database analyzer.
+In the next section, you will learn another cool stuff: Axe API Client library.

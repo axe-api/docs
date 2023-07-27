@@ -2,6 +2,8 @@ import { defineConfig } from "vitepress";
 import { createWriteStream } from "node:fs";
 import { resolve } from "node:path";
 import { SitemapStream } from "sitemap";
+import fs from "fs";
+import path from "path";
 
 const links = [];
 
@@ -479,15 +481,19 @@ export default defineConfig({
   ],
 
   transformHtml: (_, id, { pageData }) => {
-    if (!/[\\/]404\.html$/.test(id))
+    const file = fs.statSync(path.join(__dirname, "..", pageData.relativePath))
+    if (!/[\\/]404\.html$/.test(id)) {
+      const url = pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2")
       links.push({
         // you might need to change this if not using clean urls mode
-        url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2"),
-        lastmod: pageData.lastUpdated,
+        url: url.length > 0 ? `${url}.html` : url,
+        lastmod: file.mtime,
       });
+    }
   },
 
   buildEnd: ({ outDir }) => {
+    // console.log(links)
     const sitemap = new SitemapStream({
       hostname: "https://axe-api.com/",
     });

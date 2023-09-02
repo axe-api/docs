@@ -36,7 +36,10 @@ const sidebarGuide = () => [
       { text: "Auto-created documentation", link: "/learn/documentation" },
       { text: "Querying data", link: "/learn/querying-data" },
       { text: "Related data queries", link: "/learn/related-data-queries" },
-      { text: "JavaScript Client", link: "/learn/javascript-client-axe-api-client" },
+      {
+        text: "JavaScript Client",
+        link: "/learn/javascript-client-axe-api-client",
+      },
       {
         text: "How DB Analyzer works?",
         link: "/learn/db-analyzer",
@@ -275,8 +278,9 @@ const sidebarReference = [
 
 const upgradeReference = [
   { text: "Versioning Policy", link: "/upgrading/versioning-policy" },
-  { text: "Upgrading to 0.20.0", link: "/upgrading/0.20.0" },
+  { text: "Upgrading to v1", link: "/upgrading/v1" },
   { text: "Upgrading to 0.30.0", link: "/upgrading/0.30.0" },
+  { text: "Upgrading to 0.20.0", link: "/upgrading/0.20.0" },
 ];
 
 export default defineConfig({
@@ -312,8 +316,9 @@ export default defineConfig({
             text: "Versioning Policy",
             link: "/upgrading/versioning-policy",
           },
-          { text: "0.20.0", link: "/upgrading/0.20.0" },
-          { text: "0.30.0", link: "/upgrading/0.30.0" },
+          { text: "v1", link: "/upgrading/v1" },
+          { text: "v0.30", link: "/upgrading/0.30.0" },
+          { text: "v0.20", link: "/upgrading/0.20.0" },
           {
             text: "Releases",
             link: "https://github.com/axe-api/axe-api/releases",
@@ -481,9 +486,9 @@ export default defineConfig({
   ],
 
   transformHtml: (_, id, { pageData }) => {
-    const file = fs.statSync(path.join(__dirname, "..", pageData.relativePath))
+    const file = fs.statSync(path.join(__dirname, "..", pageData.relativePath));
     if (!/[\\/]404\.html$/.test(id)) {
-      const url = pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2")
+      const url = pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2");
       links.push({
         // you might need to change this if not using clean urls mode
         url: url.length > 0 ? `${url}.html` : url,

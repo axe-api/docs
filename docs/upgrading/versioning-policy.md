@@ -21,7 +21,7 @@ You can check the current release plan of Axe API.
 Some important changes;
 
 - `0.20.0`: TypeScript support
-- `0.30.0`: Many majot changes. Stable release candidate.
+- `0.30.0`: Many major changes. Stable release candidate.
 - `v1`: The stable release. Long-term support.
 
 ## Breaking changes

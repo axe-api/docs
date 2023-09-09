@@ -316,7 +316,7 @@ export default defineConfig({
             text: "Versioning Policy",
             link: "/upgrading/versioning-policy",
           },
-          { text: "v1", link: "/upgrading/v1" },
+          { text: "v1 (RC)", link: "/upgrading/v1" },
           { text: "v0.30", link: "/upgrading/0.30.0" },
           { text: "v0.20", link: "/upgrading/0.20.0" },
           {

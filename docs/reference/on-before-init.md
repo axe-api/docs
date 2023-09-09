@@ -5,10 +5,10 @@ The initialization function is triggered before the Axe API starts to create rou
 ::: code-group
 
 ```ts [app/v1/init.ts]
-import { Express } from "express";
+import { App } from "axe-api";
 
-const onBeforeInit = async (app: Express) => {
-  // Do anything with the Express instance
+const onBeforeInit = async (app: App) => {
+  // Do anything with the App instance
 };
 
 export { onBeforeInit };

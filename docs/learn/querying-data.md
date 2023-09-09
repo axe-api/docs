@@ -39,10 +39,10 @@ Let's assume that you created a model like the following one;
 
 ::: code-group
 
-```ts
+```ts [User.ts]
 import { Model } from "axe-api";
 
-class Users extends Model {}
+class User extends Model {}
 
 export default User;
 ```

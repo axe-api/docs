@@ -9,23 +9,23 @@ It can be used in the `UPDATE` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeUpdateQuery.ts]
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async (parameters: IHookParameter) => {
+export default async (parameters: IContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IHookParameters`
+## `IContext`
 
 The following parameters can be used in the hook/event function;
 
 | Parameter     | Description                                                                                                                             |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`     | Request object of <a href="https://expressjs.com/en/4x/api.html#req" target="_blank" rel="noreferrer">Expresss</a>                      |
-| `response`    | Response object of <a href="https://expressjs.com/en/4x/api.html#res" target="_blank" rel="noreferrer">Expresss</a>                     |
+| `req`         | [AxeRequest](/reference/axe-request)                                                                                                    |
+| `res`         | [AxeResponse](/reference/axe-response)                                                                                                  |
 | `model`       | Current model instance. For example; `User`                                                                                             |
 | `database`    | Database connection instance. For example <a href="http://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js</a> |
 | `relation`    | The relation definition if the route is a related route (For example `api/v1/users/:userId/posts`).                                     |

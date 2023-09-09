@@ -28,7 +28,6 @@ To be able to contribute to this project, you should basic knowledge of the foll
 - [Unit testing](https://en.wikipedia.org/wiki/Unit_testing)
 - [Integration testing](https://en.wikipedia.org/wiki/Integration_testing)
 - [RDBMS](https://en.wikipedia.org/wiki/Relational_database) ([MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), [SQLite3](https://www.sqlite.org), etc.)
-- [Express.js](https://expressjs.com/)
 - [API Best Practices](https://masteringbackend.com/posts/api-design-best-practices)
 - [Git](https://git-scm.com)
 

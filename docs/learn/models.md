@@ -103,9 +103,9 @@ Let's take a look at the following example. In the following function, the `pass
 
 ```ts
 import bcrypt from "bcrypt";
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async ({ formData }: IHookParameter) => {
+export default async ({ formData }: IContext) => {
   formData.password = bcrypt.hashSync(formData.password, 10);
 };
 ```

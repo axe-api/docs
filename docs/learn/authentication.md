@@ -39,14 +39,14 @@ To provide an authentication structure, we need to create a custom route. To do 
 ::: code-group
 
 ```ts [app/v1/init.ts]
-import { Express } from "express";
+import { App } from "axe-api";
 import login from "./Handlers/login";
 
-const onBeforeInit = async (app: Express) => {
+const onBeforeInit = async (app: App) => {
   app.post("/api/v1/login", login);
 };
 
-const onAfterInit = async (app: Express) => {};
+const onAfterInit = async (app: App) => {};
 
 export { onBeforeInit, onAfterInit };
 ```
@@ -58,13 +58,12 @@ Here, we describe `/api/v1/login` route to handle login requests. After that, yo
 ::: code-group
 
 ```ts [app/v1/Handlers/login.ts]
-import { Request, Response } from "express";
-import { IoCService } from "axe-api";
+import { AxeRequest, AxeResponse, IoCService } from "axe-api";
 import { Knex } from "knex";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
-export default async (req: Request, res: Response) => {
+export default async (req: AxeRequest, res: AxeResponse) => {
   const { email, password } = req.body;
   const Database = (await IoCService.use("Database")) as Knex;
   const user = await Database.table("users").where("email", email).first();
@@ -101,13 +100,25 @@ To check the token, we should create a middleware;
 ::: code-group
 
 ```ts [app/v1/Middlewares/isLogged.ts]
-import { Request, Response, NextFunction } from "express";
+import { IncomingMessage, ServerResponse } from "http";
+import { NextFunction } from "axe-api";
 import jwt from "jsonwebtoken";
 
-export default (req: Request, res: Response, next: NextFunction) => {
-  const { authorization } = req.headers;
+export default (
+  req: IncomingMessage,
+  res: ServerResponse,
+  next: NextFunction
+) => {
+  const authorization = req.headers["authorization"];
   if (!authorization) {
-    return res.status(401).json({ error: "Unauthorized" });
+    res.statusCode = 401;
+    res.write(
+      JSON.stringify({
+        error: "Unauthorized",
+      })
+    );
+    res.end();
+    return;
   }
 
   try {
@@ -117,7 +128,14 @@ export default (req: Request, res: Response, next: NextFunction) => {
     );
     req.auth = decoded;
   } catch (error) {
-    return res.status(401).json({ error: "Unauthorized" });
+    res.statusCode = 401;
+    res.write(
+      JSON.stringify({
+        error: "Unauthorized",
+      })
+    );
+    res.end();
+    return;
   }
 
   next();
@@ -161,7 +179,7 @@ class User extends Model {
   get middlewares() {
     return [
       {
-        handler: HandlerTypes.DELETE,
+        handler: [HandlerTypes.DELETE],
         middleware: isLogged,
       },
     ];

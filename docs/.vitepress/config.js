@@ -103,6 +103,8 @@ const sidebarReference = [
     collapsed: false,
     items: [
       { text: "API configs", link: "/reference/api-configs" },
+      { text: "Pino (logger) configs", link: "/reference/pino-logger-configs" },
+      { text: "Rate limit configs", link: "/reference/rate-limit-configs" },
       { text: "Database configs", link: "/reference/database-configs" },
       { text: "Version configs", link: "/reference/version-configs" },
     ],
@@ -113,6 +115,19 @@ const sidebarReference = [
     items: [
       { text: "onBeforeInit()", link: "/reference/on-before-init" },
       { text: "onAfterInit()", link: "/reference/on-after-init" },
+    ],
+  },
+  {
+    text: "Axe API",
+    collapsed: true,
+    items: [
+      { text: "App", link: "/reference/app" },
+      { text: "IContext", link: "/reference/icontext" },
+      { text: "AxeRequest", link: "/reference/axe-request" },
+      { text: "AxeResponse", link: "/reference/axe-response" },
+      { text: "IoC", link: "/reference/ioc" },
+      { text: "ApiError", link: "/reference/api-error" },
+      { text: "Error Codes", link: "/errors" },
     ],
   },
   {
@@ -129,6 +144,7 @@ const sidebarReference = [
       { text: "deletedAtColumn()", link: "/reference/model-deleted-at-column" },
       { text: "handlers()", link: "/reference/model-handlers" },
       { text: "middlewares()", link: "/reference/model-middlewares" },
+      { text: "transactions()", link: "/reference/model-transactions" },
       { text: "limits()", link: "/reference/model-limits" },
       { text: "ignore()", link: "/reference/model-ignore" },
     ],
@@ -263,15 +279,6 @@ const sidebarReference = [
       { text: "whereIn()", link: "/reference/client-where-in" },
       { text: "whereBetween()", link: "/reference/client-where-between" },
       { text: "whereNull()", link: "/reference/client-where-null" },
-    ],
-  },
-  {
-    text: "System",
-    collapsed: true,
-    items: [
-      { text: "IoC", link: "/reference/ioc" },
-      { text: "ApiError", link: "/reference/api-error" },
-      { text: "Error Codes", link: "/errors" },
     ],
   },
 ];

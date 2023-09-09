@@ -7,9 +7,9 @@ You can check the following example;
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeInsert.ts]
-import { IHookParameter, ApiError, StatusCodes } from "axe-api";
+import { IContext, ApiError, StatusCodes } from "axe-api";
 
-export default async (parameters: IHookParameter) => {
+export default async (parameters: IContext) => {
   throw new ApiError(
     "This is not an acceptable request!",
     StatusCodes.BAD_REQUEST

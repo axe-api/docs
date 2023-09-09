@@ -18,6 +18,7 @@ const config: IVersionConfig = {
       maxPerPage: 100,
     },
   },
+  formidable: {},
 };
 
 export default config;
@@ -254,3 +255,9 @@ export default config;
 - `perPage`: The default "per page" value if the HTTP client doesn't specify.
 - `minPerPage`: The minimum "per page" value.
 - `maxPerPage`: The maximum "per page" value.
+
+### `formidable`
+
+The default `formidable` options.
+
+You can use all options by the [documentation](https://github.com/node-formidable/formidable#options)

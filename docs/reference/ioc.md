@@ -5,9 +5,9 @@
 Axe API provides a simple IoC structure to create testable codes. Let's review the following hook;
 
 ```ts
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-const onBeforeInsert = async ({ formData }: IHookParameter) => {
+const onBeforeInsert = async ({ formData }: IContext) => {
   // formData.email: the new user's email address
   // TODO: Check if the email is already used
 };
@@ -18,11 +18,11 @@ export { onBeforeInsert };
 Let's assume that we want to check if the email is already used in the database. To do that, we need a database connection. But Axe API already has a database connection. With IoC, you can use the database connection like the following example;
 
 ```ts
-import { IoCService, IHookParameter } from "axe-api";
+import { IoCService, IContext } from "axe-api";
 import { Knex } from "knex";
 
-const onBeforeInsert = async ({ formData }: IHookParameter) => {
-  const db = (await IoCService.use("Database")) as Knex;
+const onBeforeInsert = async ({ formData }: IContext) => {
+  const db = await IoCService.use<Knex>("Database");
   const user = await db.table("users").where("email", formData.email).first();
 };
 
@@ -40,10 +40,10 @@ Axe API provides the following instances for you as default.
 `Config` is an instance of your application's configuration.
 
 ```ts
-import { IoCService } from "axe-api";
+import { IoCService, IApplicationConfig } from "axe-api";
 
 const onBeforePaginate = async () => {
-  const Config = await IoCService.use("Config");
+  const Config = await IoCService.use<IApplicationConfig>("Config");
   console.log(Config.Application.env); // development
 };
 
@@ -57,24 +57,11 @@ You may find more detail in the [Config](/reference/api-configs) documentation.
 You can access the <a href="https://knexjs.org/#Installation-client" target="_blank" rel="noreferrer">Knex.js' connection instance</a>.
 
 ```ts
-import { IoCService, IHookParameter } from "axe-api";
+import { IoCService, IContext } from "axe-api";
+import { Knex } from "knex";
 
-const onBeforeInsert = async ({ formData }: IHookParameter) => {
-  const db = await IoCService.use("Database");
-};
-
-export { onBeforeInsert };
-```
-
-### `App (Singleton)`
-
-You can access the <a href="https://expressjs.com/en/starter/hello-world.html" target="_blank" rel="noreferrer">Express' App</a>
-
-```ts
-import { IoCService, IHookParameter } from "axe-api";
-
-const onBeforeInsert = async ({ formData }: IHookParameter) => {
-  const app = await IoCService.use("App");
+const onBeforeInsert = async ({ formData }: IContext) => {
+  const db = await IoCService.use<Knex>("Database");
 };
 
 export { onBeforeInsert };
@@ -87,39 +74,38 @@ In Axe API, you can define your definitions. `app/v1/init.ts` file is the best p
 You can review the following example;
 
 ```ts
-import { Express } from "express";
-import { IoCService } from "axe-api";
+import { App, IoCService, IApplicationConfig } from "axe-api";
 import MyClass from "my-class";
 import Mailer from "some-mail-library";
 
-const onBeforeInit = async (app: Express) => {
+const onBeforeInit = async (app: App) => {
   // Best place to define your IoC definitions.
   IoCService.singleton("MyClass", async () => {
     return new MyClass();
   });
 
   IoCService.bind("Mailer", async () => {
-    const Config = await IoCService.use("Config");
+    const Config = await IoCService.use<IApplicationConfig>("Config");
     return new Mailer(Config.SMTP);
   });
 };
 
-const onAfterInit = async (app: Express) => {};
+const onAfterInit = async (app: App) => {};
 
 export { onBeforeInit, onAfterInit };
 ```
 
 ## Methods
 
-### `async use(name)`
+### `async use<T>(name)`
 
 With `use` method, you can get the instance from IoC.
 
 ```ts
-import { IoCService, IHookParameter } from "axe-api";
+import { IoCService, IContext } from "axe-api";
 
-const onBeforeInsert = async ({ formData }: IHookParameter) => {
-  const db = await IoCService.use("MyClass");
+const onBeforeInsert = async ({ formData }: IContext) => {
+  const db = await IoCService.use<MyClass>("MyClass");
 };
 
 export { onBeforeInsert };

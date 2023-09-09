@@ -3,6 +3,7 @@
   "version": "0.2.1",
   "description": "Axe API documentation",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "start": "vitepress serve docs",
@@ -15,13 +16,13 @@
     "global": "^4.4.0",
     "markdown-it-task-lists": "^2.1.1",
     "sitemap-ts": "^1.4.0",
-    "vanilla-cookieconsent": "^2.9.1"
+    "vanilla-cookieconsent": "^2.9.2"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.9.9",
+    "@vuepress/plugin-google-analytics": "^1.9.10",
     "vite-ssg": "^0.23.1",
     "vite-ssg-sitemap": "^0.5.1",
-    "vitepress": "1.0.0-beta.6",
+    "vitepress": "1.0.0-rc.10",
     "vue": "^3.3.4"
   }
 }

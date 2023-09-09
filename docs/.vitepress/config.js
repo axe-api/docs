@@ -310,6 +310,19 @@ export default defineConfig({
         link: "/reference/api-configs",
       },
       {
+        text: "Version",
+        items: [
+          {
+            text: "v1 (rc)",
+            link: "https://v1.axe-api.com",
+          },
+          {
+            text: "v0.30.* (stable)",
+            link: "https://axe-api.com",
+          },
+        ],
+      },
+      {
         text: "Upgrading",
         items: [
           {

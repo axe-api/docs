@@ -84,9 +84,9 @@ When you enable transaction in a route, Axe API creates a database transaction i
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onAfterInsert.ts]
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async ({ database }: IHookParameter) => {
+export default async ({ database }: IContext) => {
   // If you opened the transaction, `database` object is a
   // transaction database object by default. So you can use the `database.commit()`
   // or `database.rollback()` methods.
@@ -102,9 +102,9 @@ But, if you throw an error, Axe API would automatically rollback the transaction
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onAfterInsert.ts]
-import { ApiError, IHookParameter } from "axe-api";
+import { ApiError, IContext } from "axe-api";
 
-export default async ({ database }: IHookParameter) => {
+export default async ({ database }: IContext) => {
   // You can check anything in here and you can throw an HTTP Response as an exception
   throw new ApiError("Unacceptable request!");
 };
@@ -185,7 +185,7 @@ import { Model, HandlerTypes } from "axe-api";
 class User extends Model {
   get transaction() {
     return {
-      handler: [HandlerTypes.INSERT],
+      handlers: [HandlerTypes.INSERT],
       transaction: true,
     };
   }

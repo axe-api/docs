@@ -19,9 +19,9 @@ Hooks and events are a crucial part of Axe API. It allows you to add your applic
 A simple _hook_ or _event_ function look like the following example;
 
 ```ts
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async (context: IHookParameter) => {
+export default async (context: IContext) => {
   // add your custom logic in here
 };
 ```
@@ -77,25 +77,25 @@ The following examples demonstrate the correct hook event function definitions;
 ::: code-group
 
 ```ts [Hooks/User/onBeforeInsert.ts]
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async (context: IHookParameter) => {
+export default async (context: IContext) => {
   // This will be executed on before Insert User
 };
 ```
 
 ```ts [Hooks/User/onAfterUpdate.ts]
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async (context: IHookParameter) => {
+export default async (context: IContext) => {
   // This will be executed on after Update User
 };
 ```
 
 ```ts [Events/User/onAfterInsert.ts]
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async (context: IHookParameter) => {
+export default async (context: IContext) => {
   // This will be executed on after Insert User
 };
 ```
@@ -148,16 +148,16 @@ These kinds of functions have many advantages;
 
 Let's assume that you will send a confirmation email to the user after a new user has been created. In this case, you can create an event function. But you need the user's email address to send the email, right?
 
-As a developer, you will need every data that you can use in the same HTTP Request in hook and event functions. Axe API provides this information via IHookParameters.
+As a developer, you will need every data that you can use in the same HTTP Request in hook and event functions. Axe API provides this information via IContext.
 
 Let's check the following event function;
 
 ::: code-group
 
 ```ts [Events/User/onAfterInsert.ts]
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async (context: IHookParameter) => {
+export default async (context: IContext) => {
   // This means the created user's email
   const { email } = context.item;
 
@@ -168,7 +168,7 @@ export default async (context: IHookParameter) => {
 
 :::
 
-Axe API executes the `onAfterInsert` event after a user has been created. While doing that, it passes the `IHookParameters` to the event function. The `IHookParameters` contains many variables that can be used by you. One of them is the `item` variable that holds the active record item by the model.
+Axe API executes the `onAfterInsert` event after a user has been created. While doing that, it passes the `IContext` to the event function. The `IContext` contains many variables that can be used by you. One of them is the `item` variable that holds the active record item by the model.
 
 For this example, it holds the created user value. You can use the `context.item` variable to get all created user data.
 

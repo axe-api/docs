@@ -127,12 +127,7 @@ $ npm run start:dev
 When the API is running correctly, you should see the following messages in your console:
 
 ```bash
-[axe] All API versions have been resolved.
-[axe] [v1] All models have been resolved.
-[axe] [v1] Database schema has been validated.
-[axe] [v1] Model tree has been created.
-[axe] [v1] Express routes have been created.
-[axe] API listens requests on http://localhost:3000
+[18:00:00] INFO: Axe API listens requests on http://localhost:3000
 ```
 
 This indicates that the Axe API server is listening on the specified URL. To check what your project has, you can visit <a href="http://localhost:3000/routes" target="_blank">localhost:3000/routes</a>.
@@ -670,9 +665,9 @@ After that, the only thing to do is add the following hook to your project;
 
 ```ts [app/v1/Hooks/User/onBeforeInsert.ts]
 import bcrypt from "bcrypt";
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
-export default async ({ formData }: IHookParameter) => {
+export default async ({ formData }: IContext) => {
   formData.password = bcrypt.hashSync(formData.password, 10);
 };
 ```

@@ -19,13 +19,12 @@ Axe API has different configuration files to manage your API as you expected. Al
 A simple configuration file looks like the following example;
 
 ```ts
-import { LogLevels, IApplicationConfig } from "axe-api";
+import { IApplicationConfig } from "axe-api";
 
 const config: IApplicationConfig = {
   prefix: "api",
   env: process.env.NODE_ENV || "production",
   port: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
-  logLevel: LogLevels.INFO,
   database: {...},
 };
 
@@ -46,7 +45,7 @@ In the general configuration file you can manage;
 - API prefix
 - `env` value to determining the environment
 - Running port
-- Log level to determine what kind of logs can be seen in the terminal
+- [pino](https://getpino.io) logger configuration
 - Database connection
 
 :::info
@@ -62,7 +61,15 @@ const config: IApplicationConfig = {
   prefix: "api",
   env: process.env.NODE_ENV || "production",
   port: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
-  logLevel: LogLevels.INFO,
+  pino: {
+    level: "debug",
+    transport: {
+      target: "pino-pretty",
+    },
+  },
+  rateLimit: {
+    enabled: false,
+  },
   database: {
     client: process.env.DB_CLIENT || "mysql",
     connection: {
@@ -109,15 +116,9 @@ You can see a simple example of the _version-based_ configuration file;
 ::: code-group
 
 ```ts [app/v1/config.ts]
-import {
-  IVersionConfig,
-  allow,
-  QueryFeature,
-  DEFAULT_VERSION_CONFIG,
-} from "axe-api";
+import { IVersionConfig, allow, QueryFeature } from "axe-api";
 
 const config: IVersionConfig = {
-  ...DEFAULT_VERSION_CONFIG,
   transaction: [],
   serializers: [],
   supportedLanguages: ["en"],

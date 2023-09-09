@@ -138,22 +138,32 @@ Axe API provides an error handler in all Axe API projects as default like the fo
 
 ::: code-group
 
-```ts [app/v1/Handlers/ErrorHandler.ts]
-import { Request, Response, NextFunction } from "express";
+```ts [app/ErrorHandler.ts]
+import { IncomingMessage, ServerResponse } from "http";
+import { NextFunction } from "http";
 
 const ErrorHandler = (
   err: any,
-  req: Request,
-  res: Response,
+  req: IncomingMessage,
+  res: ServerResponse,
   next: NextFunction
 ) => {
   if (process.env.NODE_ENV === "production") {
-    return res.status(500).send({
-      message: "An error occurred!",
-    });
+    // Send errors to your error monitoring tool like Sentry
   }
 
-  throw err;
+  // Sett the HTTP status code
+  res.statusCode = 500;
+
+  // Set the default HTTP message
+  res.write(
+    JSON.stringify({
+      error: "Internal server error",
+    })
+  );
+
+  res.end();
+  next();
 };
 
 export default ErrorHandler;
@@ -161,21 +171,21 @@ export default ErrorHandler;
 
 :::
 
-You can edit the `ErrorHandler.ts` file by yourself.
+You can edit the `ErrorHandler.ts` file by your logic.
 
-Also, you can disable it by removing the following line on the `init.ts` file.
+But you should define the error handler via the `app/config.ts` file.
 
 ::: code-group
 
-```ts{5} [app/v1/init.ts]
-import { Express } from "express";
-import ErrorHandler from "./Handlers/ErrorHandler";
+```ts [app/config.ts]
+import { IApplicationConfig } from "axe-api";
+import errorHandler from "./ErrorHandler";
 
-const onAfterInit = async (app: Express) => {
-  app.use(ErrorHandler);
+const config: IApplicationConfig = {
+  // ...
+  errorHandler,
+  // ...
 };
-
-export { onAfterInit };
 ```
 
 :::

@@ -3,13 +3,18 @@
 ::: code-group
 
 ```ts [app/config.ts]
-import { LogLevels, IApplicationConfig } from "axe-api";
+import { IApplicationConfig } from "axe-api";
 
 const config: IApplicationConfig = {
   prefix: "api",
   env: process.env.NODE_ENV || "production",
   port: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
-  logLevel: LogLevels.INFO,
+  pino: {
+    ...
+  },
+  rateLimit: {
+    ...
+  },
   database: {
     ...
   },
@@ -48,19 +53,3 @@ Suggestions;
 ## `port`
 
 `port` means in which port the application will run. You can select any port that is available for your setup.
-
-## `logLevel`
-
-`logLevel` determines what kind of logs will be put into the terminal.
-
-Possible values;
-
-- `NONE`
-- `ERROR`
-- `WARNING`
-- `INFO`
-- `ALL`
-
-:::tip
-Error and warning logs would be shown at the same time if you select WARNING.
-:::

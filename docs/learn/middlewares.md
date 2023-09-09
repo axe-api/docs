@@ -16,11 +16,13 @@ In this section, you are going to learn the Axe API middleware, and how you can 
 
 Middleware refers to software components that sit between an application's core functionality and the underlying infrastructure.
 
-You can see a simple middleware for **Express.js** application in the following example;
+You can see a simple middleware for [connect](https://github.com/senchalabs/connect) application in the following example;
 
 ```js
-const express = require("express");
-const app = express();
+const connect = require("connect");
+const http = require("http");
+
+const app = connect();
 
 const myLogger = function (req, res, next) {
   console.log("LOGGED");
@@ -29,16 +31,12 @@ const myLogger = function (req, res, next) {
 
 app.use(myLogger);
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.listen(3000);
+http.createServer(app).listen(3000);
 ```
 
 In this example, every _HTTP_ request should be passed via the `myLogger` middleware. In that middleware, you can log the request, check the HTTP Request Headers, validate the request, etc.
 
-Axe API middleware functions are completely the same as Express.js'. Since Axe API generates HTTP routes automatically, the defining method is different, and it depends on the middleware type.
+Axe API middleware functions are completely the same as [connect middlewares](https://github.com/senchalabs/connect#use-middleware). Since Axe API generates HTTP routes automatically, the defining method is different, and it depends on the middleware type.
 
 You can see the middleware schema in the following schema;
 
@@ -48,27 +46,32 @@ You can see the middleware schema in the following schema;
 
 In Axe API you can create a global middleware that would be executed in every HTTP request.
 
-You should add the middleware function to your Express.js instance in the `app/v1/init.ts` file like the following example;
+You should add the middleware function to your [App](/reference/app) instance in the `app/v1/init.ts` file like the following example;
 
 ::: code-group
 
 ```ts [app/v1/init.ts]
-import { Express, Request, Response, NextFunction } from "express";
+import { App } from "axe-api";
 import myLogger from "./Middlewares/myLogger";
 
-const onBeforeInit = async (app: Express) => {
+const onBeforeInit = async (app: App) => {
   app.use(myLogger);
 };
 
-const onAfterInit = async (app: Express) => {};
+const onAfterInit = async (app: App) => {};
 
 export { onBeforeInit, onAfterInit };
 ```
 
 ```ts [app/Middlewares/myLogger.ts]
-import { Request, Response, NextFunction } from "express";
+import { IncomingMessage, ServerResponse } from "http";
+import { NextFunction } from "axe-api";
 
-export default (req: Request, res: Response, next: NextFunction) => {
+export default (
+  req: IncomingMessage,
+  res: ServerResponse,
+  next: NextFunction
+) => {
   console.log("LOGGED");
   next();
 };
@@ -98,9 +101,14 @@ export default User;
 ```
 
 ```ts [app/Middlewares/myUserLogger.ts]
-import { Request, Response, NextFunction } from "express";
+import { IncomingMessage, ServerResponse } from "http";
+import { NextFunction } from "axe-api";
 
-export default (req: Request, res: Response, next: NextFunction) => {
+export default (
+  req: IncomingMessage,
+  res: ServerResponse,
+  next: NextFunction
+) => {
   console.log("USER LOGGED");
   next();
 };
@@ -142,18 +150,28 @@ export default User;
 ```
 
 ```ts [Middlewares/shouldBeLogged.ts]
-import { Request, Response, NextFunction } from "express";
+import { IncomingMessage, ServerResponse } from "http";
+import { NextFunction } from "axe-api";
 
-export default (req: Request, res: Response, next: NextFunction) => {
+export default (
+  req: IncomingMessage,
+  res: ServerResponse,
+  next: NextFunction
+) => {
   console.log("Should be logged!");
   next();
 };
 ```
 
 ```ts [Middlewares/shouldBeAdmin.ts]
-import { Request, Response, NextFunction } from "express";
+import { IncomingMessage, ServerResponse } from "http";
+import { NextFunction } from "axe-api";
 
-export default (req: Request, res: Response, next: NextFunction) => {
+export default (
+  req: IncomingMessage,
+  res: ServerResponse,
+  next: NextFunction
+) => {
   console.log("Should be admin!");
   next();
 };

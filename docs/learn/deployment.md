@@ -46,11 +46,7 @@ Your compiled codes are basic **Node.js** codes. So that, in the `build` folder,
 ```bash
 $ node index.js
 
- [axe] All models have been resolved.
- [axe] Database schema has been validated.
- [axe] Model tree has been created.
- [axe] Express routes have been created.
- [axe] API listens requests on http://localhost:3000
+[18:00:00] INFO: Axe API listens requests on http://localhost:3000
 ```
 
 Tada! :tada:

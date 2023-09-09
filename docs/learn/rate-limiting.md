@@ -1,7 +1,7 @@
 # Rate limiting
 
 <p class="description">
-Axe API does not provide an internal rate limiter. Nevertheless, we are going to show you an example of how you can add a rate limiter to your application in this section.
+Axe API provides an internal rate limiter. We are going to show you an example of how you can activate the rate limiter on your application in this section.
 </p>
 
 <ul class="intro">
@@ -19,84 +19,89 @@ Rate limits are typically defined as a maximum number of requests per minute, ho
 
 Rate limiting can be implemented using various techniques such as token bucket, sliding window, or fixed window algorithms. It promotes API stability, mitigates denial-of-service attacks, and ensures equitable access to resources for all clients while maintaining the overall API performance and availability.
 
-In this section, we are going to use the [express-rate-limit](https://www.npmjs.com/package/express-rate-limit) library as an [Express Middleware](https://expressjs.com/en/guide/using-middleware.html).
+## Configuration
 
-## Install dependencies
+You should enable the rate limiting via the `app/config.ts` file.
 
-You can use the following commands in the application root folder;
+```ts
+import { IApplicationConfig } from "axe-api";
 
-```js
-$ npm install --save express-rate-limit
-```
-
-## Integration with Axe API
-
-In the `app/v1/init.ts` file, you can add the following middleware;
-
-::: code-group
-
-```ts [app/v1/init.ts]
-import { Express } from "express";
-import RateLimitter from "./Middlewares/RateLimitter";
-
-const onBeforeInit = async (app: Express) => {
-  app.use(RateLimitter);
+const config: IApplicationConfig = {
+  // ...
+  rateLimit: {
+    enabled: true,
+    maxRequests: 240,
+    windowInSeconds: 60,
+    trustProxyIP: false,
+    adaptor: {
+      type: "memory",
+    },
+  },
+  // ...
 };
-
-const onAfterInit = async (app: Express) => {};
-
-export { onBeforeInit, onAfterInit };
 ```
 
-:::
+Then all of your endpoints will be protected by the Axe API's internal rate limiter.
 
-After that, you can create the following file;
+## Handler-base protection
+
+In addition, you can set a special rate limiter for a specific endpoint.
+
+You can use the `rateLimit` middleware in your models.
 
 ::: code-group
 
-```ts [app/v1/Middlewares/RateLimitter.ts]
-import rateLimit from "express-rate-limit";
+```ts [User.ts]
+import { Model, rateLimit } from "axe-api";
 
-export default rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 1, // limit each IP to 100 requests per windowMs
-});
+class User extends Model {
+  get middlewares() {
+    return [
+      {
+        handler: [INSERT],
+        middleware: rateLimit({
+          maxRequests: 1,
+          windowInSeconds: 60 * 15, // 15 minutes
+        }),
+      },
+    ];
+  }
+}
 ```
 
 :::
 
 ## Storing the data
 
-[express-rate-limit](https://www.npmjs.com/package/express-rate-limit) library supports many store providers such as [Redis](https://redis.io/), [Memcached](https://memcached.org/), or [Mongo](https://www.mongodb.com/). You can use any of them easily.
-
-In the following example, we are going to show how you can add **Redis** support for the rate limiter.
-
-```js
-$ npm install --save rate-limit-redis
-```
+Axe API supports memory and [Redis](https://redis.io/) to store rate limit data. You can change the adaptor via the configuration file.
 
 ::: code-group
 
-```ts [app/v1/Middlewares/RateLimitter.ts]
-import RateLimit from "express-rate-limit";
-import RedisStore from "rate-limit-redis";
+```ts [app/config.ts]
+import { IApplicationConfig } from "axe-api";
 
-export default new RateLimit({
-  store: new RedisStore({
-    // see Configuration
-  }),
-  max: 100, // limit each IP to 100 requests per windowMs
-  delayMs: 0, // disable delaying - full speed until the max limit is reached
-});
+const config: IApplicationConfig = {
+  // ...
+  rateLimit: {
+    enabled: true,
+    maxRequests: 240,
+    windowInSeconds: 60,
+    trustProxyIP: false,
+    adaptor: {
+      type: "redis",
+      redis: {
+        host: "localhost",
+        port: 6379,
+        password: "",
+        db: "",
+      },
+    },
+  },
+  // ...
+};
 ```
 
 :::
-
-You can review the following store libraries;
-
-- [rate-limit-redis](https://www.npmjs.com/package/rate-limit-redis)
-- [rate-limit-memcached](https://npmjs.org/package/rate-limit-memcached)
-- [rate-limit-mongo](https://www.npmjs.com/package/rate-limit-mongo)
 
 ## Next steps
 

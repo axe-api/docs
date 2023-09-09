@@ -19,7 +19,7 @@ Let's look at the following hook;
 `UserHooks.ts`
 
 ```ts
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 
 const onBeforeInsert = async ({
   formData,
@@ -29,7 +29,7 @@ const onBeforeInsert = async ({
   database,
   relation,
   parentModel,
-}: IHookParameter) => {
+}: IContext) => {
   // do whatever you want here...
 };
 
@@ -41,7 +41,7 @@ In general, we want you don't need anything in escape points. For providing that
 `UserHooks.spec.ts`
 
 ```ts
-import { IHookParameter } from "axe-api";
+import { IContext } from "axe-api";
 import { onBeforeInsert } from "./UserHooks";
 
 describe("onBeforeInsert", () => {
@@ -50,7 +50,7 @@ describe("onBeforeInsert", () => {
       name: "Karl Popper",
       created_at: null,
     };
-    await onBeforeInsert({ formData } as IHookParameter);
+    await onBeforeInsert({ formData } as IContext);
     expect(formData.created_at).not.toBe(null);
   });
 });
@@ -85,17 +85,16 @@ You may think that what if I need some other dependencies such as a _mail sender
 `app/v1/init.ts`
 
 ```ts
-import { Express } from "express";
-import { IoCService } from "axe-api";
+import { App, IoCService } from "axe-api";
 import nodemailer from "nodemailer";
 
-const onBeforeInit = async (app: Express) => {
+const onBeforeInit = async (app: App) => {
   IoCService.singleton("Mailer", async () => {
     return nodemailer;
   });
 };
 
-const onAfterInit = async (app: Express) => {};
+const onAfterInit = async (app: App) => {};
 
 export { onBeforeInit, onAfterInit };
 ```
@@ -103,9 +102,9 @@ export { onBeforeInit, onAfterInit };
 After that only thing, you should do is call the dependency via `IoC`;
 
 ```ts
-import { IoCService, IHookParameter } from "axe-api";
+import { IoCService, IContext } from "axe-api";
 
-const onBeforeInsert = async ({ formData }: IHookParameter) => {
+const onBeforeInsert = async ({ formData }: IContext) => {
   const mailer = await IoCService.use("Mailer");
   // do whatever you want here...
 };

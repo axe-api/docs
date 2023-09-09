@@ -267,9 +267,9 @@ Axe API allows you to define custom routes in the `app/v1/init.ts`.
 ::: code-group
 
 ```ts [app/v1/init.ts]
-import { Express } from "express";
+import { App } from "axe-api";
 
-const onBeforeInit = async (app: Express) => {
+const onBeforeInit = async (app: App) => {
   app.get("/api/health", (req, res) => {
     res.json({
       status: true,
@@ -277,7 +277,7 @@ const onBeforeInit = async (app: Express) => {
   });
 };
 
-const onAfterInit = async (app: Express) => {};
+const onAfterInit = async (app: App) => {};
 
 export { onBeforeInit, onAfterInit };
 ```

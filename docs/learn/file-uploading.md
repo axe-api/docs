@@ -1,7 +1,7 @@
 # File uploading
 
 <p class="description">
-Axe API doesn't provide file-uploading helpers. But we will create documentation here to describe how it is easy to add file uploading support to your API.
+Axe API provides file-uploading helpers. We are going to explain here how it is easy to add file uploading support to your API.
 </p>
 
 <ul class="intro">
@@ -13,57 +13,31 @@ Axe API doesn't provide file-uploading helpers. But we will create documentation
 
 ## Getting started
 
-File uploading is an important part of APIs. You can use many different techniques and methods. Since Axe API is actually an **Express.js** framework under the hood, we are going to use the internal parts of Express.js.
+File uploading is an important part of APIs. You can use many different techniques and methods. We are going to explain how you can add the [formidable](https://www.npmjs.com/package/formidable) library to your API.
 
 ## Installing dependencies
 
-First of all, let's install the dependencies. We are going to use the `multer` library.
+First of all, let's install the dependencies. We are going to use the [formidable](https://www.npmjs.com/package/formidable) library.
 
 ```bash
-$ npm install --save multer
+$ npm install --save formidable
 ```
-
-## Adding multer
-
-We should add the `multer` library as a middleware to Express.js. To be able to do that, we should apply the following changes;
-
-::: code-group
-
-```ts {6,7,8} [app/v1/init.ts]
-import { Express } from "express";
-import bodyParser from "body-parser";
-import multer from "multer";
-
-const onBeforeInit = async (app: Express) => {
-  const forms = multer();
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(forms.array("file"));
-};
-
-const onAfterInit = async (app: Express) => {};
-
-export { onBeforeInit, onAfterInit };
-```
-
-:::
 
 ## Handling files
 
-After the `multer` middleware, we are ready to handle files. Let's assume that we have a `User` model and we are going to upload files in the creating new user.
+In Axe API, you are ready to handle files whenever you want. Let's assume that we have a `User` model and we are going to upload files in the creating new user.
 
 We should create the following hook file;
 
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeInsert.ts]
-import { IHookParameter, ApiError } from "axe-api";
+import { IContext, ApiError } from "axe-api";
 
-export default async ({ formData, req }: IHookParameter) => {
-  const file = ((req.files || []) as any[]).find(
-    (item) => item.fieldname === "file"
-  );
+export default async ({ formData, req }: IContext) => {
+  const [fields, files] = await req.files();
 
-  if (!file) {
+  if (files.length === 0) {
     throw new ApiError("The file parameter is required!");
   }
 
@@ -76,9 +50,11 @@ export default async ({ formData, req }: IHookParameter) => {
 
 :::
 
-In this file, we are able to access the uploaded file data via `req.files` variable thanks to `multer` library.
+You can upload the file wherever you want. Also, you can set the user's model data to be saved for the file location.
 
-After that, you can upload the file wherever you want. Also, you can set the user's model data to be saved for the file location.
+:::tip
+The `req.files()` method calls the `parse()` function of `formidable` library. You can get more information from the [library documentation here](https://github.com/node-formidable/formidable#with-nodejs-http-module).
+:::
 
 ## Sending request
 
@@ -95,6 +71,6 @@ $ curl --location 'localhost:3000/api/v1/users' \
 
 ## Next steps
 
-In this section, we simply demonstrate a file-uploading example. You can use many different methods like you are using a simple Express application.
+In this section, we simply demonstrate a file-uploading example.
 
 In the next section, we are going to discuss about Authentication.

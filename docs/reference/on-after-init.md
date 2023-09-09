@@ -5,10 +5,10 @@ The initialization function is triggered after the Axe API created routes.
 ::: code-group
 
 ```ts [app/v1/init.ts]
-import { Express } from "express";
+import { App } from "axe-api";
 
-const onAfterInit = async (app: Express) => {
-  // Do anything with the Express instance
+const onAfterInit = async (app: App) => {
+  // Do anything with the App instance
 };
 
 export { onAfterInit };

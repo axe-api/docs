@@ -20,6 +20,10 @@ export default async (parameters: IContext) => {
 
 ## `IContext`
 
+:::tip
+See the [IContext](/reference/icontext) reference to learn more.
+:::
+
 The following parameters can be used in the hook/event function;
 
 | Parameter     | Description                                                                                                                             |

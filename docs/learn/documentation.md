@@ -43,44 +43,63 @@ Remember, high-quality API documentation is an ongoing process that requires reg
 
 There are many best practices out there to be implemented as you can see. Creating well-designed API documentation requires a lot of time and energy. But **we don't have that time and energy**. That's why we've built the Axe API framework.
 
-Since Axe API already **_analyzes_** all of your models, routes, validations, etc, it is able to create your API documentation automatically in a common format. We call it **auto-create documentation**.
+Since Axe API already **_analyzes_** all of your models, routes, validations, etc, it is able to create your API documentation automatically.
+
+Axe API supports the [OpenAPI](https://www.openapis.org) format with the [Swagger interface](https://swagger.io/docs/specification/about/).
 
 You can see the following link a full-working example of the documentation that has been created by Axe API automatically.
 
 [bookstore.axe-api.com/docs](https://bookstore.axe-api.com/docs)
 
 <a href="https://bookstore.axe-api.com/docs" target="_blank" alt="Auto-created Axe API documentation">
-  <img src="./api-docs.jpg" />
+  <img src="./api-docs.png" />
 </a>
 
-As a developer, you can spend your valuable time developing API while Axe API is creating the documentation for you.
+## Configuration
 
-## Supported features
+You can decide to enable or disable the auto-documentation generation via the configuration file.
 
-The following features are supported by default;
+::: code-group
 
-- All of your model-based routes
-- All of your model-based/method-based validations
-- Default Axe API queries
-- `cURL` request examples
-- HTTP response example
-- Multiple API versions
-- etc.
+```ts [app/config.ts]
+import { IApplicationConfig } from "axe-api";
 
-## Unsupported features
+const config: IApplicationConfig = {
+  // ...
+  docs: true,
+  // ...
+};
+```
 
-Since Axe API creates the documentation automatically by your model definitions, it is not able to create documentation for the custom developments you made. So the following list should be considered all the time;
-
-- Custom routes
-- Custom validation rules in hooks
-- Custom logics in hooks/events
-- Middleware logics
-- Authentication/authorization structure
-- etc.
-
-:::tip
-In the future, we are going to support markdown files to add your custom explanations to the documentation. Just keep following us.
 :::
+
+## Customization
+
+You can customize the documentation structure if you wish. Axe API uses [OpenAPI v3 specification](https://spec.openapis.org/oas/v3.1.0).
+
+You can create a `swagger.ts` file like the following example.
+
+::: code-group
+
+```ts [app/swagger.ts]
+export default {
+  info: {
+    title: "Your API Title",
+    description: "Description the API in here",
+  },
+  servers: [
+    {
+      url: "https://your-api.com",
+    },
+  ],
+};
+```
+
+:::
+
+This file is used as the base of the documentation. **Axe API** analyzes all of your API structure and overrides the base file.
+
+You can access the `/docs` path to see the **Swagger** documentation.
 
 ## Next step
 

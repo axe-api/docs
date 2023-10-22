@@ -198,8 +198,55 @@ export default Role;
 
 :::
 
+## Cache invalidations
+
+Cache Invalidation in REST APIs is the process of ensuring that cached data is updated or removed when the underlying resource changes. It's crucial for maintaining data consistency. Two common techniques are:
+
+- `Time-Based Invalidation`: Cache entries have an expiration time. When a client requests the resource after this time, the cache fetches a fresh copy from the server. This approach is simple but may lead to stale data if the expiration time is too long.
+
+- `Tag-Based Invalidation`: When a resource changes, the server notifies the cache to remove or update the corresponding entry. This can be achieved using webhooks or server-sent events. It ensures real-time data consistency.
+
+Axe API supports both cache invalidation strategies, and you can decide on a different cache invalidation strategy for different models.
+
+In addition, the Tag-Based Invalidation is sensitive for the related data, even in the pagination results.
+
+For example, let's assume that you are listing `orders` with the `user` data like the following example.
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "quantity": 1,
+      "user": {
+        "id": 1,
+        "first_name": "Karl",
+        "last_name": "Popper"
+      }
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "perPage": 10,
+    "currentPage": 1
+  }
+}
+```
+
+In the tag-based invalidation strategy, all cached data that is related to the user would be invalidated, whenever the user (`id` = 1) is updated.
+
+You can change the invalidation strategy by using the following `ENUM` in configurations;
+
+```ts
+enum CacheStrategies {
+  TimeBased,
+  TagBased,
+}
+```
+
 ## Next step
 
-Axe API supports powerful documentation that is created automatically by your model definitions. It is another magic of Axe API.
+Axe API allows developers to API cache smoothly.
 
-But this is not enough. You will learn how advanced queries you can use in the next section.
+In the next section, you will learn another cool stuff: Axe API Client library.

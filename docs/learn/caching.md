@@ -1,4 +1,4 @@
-# Caching
+# Auto-caching
 
 <p class="description">
 Axe API has started to provide an auto-caching mechanism with the new version. In this section, you can learn everything about the Axe API auto-caching mechanism.

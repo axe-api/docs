@@ -112,6 +112,92 @@ $ curl \
 
 :::
 
+## Configurations
+
+Axe API allows developers to configure the caching in the following levels,
+
+- 0 - Application
+- 1 - Version
+- 2 - Model
+- 3 - Handler
+
+:::tip
+The configurations that have the bigger importance would override the others.
+:::
+
+You can find example configurations for each level in the following code blocks.
+
+::: code-group
+
+```ts [app/config.ts]
+import { IApplicationConfig, CacheStrategies } from "axe-api";
+
+const config: IApplicationConfig = {
+  // ...
+  cache: {
+    enable: true,
+    ttl: 100,
+    invalidation: CacheStrategies.TimeBased,
+  },
+  // ...
+};
+```
+
+```ts [app/v1/config.ts]
+import { IVersionConfig, CacheStrategies } from "axe-api";
+
+const config: IVersionConfig = {
+  // ...
+  cache: {
+    enable: true,
+    ttl: 200,
+    invalidation: CacheStrategies.TimeBased,
+  },
+  // ...
+};
+```
+
+```ts [app/v1/Models/User.ts]
+import { Model, CacheStrategies } from "axe-api";
+
+class User extends Model {
+  // Model-based configuration
+  get cache() {
+    return {
+      enable: true,
+      ttl: 300,
+      invalidation: CacheStrategies.TimeBased,
+    };
+  }
+}
+
+export default User;
+```
+
+```ts [app/v1/Models/Role.ts]
+import { Model, HandlerTypes, CacheStrategies } from "axe-api";
+
+class Role extends Model {
+  // Handler-based configuration
+  get cache() {
+    return [
+      {
+        handlers: [HandlerTypes.ALL],
+        cache: {
+          enable: true,
+          ttl: 400,
+          invalidation: CacheStrategies.TimeBased,
+        },
+      },
+    ];
+  }
+}
+
+export default Role;
+```
+
+:::
+
 ## Next step
 
 Axe API supports powerful documentation that is created automatically by your model definitions. It is another magic of Axe API.

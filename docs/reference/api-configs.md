@@ -20,6 +20,9 @@ const config: IApplicationConfig = {
   },
   cache: {
     ...
+  },
+  redis: {
+    ...
   }
 };
 

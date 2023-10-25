@@ -28,6 +28,10 @@ All configurations can be overridden by version, model, and handler-based config
 You can override only a specific configuration if you wish in version, model, and handler-based configurations.
 :::
 
+:::warning
+You MUST set [Redis configuration](/reference/redis-configs).
+:::
+
 ## `enable`
 
 You can use this configuration to enable or disable the auto-caching across all endpoints.

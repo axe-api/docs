@@ -19,6 +19,7 @@ const config: IVersionConfig = {
     },
   },
   formidable: {},
+  cache: {},
 };
 
 export default config;
@@ -256,8 +257,16 @@ export default config;
 - `minPerPage`: The minimum "per page" value.
 - `maxPerPage`: The maximum "per page" value.
 
-### `formidable`
+## `formidable`
 
 The default `formidable` options.
 
 You can use all options by the [documentation](https://github.com/node-formidable/formidable#options)
+
+## `cache`
+
+You can override the general cache configuration for a specific version.
+
+:::tip
+Check the [Cache Configs](/reference/cache-configs) out.
+:::

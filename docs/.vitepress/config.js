@@ -108,6 +108,7 @@ const sidebarReference = [
       { text: "Rate limit configs", link: "/reference/rate-limit-configs" },
       { text: "Database configs", link: "/reference/database-configs" },
       { text: "Cache configs", link: "/reference/cache-configs" },
+      { text: "Redis configs", link: "/reference/redis-configs" },
       { text: "Version configs", link: "/reference/version-configs" },
     ],
   },

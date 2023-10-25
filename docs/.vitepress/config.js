@@ -148,6 +148,7 @@ const sidebarReference = [
       { text: "middlewares()", link: "/reference/model-middlewares" },
       { text: "transactions()", link: "/reference/model-transactions" },
       { text: "limits()", link: "/reference/model-limits" },
+      { text: "cache()", link: "/reference/model-cache" },
       { text: "ignore()", link: "/reference/model-ignore" },
     ],
   },

@@ -18,6 +18,9 @@ const config: IApplicationConfig = {
   database: {
     ...
   },
+  cache: {
+    ...
+  }
 };
 
 export default config;

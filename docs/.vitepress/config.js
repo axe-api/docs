@@ -107,6 +107,7 @@ const sidebarReference = [
       { text: "Pino (logger) configs", link: "/reference/pino-logger-configs" },
       { text: "Rate limit configs", link: "/reference/rate-limit-configs" },
       { text: "Database configs", link: "/reference/database-configs" },
+      { text: "Cache configs", link: "/reference/cache-configs" },
       { text: "Version configs", link: "/reference/version-configs" },
     ],
   },

@@ -24,6 +24,10 @@ export default config;
 All configurations can be overridden by version, model, and handler-based configurations.
 :::
 
+:::tip
+You can override only a specific configuration if you wish in version, model, and handler-based configurations.
+:::
+
 ## `enable`
 
 You can use this configuration to enable or disable the auto-caching across all endpoints.

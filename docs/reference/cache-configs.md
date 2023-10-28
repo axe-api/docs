@@ -1,5 +1,11 @@
 # Cache Configs
 
+:::warning
+Currently, the auto-caching feature is **EXPERIMENTAL**.
+
+Still, we strongly suggest to use it in some little parts of your application.
+:::
+
 ::: code-group
 
 ```ts [app/config.ts]

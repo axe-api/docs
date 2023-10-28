@@ -17,6 +17,12 @@ const config: IApplicationConfig = {
     enable: true,
     ttl: 300,
     invalidation: CacheStrategies.TimeBased,
+    cachePrefix: 'axe-api',
+    tagPrefix: 'tag',
+    cacheKey: (req: AxeRequest) => {
+      return 'custom-cache-key'
+    },
+    responseHeader: 'X-Axe-API-Cache'
   }
   ...
 };
@@ -48,7 +54,7 @@ The default value is `false`.
 
 The default invalidation time in seconds.
 
-### `invalidation`
+## `invalidation`
 
 The cache invalidation strategy.
 
@@ -68,3 +74,56 @@ In this cache invalidation strategy, cache values would be invalid after the `tt
 ##### `CacheStrategies.TagBased`
 
 In this strategy, the cached value would be invalidated both when after `ttl` time and the cached record is updated or deleted.
+
+## `cachePrefix`
+
+The cache prefix that used on all cache keys. You can use your application name.
+
+The default value is `axe-api`
+
+## `tagPrefix`
+
+The tag prefix that used for all tagged items in `TagBased`` invalidation strategies.
+
+The default value is `tag`.
+
+Example key generation:
+
+```ts
+const cacheKey = `${cachePrefix}:${tagPrefix}:${cacheKey}`;
+```
+
+## `cacheKey`
+
+The Axe API uses the following function to generate cache keys automatically.
+
+You can override it and generate your custom key.
+
+```ts
+const generateCacheKeu = (req: AxeRequest) => {
+  return JSON.stringify({
+    url: req.url,
+    method: req.method,
+    headers: {
+      Accept: req.header("Accept"),
+      "Accept-Encoding": req.header("Accept-Encoding"),
+      "Accept-Language": req.header("Accept-Language"),
+      Authorization: req.header("Authorization"),
+      Host: req.header("Host"),
+      Origin: req.header("Origin"),
+      Referer: req.header("Referer"),
+      "User-Agent": req.header("User-Agent"),
+    },
+  });
+};
+```
+
+## `responseHeader`
+
+Axe API exposes the cache information in HTTP Response headers if it is Missed or Hit.
+
+The default value is: `X-Axe-API-Cache`
+
+:::tip
+You should set as **NULL** if you want to hide that information.
+:::

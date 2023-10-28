@@ -14,6 +14,12 @@ Axe API has started to provide an auto-caching mechanism with the new version. I
   <li>How does Axe API solve the cache invalidation issues?</li>
 </ul>
 
+:::warning
+Currently, the auto-caching feature is **EXPERIMENTAL**.
+
+Still, we strongly suggest to use it in some little parts of your application.
+:::
+
 ## What is caching?
 
 Caching is a technique used in REST APIs to improve performance and reduce server load.

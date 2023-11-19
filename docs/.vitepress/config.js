@@ -290,8 +290,8 @@ const sidebarReference = [
 const upgradeReference = [
   { text: "Versioning Policy", link: "/upgrading/versioning-policy" },
   { text: "Upgrading to v1", link: "/upgrading/v1" },
-  { text: "Upgrading to 0.30.0", link: "/upgrading/0.30.0" },
-  { text: "Upgrading to 0.20.0", link: "/upgrading/0.20.0" },
+  { text: "Upgrading to 0.30.0", link: "/upgrading/0.30.0.html" },
+  { text: "Upgrading to 0.20.0", link: "/upgrading/0.20.0.html" },
 ];
 
 export default defineConfig({
@@ -341,8 +341,8 @@ export default defineConfig({
             link: "/upgrading/versioning-policy",
           },
           { text: "v1 (RC)", link: "/upgrading/v1" },
-          { text: "v0.30", link: "/upgrading/0.30.0" },
-          { text: "v0.20", link: "/upgrading/0.20.0" },
+          { text: "v0.30", link: "/upgrading/0.30.0.html" },
+          { text: "v0.20", link: "/upgrading/0.20.0.html" },
           {
             text: "Releases",
             link: "https://github.com/axe-api/axe-api/releases",

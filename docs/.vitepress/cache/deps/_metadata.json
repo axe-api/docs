@@ -1,41 +1,62 @@
 {
-  "hash": "2aa0aabe",
-  "browserHash": "791aa550",
+  "hash": "02a3e855",
+  "browserHash": "7a40222b",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "86e2473f",
+      "fileHash": "78ca2263",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "ef0f9ad9",
+      "fileHash": "b793a8fd",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "67843a9e",
+      "fileHash": "71d509cb",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "708a381d",
+      "fileHash": "f40cd399",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "42c8ce52",
+      "fileHash": "f71c759c",
       "needsInterop": false
+    },
+    "floating-vue": {
+      "src": "../../../../node_modules/floating-vue/dist/floating-vue.mjs",
+      "file": "floating-vue.js",
+      "fileHash": "4a3181f3",
+      "needsInterop": false
+    },
+    "dayjs": {
+      "src": "../../../../node_modules/dayjs/dayjs.min.js",
+      "file": "dayjs.js",
+      "fileHash": "af774ecf",
+      "needsInterop": true
+    },
+    "dayjs/plugin/quarterOfYear": {
+      "src": "../../../../node_modules/dayjs/plugin/quarterOfYear.js",
+      "file": "dayjs_plugin_quarterOfYear.js",
+      "fileHash": "7b91f2ce",
+      "needsInterop": true
     }
   },
   "chunks": {
     "chunk-TQFIIZRC": {
       "file": "chunk-TQFIIZRC.js"
+    },
+    "chunk-76J2PTFD": {
+      "file": "chunk-76J2PTFD.js"
     }
   }
 }

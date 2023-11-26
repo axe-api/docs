@@ -1,3 +1,7 @@
+<script setup>
+import ReleasePlan from './ReleasePlan.vue'
+</script>
+
 # Versioning Policy
 
 Axe API uses the semantic version system.
@@ -16,7 +20,7 @@ Pre-release and build metadata can also be included for additional information.
 
 You can check the current release plan of Axe API.
 
-![Axe API Release plan](./release-plan.jpg)
+<ReleasePlan />
 
 Some important changes;
 

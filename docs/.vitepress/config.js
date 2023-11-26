@@ -159,6 +159,8 @@ const sidebarReference = [
       { text: "transactions()", link: "/reference/model-transactions" },
       { text: "limits()", link: "/reference/model-limits" },
       { text: "cache()", link: "/reference/model-cache" },
+      { text: "search()", link: "/reference/model-search" },
+      { text: "getSearchQuery()", link: "/reference/model-get-search-query" },
       { text: "ignore()", link: "/reference/model-ignore" },
     ],
   },

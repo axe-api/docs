@@ -1,8 +1,10 @@
 import { h } from "vue";
 import Theme from "vitepress/theme";
 import SpecialLayout from "./SpecialLayout.vue";
+import FloatingVue from "floating-vue";
 
 import "./styles/vars.css";
+import "floating-vue/dist/style.css";
 
 export default {
   ...Theme,
@@ -10,5 +12,8 @@ export default {
     return h(Theme.Layout, null, {
       "home-hero-after": () => h(SpecialLayout),
     });
+  },
+  async enhanceApp({ app }) {
+    app.use(FloatingVue);
   },
 };

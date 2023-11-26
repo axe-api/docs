@@ -13,6 +13,8 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "dayjs": "^1.11.10",
+    "floating-vue": "^2.0.0-beta.24",
     "global": "^4.4.0",
     "markdown-it-task-lists": "^2.1.1",
     "sitemap-ts": "^1.5.0",

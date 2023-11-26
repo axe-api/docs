@@ -23,7 +23,14 @@ const config: IApplicationConfig = {
   },
   redis: {
     ...
+  },
+  elasticSearch: {
+    ...
+  },
+  search: {
+    ...
   }
+
 };
 
 export default config;

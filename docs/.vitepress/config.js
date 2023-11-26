@@ -110,6 +110,14 @@ const sidebarReference = [
       { text: "Database configs", link: "/reference/database-configs" },
       { text: "Cache configs", link: "/reference/cache-configs" },
       { text: "Redis configs", link: "/reference/redis-configs" },
+      {
+        text: "Elasticsearch configs",
+        link: "/reference/elastic-search-configs",
+      },
+      {
+        text: "Search configs",
+        link: "/reference/search-configs",
+      },
       { text: "Version configs", link: "/reference/version-configs" },
     ],
   },

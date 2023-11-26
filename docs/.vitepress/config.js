@@ -180,6 +180,7 @@ const sidebarReference = [
       },
       { text: "PATCH", link: "/reference/handlers-patch-handler" },
       { text: "ALL", link: "/reference/handlers-all-handler" },
+      { text: "SEARCH", link: "/reference/handlers-search-handler" },
     ],
   },
   {

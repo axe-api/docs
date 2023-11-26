@@ -255,4 +255,4 @@ enum CacheStrategies {
 
 Axe API allows developers to API cache smoothly.
 
-In the next section, you will learn another cool stuff: Axe API Client library.
+In the next section, you will learn how to add a full-text search to a model.

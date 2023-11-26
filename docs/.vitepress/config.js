@@ -37,6 +37,7 @@ const sidebarGuide = () => [
       { text: "Querying data", link: "/learn/querying-data" },
       { text: "Related data queries", link: "/learn/related-data-queries" },
       { text: "Auto-caching", link: "/learn/caching" },
+      { text: "Full-text search", link: "/learn/full-text-search" },
       {
         text: "JavaScript Client",
         link: "/learn/javascript-client-axe-api-client",

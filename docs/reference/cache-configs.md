@@ -71,7 +71,7 @@ enum CacheStrategies {
 
 In this cache invalidation strategy, cache values would be invalid after the `ttl` time automatically.
 
-##### `CacheStrategies.TagBased`
+##### `CacheStrategies.TagBased` <Badge type="warning" text="experimental" />
 
 In this strategy, the cached value would be invalidated both when after `ttl` time and the cached record is updated or deleted.
 

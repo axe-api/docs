@@ -13,7 +13,9 @@ export default {
       "home-hero-after": () => h(SpecialLayout),
     });
   },
-  async enhanceApp({ app }) {
+  async enhanceApp(params) {
+    const { app } = params;
+    await Theme.enhanceApp(params);
     app.use(FloatingVue);
   },
 };

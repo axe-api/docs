@@ -1,4 +1,4 @@
-# Model.`search()`
+# Model.`search()` <Badge type="warning" text="experimental" />
 
 :::warning
 Currently, the full-text search feature is **EXPERIMENTAL**.

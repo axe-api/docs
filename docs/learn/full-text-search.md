@@ -1,4 +1,4 @@
-# Full-text search
+# Full-text search <Badge type="warning" text="experimental" />
 
 <p class="description">
 Axe API should support a simple full-text search feature via Elasticsearch. In this section, you can learn everything about the full-text search feature.

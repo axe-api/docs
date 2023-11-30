@@ -210,7 +210,7 @@ Cache Invalidation in REST APIs is the process of ensuring that cached data is u
 
 - `Time-Based Invalidation`: Cache entries have an expiration time. When a client requests the resource after this time, the cache fetches a fresh copy from the server. This approach is simple but may lead to stale data if the expiration time is too long.
 
-- `Tag-Based Invalidation`: When a resource changes, the server notifies the cache to remove or update the corresponding entry. This can be achieved using webhooks or server-sent events. It ensures real-time data consistency.
+- `Tag-Based Invalidation`: <Badge type="warning" text="experimental" /> When a resource changes, the server notifies the cache to remove or update the corresponding entry. This can be achieved using webhooks or server-sent events. It ensures real-time data consistency.
 
 Axe API supports both cache invalidation strategies, and you can decide on a different cache invalidation strategy for different models.
 

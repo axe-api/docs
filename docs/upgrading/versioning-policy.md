@@ -2,6 +2,13 @@
 import ReleasePlan from './ReleasePlan.vue'
 </script>
 
+<style>
+.release-table > table {
+  width: 100%;
+  display: inline-table;
+}
+</style>
+
 # Versioning Policy
 
 Axe API uses the semantic version system.
@@ -22,11 +29,15 @@ You can check the current release plan of Axe API.
 
 <ReleasePlan />
 
-Some important changes;
+<div class="release-table">
 
-- `0.20.0`: TypeScript support
-- `0.30.0`: Many major changes. Stable release candidate.
-- `v1`: The stable release. Long-term support.
+| Version | LTS | Release Date | Maintanence | EOL        |
+| ------- | --- | ------------ | ----------- | ---------- |
+| v1      | ✓   | 2024-01-01   | 2026-01-01  | 2027-01-01 |
+| v0.30   |     | 2023-04-01   | 2023-04-01  | 2024-10-01 |
+| v0.20   |     | 2022-10-01   | 2023-06-01  | 2024-01-01 |
+
+</div>
 
 ## Breaking changes
 

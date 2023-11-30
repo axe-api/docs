@@ -5,14 +5,9 @@ import quarterOfYear from "dayjs/plugin/quarterOfYear";
 
 dayjs.extend(quarterOfYear);
 
+const LINE_HEIGHT = 48;
+
 const releases = ref([
-  {
-    title: "v0.19",
-    periods: [
-      { title: "DEAD", start: 2022, end: 2022.75 },
-      { title: "MAINTENANCE", start: 2022.75, end: 2023.25 },
-    ],
-  },
   {
     title: "v0.20",
     periods: [
@@ -31,9 +26,16 @@ const releases = ref([
     title: "v1",
     periods: [
       { title: "ACTIVE", start: 2024, end: 2026 },
-      { title: "MAINTENANCE", start: 2026, end: 2026.5 },
+      { title: "MAINTENANCE", start: 2026, end: 2027 },
     ],
   },
+  // {
+  //   title: "v2",
+  //   periods: [
+  //     { title: "ACTIVE", start: 2026, end: 2028.25 },
+  //     { title: "MAINTENANCE", start: 2028.25, end: 2029 },
+  //   ],
+  // },
 ]);
 
 const getStart = () => {
@@ -119,7 +121,7 @@ const getBGColor = (period) => {
         :key="count"
         :style="{
           left: `${(100 * count) / diff}%`,
-          height: `${releases.length * 46}px`,
+          height: `${releases.length * LINE_HEIGHT}px`,
         }"
       />
       <div
@@ -127,14 +129,14 @@ const getBGColor = (period) => {
         :style="{
           left: `${getReleaseLeft({ start: currentYearAndQuarter })}%`,
           width: `calc(${quarterWidth}% - 1px)`,
-          height: `calc(${releases.length * 46}px - 30px)`,
+          height: `calc(${releases.length * LINE_HEIGHT}px - 30px)`,
         }"
       />
       <div
         class="TimeBar-CurrentQuarterTitle"
         :style="{
           left: `${getReleaseLeft({ start: currentYearAndQuarter })}%`,
-          top: `calc(${releases.length * 46}px - 25px)`,
+          top: `calc(${releases.length * LINE_HEIGHT}px - 25px)`,
           width: `calc(${quarterWidth}% - 1px)`,
         }"
       >

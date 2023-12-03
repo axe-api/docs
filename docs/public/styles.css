@@ -38,3 +38,38 @@ ul.intro > li:first-child {
 ul.intro > li:first-child::marker {
   content: "";
 }
+
+span.VPBadge.success {
+  border-color: #99e8ab;
+  color: #fff;
+  background-color: #28a745;
+}
+
+div.superpeer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+div.superpeer > a {
+  display: inline-block;
+  flex-grow: 1;
+}
+
+div.superpeer > a > img {
+  width: 100%;
+  margin: 0px !important;
+  border-radius: 10px;
+  transition: all 200ms;
+}
+
+div.superpeer > a > img:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+
+@media only screen and (max-width: 600px) {
+  div.superpeer > a {
+    display: none;
+  }
+}

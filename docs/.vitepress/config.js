@@ -306,6 +306,26 @@ const upgradeReference = [
   { text: "Upgrading to 0.20.0", link: "/upgrading/0.20.0.html" },
 ];
 
+const ecosystemReference = [
+  {
+    text: "Support",
+    link: "/ecosystem/support",
+  },
+  {
+    text: "FAQ",
+    link: "/ecosystem/faq",
+  },
+  {
+    text: "Team",
+    link: "/ecosystem/team",
+  },
+  { text: "CLI", link: "https://github.com/axe-api/axe-magic" },
+  {
+    text: "SonarCloud",
+    link: "https://sonarcloud.io/dashboard?id=axe-api_axe-api",
+  },
+];
+
 export default defineConfig({
   title: "Axe API",
   description:
@@ -333,19 +353,6 @@ export default defineConfig({
         link: "/reference/api-configs",
       },
       {
-        text: "Version",
-        items: [
-          {
-            text: "v1 (rc)",
-            link: "https://v1.axe-api.com",
-          },
-          {
-            text: "v0.30.* (stable)",
-            link: "https://axe-api.com",
-          },
-        ],
-      },
-      {
         text: "Upgrading",
         items: [
           {
@@ -369,6 +376,14 @@ export default defineConfig({
         text: "Ecosystem",
         items: [
           {
+            text: "Support",
+            link: "/ecosystem/support",
+          },
+          {
+            text: "FAQ",
+            link: "/ecosystem/faq",
+          },
+          {
             text: "Team",
             link: "/ecosystem/team",
           },
@@ -376,6 +391,19 @@ export default defineConfig({
           {
             text: "SonarCloud",
             link: "https://sonarcloud.io/dashboard?id=axe-api_axe-api",
+          },
+        ],
+      },
+      {
+        text: "Docs",
+        items: [
+          {
+            text: "v1 (rc)",
+            link: "https://v1.axe-api.com",
+          },
+          {
+            text: "v0.30 (stable)",
+            link: "https://axe-api.com",
           },
         ],
       },
@@ -387,6 +415,7 @@ export default defineConfig({
       "/reference/": sidebarReference,
       "/errors": sidebarReference,
       "/upgrading/": upgradeReference,
+      "/ecosystem/": ecosystemReference,
     },
 
     socialLinks: [

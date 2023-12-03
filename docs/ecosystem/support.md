@@ -52,9 +52,9 @@ For real-time communication and quick assistance, join our chat support on [Disc
 
 ## Contribute
 
-Interested in contributing to Axe API? Check out our [Contribution Guidelines](http://localhost:5173/learn/contribution.html) to learn how you can get involved, report issues, and submit pull requests.
+Interested in contributing to Axe API? Check out our [Contribution Guidelines](/learn/contribution.html) to learn how you can get involved, report issues, and submit pull requests.
 
-[Contribution Guidelines](http://localhost:5173/learn/contribution.html)
+[Contribution Guidelines](/learn/contribution.html)
 
 ## Stay Connected
 

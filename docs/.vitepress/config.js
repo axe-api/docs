@@ -353,6 +353,10 @@ export default defineConfig({
         link: "/reference/api-configs",
       },
       {
+        text: "Blog",
+        link: "/blog/index",
+      },
+      {
         text: "Upgrading",
         items: [
           {
@@ -395,7 +399,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "Docs",
+        text: "v1",
         items: [
           {
             text: "v1 (rc)",

@@ -2,9 +2,9 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - legacy
 jobs:
-  deploy:
+  legacy-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

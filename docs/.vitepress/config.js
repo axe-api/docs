@@ -402,12 +402,12 @@ export default defineConfig({
         text: "v1",
         items: [
           {
-            text: "v1 (rc)",
+            text: "v1 (stable)",
             link: "https://v1.axe-api.com",
           },
           {
-            text: "v0.30 (stable)",
-            link: "https://axe-api.com",
+            text: "v0.30",
+            link: "https://legacy.axe-api.com",
           },
         ],
       },

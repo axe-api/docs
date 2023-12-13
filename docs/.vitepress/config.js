@@ -403,7 +403,7 @@ export default defineConfig({
         items: [
           {
             text: "v1 (stable)",
-            link: "https://v1.axe-api.com",
+            link: "https://axe-api.com",
           },
           {
             text: "v0.30",

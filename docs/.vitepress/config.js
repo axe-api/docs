@@ -36,7 +36,10 @@ const sidebarGuide = () => [
       { text: "Auto-created documentation", link: "/learn/documentation" },
       { text: "Querying data", link: "/learn/querying-data" },
       { text: "Related data queries", link: "/learn/related-data-queries" },
-      { text: "JavaScript Client", link: "/learn/javascript-client-axe-api-client" },
+      {
+        text: "JavaScript Client",
+        link: "/learn/javascript-client-axe-api-client",
+      },
       {
         text: "How DB Analyzer works?",
         link: "/learn/db-analyzer",
@@ -338,6 +341,19 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: "v0.30 (legacy)",
+        items: [
+          {
+            text: "v1 (stable)",
+            link: "https://axe-api.com",
+          },
+          {
+            text: "v0.30 (legacy)",
+            link: "https://legacy.axe-api.com",
+          },
+        ],
+      },
       { text: "GitHub", link: "https://github.com/axe-api/axe-api" },
     ],
 
@@ -481,9 +497,9 @@ export default defineConfig({
   ],
 
   transformHtml: (_, id, { pageData }) => {
-    const file = fs.statSync(path.join(__dirname, "..", pageData.relativePath))
+    const file = fs.statSync(path.join(__dirname, "..", pageData.relativePath));
     if (!/[\\/]404\.html$/.test(id)) {
-      const url = pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2")
+      const url = pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2");
       links.push({
         // you might need to change this if not using clean urls mode
         url: url.length > 0 ? `${url}.html` : url,

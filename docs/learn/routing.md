@@ -60,7 +60,7 @@ Let's start with fundamentals, and create a simple Axe API model;
 ```ts [User.ts]
 import { Model } from "axe-api";
 
-class Users extends Model {}
+class User extends Model {}
 
 export default User;
 ```

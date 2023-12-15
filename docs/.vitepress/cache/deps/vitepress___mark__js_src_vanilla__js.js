@@ -1,5 +1,3 @@
-import "./chunk-Y2F7D3TJ.js";
-
 // node_modules/mark.js/src/lib/domiterator.js
 var DOMIterator = class _DOMIterator {
   /**

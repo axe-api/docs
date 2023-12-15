@@ -4,8 +4,7 @@ import {
   ref,
   unref,
   watch
-} from "./chunk-CSMLHSNT.js";
-import "./chunk-Y2F7D3TJ.js";
+} from "./chunk-2US7RHRH.js";
 
 // node_modules/@vueuse/shared/index.mjs
 function tryOnScopeDispose(fn) {

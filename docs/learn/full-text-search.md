@@ -24,7 +24,11 @@ Full-text search is a technique for searching and retrieving relevant informatio
 
 It goes beyond simple keyword matching, incorporating features like stemming, tokenization, and relevance scoring. Full-text search engines, like Elasticsearch or Solr, enable efficient and flexible searches across large datasets, making it crucial for applications like information retrieval, document management, and content discovery.
 
-Axe API supports the `LIKE` keyword on database queries. The it can be slow because it performs a sequential scan, checking each record for a match. Unlike indexes that optimize searches, `LIKE` scans entire columns, causing slowdowns with large datasets.
+Axe API supports the `LIKE` keyword on database queries. For example, you can send a LIKE query like this:
+
+`?q={"name.$like":"*john*"}`
+
+This request will be converted `name LIKE '%john%'` SQL command. Unlike indexes that optimize searches, this command scans entire columns, causing slowdowns with large datasets.
 
 Use full-text indexes or other techniques for better performance in complex searches.
 

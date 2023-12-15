@@ -1,5 +1,9 @@
 # Database Configs
 
+:::warning
+Axe API uses [knex.js](https://knexjs.org/guide) for database operations. All of the database configurations are the same as [the original documentation](https://knexjs.org/guide/#configuration-options).
+:::
+
 ::: code-group
 
 ```ts [app/config.ts]
@@ -30,7 +34,9 @@ export default config;
 
 :::
 
-Axe API uses [knex.js](https://knexjs.org/guide) for database operations. All of the database configurations are the same as the original documentation.
+:::danger
+Check the [Knex.js Configuration Options](https://knexjs.org/guide/#configuration-options) if you have any connection issues.
+:::
 
 ## `client`
 

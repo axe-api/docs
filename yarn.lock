@@ -634,10 +634,10 @@
     hookable "^5.5.3"
     unhead "1.8.8"
 
-"@vitejs/plugin-vue@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-4.5.0.tgz"
-  integrity sha512-a2WSpP8X8HTEww/U00bU4mX1QpLINNuz/2KMNpLsdu3BzOpak3AGI1CJYBTXcc4SPhaD0eNRUp7IyQK405L5dQ==
+"@vitejs/plugin-vue@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-4.5.2.tgz#1212d81bc83680e14448fefe55abd9fe1ed49ed1"
+  integrity sha512-UGR3DlzLi/SaVBPX0cnSyE37vqxU3O6chn8l0HJNzQzDia6/Au2A4xKv+iIJW8w2daf80G7TYHhi1pAUjdZ0bQ==
 
 "@vue/compiler-core@3.3.11":
   version "3.3.11"
@@ -750,34 +750,34 @@
     "@types/webpack-dev-server" "^3"
     webpack-chain "^6.0.0"
 
-"@vueuse/core@10.6.1", "@vueuse/core@^10.6.1":
-  version "10.6.1"
-  resolved "https://registry.npmjs.org/@vueuse/core/-/core-10.6.1.tgz"
-  integrity sha512-Pc26IJbqgC9VG1u6VY/xrXXfxD33hnvxBnKrLlA2LJlyHII+BSrRoTPJgGYq7qZOu61itITFUnm6QbacwZ4H8Q==
+"@vueuse/core@10.7.0", "@vueuse/core@^10.7.0":
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-10.7.0.tgz#34f2f02f179dc0dcffc2be70d6b1233e011404b9"
+  integrity sha512-4EUDESCHtwu44ZWK3Gc/hZUVhVo/ysvdtwocB5vcauSV4B7NiGY5972WnsojB3vRNdxvAt7kzJWE2h9h7C9d5w==
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
-    "@vueuse/metadata" "10.6.1"
-    "@vueuse/shared" "10.6.1"
+    "@vueuse/metadata" "10.7.0"
+    "@vueuse/shared" "10.7.0"
     vue-demi ">=0.14.6"
 
-"@vueuse/integrations@^10.6.1":
-  version "10.6.1"
-  resolved "https://registry.npmjs.org/@vueuse/integrations/-/integrations-10.6.1.tgz"
-  integrity sha512-mPDupuofMJ4DPmtX/FfP1MajmWRzYDv8WSaTCo8LQ5kFznjWgmUQ16ApjYqgMquqffNY6+IRMdMgosLDRZOSZA==
+"@vueuse/integrations@^10.7.0":
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/integrations/-/integrations-10.7.0.tgz#80d9608f697bd836a2231b6318700f02504d399c"
+  integrity sha512-rxiMYgS+91n93qXpHZF9NbHhppWY6IJyVTDxt4acyChL0zZVx7P8FAAfpF1qVK8e4wfjerhpEiMJ0IZ1GWUZ2A==
   dependencies:
-    "@vueuse/core" "10.6.1"
-    "@vueuse/shared" "10.6.1"
+    "@vueuse/core" "10.7.0"
+    "@vueuse/shared" "10.7.0"
     vue-demi ">=0.14.6"
 
-"@vueuse/metadata@10.6.1":
-  version "10.6.1"
-  resolved "https://registry.npmjs.org/@vueuse/metadata/-/metadata-10.6.1.tgz"
-  integrity sha512-qhdwPI65Bgcj23e5lpGfQsxcy0bMjCAsUGoXkJ7DsoeDUdasbZ2DBa4dinFCOER3lF4gwUv+UD2AlA11zdzMFw==
+"@vueuse/metadata@10.7.0":
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.7.0.tgz#7b05e6cfd376aa9bb339a81e16a89c12f3e88c03"
+  integrity sha512-GlaH7tKP2iBCZ3bHNZ6b0cl9g0CJK8lttkBNUX156gWvNYhTKEtbweWLm9rxCPIiwzYcr/5xML6T8ZUEt+DkvA==
 
-"@vueuse/shared@10.6.1":
-  version "10.6.1"
-  resolved "https://registry.npmjs.org/@vueuse/shared/-/shared-10.6.1.tgz"
-  integrity sha512-TECVDTIedFlL0NUfHWncf3zF9Gc4VfdxfQc8JFwoVZQmxpONhLxFrlm0eHQeidHj4rdTPL3KXJa0TZCk1wnc5Q==
+"@vueuse/shared@10.7.0":
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-10.7.0.tgz#21e425cc5ede421e0cda38ac59a0beee6da86b1b"
+  integrity sha512-kc00uV6CiaTdc3i1CDC4a3lBxzaBE9AgYNtFN87B5OOscqeWElj/uza8qVDmk7/U8JbqoONLbtqiLJ5LGRuqlw==
   dependencies:
     vue-demi ">=0.14.6"
 
@@ -1674,17 +1674,17 @@ saxes@^6.0.0:
   dependencies:
     xmlchars "^2.2.0"
 
-shikiji-transformers@^0.7.4:
-  version "0.7.5"
-  resolved "https://registry.npmjs.org/shikiji-transformers/-/shikiji-transformers-0.7.5.tgz"
-  integrity sha512-9faGNS/3xI9QP8HZI2Xa1xtMQtaVkl/ulgMIOiaKY7XcETdUsz2yzors3UQkPUO2cwbQLS376wnZe4Xik8wMBA==
+shikiji-transformers@0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/shikiji-transformers/-/shikiji-transformers-0.9.2.tgz#605f46618d4c5c13c383e16158443bd4ec4d3c31"
+  integrity sha512-WEBeNm+oUL/4OTENjnZ5G29ErNM2cPGJHRRhqjwoTFkHnsJsACtTluTaYjPEppCl46Vo3M4TV9GwrMxz2WeCSg==
   dependencies:
-    shikiji "0.7.5"
+    shikiji "0.9.2"
 
-shikiji@0.7.5, shikiji@^0.7.4:
-  version "0.7.5"
-  resolved "https://registry.npmjs.org/shikiji/-/shikiji-0.7.5.tgz"
-  integrity sha512-He8lAcTZUVuUW+Z4VRPM+TP+HVZCe4R1qzrP7voUrmAKrFKE260YEUVgqcP7y/0ps0uVvKgVhu5vgIshGpGocQ==
+shikiji@0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/shikiji/-/shikiji-0.9.2.tgz#00747930cd43a672747cca4bbb9e42fa76d83822"
+  integrity sha512-bxXd5iOVvuPj0NVFWQG3YMNLAGkWHyjTGixM7wLzqJNz3WMaeiOZbOP12gjQWKMJg+Ca4jmgATrUWu/rFb3B8A==
   dependencies:
     hast-util-to-html "^9.0.0"
 
@@ -1922,7 +1922,7 @@ vite-ssg@^0.23.5:
     prettier "^3.0.3"
     yargs "^17.7.2"
 
-vite@^5.0.2:
+vite@^5.0.10:
   version "5.0.10"
   resolved "https://registry.yarnpkg.com/vite/-/vite-5.0.10.tgz#1e13ef5c3cf5aa4eed81f5df6d107b3c3f1f6356"
   integrity sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==
@@ -1933,26 +1933,26 @@ vite@^5.0.2:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vitepress@1.0.0-rc.31:
-  version "1.0.0-rc.31"
-  resolved "https://registry.npmjs.org/vitepress/-/vitepress-1.0.0-rc.31.tgz"
-  integrity sha512-ikH9pIjOOAbyoYAGBVfTz8TzuXp+UoWaIRMU4bw/oiTg8R65SbAaGKY84xx6TuL+f4VqUJ8lhzW82YyxSLvstA==
+vitepress@1.0.0-rc.32:
+  version "1.0.0-rc.32"
+  resolved "https://registry.yarnpkg.com/vitepress/-/vitepress-1.0.0-rc.32.tgz#7fd6c1f21b276d7840cf1157911e1bfdcbaadaa3"
+  integrity sha512-yf00Skn5BGP+YOQvTbSrB5s9qEb/cV+i+wM5rw+mlaxcIYtK+ORvyBEYZLvKogs7OO70TppJtixb4ofeo5K7HA==
   dependencies:
     "@docsearch/css" "^3.5.2"
     "@docsearch/js" "^3.5.2"
     "@types/markdown-it" "^13.0.7"
-    "@vitejs/plugin-vue" "^4.5.0"
+    "@vitejs/plugin-vue" "^4.5.2"
     "@vue/devtools-api" "^6.5.1"
-    "@vueuse/core" "^10.6.1"
-    "@vueuse/integrations" "^10.6.1"
+    "@vueuse/core" "^10.7.0"
+    "@vueuse/integrations" "^10.7.0"
     focus-trap "^7.5.4"
     mark.js "8.11.1"
     minisearch "^6.3.0"
     mrmime "^1.0.1"
-    shikiji "^0.7.4"
-    shikiji-transformers "^0.7.4"
-    vite "^5.0.2"
-    vue "^3.3.8"
+    shikiji "0.9.2"
+    shikiji-transformers "0.9.2"
+    vite "^5.0.10"
+    vue "^3.3.11"
 
 vue-demi@>=0.14.6:
   version "0.14.6"
@@ -1964,7 +1964,7 @@ vue-resize@^2.0.0-alpha.1:
   resolved "https://registry.npmjs.org/vue-resize/-/vue-resize-2.0.0-alpha.1.tgz"
   integrity sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg==
 
-vue@^3.3.11, vue@^3.3.8:
+vue@^3.3.11:
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.3.11.tgz#898d97025f73cdb5fc4e3ae3fd07a54615232140"
   integrity sha512-d4oBctG92CRO1cQfVBZp6WJAs0n8AK4Xf5fNjQCBeKCvMI1efGQ5E3Alt1slFJS9fZuPcFoiAiqFvQlv1X7t/w==

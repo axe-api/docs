@@ -1,6 +1,6 @@
 {
   "name": "axe-api-docs",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Axe API documentation",
   "main": "index.js",
   "type": "module",

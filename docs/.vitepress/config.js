@@ -78,6 +78,7 @@ const sidebarGuide = () => [
     items: [
       { text: "Migrate database", link: "/learn/database-migrations" },
       { text: "File uploading", link: "/learn/file-uploading" },
+      { text: "Serving static files", link: "/learn/serving-static-files" },
       { text: "Authentication", link: "/learn/authentication" },
       { text: "Rate limiting", link: "/learn/rate-limiting" },
       { text: "Testing", link: "/learn/testing" },

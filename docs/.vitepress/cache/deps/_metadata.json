@@ -1,62 +1,49 @@
 {
-  "hash": "6b8d2427",
-  "browserHash": "70b6947d",
+  "hash": "1638a7e7",
+  "configHash": "8555d6c6",
+  "lockfileHash": "7bace647",
+  "browserHash": "4858a92b",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "fe68b0d2",
+      "fileHash": "03ed04be",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "657be3a1",
+      "fileHash": "6117782f",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "e1994d8f",
+      "fileHash": "0e1ce896",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "3afe5298",
+      "fileHash": "445f97d5",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "28cd285a",
+      "fileHash": "dbe14402",
       "needsInterop": false
     },
     "floating-vue": {
       "src": "../../../../node_modules/floating-vue/dist/floating-vue.mjs",
       "file": "floating-vue.js",
-      "fileHash": "6e9142be",
+      "fileHash": "33b733ca",
       "needsInterop": false
-    },
-    "dayjs": {
-      "src": "../../../../node_modules/dayjs/dayjs.min.js",
-      "file": "dayjs.js",
-      "fileHash": "7bf969e4",
-      "needsInterop": true
-    },
-    "dayjs/plugin/quarterOfYear": {
-      "src": "../../../../node_modules/dayjs/plugin/quarterOfYear.js",
-      "file": "dayjs_plugin_quarterOfYear.js",
-      "fileHash": "e3ff2357",
-      "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-CSMLHSNT": {
-      "file": "chunk-CSMLHSNT.js"
-    },
-    "chunk-Y2F7D3TJ": {
-      "file": "chunk-Y2F7D3TJ.js"
+    "chunk-ZBR2ML67": {
+      "file": "chunk-ZBR2ML67.js"
     }
   }
 }

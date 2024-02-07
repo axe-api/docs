@@ -1629,10 +1629,10 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-vanilla-cookieconsent@^2.9.2:
-  version "2.9.2"
-  resolved "https://registry.npmjs.org/vanilla-cookieconsent/-/vanilla-cookieconsent-2.9.2.tgz"
-  integrity sha512-SHAS5W0DBvvcUtjmVvvYkhmLPmTlgwKzFvViUp5mBimbZCdZKbDQzwyk/TgYq02+61RrtxmDdLGzDWNFpSbsGQ==
+vanilla-cookieconsent@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vanilla-cookieconsent/-/vanilla-cookieconsent-3.0.0.tgz#2f5ff996a5cc256c6296f89746da7e0ce2bf6af5"
+  integrity sha512-oeK7FivRDb424mt3/UT8DG98Pu5m6Uuye7JsdzO6HnYkstW5QHXhkslXyUpE3phtKz3NEeIo7hzLUtfRNRMfbQ==
 
 vite-ssg-sitemap@^0.6.1:
   version "0.6.1"

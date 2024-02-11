@@ -1,49 +1,58 @@
 {
-  "hash": "3f801e28",
-  "configHash": "8555d6c6",
-  "lockfileHash": "b9ed5d84",
-  "browserHash": "ebb4b602",
+  "hash": "09cfcb57",
+  "configHash": "e8ba9966",
+  "lockfileHash": "7ab3e714",
+  "browserHash": "6250158d",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "1ba2919d",
+      "fileHash": "92d40abb",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "73c791cb",
+      "fileHash": "aaad1c50",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../../node_modules/@vueuse/core/index.mjs",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "f28bb00a",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "dcf64b96",
+      "fileHash": "c0d8754d",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "51998dc2",
+      "fileHash": "6f37a339",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "7d120a6d",
+      "fileHash": "86c845e9",
       "needsInterop": false
     },
     "floating-vue": {
       "src": "../../../../node_modules/floating-vue/dist/floating-vue.mjs",
       "file": "floating-vue.js",
-      "fileHash": "4dee970c",
+      "fileHash": "55546c9e",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-ZBR2ML67": {
-      "file": "chunk-ZBR2ML67.js"
+    "chunk-MUSD32PE": {
+      "file": "chunk-MUSD32PE.js"
+    },
+    "chunk-3YS4HNIT": {
+      "file": "chunk-3YS4HNIT.js"
     }
   }
 }

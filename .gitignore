@@ -63,3 +63,5 @@ dist
 .DS_Store
 
 .vscode
+
+docs/.vitepress/cache

@@ -47,7 +47,7 @@ For example; you can add a **computed field** for each item. Let's assume that t
 }
 ```
 
-```ts [app/v1/Serialization/UserSerialization.ts]
+```ts [app/v1/Serialization/User.ts]
 import { AxeRequest } from "axe-api";
 
 export default (item: any, request: AxeRequest) => {
@@ -69,13 +69,39 @@ export default (item: any, request: AxeRequest) => {
 
 :::
 
+## Global serializer
+
+You can define a version-based serializer function in the version config file. That kind of serializer function works in every HTTP request that returns a response.
+
+::: code-group
+
+```ts [app/v1/config.ts]
+import { AxeRequest } from "axe-api";
+import { IVersionConfig } from "axe-api";
+
+const simpleSerializer = (data: any, request: AxeRequest) => {
+  data.signed = true;
+  return data;
+};
+
+const config: IVersionConfig = {
+  serializers: [simpleSerializer],
+};
+
+export default config;
+```
+
+:::
+
+In the example above, we defined a global serializer function. This means that function will be triggered by all model items.
+
 ## Model-based serializer
 
 You can define a specific serializer for a specific model like the following example;
 
 ::: code-group
 
-```ts [app/v1/Serialization/UserSerialization.ts]
+```ts [app/v1/Serialization/User.ts]
 import { AxeRequest } from "axe-api";
 
 export default (item: any, request: AxeRequest) => {
@@ -133,32 +159,6 @@ export default config;
 :::
 
 In the example above, we defined the `simpleSerializer` for all `PAGINATE` handlers. All `PAGINATE` handlers will be using the serializer function.
-
-## Global serializer
-
-You can define a version-based serializer function in the version config file. That kind of serializer function works in every HTTP request that returns a response.
-
-::: code-group
-
-```ts [app/v1/config.ts]
-import { AxeRequest } from "axe-api";
-import { IVersionConfig } from "axe-api";
-
-const simpleSerializer = (data: any, request: AxeRequest) => {
-  data.signed = true;
-  return data;
-};
-
-const config: IVersionConfig = {
-  serializers: [simpleSerializer],
-};
-
-export default config;
-```
-
-:::
-
-In the example above, we defined a global serializer function. This means that function will be triggered by all model items.
 
 ## Next steps
 

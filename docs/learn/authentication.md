@@ -27,12 +27,47 @@ In this example, we will show how you can use JWT-based authentication.
 We are going to use **JSON Web Tokens**. That's why we are going to use add [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) package to the project. But, you can use any other authentication way you wish.
 
 ```bash
-$ npm install jsonwebtoken --save
+$ npm install jsonwebtoken bcrypt
+$ npm i --save-dev @types/bcrypt @types/jsonwebtoken
 ```
 
 After that, the `jsonwebtoken` package will be ready to use.
 
 ## Create login handler
+
+Here, we describe `/api/v1/login` route to handle login requests. After that, you should create the following file;
+
+::: code-group
+
+```ts [app/v1/Handlers/login.ts]
+import { AxeRequest, AxeResponse, IoCService } from "axe-api";
+import { Knex } from "knex";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+
+export default async (req: AxeRequest, res: AxeResponse) => {
+  const { email, password } = req.body;
+  const Database = (await IoCService.use("Database")) as Knex;
+  const user = await Database.table("users").where("email", email).first();
+
+  if (!user) {
+    return res.status(404).json({
+      error: "User not found",
+    });
+  }
+
+  if (bcrypt.compareSync(password, user.password) === false) {
+    return res.status(404).json({
+      error: "User not found",
+    });
+  }
+
+  const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET as string);
+  return res.json({ token });
+};
+```
+
+:::
 
 To provide an authentication structure, we need to create a custom route. To do that, you change the following method in the `app/v1/init.ts` file;
 
@@ -49,44 +84,6 @@ const onBeforeInit = async (app: App) => {
 const onAfterInit = async (app: App) => {};
 
 export { onBeforeInit, onAfterInit };
-```
-
-:::
-
-Here, we describe `/api/v1/login` route to handle login requests. After that, you should create the following file;
-
-::: code-group
-
-```ts [app/v1/Handlers/login.ts]
-import { AxeRequest, AxeResponse, IoCService } from "axe-api";
-import { Knex } from "knex";
-import crypto from "crypto";
-import jwt from "jsonwebtoken";
-
-export default async (req: AxeRequest, res: AxeResponse) => {
-  const { email, password } = req.body;
-  const Database = (await IoCService.use("Database")) as Knex;
-  const user = await Database.table("users").where("email", email).first();
-
-  if (!user) {
-    return res.status(404).json({
-      error: "User not found",
-    });
-  }
-
-  const userHash = crypto
-    .pbkdf2Sync(password, user.password_salt, 1000, 32, `sha512`)
-    .toString(`hex`);
-
-  if (userHash !== user.password) {
-    return res.status(404).json({
-      error: "User not found",
-    });
-  }
-
-  const token = jwt.sign({ userId: user.id }, "YOUR-SECRET-TOKEN");
-  return res.json({ token });
-};
 ```
 
 :::
@@ -124,7 +121,7 @@ export default (
   try {
     const decoded = jwt.verify(
       authorization.replace("Bearer ", ""),
-      "YOUR-SECRET-TOKEN"
+      process.env.APP_SECRET as string
     );
     req.auth = decoded;
   } catch (error) {

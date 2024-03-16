@@ -7,20 +7,16 @@ It can be used in the `UPDATE` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onAfterUpdate.ts]
-import { IContext } from "axe-api";
+import { IAfterUpdateContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IAfterUpdateContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IAfterUpdateContext`
 
 The following parameters can be used in the hook/event function;
 

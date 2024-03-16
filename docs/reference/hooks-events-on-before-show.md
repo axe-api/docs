@@ -7,20 +7,16 @@ It can be used in the `SHOW` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeShow.ts]
-import { IContext } from "axe-api";
+import { IBeforeShowContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IBeforeShowContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IBeforeShowContext`
 
 The following parameters can be used in the hook/event function;
 

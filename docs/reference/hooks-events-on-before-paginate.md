@@ -7,20 +7,16 @@ It can be used in the `PAGINATE` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforePaginate.ts]
-import { IContext } from "axe-api";
+import { IBeforePaginateContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IBeforePaginateContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IBeforePaginateContext`
 
 The following parameters can be used in the hook/event function;
 

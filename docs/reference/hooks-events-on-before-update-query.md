@@ -9,20 +9,16 @@ It can be used in the `UPDATE` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeUpdateQuery.ts]
-import { IContext } from "axe-api";
+import { IBeforeUpdateQueryContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IBeforeUpdateQueryContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IBeforeUpdateQueryContext`
 
 The following parameters can be used in the hook/event function;
 

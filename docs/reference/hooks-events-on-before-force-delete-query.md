@@ -9,20 +9,16 @@ It can be used in the `FORCE_DELETE` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeForceDeleteQuery.ts]
-import { IContext } from "axe-api";
+import { IBeforeForceDeleteQueryContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IBeforeForceDeleteQueryContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IBeforeForceDeleteQueryContext`
 
 The following parameters can be used in the hook/event function;
 

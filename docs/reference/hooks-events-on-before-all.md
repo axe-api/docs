@@ -7,20 +7,16 @@ It can be used in the `ALL` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeAll.ts]
-import { IContext } from "axe-api";
+import { IBeforeAllContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IBeforeAllContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IBeforeAllContext`
 
 The following parameters can be used in the hook/event function;
 

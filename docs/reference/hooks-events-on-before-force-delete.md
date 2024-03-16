@@ -7,20 +7,16 @@ It can be used in the `FORCE_DELETE` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeForceDelete.ts]
-import { IContext } from "axe-api";
+import { IBeforeForceDeleteContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IBeforeForceDeleteContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IBeforeForceDeleteContext`
 
 The following parameters can be used in the hook/event function;
 

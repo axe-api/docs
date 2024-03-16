@@ -7,20 +7,16 @@ It can be used in the `SHOW` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onAfterShow.ts]
-import { IContext } from "axe-api";
+import { IAfterShowContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IAfterShowContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IAfterShowContext`
 
 The following parameters can be used in the hook/event function;
 

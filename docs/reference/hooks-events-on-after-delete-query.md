@@ -9,20 +9,16 @@ It can be used in the `DELETE` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onAfterDeleteQuery.ts]
-import { IContext } from "axe-api";
+import { IAfterDeleteQueryContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IAfterDeleteQueryContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IAfterDeleteQueryContext`
 
 The following parameters can be used in the hook/event function;
 

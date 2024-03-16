@@ -7,20 +7,16 @@ It can be used in the `INSERT` handler.
 ::: code-group
 
 ```ts [app/v1/Hooks/User/onBeforeInsert.ts]
-import { IContext } from "axe-api";
+import { IBeforeInsertContext } from "axe-api";
 
-export default async (parameters: IContext) => {
+export default async (parameters: IBeforeInsertContext) => {
   // do something in here
 };
 ```
 
 :::
 
-## `IContext`
-
-:::tip
-See the [IContext](/reference/icontext) reference to learn more.
-:::
+## `IBeforeInsertContext`
 
 The following parameters can be used in the hook/event function;
 

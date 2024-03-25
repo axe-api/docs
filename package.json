@@ -24,7 +24,7 @@
     "@vuepress/plugin-google-analytics": "^1.9.10",
     "vite-ssg": "^0.23.6",
     "vite-ssg-sitemap": "^0.6.1",
-    "vitepress": "1.0.0-rc.44",
+    "vitepress": "1.0.1",
     "vue": "^3.4.21"
   }
 }

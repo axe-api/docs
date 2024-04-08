@@ -128,6 +128,26 @@ Let's check out the following example;
   - `All`: The action of data fetching all.
   - `Show`: The action of fetching one item.
 
+## `index.ts` file
+
+As an alternative, you can use an `index.ts` file for each model that contains all of your hooks functions inside.
+
+::: code-group
+
+```ts [app/v1/Hooks/User/index.ts]
+import { IContext } from "axe-api";
+
+export const onBeforeInsert = async (context: IContext) => {
+  // add your custom logic in here
+};
+
+export const onAfterInsert = async (context: IContext) => {
+  // add your custom logic in here
+};
+```
+
+:::
+
 ## HTTP Request-Response Cycle
 
 Hook and event functions would be executed after the middlewares and the before serializer.

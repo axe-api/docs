@@ -17,7 +17,7 @@
     "floating-vue": "^5.2.2",
     "global": "^4.4.0",
     "markdown-it-task-lists": "^2.1.1",
-    "sitemap-ts": "^1.6.1",
+    "sitemap-ts": "^1.7.3",
     "vanilla-cookieconsent": "^3.0.1"
   },
   "devDependencies": {

@@ -34,7 +34,7 @@ Developers are be able to use the model name as the serializer name directly now
 
 ::: code-group
 
-```file-name
+```ts
 `app/v1/Serialization/UserSerialization.ts`; // [!code --]
 `app/v1/Serialization/User.ts`; // [!code ++]
 ```

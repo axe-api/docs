@@ -1807,10 +1807,10 @@ vanilla-cookieconsent@^3.0.1:
   resolved "https://registry.npmjs.org/vanilla-cookieconsent/-/vanilla-cookieconsent-3.0.1.tgz"
   integrity sha512-gqc4x7O9t1I4xWr7x6/jtQWPr4PZK26SmeA0iyTv1WyoECfAGnu5JEOExmMEP+5Fz66AT9OiCBO3GII4wDQHLw==
 
-vite-ssg-sitemap@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/vite-ssg-sitemap/-/vite-ssg-sitemap-0.6.1.tgz"
-  integrity sha512-SMVDf17kwexkN/oSSDYo4rOGvRwmWQeiFQ16Ilvxx9hfm9ojWEVQ1BBZG90cI/XhDiJJTCBtLvB4YpoHz91Glg==
+vite-ssg-sitemap@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/vite-ssg-sitemap/-/vite-ssg-sitemap-0.8.1.tgz#dedb3c6502516c7a99deff08a402bd719a2cf926"
+  integrity sha512-4IjhsnsC+Kcc/3Z4zOie9KIU633oH0lODZHNIjz3vJvw8aZ2SUor2tvcK16VWpMkkmQkU1iAIY04WWm3DzjM1w==
 
 vite-ssg@^0.23.8:
   version "0.23.8"

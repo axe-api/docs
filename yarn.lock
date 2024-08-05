@@ -1654,10 +1654,10 @@ shiki@1.12.0, shiki@^1.10.3:
     "@shikijs/core" "1.12.0"
     "@types/hast" "^3.0.4"
 
-sitemap-ts@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.npmjs.org/sitemap-ts/-/sitemap-ts-1.7.3.tgz"
-  integrity sha512-xeCbwZvYQfZeKyaCGsPnBZgmLjKGa4BQfVY5O/JHhd0LEvoJM4PIvYBN8zyIl97q+gtxmDaNMclVRxT6FGxyHQ==
+sitemap-ts@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/sitemap-ts/-/sitemap-ts-1.8.0.tgz#b98d07100ce48cca18c2bbf3d7dc34de8ce001ad"
+  integrity sha512-QjsUjYRAyxYaVZuJ0E3u3sTaUzkmXf+QterxUVRas/7dfl+oLIOug2haQR6yLGc/+G2oQEHOj1CaT1b97Xon2Q==
   dependencies:
     "@antfu/utils" "^0.7.8"
     fast-glob "^3.3.2"
